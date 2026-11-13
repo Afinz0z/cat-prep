@@ -12,7 +12,6 @@ const RULES = [
   ["Study day (an hour or more of focus)", "5", ""],
   ["Promise of 2 hours or more, kept", "10", ""],
   ["Sleep of 7 hours or more, logged", "5", ""],
-  ["Glass of water", "1", "10 a day"],
   ["Task ticked off", "3", "5 tasks a day"],
   ["Site test, first finish", "20 (Daily 5: 10)", "once per test"],
   ["Full mock logged", "30, plus 10 at your slot time", "1 a day"],
@@ -29,7 +28,6 @@ const BADGES = {
   "first-mock": "First full mock",
   "slot-mock": "Mock at slot time",
   "promise-kept": "Promise kept",
-  "water-day": "10-glass day",
   "streak-3": "3-day streak",
   "streak-7": "7-day streak",
   "hours-10": "10 hours focused",
@@ -43,7 +41,7 @@ const BADGES = {
 function breakdown(r) {
   const items = [
     ["Focus", fmtMin(r.focusMin)], ["Study days", r.studyDays], ["Promises kept", r.kept], ["Sleep 7 h+", r.slept],
-    ["Water", `${r.water} glasses`], ["Tasks", r.tasks], ["Site tests", r.tests], ["Mocks", r.mocks],
+    ["Tasks", r.tasks], ["Site tests", r.tests], ["Mocks", r.mocks],
     ["Videos", r.videos], ["Topic points", r.topicPoints], ["Approaches", r.posts], ["Helpful votes", r.votes],
     ["Reviews right", r.reviews], ["Drill rounds", r.drills], ["Streak now", `${r.streak} days`],
   ];

@@ -143,7 +143,6 @@ async function demo() {
     await rpc(db, id, "cat_join", { p_code: JOIN_CODE, p_name: name, p_slot: slot });
     await rpc(db, id, "cat_set_target", { p_minutes: 240 + slot * 60 });
     for (let i = 0; i < slot; i += 1) await rpc(db, id, "cat_add_focus", { p_minutes: 50 });
-    for (let i = 0; i < slot + 2; i += 1) await rpc(db, id, "cat_water", { p_delta: 1 });
     await rpc(db, id, "cat_sleep", { p_hours: 6 + slot / 2 });
     await rpc(db, id, "cat_chat_send", { p_text: `${name} here, starting with percentages.` });
     if (slot === 2) await rpc(db, id, "cat_presence", { p_mode: "focus", p_minutes: 40 });

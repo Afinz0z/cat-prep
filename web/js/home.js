@@ -1,9 +1,9 @@
-// Today: the promise, the study timer, who's at the desk, water, tasks, sleep.
+// Today: the promise, the study timer, who's at the desk, tasks, sleep.
 import { rpc } from "./db.js";
 import { el, boot, busy, toast, fmtMin, fmtClock, fmtTime, istToday, loadJson, showError, fill } from "./ui.js";
 import {
   startReminders, cacheSettings, getSettings, getFocus, startFocus, startBreak, stopTimer,
-  focusTodayMs, logGlass, syncFocus,
+  focusTodayMs, syncFocus,
 } from "./reminders.js";
 
 const main = document.getElementById("main");
@@ -18,11 +18,10 @@ let dailyTest = null;
 const promisePanel = el("section", { class: "panel promise span-7", "aria-labelledby": "promise-h" });
 const timerPanel = el("section", { class: "panel span-5", "aria-labelledby": "timer-h" });
 const groupPanel = el("section", { class: "panel span-7", "aria-labelledby": "group-h" });
-const waterPanel = el("section", { class: "panel water span-5", "aria-labelledby": "water-h" });
 const tasksPanel = el("section", { class: "panel span-6", "aria-labelledby": "tasks-h" });
-const sleepPanel = el("section", { class: "panel span-6", "aria-labelledby": "sleep-h" });
+const sleepPanel = el("section", { class: "panel span-5", "aria-labelledby": "sleep-h" });
 const practicePanel = el("section", { class: "panel span-6", "aria-labelledby": "practice-h" });
-const weekPanel = el("section", { class: "panel span-6", "aria-labelledby": "week-h" });
+const weekPanel = el("section", { class: "panel span-12", "aria-labelledby": "week-h" });
 
 function serverFocusMin() {
   // Minutes on the board plus minutes this browser hasn't sent yet.
@@ -89,7 +88,7 @@ function renderTimer() {
     el("div", { class: "row" }, buttons,
       f.mode !== "idle" ? el("button", { type: "button", class: "btn quiet", onclick: openFocusView }, "Full screen") : null),
     el("p", { class: "muted small" }, `Focus today: ${fmtMin(serverFocusMin())}.`,
-      el("span", { class: "kbd-hint" }, " Keys: ", el("kbd", {}, "F"), " focus or stop, ", el("kbd", {}, "B"), " break, ", el("kbd", {}, "W"), " glass of water.")));
+      el("span", { class: "kbd-hint" }, " Keys: ", el("kbd", {}, "F"), " focus or stop, ", el("kbd", {}, "B"), " break.")));
   clearInterval(clockTimer);
   if (f.mode !== "idle") {
     clockTimer = setInterval(() => {
@@ -148,22 +147,6 @@ function renderGroup() {
     el("h2", { id: "group-h" }, "The group today"),
     items.length ? el("ul", { class: "people" }, items) : el("p", { class: "empty" }, "Nobody else has joined yet."),
     el("p", { class: "muted small" }, "Green dot: in a focus block now. Amber: on a break. You can nudge anyone with under 30 minutes today, once a day."));
-}
-
-function renderWater() {
-  const goal = getSettings().goalGlasses;
-  const count = today?.water || 0;
-  const glasses = Array.from({ length: Math.max(goal, count) }, (_, i) => el("span", { class: `glass${i < count ? " full" : ""}`, "aria-hidden": "true" }));
-  const add = el("button", { type: "button", class: "btn primary" }, "I drank a glass");
-  const undo = el("button", { type: "button", class: "btn", disabled: count === 0 }, "Undo one");
-  add.addEventListener("click", () => busy(add, () => logGlass(1)));
-  undo.addEventListener("click", () => busy(undo, () => logGlass(-1)));
-  fill(waterPanel, 
-    el("h2", { id: "water-h" }, "Water"),
-    el("p", {}, el("span", { class: "big-num" }, String(count)), el("span", { class: "muted" }, ` of ${goal} glasses`)),
-    el("div", { class: "glasses", role: "img", "aria-label": `${count} of ${goal} glasses` }, glasses),
-    el("div", { class: "row" }, add, undo),
-    el("p", { class: "muted small" }, `A reminder comes every ${getSettings().waterEveryMin} minutes while this site is open.`));
 }
 
 function renderTasks() {
@@ -255,7 +238,7 @@ function raceRow(r, i, leader) {
 async function loadToday() {
   today = await rpc("cat_today");
   renderPromise();
-  renderWater();
+  renderTimer();
   renderTasks();
   renderSleep();
   renderPractice();
@@ -291,8 +274,7 @@ function shortcuts(e) {
   if (/^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement?.tagName || "") || document.querySelector("dialog[open]")) return;
   const k = e.key.toLowerCase();
   const f = getFocus();
-  if (k === "w") logGlass(1).then(() => toast({ kind: "water", title: "Glass logged", autoHideMs: 3000 })).catch(showError);
-  else if (k === "f") { if (f.mode === "focus") stopTimer(); else startFocus(); renderTimer(); }
+  if (k === "f") { if (f.mode === "focus") stopTimer(); else startFocus(); renderTimer(); }
   else if (k === "b" && f.mode === "focus") { startBreak(); renderTimer(); }
   else return;
   e.preventDefault();
@@ -306,7 +288,7 @@ async function init() {
   fill(main, 
     el("div", { class: "page-head" }, el("h1", {}, `Today, ${me.name}`),
       el("a", { href: "exam-day.html", class: "small" }, "Exam-day checklist")),
-    el("div", { class: "grid" }, promisePanel, timerPanel, groupPanel, waterPanel, tasksPanel, sleepPanel, practicePanel, weekPanel));
+    el("div", { class: "grid" }, promisePanel, timerPanel, groupPanel, sleepPanel, tasksPanel, practicePanel, weekPanel));
   renderTimer();
   try {
     await loadToday();
@@ -317,7 +299,6 @@ async function init() {
   loadBoard();
   loadDaily();
   syncFocus();
-  window.addEventListener("cat:water", (e) => { if (today) { today.water = e.detail.count; renderWater(); } });
   window.addEventListener("cat:today", (e) => { today = e.detail; renderPromise(); renderSleep(); });
   window.addEventListener("cat:reminders", () => { renderTimer(); });
   window.addEventListener("cat:now", (e) => { studyingNow = e.detail || []; renderGroup(); });

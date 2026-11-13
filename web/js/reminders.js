@@ -1,17 +1,16 @@
-// Water, break, eye and wind-down reminders, plus the study timer.
+// Break, eye and wind-down reminders, plus the study timer.
 // Due times live in localStorage so a reminder fires once even with two tabs
 // open. Focus minutes go to the database a minute at a time for the board.
 import { rpc } from "./db.js";
 import { toast, local, setLocal, istToday } from "./ui.js";
 
 export const DEFAULTS = {
-  waterEveryMin: 30, breakAfterMin: 50, breakLengthMin: 10, goalGlasses: 10,
+  breakAfterMin: 50, breakLengthMin: 10,
   eyeEveryMin: 20, sound: true, windDown: true, textSize: 100,
 };
 
 const K = {
   settings: "cat-settings",
-  nextWater: "cat-next-water-at",
   nextEye: "cat-next-eye-at",
   focus: "cat-focus",
   testRunning: "cat-test-running",
@@ -25,7 +24,7 @@ let started = false;
 const STRETCHES = [
   "Roll your shoulders back ten times, then look out of a window.",
   "Stand up, reach for the ceiling for ten seconds, then touch your toes.",
-  "Walk to the kitchen and back, and refill your water.",
+  "Walk to the next room and back, slowly.",
   "Turn your head slowly left and right five times each side.",
   "Clasp your hands behind your back and open your chest for twenty seconds.",
 ];
@@ -48,14 +47,6 @@ function setNum(key, t) {
     /* storage blocked */
   }
   window.dispatchEvent(new CustomEvent("cat:reminders"));
-}
-export const nextWaterAt = () => num(K.nextWater);
-
-export async function logGlass(delta = 1) {
-  const result = await rpc("cat_water", { p_delta: delta });
-  if (delta > 0) setNum(K.nextWater, Date.now() + getSettings().waterEveryMin * 60000);
-  window.dispatchEvent(new CustomEvent("cat:water", { detail: result }));
-  return result;
 }
 
 // ---- study timer -------------------------------------------------------------
@@ -102,7 +93,7 @@ export function startFocus({ prompt = true } = {}) {
   if (s.eyeEveryMin > 0) setNum(K.nextEye, now + s.eyeEveryMin * 60000);
   sendPresence();
   if (prompt) {
-    toast({ title: "Phone in another room?", body: `${s.breakAfterMin} minutes on the clock. Notifications off, water on the desk.`, autoHideMs: 12000 });
+    toast({ title: "Phone in another room?", body: `${s.breakAfterMin} minutes on the clock. Notifications off.`, autoHideMs: 12000 });
   }
 }
 
@@ -230,9 +221,9 @@ function chime(kind) {
   }
 }
 
-// System notification when the tab is in the background. Through the service
-// worker where possible, so the water one can carry an "I drank a glass" button.
-async function notify(title, body, { water = false } = {}) {
+// System notification when the tab is in the background, through the service
+// worker where possible.
+async function notify(title, body) {
   if (!("Notification" in window) || Notification.permission !== "granted") return;
   if (!document.hidden && document.hasFocus()) return;
   try {
@@ -240,7 +231,6 @@ async function notify(title, body, { water = false } = {}) {
     if (reg) {
       await reg.showNotification(title, {
         body, tag: `cat-${title}`, icon: "icons/icon-192.png",
-        actions: water ? [{ action: "drank", title: "I drank a glass" }] : [],
       });
       return;
     }
@@ -248,22 +238,6 @@ async function notify(title, body, { water = false } = {}) {
   } catch {
     /* some browsers refuse notifications from plain pages */
   }
-}
-
-function waterReminder(inTest) {
-  const s = getSettings();
-  chime("water");
-  notify("Drink some water", `It's been ${s.waterEveryMin} minutes. One glass now.`, { water: true });
-  toast({
-    kind: "water",
-    title: "Drink some water",
-    body: inTest ? "One glass now. The clock keeps running." : `It's been ${s.waterEveryMin} minutes. One glass now, then carry on.`,
-    autoHideMs: inTest ? 60000 : 0,
-    actions: [
-      { label: "I drank a glass", primary: true, onClick: () => logGlass(1).catch(() => {}) },
-      { label: "Remind me in 5 minutes", onClick: () => setNum(K.nextWater, Date.now() + 5 * 60000) },
-    ],
-  });
 }
 
 function breakReminder() {
@@ -282,7 +256,7 @@ function breakReminder() {
 }
 
 function breakOverReminder() {
-  chime("water");
+  chime("soft");
   notify("Break over", "Back to the desk for the next block.");
   toast({
     kind: "break",
@@ -298,7 +272,7 @@ function eyeReminder() {
 }
 
 function windDownReminder() {
-  chime("water");
+  chime("soft");
   notify("Wind down", "Screens off soon. Seven hours of sleep keeps today's work.");
   toast({
     kind: "break",
@@ -310,11 +284,6 @@ function windDownReminder() {
 async function check(inTest) {
   const now = Date.now();
   const s = getSettings();
-  const due = nextWaterAt();
-  if (due && now >= due && (await claim("water")) && nextWaterAt() === due) {
-    setNum(K.nextWater, now + s.waterEveryMin * 60000);
-    waterReminder(inTest);
-  }
   const f = getFocus();
   if (f.mode === "focus" && !inTest && !testRunning() && s.eyeEveryMin > 0) {
     const eye = num(K.nextEye);
@@ -346,21 +315,11 @@ export function startReminders({ inTest = false } = {}) {
   if (started) return;
   started = true;
   unlockAudio();
-  if (!nextWaterAt()) setNum(K.nextWater, Date.now() + getSettings().waterEveryMin * 60000);
+  try { localStorage.removeItem("cat-next-water-at"); } catch { /* storage blocked */ }
   setTimeout(() => check(inTest), 2000);
   setInterval(() => check(inTest), 15000);
   setInterval(syncFocus, 60000);
   window.addEventListener("pagehide", () => { syncFocus(); });
-  // "I drank a glass" pressed on a system notification.
-  navigator.serviceWorker?.addEventListener("message", (e) => {
-    if (e.data?.type === "water") logGlass(1).catch(() => {});
-  });
-  const params = new URLSearchParams(location.search);
-  if (params.get("water") === "1") {
-    params.delete("water");
-    history.replaceState(null, "", location.pathname + (params.toString() ? `?${params}` : ""));
-    logGlass(1).then(() => toast({ kind: "water", title: "Glass logged", autoHideMs: 5000 })).catch(() => {});
-  }
   if ("serviceWorker" in navigator && location.protocol !== "file:") {
     navigator.serviceWorker.register("sw.js").catch(() => {});
   }

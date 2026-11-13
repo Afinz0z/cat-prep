@@ -42,8 +42,6 @@ function settingsPanel() {
   const panel = el("section", { class: "panel span-6" }, el("h2", {}, "Reminders and reading"),
     el("p", { class: "muted small" }, "Saved to your account, so they're the same on every device you sign in on."),
     el("div", { class: "form-grid" },
-      num("waterEveryMin", "Water reminder every", 10, 120, "min"),
-      num("goalGlasses", "Glasses a day", 4, 16, ""),
       num("breakAfterMin", "Break after", 20, 120, "min of focus"),
       num("breakLengthMin", "Break length", 3, 30, "min"),
       num("eyeEveryMin", "Eye break every (0 is off)", 0, 60, "min"),
@@ -131,7 +129,7 @@ function accountPanel() {
     el("div", { class: "row" }, pw, change), status,
     el("div", { class: "row" }, out),
     el("div", { class: "kbd-hint" }, el("h3", {}, "Keyboard shortcuts on the Today page"),
-      el("p", {}, el("kbd", {}, "F"), " start or stop focus, ", el("kbd", {}, "B"), " take a break, ", el("kbd", {}, "W"), " log a glass of water.")),
+      el("p", {}, el("kbd", {}, "F"), " start or stop focus, ", el("kbd", {}, "B"), " take a break.")),
     el("p", {}, el("a", { href: "exam-day.html" }, "Exam-day checklist and the last 48 hours")));
 }
 

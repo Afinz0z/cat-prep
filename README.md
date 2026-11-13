@@ -1,6 +1,6 @@
 # CAT prep group
 
-A study site for a small group sitting CAT 2026 on 29 November 2026. It has a study timer with water and break reminders, practice tests in the CAT exam layout, a points board, ranked topics with videos, a mock log, and a group chat. It works on a laptop, an iPad or a phone, and can be added to a phone's home screen.
+A study site for a small group sitting CAT 2026 on 29 November 2026. It has a study timer with break reminders, practice tests in the CAT exam layout, a points board, ranked topics with videos, a mock log, and a group chat. It works on a laptop, an iPad or a phone, and can be added to a phone's home screen.
 
 ## How it fits together
 

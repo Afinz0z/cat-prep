@@ -123,18 +123,11 @@ test("retry, reveal and the review queue", async () => {
   await rejects(asA("cat_retry", { p_attempt_id: attemptId, p_answers: { [target.id]: "1" } }), /retries are closed/);
 });
 
-test("today: focus, water, tasks, promise, sleep", async () => {
+test("today: focus, tasks, promise, sleep", async () => {
   let t = await asA("cat_add_focus", { p_minutes: 500 });
   assert.equal(t.focusMin, 60, "60 minutes at most per call");
   for (let i = 0; i < 16; i += 1) t = await asA("cat_add_focus", { p_minutes: 60 });
   assert.equal(t.focusMin, 840, "14 hours a day at most");
-  let w = await asA("cat_water", { p_delta: 1 });
-  w = await asA("cat_water", { p_delta: 1 });
-  assert.equal(w.count, 2);
-  w = await asA("cat_water", { p_delta: -9 });
-  assert.equal(w.count, 0);
-  for (let i = 0; i < 12; i += 1) w = await asA("cat_water", { p_delta: 5 });
-  assert.equal(w.count, 20);
   for (let i = 0; i < 8; i += 1) t = await asA("cat_task_add", { p_text: `task ${i}` });
   await rejects(asA("cat_task_add", { p_text: "ninth" }), /Eight tasks/);
   await rejects(asA("cat_task_add", { p_text: "   " }), /empty/);
@@ -181,9 +174,9 @@ test("topics, videos, mocks, scores", async () => {
 test("effort board adds up", async () => {
   const board = await asB("cat_board", { p_range: "week" });
   const a = board.rows.find((r) => r.name === "Asha");
-  // focus 60 (cap) + study day 5 + promise kept 10 + sleep 5 + water 10 + tasks 5*3
+  // focus 60 (cap) + study day 5 + promise kept 10 + sleep 5 + tasks 5*3
   // + basics test 20 + mock 30 + slot bonus 10 + video 5 + topic 10+15 + review 1*2
-  assert.equal(a.points, 60 + 5 + 10 + 5 + 10 + 15 + 20 + 30 + 10 + 5 + 25 + 2);
+  assert.equal(a.points, 60 + 5 + 10 + 5 + 15 + 20 + 30 + 10 + 5 + 25 + 2);
   assert.equal(board.rows[0].name, "Asha");
   const last = await asB("cat_board", { p_range: "last" });
   assert.ok(last.rows.every((r) => r.points === 0));
@@ -245,7 +238,7 @@ test("presence, nudges, rooms, drills, badges, admin", async () => {
   await rejects(asA("cat_speed_save", { p_kind: "squares", p_score: 999 }), /out of range/);
   const badges = await asA("cat_badges", {});
   const mine = badges.find((b) => b.me).badges;
-  for (const code of ["first-test", "first-mock", "slot-mock", "promise-kept", "water-day", "hours-10"]) assert.ok(mine.includes(code), code);
+  for (const code of ["first-test", "first-mock", "slot-mock", "promise-kept", "hours-10"]) assert.ok(mine.includes(code), code);
   const heat = await asB("cat_heatmap", {});
   assert.equal(Object.values(heat.find((h) => h.name === "Asha").days)[0], 840);
   const admin = await asA("cat_admin_members", {});
@@ -255,8 +248,8 @@ test("presence, nudges, rooms, drills, badges, admin", async () => {
   await asA("cat_admin_set_code", { p_code: "NEW-CODE" });
   await rejects(asC("cat_join", { p_code: "TEST-CODE", p_name: "Chitra", p_slot: 3 }), /code is wrong/);
   await asC("cat_join", { p_code: "new-code", p_name: "Chitra", p_slot: 3 });
-  const settings = await asC("cat_settings_set", { p_settings: { waterEveryMin: 5, sound: false, evil: "x", textSize: 200 } });
-  assert.deepEqual(settings.member.settings, { waterEveryMin: 10, sound: false, textSize: 130 });
+  const settings = await asC("cat_settings_set", { p_settings: { breakAfterMin: 5, sound: false, evil: "x", textSize: 200, waterEveryMin: 30 } });
+  assert.deepEqual(settings.member.settings, { breakAfterMin: 20, sound: false, textSize: 130 });
   await asA("cat_admin_remove", { p_name: "Chitra" });
   assert.deepEqual(await asC("cat_me", {}), { member: null });
   await rejects(asA("cat_admin_remove", { p_name: "Asha" }), /Nobody else/);

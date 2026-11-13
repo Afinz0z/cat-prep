@@ -60,11 +60,12 @@ create table if not exists private.days (
   user_id uuid not null references private.members (user_id) on delete cascade,
   day date not null,
   focus_min int not null default 0,
-  water int not null default 0,
   target_min int,
   sleep_min int,
   primary key (user_id, day)
 );
+-- Water tracking was taken out on 14 Nov 2026.
+alter table private.days drop column if exists water;
 
 create table if not exists private.tasks (
   id bigint generated always as identity primary key,
@@ -224,17 +225,17 @@ create table if not exists private.bookmarks (
 
 -- Days run on Indian time, whatever the server's clock says.
 create or replace function private.ist_day(ts timestamptz) returns date
-language sql stable as $$
+language sql stable set search_path = '' as $$
   select ((ts at time zone 'UTC') + interval '5 hours 30 minutes')::date
 $$;
 
 create or replace function private.today() returns date
-language sql stable as $$
+language sql stable set search_path = '' as $$
   select private.ist_day(now())
 $$;
 
 create or replace function private.week_start(d date) returns date
-language sql immutable as $$
+language sql immutable set search_path = '' as $$
   select d - (extract(isodow from d)::int - 1)
 $$;
 
@@ -261,13 +262,13 @@ begin
 end $$;
 
 create or replace function private.num(v jsonb) returns numeric
-language sql immutable as $$
+language sql immutable set search_path = '' as $$
   select case jsonb_typeof(v) when 'number' then (v #>> '{}')::numeric else null end
 $$;
 
 -- A typed or chosen answer as text, or null when blank.
 create or replace function private.clean_answer(v jsonb) returns text
-language sql immutable as $$
+language sql immutable set search_path = '' as $$
   select nullif(left(btrim(case jsonb_typeof(v)
     when 'string' then v #>> '{}'
     when 'number' then v #>> '{}'
@@ -277,7 +278,7 @@ $$;
 -- A type-in answer as a number, or null if it isn't one. Commas, %, the rupee
 -- sign and spaces are ignored, as on the real exam.
 create or replace function private.norm_tita(t text) returns numeric
-language plpgsql immutable as $$
+language plpgsql immutable set search_path = '' as $$
 declare
   s text;
 begin
@@ -293,7 +294,7 @@ end $$;
 
 -- "correct", "wrong" or "skipped".
 create or replace function private.grade(q_type text, k jsonb, ans text) returns text
-language plpgsql immutable as $$
+language plpgsql immutable set search_path = '' as $$
 declare
   v numeric;
   tol numeric;
@@ -318,7 +319,7 @@ end $$;
 
 -- CAT marking: +3 right, -1 wrong MCQ, 0 for a wrong type-in or a blank.
 create or replace function private.marks(q_type text, result text) returns int
-language sql immutable as $$
+language sql immutable set search_path = '' as $$
   select case
     when result = 'correct' then 3
     when result = 'wrong' and q_type = 'mcq' then -1
@@ -326,7 +327,7 @@ language sql immutable as $$
 $$;
 
 create or replace function private.tally(m int, c int, w int, s int) returns jsonb
-language sql immutable as $$
+language sql immutable set search_path = '' as $$
   select jsonb_build_object(
     'marks', m, 'correct', c, 'wrong', w, 'skipped', s, 'attempted', c + w,
     'accuracy', case when c + w > 0 then round(c::numeric / (c + w), 3) else null end)
@@ -391,7 +392,7 @@ begin
 end $$;
 
 create or replace function private.check_text(body text, max_len int, what text) returns text
-language plpgsql immutable as $$
+language plpgsql immutable set search_path = '' as $$
 declare
   t text := btrim(coalesce(body, ''));
 begin
@@ -629,14 +630,13 @@ begin
   return private.attempt_json(p_attempt_id, u);
 end $$;
 
--- ---------------------------------------------------------------- today: focus, water, tasks
+-- ---------------------------------------------------------------- today: focus, tasks
 
 create or replace function public.cat_today() returns jsonb
 language sql stable security definer set search_path = '' as $$
   select jsonb_build_object(
     'day', private.today(),
     'focusMin', coalesce((select focus_min from private.days where user_id = private.member() and day = private.today()), 0),
-    'water', coalesce((select water from private.days where user_id = private.member() and day = private.today()), 0),
     'targetMin', (select target_min from private.days where user_id = private.member() and day = private.today()),
     'sleepMin', (select sleep_min from private.days where user_id = private.member() and day = private.today()),
     'streak', private.streak(private.member()),
@@ -661,18 +661,7 @@ begin
   return public.cat_today();
 end $$;
 
-create or replace function public.cat_water(p_delta int) returns jsonb
-language plpgsql security definer set search_path = '' as $$
-declare
-  u uuid := private.member();
-  d int := least(greatest(coalesce(p_delta, 0), -5), 5);
-  n int;
-begin
-  insert into private.days (user_id, day, water) values (u, private.today(), greatest(d, 0))
-  on conflict (user_id, day) do update set water = least(greatest(private.days.water + d, 0), 20)
-  returning water into n;
-  return jsonb_build_object('day', private.today(), 'count', n);
-end $$;
+drop function if exists public.cat_water(int);
 
 create or replace function public.cat_task_add(p_text text) returns jsonb
 language plpgsql security definer set search_path = '' as $$
@@ -843,7 +832,6 @@ end $$;
 --   study day         5 for any day with an hour or more of focus
 --   promise kept      10 when you set a target of 2 hours or more and reach it
 --   sleep             5 for logging 7 hours or more
---   water             1 per glass, up to 10 a day
 --   tasks             3 per task ticked off, up to 5 tasks a day
 --   site test         20 the first time you finish each test (10 for a Daily 5)
 --   full mock         30 per mock logged, one a day, plus 10 if sat at your CAT slot time
@@ -887,8 +875,7 @@ language sql stable security definer set search_path = '' as $$
     select user_id, sum(least(focus_min / 10, 60)) fp, sum(focus_min) fm,
       count(*) filter (where focus_min >= 60) sd,
       count(*) filter (where target_min >= 120 and focus_min >= target_min) kept,
-      count(*) filter (where sleep_min >= 420) slept,
-      sum(least(water, 10)) wp
+      count(*) filter (where sleep_min >= 420) slept
     from private.days where day between d0 and d1 group by user_id
   ), tk as (
     select user_id, sum(least(n, 5)) n from (
@@ -937,7 +924,6 @@ language sql stable security definer set search_path = '' as $$
       coalesce(dd.sd, 0) study_days,
       coalesce(dd.kept, 0) kept,
       coalesce(dd.slept, 0) slept,
-      coalesce(dd.wp, 0) water,
       coalesce(tk.n, 0) tasks,
       coalesce(ts.n, 0) tests,
       coalesce(mk.n, 0) mocks,
@@ -948,7 +934,7 @@ language sql stable security definer set search_path = '' as $$
       coalesce(rv.n, 0) reviews,
       coalesce(sp.n, 0) drills,
       coalesce(dd.fp, 0) + 5 * coalesce(dd.sd, 0) + 10 * coalesce(dd.kept, 0) + 5 * coalesce(dd.slept, 0)
-        + coalesce(dd.wp, 0) + 3 * coalesce(tk.n, 0) + coalesce(ts.p, 0)
+        + 3 * coalesce(tk.n, 0) + coalesce(ts.p, 0)
         + 30 * coalesce(mk.n, 0) + 10 * coalesce(mk.slot_n, 0) + 5 * coalesce(vd.n, 0)
         + coalesce(tp.p, 0) + 3 * coalesce(ps.n, 0) + 2 * coalesce(hv.n, 0)
         + 2 * coalesce(rv.n, 0) + 2 * coalesce(sp.n, 0) as points
@@ -966,7 +952,7 @@ language sql stable security definer set search_path = '' as $$
   )
   select coalesce(jsonb_agg(jsonb_build_object(
       'name', name, 'slot', slot, 'team', team, 'me', user_id = u, 'points', points,
-      'focusMin', focus_min, 'studyDays', study_days, 'kept', kept, 'slept', slept, 'water', water,
+      'focusMin', focus_min, 'studyDays', study_days, 'kept', kept, 'slept', slept,
       'tasks', tasks, 'tests', tests, 'mocks', mocks, 'videos', videos, 'topicPoints', topic_points,
       'posts', posts, 'votes', votes, 'reviews', reviews, 'drills', drills,
       'streak', private.streak(user_id))
@@ -1174,8 +1160,8 @@ begin
     raise exception 'Settings must be a list of values.';
   end if;
   for lim in select * from (values
-    ('waterEveryMin', 10, 120), ('breakAfterMin', 20, 120), ('breakLengthMin', 3, 30),
-    ('goalGlasses', 4, 16), ('eyeEveryMin', 0, 60), ('textSize', 90, 130)) v(k, lo, hi)
+    ('breakAfterMin', 20, 120), ('breakLengthMin', 3, 30),
+    ('eyeEveryMin', 0, 60), ('textSize', 90, 130)) v(k, lo, hi)
   loop
     if jsonb_typeof(p_settings -> lim.k) = 'number' then
       s := s || jsonb_build_object(lim.k, least(greatest((p_settings ->> lim.k)::numeric::int, lim.lo), lim.hi));
@@ -1560,7 +1546,6 @@ language sql stable security definer set search_path = '' as $$
     union all select 'slot-mock' where exists (select 1 from private.mocks where user_id = u and at_slot_time)
     union all select 'promise-kept' where exists (select 1 from private.days
       where user_id = u and target_min >= 120 and focus_min >= target_min)
-    union all select 'water-day' where exists (select 1 from private.days where user_id = u and water >= 10)
     union all select 'streak-3' where private.longest_streak(u) >= 3
     union all select 'streak-7' where private.longest_streak(u) >= 7
     union all select 'hours-10' where (select coalesce(sum(focus_min), 0) from private.days where user_id = u) >= 600

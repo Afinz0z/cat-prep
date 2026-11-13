@@ -1,7 +1,7 @@
 {
   "name": "CAT prep group",
   "short_name": "CAT prep",
-  "description": "Study timer, water reminders, practice tests and the group board for CAT 2026.",
+  "description": "Study timer, break reminders, practice tests and the group board for CAT 2026.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",

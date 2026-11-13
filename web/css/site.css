@@ -257,7 +257,6 @@ table.plain tr.me td { background: var(--warn-soft); }
 }
 .panel > h2:first-child { margin-bottom: 10px; }
 .panel.tight { padding: 12px 14px; }
-.panel.water { border-top: 4px solid var(--water); }
 .panel.promise { border-top: 4px solid var(--focus); }
 .panel.alert { background: var(--warn-soft); border-color: var(--focus); }
 .notice { background: var(--warn-soft); border: 1px solid var(--focus); color: var(--ink); padding: 10px 14px; margin: 0 0 14px; }
@@ -292,15 +291,6 @@ table.plain tr.me td { background: var(--warn-soft); }
   display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px;
 }
 .focus-view .timer-clock { font-size: min(22vw, 9rem); }
-
-/* water */
-.glasses { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 10px; }
-.glass {
-  width: 30px; height: 40px;
-  border: 2px solid var(--water); border-top-width: 1px; border-radius: 0 0 6px 6px;
-  background: var(--paper);
-}
-.glass.full { background: var(--water); }
 
 /* people lists */
 .people { list-style: none; padding: 0; margin: 0; }
@@ -425,7 +415,6 @@ table.plain tr.me td { background: var(--warn-soft); }
   display: flex; flex-direction: column; gap: 10px; width: min(360px, calc(100vw - 32px));
 }
 .toast { background: var(--paper); border: 1px solid var(--line); border-left: 6px solid var(--exam); padding: 12px 14px; }
-.toast-water { border-left-color: var(--water); }
 .toast-break { border-left-color: var(--good); }
 .toast-eye { border-left-color: var(--mark); }
 .toast-error { border-left-color: var(--bad); }

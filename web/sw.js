@@ -1,8 +1,8 @@
 // Service worker: lets the site install as an app, keeps the pages working on a
-// shaky connection, and handles the "I drank a glass" button on notifications.
+// shaky connection, and opens the site when a notification is tapped.
 // Pages are fetched fresh when online and served from the cache when not.
 // Calls to the database are never cached.
-const CACHE = "cat-prep-v2";
+const CACHE = "cat-prep-v3";
 
 self.addEventListener("install", (event) => {
   self.skipWaiting();
@@ -42,14 +42,6 @@ self.addEventListener("notificationclick", (event) => {
   event.notification.close();
   event.waitUntil((async () => {
     const all = await self.clients.matchAll({ type: "window", includeUncontrolled: true });
-    if (event.action === "drank") {
-      if (all.length) {
-        all[0].postMessage({ type: "water" });
-        return;
-      }
-      await self.clients.openWindow("index.html?water=1");
-      return;
-    }
     if (all.length) await all[0].focus();
     else await self.clients.openWindow("index.html");
   })());
