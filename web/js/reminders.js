@@ -5,7 +5,7 @@ import { rpc } from "./db.js";
 import { toast, local, setLocal, istToday } from "./ui.js";
 
 export const DEFAULTS = {
-  breakAfterMin: 50, breakLengthMin: 10,
+  breakAfterMin: 40, breakLengthMin: 10,
   eyeEveryMin: 20, sound: true, windDown: true, textSize: 100,
 };
 

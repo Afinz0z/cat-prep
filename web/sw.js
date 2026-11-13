@@ -2,7 +2,7 @@
 // shaky connection, and opens the site when a notification is tapped.
 // Pages are fetched fresh when online and served from the cache when not.
 // Calls to the database are never cached.
-const CACHE = "cat-prep-v3";
+const CACHE = "cat-prep-v4";
 
 self.addEventListener("install", (event) => {
   self.skipWaiting();

@@ -3,6 +3,7 @@
 import { rpc } from "./db.js";
 import {
   el, richText, fmtClock, fmtDuration, fmtDateTime, boot, loadJson, confirmBox, busy, showError, markPostsSeen, fill,
+  setTheme,
 } from "./ui.js";
 import { startReminders, cacheSettings, markTestRunning, getFocus, startFocus } from "./reminders.js";
 import { createCalculator } from "./calculator.js";
@@ -14,21 +15,25 @@ const tabsEl = document.getElementById("sectionTabs");
 const titleEl = document.getElementById("testTitle");
 const calcBtn = document.getElementById("calcBtn");
 const instrBtn = document.getElementById("instrBtn");
+const paperBtn = document.getElementById("paperBtn");
+const themeBtn = document.getElementById("themeBtn");
 const dialog = document.getElementById("dialog");
 const calc = createCalculator(document.getElementById("calc"));
 
+// The legend wording and order follow the TCS iON screen.
 const STATUS_LABEL = {
   answered: "Answered",
-  notAnswered: "Not answered",
-  notVisited: "Not visited",
-  marked: "Marked for review",
-  answeredMarked: "Answered and marked for review",
+  notAnswered: "Not Answered",
+  notVisited: "Not Visited",
+  marked: "Marked for Review",
+  answeredMarked: "Answered & Marked for Review",
 };
 const RESULT_LABEL = { correct: "Correct", wrong: "Wrong", skipped: "Blank" };
 const RESULT_SHORT = { correct: "got it right", wrong: "got it wrong", skipped: "left it blank" };
 const LETTERS = ["A", "B", "C", "D", "E"];
 
 let test = null;
+let member = null;
 let state = null;
 let draft = null;
 let viewStartedAt = null;
@@ -80,10 +85,67 @@ function instructionsContent() {
       el("li", {}, "Each section has its own clock. When it runs out, the section ends and you can't go back to it."),
       el("li", {}, "If the page reloads by accident, the test resumes on this device. The clock keeps running in the meantime."),
       el("li", {}, "Only your first attempt counts for the board. After you submit, each question gets a discussion where the group compares approaches.")),
-    el("div", { class: "legend legend-static" },
-      Object.entries(STATUS_LABEL).map(([key, label]) =>
-        el("span", { class: "legend-item" }, el("span", { class: `pal pal-sample st-${key}` }, ""), label))),
+    legend(null, "legend legend-static"),
   ];
+}
+
+// counts: null on the instructions page, where the shapes stay empty.
+function legend(counts, cls = "legend") {
+  return el("div", { class: cls }, Object.entries(STATUS_LABEL).map(([key, label]) =>
+    el("span", { class: key === "answeredMarked" ? "legend-item wide" : "legend-item" },
+      el("span", { class: `pal pal-sample st-${key}` }, counts ? String(counts[key]) : ""),
+      key === "answeredMarked" ? `${label} (will be considered for evaluation)` : label)));
+}
+
+// The grey stand-in for the candidate photo in the palette panel.
+function silhouette() {
+  const ns = "http://www.w3.org/2000/svg";
+  const svg = document.createElementNS(ns, "svg");
+  svg.setAttribute("viewBox", "0 0 44 52");
+  svg.setAttribute("class", "cand-photo");
+  svg.setAttribute("aria-hidden", "true");
+  const head = document.createElementNS(ns, "circle");
+  head.setAttribute("cx", "22");
+  head.setAttribute("cy", "19");
+  head.setAttribute("r", "9");
+  const body = document.createElementNS(ns, "path");
+  body.setAttribute("d", "M5 52c0-11 7.6-18 17-18s17 7 17 18z");
+  svg.append(head, body);
+  return svg;
+}
+
+// Every question in the current section, as the Question Paper button shows it in CAT.
+function questionPaper() {
+  if (state?.phase !== "running") return;
+  const sec = section();
+  const shown = new Set();
+  const items = [];
+  sec.questions.forEach((q, i) => {
+    const g = q.group ? (sec.groups || []).find((x) => x.id === q.group) : null;
+    if (g && !shown.has(g.id)) {
+      shown.add(g.id);
+      items.push(el("div", { class: "qp-group" }, el("h3", {}, g.title || "Passage"), richText(g.text)));
+    }
+    items.push(el("div", { class: "qp-item" },
+      el("strong", {}, `Question No. ${i + 1}`),
+      el("div", { class: "q-text" }, richText(q.text)),
+      q.type === "tita"
+        ? el("p", { class: "muted small" }, "Type in the answer.")
+        : el("ol", { class: "qp-options", type: "A" }, q.options.map((o) => el("li", {}, o)))));
+  });
+  dialog.classList.add("qp");
+  fill(dialog, el("h2", {}, `Question Paper: ${sec.name}`), items,
+    el("div", { class: "dialog-actions" }, el("button", { type: "button", class: "btn primary", onclick: () => dialog.close() }, "Close")));
+  dialog.addEventListener("close", () => dialog.classList.remove("qp"), { once: true });
+  dialog.showModal();
+}
+
+function isDark() {
+  const t = document.documentElement.dataset.theme;
+  return t ? t === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+}
+function paintThemeBtn() {
+  themeBtn.setAttribute("aria-pressed", String(isDark()));
 }
 
 function showInstructions() {
@@ -123,6 +185,7 @@ function beginTest() {
 }
 
 function runExam() {
+  paperBtn.disabled = false;
   window.addEventListener("beforeunload", warnOnLeave);
   window.addEventListener("pagehide", () => { if (state?.phase === "running") { leaveQuestion(); save(); } });
   visit(state.current);
@@ -361,17 +424,22 @@ function renderExam() {
     }, String(i + 1));
   });
 
-  const aside = el("aside", { class: "palette-area" },
-    el("div", { class: "legend" }, Object.entries(STATUS_LABEL).map(([key, label]) =>
-      el("span", { class: "legend-item" }, el("span", { class: `pal pal-sample st-${key}` }, String(counts[key])), label))),
-    el("h2", { class: "palette-title" }, `Section: ${sec.name}`),
+  const aside = el("aside", { class: "palette-area", "aria-label": "Question palette" },
+    el("div", { class: "candidate" }, silhouette(), el("span", { class: "cand-name" }, member?.name || "")),
+    legend(counts),
+    el("h2", { class: "palette-title" }, sec.name),
+    el("p", { class: "palette-choose" }, "Choose a Question"),
     el("div", { class: "palette" }, palette),
     test.strict ? null : el("button", { type: "button", class: "btn submit-section", onclick: askSubmitSection },
       state.sectionIndex < test.sections.length - 1 ? "Submit section" : "Submit test"));
 
-  const typeLabel = q.type === "tita" ? "Type in answer: +3 if right, no negative mark" : "Multiple choice: +3 if right, -1 if wrong";
+  const tita = q.type === "tita";
   const mainArea = el("section", { class: "q-area" },
-    el("div", { class: "q-head" }, el("strong", {}, `Question No. ${state.current + 1}`), el("span", { class: "q-type" }, typeLabel)),
+    el("div", { class: "q-meta" },
+      el("span", {}, "Question Type : ", el("strong", {}, tita ? "TITA" : "MCQ")),
+      el("span", { class: "q-marks" }, "Marks for correct answer: ", el("strong", { class: "plus" }, "3"),
+        " | Negative Marks: ", el("strong", { class: "minus" }, tita ? "0" : "1"))),
+    el("div", { class: "q-num" }, `Question No. ${state.current + 1}`),
     el("div", { class: group ? "q-body split" : "q-body" }, groupPane, qPane),
     el("div", { class: "q-actions" },
       el("button", { type: "button", class: "btn", onclick: () => commit(true) }, "Mark for Review & Next"),
@@ -456,6 +524,8 @@ async function renderResults(rec) {
   document.title = `${rec.testTitle}: results`;
   calcBtn.hidden = true;
   instrBtn.hidden = true;
+  paperBtn.hidden = true;
+  document.querySelector(".section-bar").hidden = true;
   tabsEl.replaceChildren();
   timeLeftEl.textContent = "--:--";
   if (!test || test.id !== rec.testId) test = await loadTest(rec.testId);
@@ -668,10 +738,16 @@ async function askReveal(rec) {
 
 // ---- start -------------------------------------------------------------------------
 async function init() {
+  paintThemeBtn();
+  themeBtn.addEventListener("click", () => { setTheme(isDark() ? "light" : "dark"); paintThemeBtn(); });
+  matchMedia("(prefers-color-scheme: dark)").addEventListener?.("change", paintThemeBtn);
+  paperBtn.addEventListener("click", questionPaper);
   const me = await boot("test.html");
+  member = me;
   if (!me) {
     calcBtn.hidden = true;
     instrBtn.hidden = true;
+    paperBtn.hidden = true;
     titleEl.textContent = "CAT prep group";
     return;
   }

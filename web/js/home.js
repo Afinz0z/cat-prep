@@ -1,6 +1,6 @@
 // Today: the promise, the study timer, who's at the desk, tasks, sleep.
 import { rpc } from "./db.js";
-import { el, boot, busy, toast, fmtMin, fmtClock, fmtTime, istToday, loadJson, showError, fill } from "./ui.js";
+import { el, boot, busy, fmtMin, fmtClock, fmtTime, istToday, daysBetween, loadJson, showError, fill, CAT_DAY } from "./ui.js";
 import {
   startReminders, cacheSettings, getSettings, getFocus, startFocus, startBreak, stopTimer,
   focusTodayMs, syncFocus,
@@ -15,19 +15,29 @@ let board = null;
 let dailyTest = null;
 
 // ---- panels --------------------------------------------------------------------
-const promisePanel = el("section", { class: "panel promise span-7", "aria-labelledby": "promise-h" });
-const timerPanel = el("section", { class: "panel span-5", "aria-labelledby": "timer-h" });
+const promisePanel = el("section", { class: "hero", "aria-labelledby": "promise-h" });
+const timerPanel = el("section", { class: "panel instrument span-5", "aria-labelledby": "timer-h" });
 const groupPanel = el("section", { class: "panel span-7", "aria-labelledby": "group-h" });
-const tasksPanel = el("section", { class: "panel span-6", "aria-labelledby": "tasks-h" });
+const practicePanel = el("section", { class: "panel span-7", "aria-labelledby": "practice-h" });
 const sleepPanel = el("section", { class: "panel span-5", "aria-labelledby": "sleep-h" });
-const practicePanel = el("section", { class: "panel span-6", "aria-labelledby": "practice-h" });
-const weekPanel = el("section", { class: "panel span-12", "aria-labelledby": "week-h" });
+const tasksPanel = el("section", { class: "panel span-5", "aria-labelledby": "tasks-h" });
+const weekPanel = el("section", { class: "panel span-7", "aria-labelledby": "week-h" });
 
 function serverFocusMin() {
   // Minutes on the board plus minutes this browser hasn't sent yet.
   const f = getFocus();
   const unsent = Math.max(0, Math.floor(focusTodayMs() / 60000) - (f.sentMin || 0));
   return (today?.focusMin || 0) + unsent;
+}
+
+function daysLeft() {
+  const left = daysBetween(istToday(), CAT_DAY);
+  if (left < 0) return null;
+  return el("div", { class: "hero-days" },
+    el("span", { class: "hero-num" }, left === 0 ? "0" : String(left)),
+    el("span", { class: "hero-label" },
+      el("strong", {}, left === 0 ? "CAT is today" : left === 1 ? "day to CAT" : "days to CAT"),
+      el("span", {}, "Sunday 29 November")));
 }
 
 function renderPromise() {
@@ -44,7 +54,7 @@ function renderPromise() {
   }));
   const hour = new Date(Date.now() + 330 * 60000).getUTCHours();
   const pct = target ? Math.min(100, Math.round((done / target) * 100)) : 0;
-  fill(promisePanel, 
+  fill(promisePanel, daysLeft(), el("div", { class: "hero-promise" },
     el("h2", { id: "promise-h" }, "Today's promise"),
     target
       ? [
@@ -62,7 +72,7 @@ function renderPromise() {
     el("div", { class: "row" }, select, setBtn),
     nudges.length
       ? el("div", { class: "notice" }, el("strong", {}, "Nudged today: "), nudges.map((n) => `${n.from} at ${fmtTime(n.at)}`).join(", "), ". Start a focus block.")
-      : null);
+      : null));
 }
 
 let clockTimer = null;
@@ -288,7 +298,7 @@ async function init() {
   fill(main, 
     el("div", { class: "page-head" }, el("h1", {}, `Today, ${me.name}`),
       el("a", { href: "exam-day.html", class: "small" }, "Exam-day checklist")),
-    el("div", { class: "grid" }, promisePanel, timerPanel, groupPanel, sleepPanel, tasksPanel, practicePanel, weekPanel));
+    el("div", { class: "grid" }, promisePanel, timerPanel, groupPanel, practicePanel, sleepPanel, tasksPanel, weekPanel));
   renderTimer();
   try {
     await loadToday();

@@ -130,7 +130,7 @@ function accountPanel() {
     el("div", { class: "row" }, out),
     el("div", { class: "kbd-hint" }, el("h3", {}, "Keyboard shortcuts on the Today page"),
       el("p", {}, el("kbd", {}, "F"), " start or stop focus, ", el("kbd", {}, "B"), " take a break.")),
-    el("p", {}, el("a", { href: "exam-day.html" }, "Exam-day checklist and the last 48 hours")));
+    el("p", {}, el("a", { href: "exam-day.html" }, "Exam-day checklist and the last four days")));
 }
 
 async function adminPanel() {

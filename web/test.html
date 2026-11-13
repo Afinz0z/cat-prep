@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Practice test | CAT prep group</title>
-  <meta name="theme-color" content="#1d4f91" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#2b5ea8" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#2b3a4d" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f1720" media="(prefers-color-scheme: dark)">
   <meta name="format-detection" content="telephone=no">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="CAT prep">
@@ -13,6 +13,9 @@
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" href="icons/icon-192.png">
   <script>try{var t=JSON.parse(localStorage.getItem("cat-theme"));if(t==="dark"||t==="light")document.documentElement.dataset.theme=t;var z=JSON.parse(localStorage.getItem("cat-text"));if(z&&z!==100)document.documentElement.style.fontSize=z+"%";}catch(e){}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,400;0,600;0,700;1,400&family=Archivo:wdth,wght@62..125,500..800&display=swap">
   <link rel="stylesheet" href="css/site.css">
   <link rel="stylesheet" href="css/test.css">
 </head>
@@ -20,13 +23,15 @@
   <header class="exam-bar">
     <div class="exam-title" id="testTitle">Loading the test</div>
     <div class="exam-tools">
-      <button type="button" id="calcBtn" class="tool-btn">Calculator</button>
+      <button type="button" id="paperBtn" class="tool-btn" disabled>Question Paper</button>
       <button type="button" id="instrBtn" class="tool-btn">Instructions</button>
+      <button type="button" id="calcBtn" class="tool-btn">Calculator</button>
+      <button type="button" id="themeBtn" class="tool-btn" aria-pressed="false">Dark mode</button>
     </div>
   </header>
   <nav class="section-bar" aria-label="Sections">
     <ol id="sectionTabs" class="section-tabs"></ol>
-    <div class="time-left">Time left <strong id="timeLeft">--:--</strong></div>
+    <div class="time-left">Time Left : <strong id="timeLeft">--:--</strong></div>
   </nav>
   <main id="main" class="exam-main"></main>
   <div id="calc" class="calc" hidden></div>

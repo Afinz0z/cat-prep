@@ -1,20 +1,24 @@
-// Exam-day checklist and the last 48 hours. Ticks are kept on this device.
+// Exam-day checklist and the last four days. Ticks are kept on this device.
 import { el, boot, local, setLocal, fill } from "./ui.js";
 import { startReminders, cacheSettings } from "./reminders.js";
 
 const main = document.getElementById("main");
 
 const PLAN = [
-  ["Friday 27 November", [
+  ["Thursday 26 November", [
     "Last full paper (CAT 2025 Slot 3 on the group calendar), at your slot time.",
-    "Analyse it the same evening with the seven causes. Note three rules for Sunday.",
+    "Analyse it the same afternoon with the seven causes. Note three rules for Sunday.",
     "No new topics from here on.",
+  ]],
+  ["Friday 27 November", [
+    "No full paper. Formula cards from memory, the error log, two RC passages untimed.",
+    "One 40-minute VARC section at 12:30 at most.",
   ]],
   ["Saturday 28 November", [
     "Light revision only: formula cards, the review queue, two RC passages. No full mock.",
     "Check the route to the centre and how long it takes at that hour.",
     "Pack the bag (list below) and lay out clothes.",
-    "Water through the day, an early dinner, lights out by 22:30.",
+    "Water through the day, an early dinner, lights out at 23:00 as on other nights.",
   ]],
   ["Sunday 29 November", [
     "Wake at least three hours before the reporting time on your admit card.",
@@ -33,7 +37,7 @@ const BAG = [
 
 const IN_EXAM = [
   "The order is fixed: VARC, then DILR, then QA, 40 minutes each. You can't go back to a section.",
-  "DILR: spend the first 2 to 3 minutes reading every set and pick the two that look easiest.",
+  "DILR: spend the first 5 minutes reading every set and pick one easy and one moderate set to start.",
   "Answer every type-in question; a wrong one costs nothing.",
   "Answer a multiple-choice question only when you can cut it to two options.",
   "Anything not clear in 30 seconds in QA: mark it and move on, come back if time is left.",
@@ -64,7 +68,7 @@ async function init() {
       el("button", { type: "button", class: "btn no-print", onclick: () => window.print() }, "Print")),
     el("p", { class: "notice" }, "Your admit card's instructions win over anything on this page. Read them in full on Saturday."),
     el("div", { class: "grid" },
-      el("section", { class: "panel span-6" }, el("h2", {}, "The last 48 hours"),
+      el("section", { class: "panel span-6" }, el("h2", {}, "The last four days"),
         PLAN.map(([day, items], i) => [el("h3", {}, day), checklist(`cat-plan48-${i}`, items)])),
       el("section", { class: "panel span-6" },
         el("h2", {}, "The bag"), checklist("cat-bag", BAG),

@@ -9,7 +9,7 @@ const CAUSES = [
   ["c1", "Conceptual gap", "Go back to that topic's video and practice set, and set it to Learning on the Topics page."],
   ["c2", "Calculation or execution error", "Write each step, do a two-minute speed drill daily, and recheck the last line before saving."],
   ["c3", "Misreading", "Read the last line of the question twice. Watch for NOT, units and 'at least'."],
-  ["c4", "Poor question selection", "Spend the first 2 to 3 minutes of DILR choosing sets. In QA, move on from anything not clear in 30 seconds."],
+  ["c4", "Poor question selection", "Spend the first 5 minutes of DILR choosing sets. In QA, move on from anything not clear in 30 seconds."],
   ["c5", "Time-management failure", "Check the clock at 15 and 30 minutes in every section, and drop a question after 3 minutes."],
   ["c6", "Guessing or over-attempting", "Only answer a multiple-choice question when you can cut it to two options. Type-in answers carry no penalty."],
   ["c7", "Missed an easier question", "After each section, note the easy ones you skipped. Practise a first pass that only takes easy ones."],

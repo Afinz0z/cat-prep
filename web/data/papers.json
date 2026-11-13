@@ -1,6 +1,6 @@
 {
  "source": "Links checked on 14 Nov 2026: Cracku's free previous-paper pages (cracku.in/cat-previous-papers). The paper page has the questions and solutions; the test page runs it timed and may ask you to sign in to Cracku.",
- "calendar_note": "Everyone sits the same paper on the same day, at their own slot time if they can, then logs it on the Mocks page. Two days between papers leave time to analyse each one.",
+ "calendar_note": "Everyone sits the same paper on the same day, at their own slot time if they can, then logs it on the Mocks page. Analyse each paper the same afternoon, before the next one. There's no full paper on 27 or 28 Nov.",
  "calendar": [
   {
    "day": "2026-11-15",
@@ -23,7 +23,7 @@
    "paper": "cat-2025-s2"
   },
   {
-   "day": "2026-11-27",
+   "day": "2026-11-26",
    "time": "12:30",
    "paper": "cat-2025-s3"
   }
