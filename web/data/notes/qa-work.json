@@ -1,0 +1,38 @@
+{
+ "topic": "qa-work",
+ "title": "Time and work",
+ "blocks": [
+  {
+   "heading": "Rates and LCM units",
+   "lines": [
+    "If a person does a job in n days, they do 1/n of it each day.",
+    "Take the LCM of the days as total work. A takes 12 days, B takes 6: use 12 units.",
+    "A does 1 a day, B does 2, together 3, so 12 ÷ 3 = 4 days."
+   ]
+  },
+  {
+   "heading": "Working together",
+   "lines": [
+    "Add the rates. Time = ab ÷ (a + b) for two people.",
+    "A pipe that fills and a leak that empties: subtract the rates.",
+    "Fills in 8 h, leak empties in 24 h: 1/8 − 1/24 = 1/12, so 12 h."
+   ]
+  },
+  {
+   "heading": "Efficiency",
+   "lines": [
+    "Efficiency is in the inverse ratio of days taken.",
+    "Efficiency 3 : 2 means days 2 : 3.",
+    "Wages are shared in the ratio of work done: efficiency × days worked."
+   ]
+  },
+  {
+   "heading": "Men and days, alternate days",
+   "lines": [
+    "Man-days = men × days is fixed. 12 men × 15 days = 180, so 9 men need 20 days.",
+    "Alternate days: find the work done in one 2-day cycle, count the cycles, then check the last day.",
+    "A 10 days, B 15 days: 1/6 per cycle, so 6 cycles, 12 days."
+   ]
+  }
+ ]
+}

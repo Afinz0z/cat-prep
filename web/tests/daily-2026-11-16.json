@@ -1,0 +1,59 @@
+{
+  "id": "daily-2026-11-16",
+  "title": "Daily 5, Mon 16 Nov",
+  "kind": "daily",
+  "day": "2026-11-16",
+  "source": "original",
+  "sourceNote": "Original questions written for this group. None of them is a CAT previous-year question.",
+  "strict": false,
+  "calculator": true,
+  "instructions": [
+    "5 questions, 10 minutes, CAT marking: +3 right, -1 wrong multiple choice, 0 for a wrong type-in answer.",
+    "Everyone gets the same five. The ranking is by marks, then by time.",
+    "Type-in answers take a number only: no %, rupee sign or units."
+  ],
+  "sections": [
+    {
+      "name": "Daily 5",
+      "minutes": 10,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "tita",
+          "text": "The average of 9 numbers is 30. A tenth number, 41, is added. What is the new average?",
+          "topic": "qa-averages"
+        },
+        {
+          "id": "q2",
+          "type": "tita",
+          "text": "Find the amount on ₹2,000 for 2 years at 10% per annum, compounded annually (in ₹).",
+          "topic": "qa-interest"
+        },
+        {
+          "id": "q3",
+          "type": "tita",
+          "text": "8 men can finish a job in 6 days. How many days will 12 men need, all working at the same rate?",
+          "topic": "qa-work"
+        },
+        {
+          "id": "q4",
+          "type": "tita",
+          "text": "What is the larger root of x² − 3x − 10 = 0?",
+          "topic": "qa-quadratic"
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "text": "Which percentage is closest to 2/7?",
+          "topic": "qa-percentages",
+          "options": [
+            "14.29%",
+            "28.57%",
+            "35%",
+            "20%"
+          ]
+        }
+      ]
+    }
+  ]
+}

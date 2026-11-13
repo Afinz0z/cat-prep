@@ -1,0 +1,175 @@
+{
+  "id": "qa-basics-check",
+  "title": "QA basics check",
+  "source": "original",
+  "sourceNote": "Original practice questions written for this check. None of them is a CAT previous-year question.",
+  "strict": false,
+  "calculator": false,
+  "instructions": [
+    "One section, 30 questions, 40 minutes. Every question is type-in (TITA): there are no options and no negative marks.",
+    "No calculator for this check, so the calculator button is hidden. You can use rough paper.",
+    "Type the number only, with no %, ₹ or units. Use a decimal, not a fraction (1.5, not 3/2). Type a decrease as a negative number.",
+    "If you can't see how to start within about 30 seconds, leave it blank and move on.",
+    "If you answer but aren't sure, use Mark for Review & Next. The answer still counts, and the flag shows you which ones to recheck.",
+    "The site records how long you spend on each question, so you don't need to note slow ones.",
+    "Go in order. When the timer ends, the section submits itself."
+  ],
+  "sections": [
+    {
+      "name": "QA basics",
+      "minutes": 40,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "tita",
+          "text": "Write 3/8 as a percentage."
+        },
+        {
+          "id": "q2",
+          "type": "tita",
+          "text": "Write 1/7 as a percentage, to two decimal places."
+        },
+        {
+          "id": "q3",
+          "type": "tita",
+          "text": "A price rises by 20% and then falls by 20%. What is the net percentage change? Type a decrease as a negative number."
+        },
+        {
+          "id": "q4",
+          "type": "tita",
+          "text": "A's salary is 25% more than B's. By what percentage is B's salary less than A's?"
+        },
+        {
+          "id": "q5",
+          "type": "tita",
+          "text": "₹1,200 is divided between P and Q in the ratio 3 : 5. What is Q's share, in rupees?"
+        },
+        {
+          "id": "q6",
+          "type": "tita",
+          "text": "If a : b = 2 : 3, b : c = 4 : 5 and a + b + c = 70, find c."
+        },
+        {
+          "id": "q7",
+          "type": "tita",
+          "text": "The average of 5 numbers is 20. One number is removed, and the average of the remaining 4 numbers is 18. What number was removed?"
+        },
+        {
+          "id": "q8",
+          "type": "tita",
+          "text": "2 kg of rice costing ₹40 per kg is mixed with 3 kg costing ₹50 per kg. What is the price per kg of the mixture, in rupees?"
+        },
+        {
+          "id": "q9",
+          "type": "tita",
+          "text": "How many kg of tea costing ₹60 per kg must be mixed with 5 kg of tea costing ₹90 per kg to get a mixture worth ₹70 per kg?"
+        },
+        {
+          "id": "q10",
+          "type": "tita",
+          "text": "A shopkeeper buys an item for ₹400, marks it 25% above cost, and then gives a 10% discount on the marked price. What is the profit percentage?"
+        },
+        {
+          "id": "q11",
+          "type": "tita",
+          "text": "What is the compound interest, in rupees, on ₹10,000 at 10% per annum for 2 years, compounded annually?"
+        },
+        {
+          "id": "q12",
+          "type": "tita",
+          "text": "A sum of money doubles itself in 8 years at simple interest. What is the rate of interest per annum, in percent?"
+        },
+        {
+          "id": "q13",
+          "type": "tita",
+          "text": "A car travels from A to B at 30 km/h and returns from B to A at 60 km/h. What is its average speed for the whole journey, in km/h?"
+        },
+        {
+          "id": "q14",
+          "type": "tita",
+          "text": "Two trains, 120 m and 180 m long, run on parallel tracks in opposite directions at 50 km/h and 40 km/h. How many seconds do they take to cross each other completely?"
+        },
+        {
+          "id": "q15",
+          "type": "tita",
+          "text": "A can finish a job in 10 days and B can finish it in 15 days. Working together, in how many days will they finish it?"
+        },
+        {
+          "id": "q16",
+          "type": "tita",
+          "text": "A boat travels 24 km downstream in 2 hours and returns the same 24 km upstream in 3 hours. What is the speed of the stream, in km/h?"
+        },
+        {
+          "id": "q17",
+          "type": "tita",
+          "text": "If 2x + 3y = 12 and 3x + 2y = 13, find x + y."
+        },
+        {
+          "id": "q18",
+          "type": "tita",
+          "text": "The roots of 2x² − 7x + 3 = 0 are p and q, with p > q. Find p − q."
+        },
+        {
+          "id": "q19",
+          "type": "tita",
+          "text": "If x + 1/x = 4, find x² + 1/x²."
+        },
+        {
+          "id": "q20",
+          "type": "tita",
+          "text": "How many integers x satisfy |x − 3| < 5?"
+        },
+        {
+          "id": "q21",
+          "type": "tita",
+          "text": "If 4ˣ = 8, find x. Type it as a decimal."
+        },
+        {
+          "id": "q22",
+          "type": "tita",
+          "text": "A father is now 3 times as old as his son. In 10 years he will be twice as old as his son. What is the son's present age, in years?"
+        },
+        {
+          "id": "q23",
+          "type": "tita",
+          "text": "A chord of length 8 cm is drawn in a circle of radius 5 cm. How far is the chord from the centre, in cm?"
+        },
+        {
+          "id": "q24",
+          "type": "tita",
+          "text": "What is the area, in cm², of an equilateral triangle with side 6 cm? Take √3 = 1.732 and give the answer to two decimal places."
+        },
+        {
+          "id": "q25",
+          "type": "tita",
+          "text": "What is each interior angle of a regular hexagon, in degrees?"
+        },
+        {
+          "id": "q26",
+          "type": "tita",
+          "text": "How many positive divisors does 72 have?"
+        },
+        {
+          "id": "q27",
+          "type": "tita",
+          "text": "What is the remainder when 2¹⁰ is divided by 7?"
+        },
+        {
+          "id": "q28",
+          "type": "tita",
+          "text": "What is the smallest three-digit number that leaves a remainder of 1 when divided by each of 2, 3, 4, 5 and 6?"
+        },
+        {
+          "id": "q29",
+          "type": "tita",
+          "text": "Find the sum of the first 10 terms of 3, 7, 11, 15, ..."
+        },
+        {
+          "id": "q30",
+          "type": "tita",
+          "text": "In how many ways can a committee of 2 people be chosen from 5 people?"
+        }
+      ]
+    }
+  ]
+}

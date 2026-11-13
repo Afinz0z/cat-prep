@@ -1,0 +1,53 @@
+{
+  "id": "daily-2026-11-21",
+  "title": "Daily 5, Sat 21 Nov",
+  "kind": "daily",
+  "day": "2026-11-21",
+  "source": "original",
+  "sourceNote": "Original questions written for this group. None of them is a CAT previous-year question.",
+  "strict": false,
+  "calculator": true,
+  "instructions": [
+    "5 questions, 10 minutes, CAT marking: +3 right, -1 wrong multiple choice, 0 for a wrong type-in answer.",
+    "Everyone gets the same five. The ranking is by marks, then by time.",
+    "Type-in answers take a number only: no %, rupee sign or units."
+  ],
+  "sections": [
+    {
+      "name": "Daily 5",
+      "minutes": 10,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "tita",
+          "text": "A mother is 3 times as old as her daughter. The sum of their ages is 48 years. How old is the daughter, in years?",
+          "topic": "qa-linear"
+        },
+        {
+          "id": "q2",
+          "type": "tita",
+          "text": "How many integers x satisfy x² < 30?",
+          "topic": "qa-inequalities"
+        },
+        {
+          "id": "q3",
+          "type": "tita",
+          "text": "Two numbers are in the ratio 4 : 7. When 5 is added to each, the ratio becomes 5 : 8. What is the larger original number?",
+          "topic": "qa-ratio"
+        },
+        {
+          "id": "q4",
+          "type": "tita",
+          "text": "Two successive discounts of 10% and 20% are equal to a single discount of what percent?",
+          "topic": "qa-profit-loss"
+        },
+        {
+          "id": "q5",
+          "type": "tita",
+          "text": "A train 120 m long runs at 45 km/h. A man walks at 9 km/h in the same direction beside the track. In how many seconds does the train pass him completely?",
+          "topic": "qa-tsd"
+        }
+      ]
+    }
+  ]
+}

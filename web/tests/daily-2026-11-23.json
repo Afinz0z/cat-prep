@@ -1,0 +1,83 @@
+{
+  "id": "daily-2026-11-23",
+  "title": "Daily 5, Mon 23 Nov",
+  "kind": "daily",
+  "day": "2026-11-23",
+  "source": "original",
+  "sourceNote": "Original questions written for this group. None of them is a CAT previous-year question.",
+  "strict": false,
+  "calculator": true,
+  "instructions": [
+    "5 questions, 10 minutes, CAT marking: +3 right, -1 wrong multiple choice, 0 for a wrong type-in answer.",
+    "Everyone gets the same five. The ranking is by marks, then by time.",
+    "Type-in answers take a number only: no %, rupee sign or units."
+  ],
+  "sections": [
+    {
+      "name": "Daily 5",
+      "minutes": 10,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "text": "What is the sum of all real x with |x − 5| = 3?",
+          "topic": "qa-inequalities",
+          "options": [
+            "2",
+            "6",
+            "10",
+            "16"
+          ]
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "text": "A invests ₹3,000 for 8 months and B invests ₹5,000 for 6 months. They share a profit of ₹1,800. How much does A get?",
+          "topic": "qa-ratio",
+          "options": [
+            "₹800",
+            "₹750",
+            "₹900",
+            "₹1,000"
+          ]
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "text": "The selling price of 12 pens equals the cost price of 15 pens. What is the profit percentage?",
+          "topic": "qa-profit-loss",
+          "options": [
+            "20%",
+            "30%",
+            "25%",
+            "33.33%"
+          ]
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "text": "A boat has a still-water speed of 8 km/h and the stream runs at 2 km/h. How long does it take to go 30 km upstream?",
+          "topic": "qa-tsd",
+          "options": [
+            "3 hours",
+            "3.75 hours",
+            "5 hours",
+            "6 hours"
+          ]
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "text": "How many pairs of positive integers (x, y) satisfy 2x + 3y = 25?",
+          "topic": "qa-linear",
+          "options": [
+            "3",
+            "4",
+            "5",
+            "8"
+          ]
+        }
+      ]
+    }
+  ]
+}

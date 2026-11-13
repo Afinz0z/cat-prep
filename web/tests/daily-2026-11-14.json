@@ -1,0 +1,53 @@
+{
+  "id": "daily-2026-11-14",
+  "title": "Daily 5, Sat 14 Nov",
+  "kind": "daily",
+  "day": "2026-11-14",
+  "source": "original",
+  "sourceNote": "Original questions written for this group. None of them is a CAT previous-year question.",
+  "strict": false,
+  "calculator": true,
+  "instructions": [
+    "5 questions, 10 minutes, CAT marking: +3 right, -1 wrong multiple choice, 0 for a wrong type-in answer.",
+    "Everyone gets the same five. The ranking is by marks, then by time.",
+    "Type-in answers take a number only: no %, rupee sign or units."
+  ],
+  "sections": [
+    {
+      "name": "Daily 5",
+      "minutes": 10,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "tita",
+          "text": "Find 12.5% of 640.",
+          "topic": "qa-percentages"
+        },
+        {
+          "id": "q2",
+          "type": "tita",
+          "text": "Find the average of 45, 52, 48, 55 and 50.",
+          "topic": "qa-averages"
+        },
+        {
+          "id": "q3",
+          "type": "tita",
+          "text": "Find the simple interest on ₹4,000 at 7.5% per annum for 4 years (in ₹).",
+          "topic": "qa-interest"
+        },
+        {
+          "id": "q4",
+          "type": "tita",
+          "text": "A can do a job in 15 days and B can do it in 10 days. Working together, in how many days do they finish it?",
+          "topic": "qa-work"
+        },
+        {
+          "id": "q5",
+          "type": "tita",
+          "text": "What is the smaller root of x² − 9x + 20 = 0?",
+          "topic": "qa-quadratic"
+        }
+      ]
+    }
+  ]
+}

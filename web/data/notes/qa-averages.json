@@ -1,0 +1,45 @@
+{
+  "topic": "qa-averages",
+  "title": "Averages, mixtures and alligation",
+  "blocks": [
+    {
+      "heading": "Averages and deviation",
+      "lines": [
+        "Average = total ÷ number, so total = average × number.",
+        "Deviation method: pick a guess, add the gaps, divide.",
+        "68, 72, 75, 70, 65 with guess 70: gaps -2, +2, +5, 0, -5 add to 0, so average 70."
+      ]
+    },
+    {
+      "heading": "Adding or removing members",
+      "lines": [
+        "Change in total = change in average × number of members.",
+        "8 persons, average up 2.5 when 65 kg is replaced: new person = 65 + 8 × 2.5 = 85.",
+        "Remove one: 6 numbers average 15, other 5 average 14, removed = 90 - 70 = 20."
+      ]
+    },
+    {
+      "heading": "Weighted average",
+      "lines": [
+        "Average = (n1 × a1 + n2 × a2) ÷ (n1 + n2).",
+        "30 students at 40 and 20 at 55: weights 3 : 2, so 40 + 2/5 × 15 = 46.",
+        "The overall average sits closer to the group with more members."
+      ]
+    },
+    {
+      "heading": "Alligation",
+      "lines": [
+        "Cheaper : dearer = (dearer - mean) : (mean - cheaper).",
+        "₹40 and ₹55 mixed to give ₹48: 7 : 8.",
+        "The mixture needs more of the item the mean is closer to."
+      ]
+    },
+    {
+      "heading": "Repeated replacement",
+      "lines": [
+        "Left after n steps = original × (1 - removed ÷ total)^n.",
+        "40 L, take out 8 and refill with water, twice: 40 × 0.8 × 0.8 = 25.6 L of milk."
+      ]
+    }
+  ]
+}

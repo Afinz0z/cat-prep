@@ -1,0 +1,15 @@
+node_modules/
+.claude/
+*.log
+.DS_Store
+Thumbs.db
+
+# Answer keys, the drill pool, the group code and the database seed live
+# outside this folder, in ../private. These catch a copy dropped in by mistake.
+private/
+keys/
+drill-pool/
+seed.sql
+*.secret
+.env
+.env.*

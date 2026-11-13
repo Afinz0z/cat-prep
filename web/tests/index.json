@@ -1,0 +1,295 @@
+[
+  {
+    "id": "qa-basics-check",
+    "title": "QA basics check",
+    "kind": "check",
+    "source": "original",
+    "sections": [
+      {
+        "name": "QA basics",
+        "minutes": 40,
+        "count": 30
+      }
+    ]
+  },
+  {
+    "id": "practice-qa-percentages",
+    "title": "Percentages and fraction conversions: practice set",
+    "kind": "practice",
+    "source": "original",
+    "sections": [
+      {
+        "name": "Percentages",
+        "minutes": 20,
+        "count": 10
+      }
+    ],
+    "topic": "qa-percentages"
+  },
+  {
+    "id": "practice-qa-ratio",
+    "title": "Ratio and proportion: practice set",
+    "kind": "practice",
+    "source": "original",
+    "sections": [
+      {
+        "name": "Ratio",
+        "minutes": 20,
+        "count": 10
+      }
+    ],
+    "topic": "qa-ratio"
+  },
+  {
+    "id": "practice-qa-averages",
+    "title": "Averages, mixtures and alligation: practice set",
+    "kind": "practice",
+    "source": "original",
+    "sections": [
+      {
+        "name": "Averages",
+        "minutes": 20,
+        "count": 10
+      }
+    ],
+    "topic": "qa-averages"
+  },
+  {
+    "id": "practice-qa-profit-loss",
+    "title": "Profit, loss and discount: practice set",
+    "kind": "practice",
+    "source": "original",
+    "sections": [
+      {
+        "name": "Profit and loss",
+        "minutes": 20,
+        "count": 10
+      }
+    ],
+    "topic": "qa-profit-loss"
+  },
+  {
+    "id": "practice-qa-interest",
+    "title": "Simple and compound interest: practice set",
+    "kind": "practice",
+    "source": "original",
+    "sections": [
+      {
+        "name": "Interest",
+        "minutes": 20,
+        "count": 10
+      }
+    ],
+    "topic": "qa-interest"
+  },
+  {
+    "id": "practice-qa-tsd",
+    "title": "Speed, time and distance: practice set",
+    "kind": "practice",
+    "source": "original",
+    "sections": [
+      {
+        "name": "Speed, time, distance",
+        "minutes": 20,
+        "count": 10
+      }
+    ],
+    "topic": "qa-tsd"
+  },
+  {
+    "id": "practice-qa-work",
+    "title": "Time and work: practice set",
+    "kind": "practice",
+    "source": "original",
+    "sections": [
+      {
+        "name": "Time and work",
+        "minutes": 20,
+        "count": 10
+      }
+    ],
+    "topic": "qa-work"
+  },
+  {
+    "id": "practice-qa-linear",
+    "title": "Linear equations and word problems: practice set",
+    "kind": "practice",
+    "source": "original",
+    "sections": [
+      {
+        "name": "Linear equations",
+        "minutes": 20,
+        "count": 10
+      }
+    ],
+    "topic": "qa-linear"
+  },
+  {
+    "id": "practice-qa-quadratic",
+    "title": "Quadratic equations: practice set",
+    "kind": "practice",
+    "source": "original",
+    "sections": [
+      {
+        "name": "Quadratic equations",
+        "minutes": 20,
+        "count": 10
+      }
+    ],
+    "topic": "qa-quadratic"
+  },
+  {
+    "id": "practice-qa-inequalities",
+    "title": "Inequalities and modulus: practice set",
+    "kind": "practice",
+    "source": "original",
+    "sections": [
+      {
+        "name": "Inequalities and modulus",
+        "minutes": 20,
+        "count": 10
+      }
+    ],
+    "topic": "qa-inequalities"
+  },
+  {
+    "id": "daily-2026-11-14",
+    "title": "Daily 5, Sat 14 Nov",
+    "kind": "daily",
+    "source": "original",
+    "sections": [
+      {
+        "name": "Daily 5",
+        "minutes": 10,
+        "count": 5
+      }
+    ],
+    "day": "2026-11-14"
+  },
+  {
+    "id": "daily-2026-11-15",
+    "title": "Daily 5, Sun 15 Nov",
+    "kind": "daily",
+    "source": "original",
+    "sections": [
+      {
+        "name": "Daily 5",
+        "minutes": 10,
+        "count": 5
+      }
+    ],
+    "day": "2026-11-15"
+  },
+  {
+    "id": "daily-2026-11-16",
+    "title": "Daily 5, Mon 16 Nov",
+    "kind": "daily",
+    "source": "original",
+    "sections": [
+      {
+        "name": "Daily 5",
+        "minutes": 10,
+        "count": 5
+      }
+    ],
+    "day": "2026-11-16"
+  },
+  {
+    "id": "daily-2026-11-17",
+    "title": "Daily 5, Tue 17 Nov",
+    "kind": "daily",
+    "source": "original",
+    "sections": [
+      {
+        "name": "Daily 5",
+        "minutes": 10,
+        "count": 5
+      }
+    ],
+    "day": "2026-11-17"
+  },
+  {
+    "id": "daily-2026-11-18",
+    "title": "Daily 5, Wed 18 Nov",
+    "kind": "daily",
+    "source": "original",
+    "sections": [
+      {
+        "name": "Daily 5",
+        "minutes": 10,
+        "count": 5
+      }
+    ],
+    "day": "2026-11-18"
+  },
+  {
+    "id": "daily-2026-11-19",
+    "title": "Daily 5, Thu 19 Nov",
+    "kind": "daily",
+    "source": "original",
+    "sections": [
+      {
+        "name": "Daily 5",
+        "minutes": 10,
+        "count": 5
+      }
+    ],
+    "day": "2026-11-19"
+  },
+  {
+    "id": "daily-2026-11-20",
+    "title": "Daily 5, Fri 20 Nov",
+    "kind": "daily",
+    "source": "original",
+    "sections": [
+      {
+        "name": "Daily 5",
+        "minutes": 10,
+        "count": 5
+      }
+    ],
+    "day": "2026-11-20"
+  },
+  {
+    "id": "daily-2026-11-21",
+    "title": "Daily 5, Sat 21 Nov",
+    "kind": "daily",
+    "source": "original",
+    "sections": [
+      {
+        "name": "Daily 5",
+        "minutes": 10,
+        "count": 5
+      }
+    ],
+    "day": "2026-11-21"
+  },
+  {
+    "id": "daily-2026-11-22",
+    "title": "Daily 5, Sun 22 Nov",
+    "kind": "daily",
+    "source": "original",
+    "sections": [
+      {
+        "name": "Daily 5",
+        "minutes": 10,
+        "count": 5
+      }
+    ],
+    "day": "2026-11-22"
+  },
+  {
+    "id": "daily-2026-11-23",
+    "title": "Daily 5, Mon 23 Nov",
+    "kind": "daily",
+    "source": "original",
+    "sections": [
+      {
+        "name": "Daily 5",
+        "minutes": 10,
+        "count": 5
+      }
+    ],
+    "day": "2026-11-23"
+  }
+]

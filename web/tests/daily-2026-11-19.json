@@ -1,0 +1,83 @@
+{
+  "id": "daily-2026-11-19",
+  "title": "Daily 5, Thu 19 Nov",
+  "kind": "daily",
+  "day": "2026-11-19",
+  "source": "original",
+  "sourceNote": "Original questions written for this group. None of them is a CAT previous-year question.",
+  "strict": false,
+  "calculator": true,
+  "instructions": [
+    "5 questions, 10 minutes, CAT marking: +3 right, -1 wrong multiple choice, 0 for a wrong type-in answer.",
+    "Everyone gets the same five. The ranking is by marks, then by time.",
+    "Type-in answers take a number only: no %, rupee sign or units."
+  ],
+  "sections": [
+    {
+      "name": "Daily 5",
+      "minutes": 10,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "text": "A cyclist rides a distance at 30 km/h and returns the same distance at 60 km/h. What is the average speed for the round trip?",
+          "topic": "qa-tsd",
+          "options": [
+            "36 km/h",
+            "40 km/h",
+            "45 km/h",
+            "50 km/h"
+          ]
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "text": "For which value of k do kx + 2y = 5 and 6x + 4y = 10 have infinitely many solutions?",
+          "topic": "qa-linear",
+          "options": [
+            "2",
+            "3",
+            "6",
+            "12"
+          ]
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "text": "Solve x² − 9 > 0.",
+          "topic": "qa-inequalities",
+          "options": [
+            "−3 < x < 3",
+            "x > 3",
+            "x < −3 or x > 3",
+            "x < 3"
+          ]
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "text": "The ages of a mother and her daughter are in the ratio 7 : 2 and differ by 30 years. How old is the mother?",
+          "topic": "qa-ratio",
+          "options": [
+            "49",
+            "35",
+            "42",
+            "52"
+          ]
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "text": "A trader gains 25% on cost price. What percentage of the selling price is his profit?",
+          "topic": "qa-profit-loss",
+          "options": [
+            "25%",
+            "22.5%",
+            "20%",
+            "30%"
+          ]
+        }
+      ]
+    }
+  ]
+}

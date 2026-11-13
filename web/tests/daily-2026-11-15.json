@@ -1,0 +1,53 @@
+{
+  "id": "daily-2026-11-15",
+  "title": "Daily 5, Sun 15 Nov",
+  "kind": "daily",
+  "day": "2026-11-15",
+  "source": "original",
+  "sourceNote": "Original questions written for this group. None of them is a CAT previous-year question.",
+  "strict": false,
+  "calculator": true,
+  "instructions": [
+    "5 questions, 10 minutes, CAT marking: +3 right, -1 wrong multiple choice, 0 for a wrong type-in answer.",
+    "Everyone gets the same five. The ranking is by marks, then by time.",
+    "Type-in answers take a number only: no %, rupee sign or units."
+  ],
+  "sections": [
+    {
+      "name": "Daily 5",
+      "minutes": 10,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "tita",
+          "text": "Divide 1,080 in the ratio 5 : 7. What is the smaller part?",
+          "topic": "qa-ratio"
+        },
+        {
+          "id": "q2",
+          "type": "tita",
+          "text": "An item costing ₹480 is sold for ₹420. Find the loss percentage.",
+          "topic": "qa-profit-loss"
+        },
+        {
+          "id": "q3",
+          "type": "tita",
+          "text": "Convert 90 km/h into metres per second. Answer in m/s.",
+          "topic": "qa-tsd"
+        },
+        {
+          "id": "q4",
+          "type": "tita",
+          "text": "Solve 5x − 3 = 2x + 12. What is x?",
+          "topic": "qa-linear"
+        },
+        {
+          "id": "q5",
+          "type": "tita",
+          "text": "How many integers x satisfy |x| < 5?",
+          "topic": "qa-inequalities"
+        }
+      ]
+    }
+  ]
+}

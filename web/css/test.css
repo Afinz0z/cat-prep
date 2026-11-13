@@ -1,0 +1,272 @@
+/* Exam screen, laid out like the TCS iON interface CAT uses. Colours come from site.css tokens. */
+body.exam {
+  background: var(--paper);
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+.exam-bar {
+  background: var(--exam);
+  color: var(--on-exam);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 16px;
+}
+.exam-title { font-weight: 600; font-size: 1.05rem; }
+.exam-tools { display: flex; gap: 8px; }
+.tool-btn {
+  font: inherit;
+  font-size: 0.88rem;
+  background: var(--paper);
+  color: var(--exam-ink);
+  border: 1px solid var(--paper);
+  border-radius: 2px;
+  padding: 4px 12px;
+  cursor: pointer;
+}
+@media (hover: hover) { .tool-btn:hover { background: var(--paper-2); } }
+
+.section-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: var(--paper-2);
+  border-bottom: 1px solid var(--line);
+  padding: 0 16px;
+  min-height: 42px;
+}
+.section-tabs { list-style: none; display: flex; flex-wrap: wrap; margin: 0; padding: 0; }
+.section-tabs li {
+  padding: 9px 16px;
+  border-right: 1px solid var(--line);
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+}
+.section-tabs li.current { background: var(--exam); color: var(--on-exam); font-weight: 600; }
+.section-tabs li.done { text-decoration: line-through; }
+.time-left { font-size: 0.95rem; white-space: nowrap; }
+.time-left strong { font-size: 1.2rem; font-variant-numeric: tabular-nums; margin-left: 6px; }
+.time-left strong.low { color: var(--bad); }
+
+.exam-main { flex: 1; display: flex; flex-direction: column; min-height: 0; }
+
+/* instructions and plain messages */
+.instructions { max-width: 860px; margin: 0 auto; padding: 24px; }
+.instructions ul { padding-left: 1.2em; }
+.instructions li { margin: 4px 0; }
+.instructions table { max-width: 480px; margin-bottom: 1em; }
+.agree { margin: 20px 0 12px; }
+.center-msg { max-width: 640px; margin: 60px auto; padding: 0 24px; text-align: center; }
+/* Auto side margins in a flex column shrink-wrap to the content, so a wide
+   table would push the page past the edge of a phone. Pin these to the screen width. */
+.exam-main > .results-page, .exam-main > .instructions, .exam-main > .center-msg { width: 100%; }
+.thread .row > input { flex: 1 1 9em; width: 9em; min-width: 0; }
+
+/* main grid: question on the left, palette on the right */
+.exam-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  min-height: 0;
+}
+.q-area { display: flex; flex-direction: column; min-width: 0; border-right: 1px solid var(--line); }
+.q-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px 16px;
+  padding: 10px 18px;
+  border-bottom: 1px solid var(--line);
+}
+.q-type { color: var(--ink-soft); font-size: 0.88rem; }
+.q-body { flex: 1; overflow: auto; padding: 16px 18px; }
+.q-body.split { display: grid; grid-template-columns: 1fr 1fr; gap: 0; padding: 0; overflow: hidden; }
+.group-pane { overflow: auto; padding: 16px 18px; border-right: 1px solid var(--line); max-height: calc(100vh - 190px); }
+.q-body.split .q-pane { overflow: auto; padding: 16px 18px; max-height: calc(100vh - 190px); }
+.q-text { font-size: 1rem; line-height: 1.6; margin-bottom: 14px; max-width: 70ch; }
+.q-text p { margin: 0 0 0.6em; }
+.q-hint { color: var(--ink-soft); font-size: 0.9rem; }
+
+.options { border: 0; padding: 0; margin: 0; }
+.options .option { padding: 6px 0; }
+.options input { margin-top: 4px; }
+
+/* type-in answers with the on-screen keypad */
+.tita { max-width: 260px; }
+.tita-label { display: block; font-size: 0.88rem; color: var(--ink-soft); margin-bottom: 4px; }
+.tita-input {
+  width: 100%;
+  font-size: 1.1rem;
+  padding: 6px 8px;
+  border: 1px solid var(--btn-line);
+  border-radius: 2px;
+  background: var(--input);
+  color: var(--ink);
+  margin-bottom: 8px;
+  font-variant-numeric: tabular-nums;
+}
+.keypad { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; }
+.key {
+  font: inherit;
+  padding: 8px 0;
+  background: var(--btn);
+  color: var(--ink);
+  border: 1px solid var(--btn-line);
+  border-radius: 2px;
+  cursor: pointer;
+}
+@media (hover: hover) { .key:hover { background: var(--btn-hover); } }
+.key-wide { grid-column: 1 / -1; }
+
+.q-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 10px 18px;
+  border-top: 1px solid var(--line);
+  background: var(--paper-2);
+}
+.q-actions .primary { margin-left: auto; }
+
+/* palette */
+.palette-area { padding: 12px 14px; overflow: auto; background: var(--paper-2); }
+.legend { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 10px; font-size: 0.8rem; margin-bottom: 14px; }
+.legend-static { max-width: 520px; margin-top: 14px; }
+.legend-item { display: flex; align-items: center; gap: 6px; }
+.palette-title { font-size: 0.92rem; background: var(--exam); color: var(--on-exam); padding: 6px 10px; margin: 0 -14px 10px; }
+.palette { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-bottom: 16px; }
+
+.pal {
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 600;
+  height: 36px;
+  border: 1px solid var(--btn-line);
+  background: var(--unseen);
+  color: var(--ink);
+  cursor: pointer;
+  position: relative;
+  font-variant-numeric: tabular-nums;
+}
+.pal-sample { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 26px; flex: none; cursor: default; font-size: 0.78rem; }
+.pal.st-notVisited { background: var(--unseen); }
+.pal.st-notAnswered { background: #c62828; border-color: #8e1c1c; color: #fff; clip-path: polygon(0 0, 100% 0, 100% 70%, 50% 100%, 0 70%); }
+.pal.st-answered { background: #2e7d32; border-color: #1f5a23; color: #fff; clip-path: polygon(0 30%, 50% 0, 100% 30%, 100% 100%, 0 100%); }
+.pal.st-marked { background: #6a1b9a; border-color: #4a1170; color: #fff; border-radius: 50%; }
+.pal.st-answeredMarked { background: #6a1b9a; border-color: #4a1170; color: #fff; border-radius: 50%; }
+.pal.st-answeredMarked::after {
+  content: "";
+  position: absolute;
+  right: 1px;
+  bottom: 1px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #4caf50;
+  border: 1px solid #fff;
+}
+/* Palette colours stay fixed in both themes so white numbers stay readable.
+   clip-path would cut the outline off, so the current and focused cells go square */
+.palette .pal.current { outline: 3px solid var(--focus); outline-offset: 1px; clip-path: none; }
+.pal:focus-visible { clip-path: none; }
+.submit-section { width: 100%; }
+
+/* section change notice */
+.section-banner {
+  position: fixed;
+  top: 96px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--exam);
+  color: var(--on-exam);
+  padding: 10px 18px;
+  z-index: 40;
+  max-width: calc(100vw - 32px);
+}
+
+/* calculator, floating like the CAT one */
+.calc {
+  position: fixed;
+  top: 100px;
+  right: 330px;
+  width: 260px;
+  background: var(--paper-2);
+  border: 1px solid var(--btn-line);
+  z-index: 45;
+}
+.calc[hidden] { display: none; }
+.calc-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--exam);
+  color: var(--on-exam);
+  padding: 4px 6px 4px 10px;
+  cursor: move;
+  user-select: none;
+  touch-action: none; /* a finger drag moves the calculator, not the page */
+  font-size: 0.88rem;
+}
+.calc-head > span:first-child { flex: 1; }
+.calc-mem { font-weight: 600; }
+.calc-close { font: inherit; font-size: 0.8rem; background: var(--paper); color: var(--exam-ink); border: 0; border-radius: 2px; padding: 2px 8px; cursor: pointer; }
+.calc-display {
+  display: block;
+  margin: 8px;
+  padding: 6px 8px;
+  background: var(--input);
+  border: 1px solid var(--btn-line);
+  text-align: right;
+  font-size: 1.2rem;
+  font-variant-numeric: tabular-nums;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.calc-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 4px; padding: 0 8px 8px; }
+.calc-key { font: inherit; font-size: 0.85rem; padding: 7px 0; background: var(--btn); color: var(--ink); border: 1px solid var(--btn-line); border-radius: 2px; cursor: pointer; }
+@media (hover: hover) { .calc-key:hover { background: var(--btn-hover); } }
+.calc-eq { grid-row: span 2; background: var(--water-soft); }
+.calc-zero { grid-column: span 2; }
+
+/* iPad in portrait: the palette column narrows but stays beside the question. */
+@media (max-width: 1024px) {
+  .exam-grid { grid-template-columns: minmax(0, 1fr) 250px; }
+  .calc { right: 270px; }
+}
+@media (max-width: 900px) {
+  .q-body.split { grid-template-columns: 1fr; overflow: visible; }
+  .group-pane, .q-body.split .q-pane { max-height: none; border-right: 0; }
+  .group-pane { border-bottom: 1px solid var(--line); }
+}
+
+/* Phones: the palette goes under the question and the answer buttons stay in reach. */
+@media (max-width: 700px) {
+  .exam-grid { grid-template-columns: 1fr; }
+  .q-area { border-right: 0; border-bottom: 1px solid var(--line); }
+  .palette { grid-template-columns: repeat(8, 1fr); }
+  .calc { right: 12px; top: 120px; }
+  .q-actions { position: sticky; bottom: 0; z-index: 5; padding-bottom: max(10px, env(safe-area-inset-bottom)); }
+  .section-banner { top: 120px; }
+}
+@media (max-width: 560px) {
+  .exam-bar, .section-bar { padding-left: max(12px, env(safe-area-inset-left)); padding-right: max(12px, env(safe-area-inset-right)); }
+  .palette { grid-template-columns: repeat(6, 1fr); }
+  .q-actions .primary { margin-left: 0; }
+  .q-actions .btn { flex: 1 1 auto; }
+}
+
+@media (pointer: coarse) {
+  .tool-btn { padding: 8px 14px; }
+  .pal { height: 44px; }
+  .key { padding: 13px 0; font-size: 1.1rem; }
+  .calc-key { padding: 12px 0; font-size: 0.95rem; }
+  .calc-head { padding: 6px 6px 6px 12px; }
+  .calc-close { padding: 6px 12px; }
+  .options .option { padding: 10px 0; }
+}

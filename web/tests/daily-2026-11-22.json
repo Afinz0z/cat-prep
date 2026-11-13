@@ -1,0 +1,83 @@
+{
+  "id": "daily-2026-11-22",
+  "title": "Daily 5, Sun 22 Nov",
+  "kind": "daily",
+  "day": "2026-11-22",
+  "source": "original",
+  "sourceNote": "Original questions written for this group. None of them is a CAT previous-year question.",
+  "strict": false,
+  "calculator": true,
+  "instructions": [
+    "5 questions, 10 minutes, CAT marking: +3 right, -1 wrong multiple choice, 0 for a wrong type-in answer.",
+    "Everyone gets the same five. The ranking is by marks, then by time.",
+    "Type-in answers take a number only: no %, rupee sign or units."
+  ],
+  "sections": [
+    {
+      "name": "Daily 5",
+      "minutes": 10,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "text": "If α and β are the roots of x² − 7x + 10 = 0, what is α² + β²?",
+          "topic": "qa-quadratic",
+          "options": [
+            "19",
+            "29",
+            "39",
+            "49"
+          ]
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "text": "The price of an item is cut by 20% and then by a further 10%. What is the net cut?",
+          "topic": "qa-percentages",
+          "options": [
+            "30%",
+            "28%",
+            "25%",
+            "18%"
+          ]
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "text": "The average of 4 numbers is 25. One of them, 10, is replaced by 30. What is the new average?",
+          "topic": "qa-averages",
+          "options": [
+            "28",
+            "32",
+            "30",
+            "35"
+          ]
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "text": "Find the difference between CI (compounded annually) and SI on ₹6,000 for 2 years at 10% per annum.",
+          "topic": "qa-interest",
+          "options": [
+            "₹30",
+            "₹60",
+            "₹120",
+            "₹600"
+          ]
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "text": "A is twice as efficient as B. Together they finish a job in 12 days. How many days would A take alone?",
+          "topic": "qa-work",
+          "options": [
+            "9 days",
+            "18 days",
+            "24 days",
+            "36 days"
+          ]
+        }
+      ]
+    }
+  ]
+}

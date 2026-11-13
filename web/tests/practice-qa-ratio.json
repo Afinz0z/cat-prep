@@ -1,0 +1,108 @@
+{
+  "id": "practice-qa-ratio",
+  "title": "Ratio and proportion: practice set",
+  "topic": "qa-ratio",
+  "kind": "practice",
+  "source": "original",
+  "sourceNote": "Original practice questions written for this group. None of them is a CAT previous-year question.",
+  "strict": false,
+  "calculator": true,
+  "instructions": [
+    "10 questions, 20 minutes, CAT marking: +3 right, -1 wrong multiple choice, 0 for a wrong type-in answer.",
+    "Type-in answers take a number only: no %, ₹ or units. Use a decimal, not a fraction."
+  ],
+  "sections": [
+    {
+      "name": "Ratio",
+      "minutes": 20,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "text": "₹1,200 is divided between Asha and Bina in the ratio 3 : 5. How much does Bina get?",
+          "options": [
+            "₹600",
+            "₹750",
+            "₹450",
+            "₹720"
+          ]
+        },
+        {
+          "id": "q2",
+          "type": "tita",
+          "text": "The ratio of boys to girls in a school group is 7 : 5. There are 84 students in all. How many are girls?"
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "text": "8 workers can dig a trench in 15 days. Working at the same rate, how many days will 12 workers take?",
+          "options": [
+            "8",
+            "22.5",
+            "10",
+            "12"
+          ]
+        },
+        {
+          "id": "q4",
+          "type": "tita",
+          "text": "a : b = 2 : 3 and b : c = 4 : 5. If c = 45, find a."
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "text": "The present ages of Meena and Neha are in the ratio 5 : 7. Six years ago their ages were in the ratio 2 : 3. What is the sum of their present ages (in years)?",
+          "options": [
+            "60",
+            "66",
+            "72",
+            "78"
+          ]
+        },
+        {
+          "id": "q6",
+          "type": "tita",
+          "text": "Arun puts in ₹40,000 for the whole year. Bhanu puts in ₹50,000 for 8 months. A profit of ₹13,200 is shared in proportion to investment × time. How much does Bhanu get (in ₹)?"
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "text": "The cost of a pipe varies directly with its length. A pipe of 7.5 m costs ₹450. What is the cost of an 11 m pipe?",
+          "options": [
+            "₹600",
+            "₹630",
+            "₹660",
+            "₹675"
+          ]
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "text": "The ratio of red to blue marbles in a bag is 3 : 4. When 12 more red marbles are added, the ratio of red to blue becomes 5 : 4. How many marbles were in the bag originally?",
+          "options": [
+            "36",
+            "42",
+            "48",
+            "54"
+          ]
+        },
+        {
+          "id": "q9",
+          "type": "mcq",
+          "text": "The incomes of Gopal and Hari are in the ratio 5 : 4 and their expenditures are in the ratio 3 : 2. Each saves ₹1,600. What is Gopal's income?",
+          "options": [
+            "₹4,000",
+            "₹3,200",
+            "₹4,800",
+            "₹5,000"
+          ]
+        },
+        {
+          "id": "q10",
+          "type": "tita",
+          "text": "₹4,600 is divided among A, B and C. A's share to B's share is 2 : 3, and B's share to C's share is 5 : 7. How much more does C get than A (in ₹)?"
+        }
+      ]
+    }
+  ]
+}

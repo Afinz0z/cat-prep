@@ -1,0 +1,25 @@
+{
+  "id": "dev-sample",
+  "title": "Dev sample: 4 easy questions",
+  "kind": "check",
+  "source": "original",
+  "sourceNote": "Made-up questions for trying the site on the local dev server. They never reach the real site.",
+  "strict": false,
+  "calculator": true,
+  "instructions": [
+    "4 questions, 5 minutes, CAT marking: +3 right, -1 wrong multiple choice, 0 for a wrong type-in answer.",
+    "This test exists only on the local dev server."
+  ],
+  "sections": [
+    {
+      "name": "Sample",
+      "minutes": 5,
+      "questions": [
+        { "id": "q1", "type": "mcq", "text": "What is 15% of 80?", "options": ["10", "12", "14", "16"] },
+        { "id": "q2", "type": "mcq", "text": "Rs 160 is split in the ratio 3 : 5. What is the smaller share?", "options": ["Rs 50", "Rs 60", "Rs 70", "Rs 100"] },
+        { "id": "q3", "type": "tita", "text": "What is 7 × 8?" },
+        { "id": "q4", "type": "tita", "text": "What is the average of 4, 8 and 12?" }
+      ]
+    }
+  ]
+}

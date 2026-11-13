@@ -1,0 +1,44 @@
+{
+ "topic": "qa-quadratic",
+ "title": "Quadratic equations",
+ "blocks": [
+  {
+   "heading": "Solving",
+   "lines": [
+    "Factor: x² − 5x − 14 = (x − 7)(x + 2), so the roots are 7 and −2.",
+    "Formula: x = (−b ± √D) ÷ 2a, where D = b² − 4ac."
+   ]
+  },
+  {
+   "heading": "Discriminant",
+   "lines": [
+    "D > 0: two different real roots. D = 0: equal roots. D < 0: no real roots.",
+    "x² − 8x + k has equal roots when 64 − 4k = 0, so k = 16."
+   ]
+  },
+  {
+   "heading": "Sum and product of roots",
+   "lines": [
+    "For ax² + bx + c = 0: sum = −b/a, product = c/a.",
+    "Equation from roots p and q: x² − (p + q)x + pq = 0.",
+    "Roots 3 and −5: x² + 2x − 15 = 0."
+   ]
+  },
+  {
+   "heading": "Handy identities",
+   "lines": [
+    "α² + β² = (α + β)² − 2αβ.",
+    "α/β + β/α = (α² + β²) ÷ αβ.",
+    "Example: x² − 5x + 3 = 0 gives 25 − 6 = 19."
+   ]
+  },
+  {
+   "heading": "Maximum and minimum",
+   "lines": [
+    "ax² + bx + c turns at x = −b/2a.",
+    "a > 0 gives a minimum. a < 0 gives a maximum.",
+    "x² − 6x + 13 = (x − 3)² + 4, so the minimum is 4 at x = 3."
+   ]
+  }
+ ]
+}

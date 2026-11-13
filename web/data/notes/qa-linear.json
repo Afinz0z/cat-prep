@@ -1,0 +1,45 @@
+{
+ "topic": "qa-linear",
+ "title": "Linear equations and word problems",
+ "blocks": [
+  {
+   "heading": "Forming equations",
+   "lines": [
+    "Let the unknown be x and turn each sentence into one equation.",
+    "\"A is 5 more than B\" means A = B + 5.",
+    "Consecutive integers: x, x + 1, x + 2. Their sum is 3 times the middle one."
+   ]
+  },
+  {
+   "heading": "Two variables",
+   "lines": [
+    "Eliminate one variable: make the coefficients equal, then add or subtract.",
+    "Example: x + 2y = 11 and 3x − y = 12. Double the second and add: 7x = 35, x = 5, y = 3."
+   ]
+  },
+  {
+   "heading": "How many solutions",
+   "lines": [
+    "For a₁x + b₁y = c₁ and a₂x + b₂y = c₂:",
+    "a₁/a₂ ≠ b₁/b₂: exactly one solution.",
+    "a₁/a₂ = b₁/b₂ ≠ c₁/c₂: no solution.",
+    "All three ratios equal: infinitely many solutions."
+   ]
+  },
+  {
+   "heading": "Ages",
+   "lines": [
+    "The gap between two ages never changes.",
+    "Write both ages now, then add or subtract the same years for both.",
+    "Father 4x, son x. In 5 years: 4x + 5 = 3(x + 5), so x = 10."
+   ]
+  },
+  {
+   "heading": "Integer solutions",
+   "lines": [
+    "3x + 5y = 47 with x, y > 0: find one pair, then move x by 5 and y by 3 in opposite directions.",
+    "Pairs: (14, 1), (9, 4), (4, 7). That is 3 solutions."
+   ]
+  }
+ ]
+}

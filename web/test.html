@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Practice test | CAT prep group</title>
+  <meta name="theme-color" content="#1d4f91" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#2b5ea8" media="(prefers-color-scheme: dark)">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="CAT prep">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon-192.png">
+  <script>try{var t=JSON.parse(localStorage.getItem("cat-theme"));if(t==="dark"||t==="light")document.documentElement.dataset.theme=t;var z=JSON.parse(localStorage.getItem("cat-text"));if(z&&z!==100)document.documentElement.style.fontSize=z+"%";}catch(e){}</script>
+  <link rel="stylesheet" href="css/site.css">
+  <link rel="stylesheet" href="css/test.css">
+</head>
+<body class="exam">
+  <header class="exam-bar">
+    <div class="exam-title" id="testTitle">Loading the test</div>
+    <div class="exam-tools">
+      <button type="button" id="calcBtn" class="tool-btn">Calculator</button>
+      <button type="button" id="instrBtn" class="tool-btn">Instructions</button>
+    </div>
+  </header>
+  <nav class="section-bar" aria-label="Sections">
+    <ol id="sectionTabs" class="section-tabs"></ol>
+    <div class="time-left">Time left <strong id="timeLeft">--:--</strong></div>
+  </nav>
+  <main id="main" class="exam-main"></main>
+  <div id="calc" class="calc" hidden></div>
+  <dialog id="dialog" class="dialog"></dialog>
+  <div id="toasts" class="toasts" aria-live="polite"></div>
+  <script type="module" src="js/test.js"></script>
+</body>
+</html>

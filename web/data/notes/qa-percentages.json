@@ -1,0 +1,42 @@
+{
+  "topic": "qa-percentages",
+  "title": "Percentages and fraction conversions",
+  "blocks": [
+    {
+      "heading": "Fractions to know",
+      "lines": [
+        "1/2 = 50%, 1/3 = 33.33%, 1/4 = 25%, 1/5 = 20%",
+        "1/6 = 16.67%, 1/7 = 14.29%, 1/8 = 12.5%",
+        "1/9 = 11.11%, 1/10 = 10%, 1/11 = 9.09%, 1/12 = 8.33%",
+        "1/16 = 6.25%. Multiply for the rest: 3/16 = 3 × 6.25 = 18.75%"
+      ]
+    },
+    {
+      "heading": "Percentage change",
+      "lines": [
+        "% change = (new - old) ÷ old × 100",
+        "Always divide by the starting value.",
+        "Example: 400 to 470 is 70 ÷ 400 = 17.5%.",
+        "Percentage points: 40% to 46% is 6 points, but a 15% increase (6 ÷ 40)."
+      ]
+    },
+    {
+      "heading": "A is x% more or less than B",
+      "lines": [
+        "A is x% more than B: A = B × (1 + x/100)",
+        "A is x% less than B: A = B × (1 - x/100)",
+        "To find the base, divide: after a 20% rise the price is 600, so the original is 600 ÷ 1.2 = 500.",
+        "If A is 25% more than B, then B is 25 ÷ 125 = 20% less than A."
+      ]
+    },
+    {
+      "heading": "Successive change",
+      "lines": [
+        "Multiply the multipliers, do not add the percentages.",
+        "+20% then -25%: 1.2 × 0.75 = 0.9, a net fall of 10%.",
+        "Shortcut for two changes: a + b + ab/100 = 20 - 25 - 5 = -10.",
+        "To undo a change with multiplier m, multiply by 1/m: 1/0.9 = 1.1111, a rise of 11.11%."
+      ]
+    }
+  ]
+}

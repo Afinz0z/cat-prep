@@ -1,0 +1,39 @@
+{
+  "topic": "qa-ratio",
+  "title": "Ratio and proportion",
+  "blocks": [
+    {
+      "heading": "Dividing in a ratio",
+      "lines": [
+        "Add the parts, find one part, then multiply.",
+        "Divide 960 in 5 : 7: 12 parts, one part = 80, shares 400 and 560."
+      ]
+    },
+    {
+      "heading": "Combining ratios",
+      "lines": [
+        "Make the common term equal in both ratios.",
+        "a : b = 2 : 3 and b : c = 4 : 5. Scale to 8 : 12 and 12 : 15.",
+        "So a : b : c = 8 : 12 : 15."
+      ]
+    },
+    {
+      "heading": "Changing ratios and ages",
+      "lines": [
+        "Write the quantities as ratio × x, then build an equation.",
+        "Ages: add or subtract the years from each person, not from the ratio.",
+        "Ratio 5 : 7, six years ago 2 : 3: 3(5x - 6) = 2(7x - 6), so x = 6.",
+        "If both sides save the same amount, equate (income - expense) for each."
+      ]
+    },
+    {
+      "heading": "Variation and partnership",
+      "lines": [
+        "Direct: the ratio stays fixed (cost ÷ length is constant).",
+        "Inverse: the product stays fixed (workers × days).",
+        "8 workers × 15 days = 12 workers × 10 days.",
+        "Partners share profit in the ratio of investment × time."
+      ]
+    }
+  ]
+}

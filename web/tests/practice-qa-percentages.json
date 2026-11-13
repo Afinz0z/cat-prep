@@ -1,0 +1,108 @@
+{
+  "id": "practice-qa-percentages",
+  "title": "Percentages and fraction conversions: practice set",
+  "topic": "qa-percentages",
+  "kind": "practice",
+  "source": "original",
+  "sourceNote": "Original practice questions written for this group. None of them is a CAT previous-year question.",
+  "strict": false,
+  "calculator": true,
+  "instructions": [
+    "10 questions, 20 minutes, CAT marking: +3 right, -1 wrong multiple choice, 0 for a wrong type-in answer.",
+    "Type-in answers take a number only: no %, ₹ or units. Use a decimal, not a fraction."
+  ],
+  "sections": [
+    {
+      "name": "Percentages",
+      "minutes": 20,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "text": "What is 3/16 expressed as a percentage?",
+          "options": [
+            "1.88%",
+            "16.3%",
+            "31.25%",
+            "18.75%"
+          ]
+        },
+        {
+          "id": "q2",
+          "type": "tita",
+          "text": "Find the value of 35% of 240 plus 12% of 150."
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "text": "The price of an article goes up from ₹400 to ₹470. What is the percentage increase?",
+          "options": [
+            "15%",
+            "17.5%",
+            "14.89%",
+            "70%"
+          ]
+        },
+        {
+          "id": "q4",
+          "type": "tita",
+          "text": "In a class, 60% of the students are girls. There are 28 boys. How many students are in the class?"
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "text": "A is 25% more than B. B is what percent less than A?",
+          "options": [
+            "25%",
+            "80%",
+            "20%",
+            "30%"
+          ]
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "text": "The price of an article is increased by 20% and the new price is then reduced by 25%. The net change is a decrease of",
+          "options": [
+            "10%",
+            "5%",
+            "12.5%",
+            "15%"
+          ]
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "text": "The population of a town grew by 10% in the first year and by 20% in the second year. After two years it is 15,840. What was the population at the start?",
+          "options": [
+            "11,088",
+            "12,000",
+            "12,185",
+            "13,200"
+          ]
+        },
+        {
+          "id": "q8",
+          "type": "tita",
+          "text": "A party's vote share rose from 40% to 46%. Let p be the rise in percentage points and r the percentage increase in its vote share. Find p + r."
+        },
+        {
+          "id": "q9",
+          "type": "mcq",
+          "text": "In an exam, 80% of the candidates passed Quant, 70% passed Verbal, and 15% failed both. What percent passed both?",
+          "options": [
+            "65%",
+            "50%",
+            "55%",
+            "75%"
+          ]
+        },
+        {
+          "id": "q10",
+          "type": "tita",
+          "text": "The price of an article goes up 20%, then falls 25%, and then rises by r% so that it returns to the original price. Find r to two decimal places."
+        }
+      ]
+    }
+  ]
+}

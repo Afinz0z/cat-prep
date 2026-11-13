@@ -1,0 +1,38 @@
+{
+  "topic": "qa-profit-loss",
+  "title": "Profit, loss and discount",
+  "blocks": [
+    {
+      "heading": "Basics",
+      "lines": [
+        "Profit % = profit ÷ CP × 100. It is on cost unless the question says otherwise.",
+        "SP = CP × (1 + p/100) and SP = MP × (1 - d/100).",
+        "CP 250, SP 300: 50 ÷ 250 = 20%.",
+        "Find CP from SP: SP 990 after a 10% loss, CP = 990 ÷ 0.9 = 1,100."
+      ]
+    },
+    {
+      "heading": "Markup then discount",
+      "lines": [
+        "Take CP = 100 and apply the multipliers.",
+        "Markup 40%, discount 10%: 100 to 140 to 126, so profit 26%.",
+        "To earn 20% after a 20% discount: MP = 1.2 ÷ 0.8 = 1.5 times CP."
+      ]
+    },
+    {
+      "heading": "Successive discounts",
+      "lines": [
+        "Multiply: 20% then 10% gives 0.8 × 0.9 = 0.72.",
+        "The single discount is 28%, never 30%."
+      ]
+    },
+    {
+      "heading": "Shortcuts",
+      "lines": [
+        "Same SP, one article at +x% and one at -x%: overall loss = x²/100 %. At 20% it is 4%.",
+        "SP of m items = CP of n items: profit % = (n - m) ÷ m × 100. 12 and 15 gives 25%.",
+        "False weight: profit % = (true - false weight) ÷ false weight × 100. 900 g for 1 kg gives 100 ÷ 900 = 11.11%."
+      ]
+    }
+  ]
+}

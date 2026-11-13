@@ -1,0 +1,45 @@
+{
+ "topic": "qa-inequalities",
+ "title": "Inequalities and modulus",
+ "blocks": [
+  {
+   "heading": "Linear inequalities",
+   "lines": [
+    "Solve like an equation, but flip the sign when you multiply or divide by a negative.",
+    "−2x ≥ 8 gives x ≤ −4."
+   ]
+  },
+  {
+   "heading": "Quadratic inequalities",
+   "lines": [
+    "Factor, mark the roots on a number line, test one point in each part.",
+    "(x − 2)(x + 3) < 0 holds between −3 and 2.",
+    "With a positive x² term: > 0 means outside the roots, < 0 means between them."
+   ]
+  },
+  {
+   "heading": "Modulus as distance",
+   "lines": [
+    "|x − a| is the distance of x from a.",
+    "|x − 3| < 4 means −1 < x < 7.",
+    "|x − a| > r means x < a − r or x > a + r.",
+    "|x − 2| + |x − 9| is least when x is between 2 and 9, and the least value is 7."
+   ]
+  },
+  {
+   "heading": "Counting integers",
+   "lines": [
+    "Find the range first, then count. −2 ≤ x ≤ 6 has 6 − (−2) + 1 = 9 integers.",
+    "Check whether each end is included (≤) or left out (<)."
+   ]
+  },
+  {
+   "heading": "AM-GM",
+   "lines": [
+    "For positive a and b: (a + b)/2 ≥ √(ab).",
+    "Fixed sum gives the largest product: a + b = 10 gives ab ≤ 25.",
+    "Fixed product gives the smallest sum: 4x + 9/x ≥ 2√36 = 12."
+   ]
+  }
+ ]
+}

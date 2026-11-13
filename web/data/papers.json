@@ -1,0 +1,225 @@
+{
+ "source": "Links checked on 14 Nov 2026: Cracku's free previous-paper pages (cracku.in/cat-previous-papers). The paper page has the questions and solutions; the test page runs it timed and may ask you to sign in to Cracku.",
+ "calendar_note": "Everyone sits the same paper on the same day, at their own slot time if they can, then logs it on the Mocks page. Two days between papers leave time to analyse each one.",
+ "calendar": [
+  {
+   "day": "2026-11-15",
+   "time": "12:30",
+   "paper": "cat-2024-s1"
+  },
+  {
+   "day": "2026-11-18",
+   "time": "12:30",
+   "paper": "cat-2024-s2"
+  },
+  {
+   "day": "2026-11-21",
+   "time": "12:30",
+   "paper": "cat-2025-s1"
+  },
+  {
+   "day": "2026-11-24",
+   "time": "12:30",
+   "paper": "cat-2025-s2"
+  },
+  {
+   "day": "2026-11-27",
+   "time": "12:30",
+   "paper": "cat-2025-s3"
+  }
+ ],
+ "papers": [
+  {
+   "id": "cat-2025-s1",
+   "title": "CAT 2025 Slot 1",
+   "year": 2025,
+   "pattern": "same as 2026",
+   "paper": "https://cracku.in/cat-2025-slot-1-question-paper-solved",
+   "test": "https://cracku.in/cat-previous-papers/cat-2025-slot-1"
+  },
+  {
+   "id": "cat-2025-s2",
+   "title": "CAT 2025 Slot 2",
+   "year": 2025,
+   "pattern": "same as 2026",
+   "paper": "https://cracku.in/cat-2025-slot-2-question-paper-solved",
+   "test": "https://cracku.in/cat-previous-papers/cat-2025-slot-2"
+  },
+  {
+   "id": "cat-2025-s3",
+   "title": "CAT 2025 Slot 3",
+   "year": 2025,
+   "pattern": "same as 2026",
+   "paper": "https://cracku.in/cat-2025-slot-3-question-paper-solved",
+   "test": "https://cracku.in/cat-previous-papers/cat-2025-slot-3"
+  },
+  {
+   "id": "cat-2024-s1",
+   "title": "CAT 2024 Slot 1",
+   "year": 2024,
+   "pattern": "same as 2026",
+   "paper": "https://cracku.in/cat-2024-slot-1-question-paper-solved",
+   "test": "https://cracku.in/cat-previous-papers/cat-2024-slot-1"
+  },
+  {
+   "id": "cat-2024-s2",
+   "title": "CAT 2024 Slot 2",
+   "year": 2024,
+   "pattern": "same as 2026",
+   "paper": "https://cracku.in/cat-2024-slot-2-question-paper-solved",
+   "test": "https://cracku.in/cat-previous-papers/cat-2024-slot-2"
+  },
+  {
+   "id": "cat-2024-s3",
+   "title": "CAT 2024 Slot 3",
+   "year": 2024,
+   "pattern": "same as 2026",
+   "paper": "https://cracku.in/cat-2024-slot-3-question-paper-solved",
+   "test": "https://cracku.in/cat-previous-papers/cat-2024-slot-3"
+  },
+  {
+   "id": "cat-2023-s1",
+   "title": "CAT 2023 Slot 1",
+   "year": 2023,
+   "pattern": "older pattern",
+   "paper": "https://cracku.in/cat-2023-slot-1-question-paper-solved",
+   "test": "https://cracku.in/cat-previous-papers/cat-2023-slot-1"
+  },
+  {
+   "id": "cat-2023-s2",
+   "title": "CAT 2023 Slot 2",
+   "year": 2023,
+   "pattern": "older pattern",
+   "paper": "https://cracku.in/cat-2023-slot-2-question-paper-solved",
+   "test": "https://cracku.in/cat-previous-papers/cat-2023-slot-2"
+  },
+  {
+   "id": "cat-2023-s3",
+   "title": "CAT 2023 Slot 3",
+   "year": 2023,
+   "pattern": "older pattern",
+   "paper": "https://cracku.in/cat-2023-slot-3-question-paper-solved",
+   "test": "https://cracku.in/cat-previous-papers/cat-2023-slot-3"
+  },
+  {
+   "id": "cat-2022-s1",
+   "title": "CAT 2022 Slot 1",
+   "year": 2022,
+   "pattern": "older pattern",
+   "paper": "https://cracku.in/cat-2022-slot-1-question-paper-solved",
+   "test": "https://cracku.in/cat-previous-papers/cat-2022-slot-1"
+  },
+  {
+   "id": "cat-2022-s2",
+   "title": "CAT 2022 Slot 2",
+   "year": 2022,
+   "pattern": "older pattern",
+   "paper": "https://cracku.in/cat-2022-slot-2-question-paper-solved",
+   "test": "https://cracku.in/cat-previous-papers/cat-2022-slot-2"
+  },
+  {
+   "id": "cat-2022-s3",
+   "title": "CAT 2022 Slot 3",
+   "year": 2022,
+   "pattern": "older pattern",
+   "paper": "https://cracku.in/cat-2022-slot-3-question-paper-solved",
+   "test": "https://cracku.in/cat-previous-papers/cat-2022-slot-3"
+  },
+  {
+   "id": "cat-2021-s1",
+   "title": "CAT 2021 Slot 1",
+   "year": 2021,
+   "pattern": "older pattern",
+   "paper": "https://cracku.in/cat-2021-slot-1-question-paper-solved",
+   "test": "https://cracku.in/cat-previous-papers/cat-2021-slot-1"
+  },
+  {
+   "id": "cat-2021-s2",
+   "title": "CAT 2021 Slot 2",
+   "year": 2021,
+   "pattern": "older pattern",
+   "paper": "https://cracku.in/cat-2021-slot-2-question-paper-solved",
+   "test": "https://cracku.in/cat-previous-papers/cat-2021-slot-2"
+  },
+  {
+   "id": "cat-2021-s3",
+   "title": "CAT 2021 Slot 3",
+   "year": 2021,
+   "pattern": "older pattern",
+   "paper": "https://cracku.in/cat-2021-slot-3-question-paper-solved",
+   "test": "https://cracku.in/cat-previous-papers/cat-2021-slot-3"
+  },
+  {
+   "id": "cat-2020-s1",
+   "title": "CAT 2020 Slot 1",
+   "year": 2020,
+   "pattern": "older pattern",
+   "paper": "https://cracku.in/cat-2020-slot-1-question-paper-solved",
+   "test": "https://cracku.in/cat-previous-papers/cat-2020-slot-1"
+  },
+  {
+   "id": "cat-2020-s2",
+   "title": "CAT 2020 Slot 2",
+   "year": 2020,
+   "pattern": "older pattern",
+   "paper": "https://cracku.in/cat-2020-slot-2-question-paper-solved",
+   "test": "https://cracku.in/cat-previous-papers/cat-2020-slot-2"
+  },
+  {
+   "id": "cat-2020-s3",
+   "title": "CAT 2020 Slot 3",
+   "year": 2020,
+   "pattern": "older pattern",
+   "paper": "https://cracku.in/cat-2020-slot-3-question-paper-solved",
+   "test": "https://cracku.in/cat-previous-papers/cat-2020-slot-3"
+  },
+  {
+   "id": "cat-2019-s1",
+   "title": "CAT 2019 Slot 1",
+   "year": 2019,
+   "pattern": "older pattern",
+   "paper": "https://cracku.in/cat-2019-slot-1-question-paper-solved",
+   "test": "https://cracku.in/cat-previous-papers/cat-2019-slot-1"
+  },
+  {
+   "id": "cat-2019-s2",
+   "title": "CAT 2019 Slot 2",
+   "year": 2019,
+   "pattern": "older pattern",
+   "paper": "https://cracku.in/cat-2019-slot-2-question-paper-solved",
+   "test": "https://cracku.in/cat-previous-papers/cat-2019-slot-2"
+  },
+  {
+   "id": "cat-2018-s1",
+   "title": "CAT 2018 Slot 1",
+   "year": 2018,
+   "pattern": "older pattern",
+   "paper": "https://cracku.in/cat-2018-slot-1-question-paper-solved",
+   "test": "https://cracku.in/cat-previous-papers/cat-2018-slot-1"
+  },
+  {
+   "id": "cat-2018-s2",
+   "title": "CAT 2018 Slot 2",
+   "year": 2018,
+   "pattern": "older pattern",
+   "paper": "https://cracku.in/cat-2018-slot-2-question-paper-solved",
+   "test": "https://cracku.in/cat-previous-papers/cat-2018-slot-2"
+  },
+  {
+   "id": "cat-2017-s1",
+   "title": "CAT 2017 Shift 1",
+   "year": 2017,
+   "pattern": "older pattern",
+   "paper": "https://cracku.in/cat-2017-shift-1-question-paper-solved",
+   "test": "https://cracku.in/cat-previous-papers/cat-2017-shift-1"
+  },
+  {
+   "id": "cat-2017-s2",
+   "title": "CAT 2017 Shift 2",
+   "year": 2017,
+   "pattern": "older pattern",
+   "paper": "https://cracku.in/cat-2017-shift-2-question-paper-solved",
+   "test": "https://cracku.in/cat-previous-papers/cat-2017-shift-2"
+  }
+ ]
+}

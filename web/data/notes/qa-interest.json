@@ -1,0 +1,37 @@
+{
+  "topic": "qa-interest",
+  "title": "Simple and compound interest",
+  "blocks": [
+    {
+      "heading": "Simple interest",
+      "lines": [
+        "SI = P × R × T ÷ 100. Amount = P + SI.",
+        "₹5,000 at 8% for 3 years: 400 a year × 3 = 1,200.",
+        "Money doubles in n years at a rate of 100 ÷ n % a year."
+      ]
+    },
+    {
+      "heading": "Compound interest",
+      "lines": [
+        "Amount = P × (1 + R/100)^n, and CI = Amount - P.",
+        "₹10,000 at 10% for 2 years: 10,000 × 1.1 × 1.1 = 12,100, so CI = 2,100.",
+        "Useful: 1.1² = 1.21, 1.1³ = 1.331, 1.05² = 1.1025, 1.2² = 1.44."
+      ]
+    },
+    {
+      "heading": "Half-yearly compounding",
+      "lines": [
+        "Halve the rate and double the number of periods.",
+        "20% a year, half-yearly, for 1 year: 10% for 2 periods, 1.1 × 1.1 = 1.21."
+      ]
+    },
+    {
+      "heading": "CI minus SI and instalments",
+      "lines": [
+        "2 years: CI - SI = P × (R/100)². ₹20,000 at 5%: 20,000 × 0.0025 = 50.",
+        "3 years: CI - SI = P × (R/100)² × (3 + R/100).",
+        "Instalments: loan = I ÷ (1 + r) + I ÷ (1 + r)². ₹1,210 at 10%: 1,100 + 1,000 = 2,100."
+      ]
+    }
+  ]
+}

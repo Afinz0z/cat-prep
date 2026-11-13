@@ -1,0 +1,108 @@
+{
+  "id": "practice-qa-profit-loss",
+  "title": "Profit, loss and discount: practice set",
+  "topic": "qa-profit-loss",
+  "kind": "practice",
+  "source": "original",
+  "sourceNote": "Original practice questions written for this group. None of them is a CAT previous-year question.",
+  "strict": false,
+  "calculator": true,
+  "instructions": [
+    "10 questions, 20 minutes, CAT marking: +3 right, -1 wrong multiple choice, 0 for a wrong type-in answer.",
+    "Type-in answers take a number only: no %, ₹ or units. Use a decimal, not a fraction."
+  ],
+  "sections": [
+    {
+      "name": "Profit and loss",
+      "minutes": 20,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "text": "An article bought for ₹250 is sold for ₹300. What is the profit percentage?",
+          "options": [
+            "16.67%",
+            "25%",
+            "15%",
+            "20%"
+          ]
+        },
+        {
+          "id": "q2",
+          "type": "tita",
+          "text": "An article is sold for ₹990 at a loss of 10%. What was its cost price (in ₹)?"
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "text": "The marked price of a shirt is ₹800 and the shop gives a 15% discount. What is the selling price?",
+          "options": [
+            "₹690",
+            "₹680",
+            "₹700",
+            "₹785"
+          ]
+        },
+        {
+          "id": "q4",
+          "type": "tita",
+          "text": "A trader marks his goods 40% above cost price and then allows a 10% discount. What is his profit percentage?"
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "text": "A jacket has a marked price of ₹1,500. Two successive discounts of 20% and 10% are given. What is the selling price?",
+          "options": [
+            "₹1,050",
+            "₹1,120",
+            "₹1,080",
+            "₹1,200"
+          ]
+        },
+        {
+          "id": "q6",
+          "type": "tita",
+          "text": "A shopkeeper sells an article at a profit of 12%. Had he sold it for ₹24 more, his profit would have been 20%. What is the cost price (in ₹)?"
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "text": "By what percentage above cost price must a shopkeeper mark an article so that, after allowing a 20% discount, he still makes a profit of 20%?",
+          "options": [
+            "60%",
+            "50%",
+            "44%",
+            "40%"
+          ]
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "text": "A dealer sells two articles for ₹1,200 each. On one he makes a profit of 20% and on the other a loss of 20%. His overall result is",
+          "options": [
+            "No profit, no loss",
+            "Loss of 4%",
+            "Loss of 2%",
+            "Profit of 4%"
+          ]
+        },
+        {
+          "id": "q9",
+          "type": "mcq",
+          "text": "A shopkeeper sells at 10% above his cost price per kg but gives only 900 g when a customer pays for 1 kg. What is his actual profit percentage?",
+          "options": [
+            "10%",
+            "20%",
+            "21.11%",
+            "22.22%"
+          ]
+        },
+        {
+          "id": "q10",
+          "type": "tita",
+          "text": "A trader buys 50 kg of rice at ₹40 per kg. During storage 20% of the rice is spoiled and cannot be sold. At what price per kg (in ₹) must he sell the rest to make an overall profit of 17.5%?"
+        }
+      ]
+    }
+  ]
+}

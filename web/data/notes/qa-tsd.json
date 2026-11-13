@@ -1,0 +1,47 @@
+{
+ "topic": "qa-tsd",
+ "title": "Speed, time and distance",
+ "blocks": [
+  {
+   "heading": "Basics and units",
+   "lines": [
+    "Distance = speed × time. Make the units match first.",
+    "km/h to m/s: multiply by 5/18. Example: 72 km/h = 20 m/s.",
+    "m/s to km/h: multiply by 18/5. Example: 15 m/s = 54 km/h."
+   ]
+  },
+  {
+   "heading": "Average speed",
+   "lines": [
+    "Average speed = total distance ÷ total time.",
+    "It is not the mean of the two speeds.",
+    "Equal distances at a and b: 2ab ÷ (a + b). Example: 30 and 60 give 40."
+   ]
+  },
+  {
+   "heading": "Relative speed",
+   "lines": [
+    "Opposite directions: add the speeds. Same direction: subtract.",
+    "Meeting or overtaking time = gap ÷ relative speed.",
+    "Example: 14 and 16 km/h apart, 90 km gap: 90 ÷ 30 = 3 h."
+   ]
+  },
+  {
+   "heading": "Trains",
+   "lines": [
+    "Passing a pole or a person: distance = length of the train.",
+    "Passing a platform or another train: distance = sum of both lengths.",
+    "Example: 150 m past a pole in 10 s is 15 m/s = 54 km/h."
+   ]
+  },
+  {
+   "heading": "Boats and races",
+   "lines": [
+    "Downstream = boat + stream. Upstream = boat − stream.",
+    "Boat = (down + up) ÷ 2. Stream = (down − up) ÷ 2.",
+    "Example: down 6, up 4 gives boat 5, stream 1.",
+    "A beats B by 100 m in 1000 m: B runs 900 m while A runs 1000 m."
+   ]
+  }
+ ]
+}

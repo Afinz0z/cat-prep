@@ -1,0 +1,53 @@
+{
+  "id": "daily-2026-11-17",
+  "title": "Daily 5, Tue 17 Nov",
+  "kind": "daily",
+  "day": "2026-11-17",
+  "source": "original",
+  "sourceNote": "Original questions written for this group. None of them is a CAT previous-year question.",
+  "strict": false,
+  "calculator": true,
+  "instructions": [
+    "5 questions, 10 minutes, CAT marking: +3 right, -1 wrong multiple choice, 0 for a wrong type-in answer.",
+    "Everyone gets the same five. The ranking is by marks, then by time.",
+    "Type-in answers take a number only: no %, rupee sign or units."
+  ],
+  "sections": [
+    {
+      "name": "Daily 5",
+      "minutes": 10,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "tita",
+          "text": "An item is marked at ₹1,200 and sold at a 25% discount. Find the selling price (in ₹).",
+          "topic": "qa-profit-loss"
+        },
+        {
+          "id": "q2",
+          "type": "tita",
+          "text": "A man walks to the station at 6 km/h. If he walked at 5 km/h instead, he would take 12 minutes longer. How far is the station, in km?",
+          "topic": "qa-tsd"
+        },
+        {
+          "id": "q3",
+          "type": "tita",
+          "text": "The sum of two numbers is 50 and their difference is 14. What is the larger number?",
+          "topic": "qa-linear"
+        },
+        {
+          "id": "q4",
+          "type": "tita",
+          "text": "What is the largest integer x with 4x − 7 < 20?",
+          "topic": "qa-inequalities"
+        },
+        {
+          "id": "q5",
+          "type": "tita",
+          "text": "15 men finish a job in 24 days. How many days will 20 men take at the same rate?",
+          "topic": "qa-ratio"
+        }
+      ]
+    }
+  ]
+}
