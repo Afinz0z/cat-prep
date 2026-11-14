@@ -2,7 +2,7 @@
 // shaky connection, and opens the site when a notification is tapped.
 // Pages are fetched fresh when online and served from the cache when not.
 // Calls to the database are never cached.
-const CACHE = "cat-prep-v5";
+const CACHE = "cat-prep-v6";
 const FONTS = "cat-prep-fonts-v1";
 
 self.addEventListener("install", (event) => {
@@ -10,6 +10,7 @@ self.addEventListener("install", (event) => {
   event.waitUntil(caches.open(CACHE).then((c) => c.addAll([
     "./", "index.html", "test.html", "practice.html", "css/site.css", "css/test.css", "js/early.js", "js/ui.js", "js/db.js",
     "js/config.js", "js/reminders.js", "js/plan.js", "js/home.js", "js/test.js", "js/calculator.js", "data/plan.json",
+    "plan.html", "js/planpage.js", "js/roadmap.js", "js/percentile.js", "data/roadmap.json", "data/percentiles.json",
   ]).catch(() => {})));
 });
 

@@ -546,3 +546,34 @@ test("profiles and PINs", async () => {
   assert.deepEqual(await on1("cat_me", {}), { member: null });
   assert.deepEqual(await on2("cat_me", {}), { member: null });
 });
+
+test("roadmap steps cleared", async () => {
+  await rejects(asC("cat_roadmap", {}), /Pick your profile first/);
+  await rejects(asC("cat_roadmap_set", { p_step: "odd-one", p_cleared: true, p_how: "trust" }), /Pick your profile first/);
+  await rejects(asA("cat_roadmap_set", { p_step: "Odd One!", p_cleared: true, p_how: "trust" }), /Unknown step/);
+  await rejects(asA("cat_roadmap_set", { p_step: "odd-one", p_cleared: true, p_how: "magic" }), /cleared, and how/);
+  await rejects(asA("cat_roadmap_set", { p_step: "odd-one", p_cleared: null, p_how: "trust" }), /cleared, and how/);
+
+  const start = await asA("cat_roadmap", {});
+  assert.deepEqual(start.mine, {});
+  // Cleared out of order: step 3 before step 1.
+  await asA("cat_roadmap_set", { p_step: "summary", p_cleared: true, p_how: "check" });
+  const r = await asA("cat_roadmap_set", { p_step: "odd-one", p_cleared: true, p_how: "trust" });
+  assert.deepEqual(Object.keys(r.mine).sort(), ["odd-one", "summary"]);
+  assert.equal(r.mine.summary.how, "check");
+  assert.equal(r.mine["odd-one"].how, "trust");
+  const again = await asA("cat_roadmap_set", { p_step: "odd-one", p_cleared: true, p_how: "check" });
+  assert.equal(again.mine["odd-one"].how, "trust", "clearing twice keeps the first record");
+
+  const seen = await asB("cat_roadmap", {});
+  assert.deepEqual(seen.mine, {}, "each profile has its own steps");
+  const asha = seen.group.find((m) => m.name === "Asha");
+  assert.deepEqual(asha.steps, ["summary", "odd-one"]);
+  assert.equal(asha.me, false);
+  assert.equal(seen.group.find((m) => m.name === "Bilal").me, true);
+
+  const undone = await asA("cat_roadmap_set", { p_step: "odd-one", p_cleared: false, p_how: "trust" });
+  assert.deepEqual(Object.keys(undone.mine), ["summary"]);
+  assert.ok(JSON.stringify(await asA("cat_admin_export", {})).includes('"step_id":"summary"'), "the backup has cleared steps");
+  await db.query("delete from private.roadmap_cleared");
+});

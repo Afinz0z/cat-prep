@@ -9,7 +9,7 @@ import { chromium } from "playwright-core";
 const PORT = Number(process.env.SMOKE_PORT || 8799);
 const BASE = `http://127.0.0.1:${PORT}`;
 const PAGES = [
-  "index.html", "board.html", "board.html#history", "board.html#improve", "topics.html",
+  "index.html", "plan.html", "plan.html#ratio", "board.html", "board.html#history", "board.html#improve", "topics.html",
   "practice.html#tests", "practice.html#reviews", "practice.html#errors", "practice.html#cards", "practice.html#drills",
   "practice.html#rc", "practice.html#choice", "practice.html#search", "practice.html#bookmarks",
   "mocks.html", "chat.html", "you.html", "exam-day.html",

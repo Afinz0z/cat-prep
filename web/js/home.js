@@ -9,6 +9,7 @@ import {
   focusTodayMs, syncFocus,
 } from "./reminders.js";
 import { loadPlan, dayPlan, toMin, nowMin, isoDow, currentBlock, actualByBlock, blockMinutes, openComposed } from "./plan.js";
+import { loadRoadmap, nextStep, marksText, hoursText, SECTION } from "./roadmap.js";
 
 const main = document.getElementById("main");
 let me = null;
@@ -29,8 +30,10 @@ let sleepWeek = [];
 let lastCheckin = null;
 let room = [];
 let mocks = null;
+let roadmap = null;
 
 // ---- panels --------------------------------------------------------------------
+const nextPanel = el("section", { class: "panel next-up span-12", "aria-labelledby": "nextup-h", hidden: true });
 const noticePanel = el("section", { class: "panel alert span-12", "aria-labelledby": "notice-h", hidden: true });
 const introPanel = el("section", { class: "panel span-12", "aria-labelledby": "intro-h", hidden: true });
 const promisePanel = el("section", { class: "hero", "aria-labelledby": "promise-h" });
@@ -61,6 +64,40 @@ function daysLeft() {
     el("span", { class: "hero-label" },
       el("strong", {}, left === 0 ? "CAT is today" : left === 1 ? "day to CAT" : "days to CAT"),
       el("span", {}, "Sunday 29 November")));
+}
+
+// ---- next roadmap step ------------------------------------------------------------
+function renderNext() {
+  if (!roadmap || istToday() >= "2026-11-27") { nextPanel.hidden = true; return; }
+  nextPanel.hidden = false;
+  const s = nextStep(roadmap.states);
+  if (!s) {
+    fill(nextPanel, el("h2", { id: "nextup-h" }, "Every roadmap step is cleared"),
+      el("p", {}, "Keep them warm: review queue, mixed sets and timed sections."),
+      el("a", { href: "plan.html" }, "The plan"));
+    return;
+  }
+  const st = s.step;
+  const done = roadmap.states.filter((x) => x.cleared).length;
+  const checks = s.self ? [] : s.checks.filter((c) => !c.first);
+  fill(nextPanel,
+    el("p", { class: "next-where" }, `Next up: step ${st.n} of ${roadmap.states.length}, ${SECTION[st.section]}`),
+    el("h2", { id: "nextup-h", class: "next-title" }, st.title),
+    el("p", { class: "next-adds" }, `${marksText(st.low, st.high)} a paper, for about ${hoursText(st.hours)} of work.`),
+    el("div", { class: "row" },
+      st.learn.map((l, i) => el("a", { class: i === 0 ? "btn primary pill" : "btn pill", href: l.href }, l.label)),
+      checks.map((c, i) => el("a", { class: "btn pill", href: `test.html?id=${encodeURIComponent(c.id)}` }, checks.length > 1 ? `Check ${i + 1}` : "Take the check")),
+      el("a", { class: "btn small quiet", href: `plan.html#${st.id}` }, s.missed ? "Check missed: what to redo" : "The step on the Plan page")),
+    el("p", { class: "muted small" }, `${done} of ${roadmap.states.length} steps cleared.`));
+}
+
+async function loadNext() {
+  try {
+    roadmap = await loadRoadmap();
+  } catch {
+    roadmap = null;
+  }
+  renderNext();
 }
 
 // ---- notice and first visit ------------------------------------------------------
@@ -182,6 +219,7 @@ function renderPlan() {
       el("span", { class: "muted small" }, `${done} of ${dp.blocks.length} ticked`)),
     dp.taper ? el("p", { class: "notice" }, "The last 48 hours: no full paper and nothing new. Formula cards, the error log, light RC, and a full night's sleep.") : null,
     dp.paper ? el("p", {}, el("strong", {}, "Paper day. "), `${paperName(dp.paper)} at ${dp.paper.time}.`, n.varcOrder ? ` VARC order to try: ${n.varcOrder}.` : "", n.mixed ? ` ${n.mixed}.` : "") : null,
+    n.note ? el("p", { class: "day-note" }, n.note, " ", el("a", { href: "plan.html" }, "Open the plan")) : null,
     !dp.paper && (n.qa || n.dilr || n.varc) ? el("ul", { class: "day-notes" },
       n.qa ? el("li", {}, el("strong", {}, "QA: "), n.qa) : null,
       n.dilr ? el("li", {}, el("strong", {}, "DILR: "), n.dilr) : null,
@@ -354,7 +392,7 @@ function buddyLine() {
   return el("div", { class: "notice" },
     el("strong", {}, `Your buddy ${buddy.name}: `),
     `${buddy.ticks.length}${total ? ` of ${total}` : ""} blocks ticked, ${fmtMin(buddy.focusMin)} of focus today.`,
-    buddy.ticks.length && dp ? el("span", { class: "muted small" }, ` Done: ${dp.blocks.filter((b) => buddy.ticks.includes(b.id)).map((b) => b.title.split(/[,.:]/)[0]).join("; ")}.`) : null);
+    buddy.ticks.length && dp ? el("span", { class: "muted small" }, ` Done: ${[...new Set(dp.blocks.filter((b) => buddy.ticks.includes(b.id)).map((b) => b.title.split(/[,.:]/)[0]))].join("; ")}.`) : null);
 }
 
 // ---- practice -----------------------------------------------------------------------------
@@ -597,7 +635,7 @@ async function init() {
   fill(main,
     el("div", { class: "page-head" }, el("h1", {}, `Today, ${me.name}`),
       el("a", { href: "exam-day.html", class: "small" }, "Exam-day page")),
-    el("div", { class: "grid" }, promisePanel, noticePanel, introPanel, paperPanel, planPanel, timerPanel, groupPanel, practicePanel,
+    el("div", { class: "grid" }, nextPanel, promisePanel, noticePanel, introPanel, paperPanel, planPanel, timerPanel, groupPanel, practicePanel,
       checkinPanel, sleepPanel, weekPanel, tasksPanel));
   renderIntro();
   renderTimer();
@@ -608,6 +646,7 @@ async function init() {
     main.prepend(el("p", { class: "notice error" }, err.message));
   }
   loadPlanData();
+  loadNext();
   loadPromises();
   loadBoard();
   loadSide();

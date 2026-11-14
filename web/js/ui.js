@@ -209,6 +209,7 @@ export async function busy(button, fn) {
 // ---- header ------------------------------------------------------------------
 const NAV = [
   ["index.html", "Today"],
+  ["plan.html", "Plan"],
   ["board.html", "Board"],
   ["topics.html", "Topics"],
   ["practice.html", "Practice"],

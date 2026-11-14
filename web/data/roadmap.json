@@ -1,0 +1,678 @@
+{
+ "updated": "2026-11-14",
+ "before": "Before step 1, 20 minutes: CAT has three 40-minute sections in a fixed order (VARC, DILR, QA). A right answer is +3. A wrong MCQ is minus 1, and a wrong type-in answer costs nothing. So always answer the type-in questions, and guess an MCQ only when you're down to two options.",
+ "caps": {
+  "VARC": 24,
+  "DILR": 16,
+  "QA": 16
+ },
+ "assumptions": [
+  "Questions per paper are averages over the six slots of CAT 2024 and 2025. For QA, where Career Launcher and Cracku disagree, the smaller count sets the low end and the larger sets the high end.",
+  "Marking: +3 for a right answer, minus 1 for a wrong MCQ, nothing lost on a wrong type-in answer.",
+  "QA: once a chapter is cleared you attempt 50 to 80% of its questions and get 50 to 70% of those right. Geometry and number system run harder, so they count for less.",
+  "Reading comprehension: 2 or 3 passages at 40 to 50% right after the method step. The fourth passage only pays once three take under 28 minutes.",
+  "Verbal: odd sentence out 40 to 60% right, para summary 45 to 65%, para jumbles 25 to 45%, para completion 35 to 50%, using CAT 2025's two of each.",
+  "DILR: the first step gets you one set with 1 to 3 right. Later DILR steps make it likelier that one of the five sets is a type you know.",
+  "No section's top end goes above its 90th percentile score for Slot 2 (VARC 24, DILR 16, QA 16).",
+  "Hours are estimates from zero. They get revised from how long your first steps take.",
+  "Left out: P&C and probability, coordinate geometry, and functions with maxima and minima. Each is likely to add under one mark in the time left."
+ ],
+ "sources": [
+  {
+   "label": "Career Launcher, CAT 2024 slot analyses",
+   "url": "https://www.careerlauncher.com/cat/analysis-cut-off/2024/slot1"
+  },
+  {
+   "label": "Career Launcher, CAT 2025 slot analyses",
+   "url": "https://www.careerlauncher.com/cat/analysis-cut-off/2025/slot1"
+  },
+  {
+   "label": "Cracku, CAT quant topic weightage",
+   "url": "https://cracku.in/cat-quant-topic-wise-weightage"
+  },
+  {
+   "label": "IMS, CAT 2025 overall analysis",
+   "url": "https://www.imsindia.com/?p=14281"
+  },
+  {
+   "label": "InsideIIM, CAT 2025 full analysis and expected percentiles",
+   "url": "https://insideiim.com/cat-2025-full-exam-analysis-difficulty-level-section-insights-good-attempts-and-expected-scores-vs-percentiles"
+  }
+ ],
+ "goal": {
+  "overallPct": [
+   90,
+   92
+  ],
+  "overall": [
+   51,
+   57
+  ],
+  "sectionPct": 80,
+  "floors": {
+   "VARC": 17.5,
+   "DILR": 11.5,
+   "QA": 12.5
+  },
+  "slot": "Slot 2",
+  "sources": [
+   {
+    "label": "IIM Ahmedabad, shortlisting criteria for the 2026-28 PGP",
+    "url": "https://iima.ac.in/sites/default/files/2026-01/ShortlistingCriteria_PGP_2026-28_Jan%2009%2C%202026.pdf"
+   },
+   {
+    "label": "IIM Lucknow, admission policy for the 2026-28 batch",
+    "url": "https://www.iiml.ac.in/sites/default/files/upload/news/2143004504IIML%20Admission%20Policy%20Batch%202026-2028.pdf"
+   },
+   {
+    "label": "IIM Kozhikode, PGP admissions policy 2026-28",
+    "url": "https://iimk.ac.in/uploads/programsmenu/PGP%20Admissions%20Policy%2026-28_20251209102809.pdf"
+   }
+  ]
+ },
+ "papers": [
+  {
+   "day": "2026-11-18",
+   "paper": "cat-2024-s2",
+   "title": "CAT 2024 Slot 2",
+   "after": "dilr-first"
+  },
+  {
+   "day": "2026-11-21",
+   "paper": "cat-2025-s1",
+   "title": "CAT 2025 Slot 1",
+   "after": "rc-four"
+  },
+  {
+   "day": "2026-11-24",
+   "paper": "cat-2025-s2",
+   "title": "CAT 2025 Slot 2",
+   "after": "arrangements"
+  },
+  {
+   "day": "2026-11-26",
+   "paper": "cat-2025-s3",
+   "title": "CAT 2025 Slot 3",
+   "after": "equations"
+  }
+ ],
+ "line": {
+  "after": "equations",
+  "text": "The roadmap likely reaches about here by 23 to 25 Nov, at about four and a half hours of new work on each learning day."
+ },
+ "steps": [
+  {
+   "n": 1,
+   "id": "odd-one",
+   "section": "VARC",
+   "title": "Odd sentence out",
+   "hours": 1.5,
+   "low": 2.4,
+   "high": 3.6,
+   "runLow": 2.4,
+   "runHigh": 3.6,
+   "value": 2.0,
+   "topics": [
+    "varc-odd-one"
+   ],
+   "why": "Two type-in questions in every 2024 and 2025 paper. A wrong answer costs nothing, and the method takes an evening.",
+   "learn": [
+    {
+     "label": "Videos",
+     "href": "topics.html#varc-odd-one"
+    },
+    {
+     "label": "Practice set 1",
+     "href": "test.html?id=varc-odd-one-1"
+    }
+   ],
+   "check": {
+    "tests": [
+     "varc-odd-one-2"
+    ],
+    "target": 70
+   }
+  },
+  {
+   "n": 2,
+   "id": "rc-method",
+   "section": "VARC",
+   "title": "Reading comprehension: the method",
+   "hours": 5,
+   "low": 4.8,
+   "high": 12.0,
+   "runLow": 7.2,
+   "runHigh": 15.6,
+   "value": 1.68,
+   "topics": [
+    "varc-rc"
+   ],
+   "why": "16 of the 68 questions are reading comprehension, more than any other kind, and there are no formulas to learn first.",
+   "learn": [
+    {
+     "label": "Videos",
+     "href": "topics.html#varc-rc"
+    },
+    {
+     "label": "RC set 1",
+     "href": "test.html?id=varc-rc-1"
+    },
+    {
+     "label": "RC set 2",
+     "href": "test.html?id=varc-rc-2"
+    }
+   ],
+   "check": {
+    "tests": [
+     "varc-rc-3"
+    ],
+    "target": 70
+   }
+  },
+  {
+   "n": 3,
+   "id": "summary",
+   "section": "VARC",
+   "title": "Para summary",
+   "hours": 1.5,
+   "low": 1.6,
+   "high": 3.2,
+   "runLow": 8.8,
+   "runHigh": 18.8,
+   "value": 1.6,
+   "topics": [
+    "varc-summary"
+   ],
+   "why": "Two or three MCQs a paper that use the reading you just practised on RC.",
+   "learn": [
+    {
+     "label": "Videos",
+     "href": "topics.html#varc-summary"
+    },
+    {
+     "label": "Practice set 1",
+     "href": "test.html?id=varc-summary-1"
+    }
+   ],
+   "check": {
+    "tests": [
+     "varc-summary-2"
+    ],
+    "target": 70
+   }
+  },
+  {
+   "n": 4,
+   "id": "dilr-first",
+   "section": "DILR",
+   "title": "Your first DILR set: picking sets, tables and charts",
+   "hours": 5,
+   "low": 2.0,
+   "high": 8.0,
+   "runLow": 10.8,
+   "runHigh": 26.8,
+   "value": 1.0,
+   "topics": [
+    "dilr-selection",
+    "dilr-tables"
+   ],
+   "why": "Two or three of the five sets in a paper are tables, charts or graphs. Finishing one is worth more than starting all five.",
+   "learn": [
+    {
+     "label": "Picking a set in 5 minutes",
+     "href": "topics.html#dilr-selection"
+    },
+    {
+     "label": "Tables and charts",
+     "href": "topics.html#dilr-tables"
+    },
+    {
+     "label": "Fractions as percentages (15:40 to 28:05 in the first video)",
+     "href": "topics.html#qa-percentages"
+    },
+    {
+     "label": "Tables set 1",
+     "href": "test.html?id=dilr-tables-1"
+    }
+   ],
+   "check": {
+    "tests": [
+     "dilr-tables-2"
+    ],
+    "target": 60
+   }
+  },
+  {
+   "n": 5,
+   "id": "pj-completion",
+   "section": "VARC",
+   "title": "Para jumbles and para completion",
+   "hours": 3.5,
+   "low": 2.3,
+   "high": 4.7,
+   "runLow": 13.1,
+   "runHigh": 31.5,
+   "value": 1.0,
+   "topics": [
+    "varc-parajumbles",
+    "varc-completion"
+   ],
+   "why": "Each 2025 slot had two type-in para jumbles and two completion MCQs. Both come down to how sentences link.",
+   "learn": [
+    {
+     "label": "Para jumble videos",
+     "href": "topics.html#varc-parajumbles"
+    },
+    {
+     "label": "Para completion videos",
+     "href": "topics.html#varc-completion"
+    }
+   ],
+   "check": {
+    "self": "Ten para jumbles and completion questions from CAT 2021 to 2023 papers on Cracku, with 6 or more right. A site set for this step is on its way."
+   }
+  },
+  {
+   "n": 6,
+   "id": "rc-four",
+   "section": "VARC",
+   "title": "Reading comprehension: the fourth passage",
+   "hours": 3,
+   "low": 1.0,
+   "high": 4.0,
+   "runLow": 14.1,
+   "runHigh": 32.0,
+   "value": 0.83,
+   "topics": [
+    "varc-rc"
+   ],
+   "why": "Four more questions, but only once three passages take you under 28 minutes. Speed comes from timed practice, not new theory.",
+   "learn": [
+    {
+     "label": "Videos",
+     "href": "topics.html#varc-rc"
+    }
+   ],
+   "check": {
+    "self": "Four passages from one CAT 2021, 2022 or 2023 paper on Cracku in 36 minutes, with 8 or more of the 16 right."
+   }
+  },
+  {
+   "n": 7,
+   "id": "ratio",
+   "section": "QA",
+   "title": "Ratio, proportion, averages and mixtures",
+   "hours": 4.5,
+   "low": 1.8,
+   "high": 5.25,
+   "runLow": 15.9,
+   "runHigh": 37.25,
+   "value": 0.78,
+   "topics": [
+    "qa-ratio",
+    "qa-averages"
+   ],
+   "why": "Three or four questions a paper, and the base for speed, work and mixtures later.",
+   "learn": [
+    {
+     "label": "Ratio",
+     "href": "topics.html#qa-ratio"
+    },
+    {
+     "label": "Averages and mixtures",
+     "href": "topics.html#qa-averages"
+    },
+    {
+     "label": "Ratio set 1",
+     "href": "test.html?id=practice-qa-ratio"
+    },
+    {
+     "label": "Averages set 1",
+     "href": "test.html?id=practice-qa-averages"
+    }
+   ],
+   "check": {
+    "tests": [
+     "practice2-qa-ratio",
+     "practice2-qa-averages"
+    ],
+    "target": 60
+   }
+  },
+  {
+   "n": 8,
+   "id": "arrangements",
+   "section": "DILR",
+   "title": "Arrangements: linear, circular and grids",
+   "hours": 3.5,
+   "low": 1.0,
+   "high": 4.0,
+   "runLow": 16.9,
+   "runHigh": 41.25,
+   "value": 0.71,
+   "topics": [
+    "dilr-arrangements"
+   ],
+   "why": "About one set a paper in 2024 and 2025 was an arrangement, so it gives you a second set type to look for.",
+   "learn": [
+    {
+     "label": "Videos and notes",
+     "href": "topics.html#dilr-arrangements"
+    },
+    {
+     "label": "Arrangements set 1",
+     "href": "test.html?id=dilr-arrangements-1"
+    }
+   ],
+   "check": {
+    "tests": [
+     "dilr-arrangements-2"
+    ],
+    "target": 60
+   }
+  },
+  {
+   "n": 9,
+   "id": "equations",
+   "section": "QA",
+   "title": "Linear equations, quadratics and inequalities",
+   "hours": 6,
+   "low": 1.6,
+   "high": 6.0,
+   "runLow": 18.5,
+   "runHigh": 47.25,
+   "value": 0.63,
+   "topics": [
+    "qa-linear",
+    "qa-quadratic",
+    "qa-inequalities"
+   ],
+   "why": "Three or four questions a paper, most of them word problems that turn into one equation.",
+   "learn": [
+    {
+     "label": "Linear equations",
+     "href": "topics.html#qa-linear"
+    },
+    {
+     "label": "Quadratics",
+     "href": "topics.html#qa-quadratic"
+    },
+    {
+     "label": "Inequalities",
+     "href": "topics.html#qa-inequalities"
+    },
+    {
+     "label": "Linear set 1",
+     "href": "test.html?id=practice-qa-linear"
+    },
+    {
+     "label": "Quadratics set 1",
+     "href": "test.html?id=practice-qa-quadratic"
+    },
+    {
+     "label": "Inequalities set 1",
+     "href": "test.html?id=practice-qa-inequalities"
+    }
+   ],
+   "check": {
+    "tests": [
+     "practice2-qa-linear",
+     "practice2-qa-quadratic",
+     "practice2-qa-inequalities"
+    ],
+    "target": 60
+   }
+  },
+  {
+   "n": 10,
+   "id": "logs",
+   "section": "QA",
+   "title": "Logs, indices and progressions",
+   "hours": 5,
+   "low": 1.3,
+   "high": 4.75,
+   "runLow": 19.8,
+   "runHigh": 52.0,
+   "value": 0.6,
+   "topics": [
+    "qa-logs",
+    "qa-progressions"
+   ],
+   "why": "Two or three questions a paper, mostly rules you can learn in a sitting.",
+   "learn": [
+    {
+     "label": "Logs and indices",
+     "href": "topics.html#qa-logs"
+    },
+    {
+     "label": "Progressions",
+     "href": "topics.html#qa-progressions"
+    }
+   ],
+   "check": {
+    "self": "Ten log, index and progression questions from CAT 2021 to 2023 papers on Cracku, with 6 or more right. A site set for this step is on its way."
+   }
+  },
+  {
+   "n": 11,
+   "id": "tsd",
+   "section": "QA",
+   "title": "Speed, distance, time and work",
+   "hours": 4.5,
+   "low": 1.4,
+   "high": 3.5,
+   "runLow": 21.2,
+   "runHigh": 52.0,
+   "value": 0.54,
+   "topics": [
+    "qa-tsd",
+    "qa-work"
+   ],
+   "why": "About two questions a paper, nearly always one of each.",
+   "learn": [
+    {
+     "label": "Speed, time, distance",
+     "href": "topics.html#qa-tsd"
+    },
+    {
+     "label": "Time and work",
+     "href": "topics.html#qa-work"
+    },
+    {
+     "label": "Speed set 1",
+     "href": "test.html?id=practice-qa-tsd"
+    },
+    {
+     "label": "Work set 1",
+     "href": "test.html?id=practice-qa-work"
+    }
+   ],
+   "check": {
+    "tests": [
+     "practice2-qa-tsd",
+     "practice2-qa-work"
+    ],
+    "target": 60
+   }
+  },
+  {
+   "n": 12,
+   "id": "venn",
+   "section": "DILR",
+   "title": "Venn diagrams, grouping and distribution",
+   "hours": 4.5,
+   "low": 1.0,
+   "high": 3.0,
+   "runLow": 22.2,
+   "runHigh": 55.0,
+   "value": 0.44,
+   "topics": [
+    "dilr-venn",
+    "dilr-grouping"
+   ],
+   "why": "Set-theory sets came up in two of the six slots, and grouping sets in others. Another type to look for.",
+   "learn": [
+    {
+     "label": "Venn diagrams",
+     "href": "topics.html#dilr-venn"
+    },
+    {
+     "label": "Grouping",
+     "href": "topics.html#dilr-grouping"
+    },
+    {
+     "label": "Venn set 1",
+     "href": "test.html?id=dilr-venn-1"
+    },
+    {
+     "label": "Grouping set 1",
+     "href": "test.html?id=dilr-grouping-1"
+    }
+   ],
+   "check": {
+    "tests": [
+     "dilr-venn-2",
+     "dilr-grouping-2"
+    ],
+    "target": 60
+   }
+  },
+  {
+   "n": 13,
+   "id": "networks",
+   "section": "DILR",
+   "title": "Routes, networks, games and tournaments",
+   "hours": 4,
+   "low": 1.0,
+   "high": 2.0,
+   "runLow": 23.2,
+   "runHigh": 56,
+   "value": 0.38,
+   "topics": [
+    "dilr-routes",
+    "dilr-games"
+   ],
+   "why": "Networks came up three times in 2024 and tournaments once or twice. Worth it only once the earlier types are solid.",
+   "learn": [
+    {
+     "label": "Routes and networks",
+     "href": "topics.html#dilr-routes"
+    },
+    {
+     "label": "Games and tournaments",
+     "href": "topics.html#dilr-games"
+    }
+   ],
+   "check": {
+    "self": "One set of each type from a CAT 2021 to 2023 paper on Cracku, with 3 or more right in each."
+   }
+  },
+  {
+   "n": 14,
+   "id": "percent",
+   "section": "QA",
+   "title": "Percentages, profit and loss, interest",
+   "hours": 6,
+   "low": 1.3,
+   "high": 4.0,
+   "runLow": 24.5,
+   "runHigh": 56,
+   "value": 0.44,
+   "topics": [
+    "qa-percentages",
+    "qa-profit-loss",
+    "qa-interest"
+   ],
+   "why": "Two or three questions a paper. Percentages also make every DILR chart quicker.",
+   "learn": [
+    {
+     "label": "Percentages",
+     "href": "topics.html#qa-percentages"
+    },
+    {
+     "label": "Profit and loss",
+     "href": "topics.html#qa-profit-loss"
+    },
+    {
+     "label": "Interest",
+     "href": "topics.html#qa-interest"
+    },
+    {
+     "label": "Percentages set 1",
+     "href": "test.html?id=practice-qa-percentages"
+    },
+    {
+     "label": "Profit set 1",
+     "href": "test.html?id=practice-qa-profit-loss"
+    },
+    {
+     "label": "Interest set 1",
+     "href": "test.html?id=practice-qa-interest"
+    }
+   ],
+   "check": {
+    "tests": [
+     "practice2-qa-percentages",
+     "practice2-qa-profit-loss",
+     "practice2-qa-interest"
+    ],
+    "target": 60
+   }
+  },
+  {
+   "n": 15,
+   "id": "geometry",
+   "section": "QA",
+   "title": "Geometry and mensuration",
+   "hours": 6,
+   "low": 1.13,
+   "high": 3.17,
+   "runLow": 25.63,
+   "runHigh": 56,
+   "value": 0.36,
+   "topics": [
+    "qa-geometry",
+    "qa-mensuration"
+   ],
+   "why": "About three questions a paper, but a lot of formulas for a beginner, so it pays slowly.",
+   "learn": [
+    {
+     "label": "Triangles, circles, polygons",
+     "href": "topics.html#qa-geometry"
+    },
+    {
+     "label": "Mensuration",
+     "href": "topics.html#qa-mensuration"
+    }
+   ],
+   "check": {
+    "self": "Ten geometry questions from CAT 2021 to 2023 papers on Cracku, with 5 or more right."
+   }
+  },
+  {
+   "n": 16,
+   "id": "numbers",
+   "section": "QA",
+   "title": "Number system",
+   "hours": 5,
+   "low": 0.93,
+   "high": 2.5,
+   "runLow": 26.57,
+   "runHigh": 56,
+   "value": 0.34,
+   "topics": [
+    "qa-numbers"
+   ],
+   "why": "Two or three questions a paper, but CAT's number questions are tricky, so a beginner gets fewer of them.",
+   "learn": [
+    {
+     "label": "Videos",
+     "href": "topics.html#qa-numbers"
+    }
+   ],
+   "check": {
+    "self": "Ten number system questions from CAT 2021 to 2023 papers on Cracku, with 5 or more right."
+   }
+  }
+ ]
+}

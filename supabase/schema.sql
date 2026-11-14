@@ -265,6 +265,17 @@ create table if not exists private.topic_starts (
   primary key (user_id, topic_id)
 );
 
+-- Roadmap steps each person has cleared. Rows are keyed by step id, so moving a
+-- step in the roadmap keeps it cleared. "check" means the page saw the check set
+-- passed on the first attempt; "trust" means the person pressed Mark as cleared.
+create table if not exists private.roadmap_cleared (
+  user_id uuid not null references private.members (user_id) on delete cascade,
+  step_id text not null,
+  how text not null check (how in ('check', 'trust')),
+  at timestamptz not null default now(),
+  primary key (user_id, step_id)
+);
+
 -- Ticks on the blocks of Today's plan.
 create table if not exists private.plan_ticks (
   user_id uuid not null references private.members (user_id) on delete cascade,
@@ -2490,6 +2501,40 @@ language sql stable security definer set search_path = '' as $$
   where private.member() is not null
 $$;
 
+-- Your cleared roadmap steps, and the steps everyone in the group has cleared.
+create or replace function public.cat_roadmap() returns jsonb
+language sql stable security definer set search_path = '' as $$
+  select jsonb_build_object(
+    'mine', coalesce((select jsonb_object_agg(r.step_id, jsonb_build_object('how', r.how, 'at', r.at))
+      from private.roadmap_cleared r where r.user_id = private.member()), '{}'),
+    'group', coalesce((select jsonb_agg(jsonb_build_object('name', m.name, 'me', m.user_id = private.member(),
+      'steps', coalesce((select jsonb_agg(r.step_id order by r.at) from private.roadmap_cleared r
+        where r.user_id = m.user_id), '[]')) order by lower(m.name)) from private.members m), '[]'))
+$$;
+
+create or replace function public.cat_roadmap_set(p_step text, p_cleared boolean, p_how text) returns jsonb
+language plpgsql security definer set search_path = '' as $$
+declare
+  u uuid := private.member();
+begin
+  if coalesce(p_step, '') !~ '^[a-z0-9-]{2,40}$' then
+    raise exception 'Unknown step.';
+  end if;
+  if p_cleared is null or coalesce(p_how, '') not in ('check', 'trust') then
+    raise exception 'Say whether the step is cleared, and how.';
+  end if;
+  if p_cleared then
+    if (select count(*) from private.roadmap_cleared where user_id = u) >= 60 then
+      raise exception 'Too many cleared steps.';
+    end if;
+    insert into private.roadmap_cleared (user_id, step_id, how) values (u, p_step, p_how)
+    on conflict (user_id, step_id) do nothing;
+  else
+    delete from private.roadmap_cleared where user_id = u and step_id = p_step;
+  end if;
+  return public.cat_roadmap();
+end $$;
+
 -- How many times you've got each question type right, anywhere on the site.
 create or replace function public.cat_qtype_counts() returns jsonb
 language sql stable security definer set search_path = '' as $$
@@ -3105,6 +3150,7 @@ begin
     'topicStatus', (select coalesce(jsonb_agg(to_jsonb(x)), '[]') from private.topic_status x),
     'topicEvents', (select coalesce(jsonb_agg(to_jsonb(x)), '[]') from private.topic_events x),
     'topicStarts', (select coalesce(jsonb_agg(to_jsonb(x)), '[]') from private.topic_starts x),
+    'roadmap', (select coalesce(jsonb_agg(to_jsonb(x)), '[]') from private.roadmap_cleared x),
     'videos', (select coalesce(jsonb_agg(to_jsonb(x)), '[]') from private.videos_watched x),
     'chat', (select coalesce(jsonb_agg(to_jsonb(x)), '[]') from private.chat x),
     'posts', (select coalesce(jsonb_agg(to_jsonb(x)), '[]') from private.posts x),
