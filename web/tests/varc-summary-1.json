@@ -1,0 +1,78 @@
+{
+  "id": "varc-summary-1",
+  "title": "Para summary: set 1",
+  "topic": "varc-summary",
+  "kind": "practice",
+  "source": "public-domain",
+  "sourceNote": "Passages adapted from public-domain works: John Stuart Mill, On Liberty (1859); Ralph Waldo Emerson, \"Self-Reliance\" in Essays: First Series (1841); Thomas Henry Huxley, \"A Liberal Education; and Where to Find It\" in Lay Sermons, Addresses and Reviews (1870); Walter Bagehot, Physics and Politics (1872); Thorstein Veblen, The Theory of the Leisure Class (1899).",
+  "strict": false,
+  "calculator": false,
+  "instructions": [
+    "5 questions, 12 minutes. CAT marking: +3 right, -1 wrong multiple choice, 0 for a wrong type-in answer.",
+    "All five are multiple choice, so each wrong answer costs a mark. Skip a question if you are only guessing.",
+    "Allow about two minutes for each passage. The passages are older English prose, lightly adapted."
+  ],
+  "sections": [
+    {
+      "name": "VARC",
+      "minutes": 12,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "text": "Like other tyrannies, the tyranny of the majority was at first, and is still vulgarly, held in dread, chiefly as operating through the acts of the public authorities. But reflecting persons perceived that when society is itself the tyrant, its means of tyrannising are not restricted to the acts which it may do by the hands of its political functionaries. Society can and does execute its own mandates: and if it issues wrong mandates instead of right, it practises a social tyranny more formidable than many kinds of political oppression, since, though not usually upheld by such extreme penalties, it leaves fewer means of escape, penetrating much more deeply into the details of life, and enslaving the soul itself. Protection, therefore, against the tyranny of the magistrate is not enough: there needs protection also against the tyranny of the prevailing opinion and feeling.\n\nChoose the option that best captures the essence of the passage.",
+          "options": [
+            "Social pressure is harder to escape than legal punishment, even though its penalties are usually milder.",
+            "Since public opinion oppresses people more than any government does, laws that restrain officials are no longer needed.",
+            "A majority can oppress people through social opinion as well as through government, and since social pressure reaches deeper into private life, people need protection from both.",
+            "Every kind of power, whether held by kings, officials or majorities, tends to turn into tyranny over time."
+          ]
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "text": "There is a time in every man's education when he arrives at the conviction that envy is ignorance; that imitation is suicide; that he must take himself for better, for worse, as his portion; that though the wide universe is full of good, no kernel of nourishing corn can come to him but through his toil bestowed on that plot of ground which is given to him to till. The power which resides in him is new in nature, and none but he knows what that is which he can do, nor does he know until he has tried. We but half express ourselves, and are ashamed of that divine idea which each of us represents. A man is relieved and gay when he has put his heart into his work and done his best; but what he has said or done otherwise shall give him no peace.\n\nChoose the option that best captures the essence of the passage.",
+          "options": [
+            "Each person has a power of his own that he can discover only by trying and use only through his own effort; envy and imitation waste it, and only wholehearted work brings peace.",
+            "People who put their heart into their work feel relieved and cheerful afterwards.",
+            "Because each person's gifts are different, society should reward people according to their individual talents.",
+            "A person should accept his limits and stop looking for powers he does not have."
+          ]
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "text": "Suppose it were perfectly certain that the life and fortune of every one of us would, one day or other, depend upon his winning or losing a game at chess. Don't you think that we should all consider it to be a primary duty to learn at least the names and the moves of the pieces? Yet the life, the fortune, and the happiness of every one of us do depend upon our knowing something of the rules of a game infinitely more difficult and complicated than chess. The chess-board is the world, the rules of the game are what we call the laws of Nature. The player on the other side is hidden from us. We know that his play is always fair, just, and patient. But also we know, to our cost, that he never overlooks a mistake, or makes the smallest allowance for ignorance.\n\nChoose the option that best captures the essence of the passage.",
+          "options": [
+            "The laws of nature are fair and patient, but they make no allowance for mistakes.",
+            "Life is a game of chance, so a person's fortune depends more on luck than on knowledge.",
+            "Chess should be taught in every school because it trains the mind to deal with the laws of nature.",
+            "Since our welfare depends on the laws of nature, which are applied fairly but never excuse ignorance, learning those laws is a basic duty for everyone."
+          ]
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "text": "A government by discussion, if it can be borne, at once breaks down the yoke of fixed custom. The mere putting up of a subject to discussion is a clear admission that that subject is in no degree settled by established rule, and that men are free to choose in it. It is an admission too that there is no sacred authority, no one transcendent and divinely appointed man whom in that matter the community is bound to obey. And if a single subject or group of subjects be once admitted to discussion, before long the habit of discussion comes to be established, the sacred charm of use and wont to be dissolved. Once effectually submit a subject to that ordeal, and you can never withdraw it again; it remains for ever open to free choice, and exposed to profane deliberation.\n\nChoose the option that best captures the essence of the passage.",
+          "options": [
+            "Putting a subject to discussion admits that no divinely appointed ruler must be obeyed on it.",
+            "Opening a question to discussion admits that no custom or authority settles it, and the habit spreads until fixed custom loses its hold for good.",
+            "Government by discussion is hard to bear, so most societies sooner or later return to fixed custom.",
+            "Free societies are always more stable than societies governed by custom."
+          ]
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "text": "Conspicuous consumption of valuable goods is a means of reputability to the gentleman of leisure. As wealth accumulates on his hands, his own unaided effort will not avail to sufficiently put his opulence in evidence by this method. The aid of friends and competitors is therefore brought in by resorting to the giving of valuable presents and expensive feasts and entertainments. Costly entertainments, such as the potlatch or the ball, are peculiarly adapted to serve this end. The competitor with whom the entertainer wishes to institute a comparison is, by this method, made to serve as a means to the end. He consumes vicariously for his host at the same time that he is witness to the consumption of that excess of good things which his host is unable to dispose of single-handed.\n\nChoose the option that best captures the essence of the passage.",
+          "options": [
+            "Guests at costly entertainments eat and drink more than their hosts could manage alone.",
+            "Gifts and feasts arose because the rich wished to share their surplus generously with their rivals.",
+            "When a rich man has more wealth than he can display through his own spending, he uses gifts and lavish entertainments, so that his guests both consume for him and witness his wealth.",
+            "All spending in modern society is driven by the wish to be admired by others."
+          ]
+        }
+      ]
+    }
+  ]
+}

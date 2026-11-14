@@ -1,108 +1,118 @@
 {
- "id": "practice-qa-inequalities",
- "title": "Inequalities and modulus: practice set",
- "topic": "qa-inequalities",
- "kind": "practice",
- "source": "original",
- "sourceNote": "Original practice questions written for this group. None of them is a CAT previous-year question.",
- "strict": false,
- "calculator": true,
- "instructions": [
-  "10 questions, 20 minutes, CAT marking: +3 right, -1 wrong multiple choice, 0 for a wrong type-in answer.",
-  "Type-in answers take a number only: no %, ₹ or units. Use a decimal, not a fraction."
- ],
- "sections": [
-  {
-   "name": "Inequalities and modulus",
-   "minutes": 20,
-   "questions": [
+  "id": "practice-qa-inequalities",
+  "title": "Inequalities and modulus: practice set",
+  "topic": "qa-inequalities",
+  "kind": "practice",
+  "source": "original",
+  "sourceNote": "Original practice questions written for this group. None of them is a CAT previous-year question.",
+  "strict": false,
+  "calculator": true,
+  "instructions": [
+    "10 questions, 20 minutes, CAT marking: +3 right, -1 wrong multiple choice, 0 for a wrong type-in answer.",
+    "Type-in answers take a number only: no %, ₹ or units. Use a decimal, not a fraction."
+  ],
+  "sections": [
     {
-     "id": "q1",
-     "type": "mcq",
-     "text": "Solve 3x − 5 < 10.",
-     "options": [
-      "x < 3",
-      "x < 5",
-      "x > 5",
-      "x < 15"
-     ]
-    },
-    {
-     "id": "q2",
-     "type": "mcq",
-     "text": "Solve −2x ≥ 8.",
-     "options": [
-      "x ≥ −4",
-      "x ≥ 4",
-      "x ≤ 4",
-      "x ≤ −4"
-     ]
-    },
-    {
-     "id": "q3",
-     "type": "tita",
-     "text": "How many integers x satisfy |x − 3| < 4?"
-    },
-    {
-     "id": "q4",
-     "type": "mcq",
-     "text": "Which set of x satisfies (x − 2)(x + 3) < 0?",
-     "options": [
-      "x < −3 or x > 2",
-      "−2 < x < 3",
-      "x < 2",
-      "−3 < x < 2"
-     ]
-    },
-    {
-     "id": "q5",
-     "type": "tita",
-     "text": "How many integers x satisfy x² − 4x − 12 ≤ 0?"
-    },
-    {
-     "id": "q6",
-     "type": "mcq",
-     "text": "What is the least possible value of |x − 2| + |x − 9| for real x?",
-     "options": [
-      "0",
-      "5",
-      "7",
-      "11"
-     ]
-    },
-    {
-     "id": "q7",
-     "type": "mcq",
-     "text": "a and b are positive numbers with a + b = 10. What is the largest possible value of ab?",
-     "options": [
-      "24",
-      "25",
-      "20",
-      "30"
-     ]
-    },
-    {
-     "id": "q8",
-     "type": "tita",
-     "text": "What is the sum of all integers x satisfying |2x − 5| ≤ 7?"
-    },
-    {
-     "id": "q9",
-     "type": "tita",
-     "text": "How many integers x satisfy |x − 1| + |x − 5| ≤ 10?"
-    },
-    {
-     "id": "q10",
-     "type": "mcq",
-     "text": "For x > 0, what is the minimum value of 4x + 9/x?",
-     "options": [
-      "6",
-      "13",
-      "12",
-      "24"
-     ]
+      "name": "Inequalities and modulus",
+      "minutes": 20,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "qtype": "linear-inequalities",
+          "text": "Solve 3x − 5 < 10.",
+          "options": [
+            "x < 3",
+            "x < 5",
+            "x > 5",
+            "x < 15"
+          ]
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "qtype": "linear-inequalities",
+          "text": "Solve −2x ≥ 8.",
+          "options": [
+            "x ≥ −4",
+            "x ≥ 4",
+            "x ≤ 4",
+            "x ≤ −4"
+          ]
+        },
+        {
+          "id": "q3",
+          "type": "tita",
+          "qtype": "modulus-inequalities",
+          "text": "How many integers x satisfy |x − 3| < 4?"
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "qtype": "quadratic-inequalities",
+          "text": "Which set of x satisfies (x − 2)(x + 3) < 0?",
+          "options": [
+            "x < −3 or x > 2",
+            "−2 < x < 3",
+            "x < 2",
+            "−3 < x < 2"
+          ]
+        },
+        {
+          "id": "q5",
+          "type": "tita",
+          "qtype": "quadratic-inequalities",
+          "text": "How many integers x satisfy x² − 4x − 12 ≤ 0?"
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "qtype": "sum-of-moduli",
+          "text": "What is the least possible value of |x − 2| + |x − 9| for real x?",
+          "options": [
+            "0",
+            "5",
+            "7",
+            "11"
+          ]
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "qtype": "am-gm",
+          "text": "a and b are positive numbers with a + b = 10. What is the largest possible value of ab?",
+          "options": [
+            "24",
+            "25",
+            "20",
+            "30"
+          ]
+        },
+        {
+          "id": "q8",
+          "type": "tita",
+          "qtype": "modulus-inequalities",
+          "text": "What is the sum of all integers x satisfying |2x − 5| ≤ 7?"
+        },
+        {
+          "id": "q9",
+          "type": "tita",
+          "qtype": "sum-of-moduli",
+          "text": "How many integers x satisfy |x − 1| + |x − 5| ≤ 10?"
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "qtype": "am-gm",
+          "text": "For x > 0, what is the minimum value of 4x + 9/x?",
+          "options": [
+            "6",
+            "13",
+            "12",
+            "24"
+          ]
+        }
+      ]
     }
-   ]
-  }
- ]
+  ]
 }

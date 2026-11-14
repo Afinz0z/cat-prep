@@ -1,0 +1,118 @@
+{
+  "id": "practice2-qa-averages",
+  "title": "Averages, mixtures and alligation: practice set 2",
+  "topic": "qa-averages",
+  "kind": "practice",
+  "source": "original",
+  "sourceNote": "Original practice questions written for this group. None of them is a CAT previous-year question.",
+  "strict": false,
+  "calculator": true,
+  "instructions": [
+    "10 questions, 20 minutes, CAT marking: +3 right, -1 wrong multiple choice, 0 for a wrong type-in answer.",
+    "Type-in answers take a number only: no %, ₹ or units. Use a decimal, not a fraction."
+  ],
+  "sections": [
+    {
+      "name": "Averages",
+      "minutes": 20,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "qtype": "basic-average",
+          "text": "The quiz marks of six students are 42, 38, 45, 40, 47 and 40. What is their average?",
+          "options": [
+            "41",
+            "40",
+            "50.4",
+            "42"
+          ]
+        },
+        {
+          "id": "q2",
+          "type": "tita",
+          "qtype": "change-in-members",
+          "text": "The average weight of the 19 players in a squad is 64 kg. When the coach is included, the average rises by 0.5 kg. What is the coach's weight in kg?"
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "qtype": "weighted-average",
+          "text": "In a company, 40 workers earn an average of ₹18,000 a month and 10 managers earn an average of ₹48,000 a month. What is the average monthly pay of all 50 employees?",
+          "options": [
+            "₹33,000",
+            "₹24,000",
+            "₹42,000",
+            "₹30,000"
+          ]
+        },
+        {
+          "id": "q4",
+          "type": "tita",
+          "qtype": "alligation",
+          "text": "How many kg of tea costing ₹320 per kg must be mixed with 30 kg of tea costing ₹450 per kg so that the mixture costs ₹400 per kg? Give the answer to two decimal places."
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "qtype": "change-in-members",
+          "text": "The average age of a 7-member committee is 46 years. A member aged 62 retires and a new member joins, and the average age falls to 43 years. How old is the new member?",
+          "options": [
+            "59",
+            "83",
+            "41",
+            "43"
+          ]
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "qtype": "alligation",
+          "text": "A 20% acid solution is mixed with a 50% acid solution to make 60 litres of a 30% acid solution. How many litres of the 50% solution are used?",
+          "options": [
+            "20",
+            "40",
+            "18",
+            "30"
+          ]
+        },
+        {
+          "id": "q7",
+          "type": "tita",
+          "qtype": "weighted-average",
+          "text": "The average score of a class is 72. The boys average 68 and the girls average 78. There are 12 more boys than girls. How many students are in the class?"
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "qtype": "repeated-replacement",
+          "text": "A cask holds 64 litres of pure milk. 16 litres are drawn out and replaced with water. This is done three times in all. How many litres of water are now in the cask?",
+          "options": [
+            "27",
+            "48",
+            "28",
+            "37"
+          ]
+        },
+        {
+          "id": "q9",
+          "type": "mcq",
+          "qtype": "alligation",
+          "text": "Alloy P has gold and copper in the ratio 2 : 3. Alloy Q has gold and copper in the ratio 7 : 3. How many kg of P must be melted with 12 kg of Q to get an alloy with equal amounts of gold and copper?",
+          "options": [
+            "6",
+            "24",
+            "12",
+            "48"
+          ]
+        },
+        {
+          "id": "q10",
+          "type": "tita",
+          "qtype": "weighted-average",
+          "text": "Sections A, B and C of a class have 30, 35 and 40 students. The average mark of sections A and B together is 62, of sections B and C together is 58, and of all three sections is 60. What is the average mark of section B? Give the answer to two decimal places."
+        }
+      ]
+    }
+  ]
+}

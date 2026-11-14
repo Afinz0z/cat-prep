@@ -1,0 +1,118 @@
+{
+  "id": "practice2-qa-inequalities",
+  "title": "Inequalities and modulus: practice set 2",
+  "topic": "qa-inequalities",
+  "kind": "practice",
+  "source": "original",
+  "sourceNote": "Original practice questions written for this group. None of them is a CAT previous-year question.",
+  "strict": false,
+  "calculator": true,
+  "instructions": [
+    "10 questions, 20 minutes, CAT marking: +3 right, -1 wrong multiple choice, 0 for a wrong type-in answer.",
+    "Type-in answers take a number only: no %, ₹ or units. Use a decimal, not a fraction."
+  ],
+  "sections": [
+    {
+      "name": "Inequalities and modulus",
+      "minutes": 20,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "qtype": "linear-inequalities",
+          "text": "Solve 5 − 2x > 11.",
+          "options": [
+            "x < −3",
+            "x > −3",
+            "x < 3",
+            "x > 3"
+          ]
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "qtype": "modulus-inequalities",
+          "text": "Which set of x satisfies |x + 2| ≤ 5?",
+          "options": [
+            "−3 ≤ x ≤ 7",
+            "x ≤ −7 or x ≥ 3",
+            "−7 ≤ x ≤ 3",
+            "−5 ≤ x ≤ 5"
+          ]
+        },
+        {
+          "id": "q3",
+          "type": "tita",
+          "qtype": "linear-inequalities",
+          "text": "How many integers x satisfy −3 ≤ 2x + 1 < 9?"
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "qtype": "quadratic-inequalities",
+          "text": "Which set of x satisfies x² − 2x − 15 > 0?",
+          "options": [
+            "−3 < x < 5",
+            "x < −3 or x > 5",
+            "x < −5 or x > 3",
+            "−5 < x < 3"
+          ]
+        },
+        {
+          "id": "q5",
+          "type": "tita",
+          "qtype": "modulus-inequalities",
+          "text": "How many integers x satisfy 2 < |x − 4| ≤ 6?"
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "qtype": "sum-of-moduli",
+          "text": "What is the least possible value of |x − 1| + |x − 4| + |x − 10| for real x?",
+          "options": [
+            "6",
+            "10",
+            "15",
+            "9"
+          ]
+        },
+        {
+          "id": "q7",
+          "type": "tita",
+          "qtype": "am-gm",
+          "text": "a and b are positive numbers with ab = 36. What is the least possible value of a + 4b?"
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "qtype": "quadratic-inequalities",
+          "text": "Which set of x satisfies (x − 3)/(x + 2) ≤ 0?",
+          "options": [
+            "−2 ≤ x ≤ 3",
+            "−2 < x ≤ 3",
+            "x < −2 or x ≥ 3",
+            "−2 < x < 3"
+          ]
+        },
+        {
+          "id": "q9",
+          "type": "tita",
+          "qtype": "sum-of-moduli",
+          "text": "How many integers x satisfy |x − 2| + |x − 5| + |x − 9| ≤ 15?"
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "qtype": "am-gm",
+          "text": "x and y are positive numbers with x + y = 12. What is the largest possible value of x²y?",
+          "options": [
+            "64",
+            "216",
+            "243",
+            "256"
+          ]
+        }
+      ]
+    }
+  ]
+}

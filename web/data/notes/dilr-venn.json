@@ -1,0 +1,46 @@
+{
+  "topic": "dilr-venn",
+  "title": "Venn diagrams",
+  "blocks": [
+    {
+      "heading": "Draw it",
+      "lines": [
+        "Two sets: four regions (only A, only B, both, neither).",
+        "Three sets: eight regions (three 'only', three 'exactly two', all three, none).",
+        "Fill the centre first, then the 'exactly two' regions, then the 'only' regions."
+      ]
+    },
+    {
+      "heading": "Formulas",
+      "lines": [
+        "Two sets: A or B = A + B - both.",
+        "Three sets: at least one = A + B + C - (AB + BC + CA) + all three, where AB counts everyone in both A and B.",
+        "A + B + C = exactly one + 2 × exactly two + 3 × all three.",
+        "Total = none + exactly one + exactly two + all three."
+      ]
+    },
+    {
+      "heading": "Read the wording",
+      "lines": [
+        "'Both A and B' usually includes people in all three. 'Only A and B' does not.",
+        "'At most one' includes the none group. 'At least two' includes all three."
+      ]
+    },
+    {
+      "heading": "Largest and smallest values",
+      "lines": [
+        "Write the region you want in terms of one or two free regions.",
+        "Push the free regions to their limits.",
+        "Then check that every region stays at zero or more, or above any stated minimum.",
+        "Fill the whole diagram for the extreme case to confirm it works."
+      ]
+    },
+    {
+      "heading": "Common traps",
+      "lines": [
+        "Using a 'both A and B' figure as 'exactly two' when it includes the centre.",
+        "Leaving out the none group when matching the total."
+      ]
+    }
+  ]
+}

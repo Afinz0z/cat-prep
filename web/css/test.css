@@ -15,7 +15,7 @@ body.exam {
   --x-panel-line: #bcd3ea;
   --x-btn: #ffffff;
   --x-btn-hover: #f0f3f6;
-  --x-btn-line: #a9b2bc;
+  --x-btn-line: #8a949e;
   --x-ans: #2e8540;
   --x-ans-line: #1f6330;
   --x-nans: #c9401c;
@@ -51,7 +51,7 @@ body.exam {
     --x-panel-line: #24405f;
     --x-btn: #1b2530;
     --x-btn-hover: #233040;
-    --x-btn-line: #3d4b5b;
+    --x-btn-line: #637387;
     --x-ans: #2f8a45;
     --x-ans-line: #4fae66;
     --x-nans: #c8462a;
@@ -80,7 +80,7 @@ body.exam {
   --x-panel-line: #24405f;
   --x-btn: #1b2530;
   --x-btn-hover: #233040;
-  --x-btn-line: #3d4b5b;
+  --x-btn-line: #637387;
   --x-ans: #2f8a45;
   --x-ans-line: #4fae66;
   --x-nans: #c8462a;
@@ -418,3 +418,14 @@ body.exam {
   .calc-close { padding: 6px 12px; }
   .options .option { padding: 10px 0; }
 }
+
+/* ---- added with the 100 ideas ---------------------------------------------------- */
+/* Two instruction pages, as in CAT: Previous on the left, the start button on the right. */
+.instr-nav { justify-content: space-between; margin-top: 18px; }
+.agree.declaration { border-left: 4px solid var(--x-blue); }
+.agree input { margin-right: 4px; }
+/* How sure: a quiet row under the answer, kept out of the CAT look. */
+.conf-chips { border: 0; border-top: 1px dashed var(--x-line); padding: 10px 0 0; margin: 16px 0 0; display: flex; flex-wrap: wrap; gap: 6px 18px; align-items: center; }
+.conf-chips legend { float: left; padding: 0; margin-right: 6px; font-size: 0.88rem; color: var(--x-soft); }
+.conf-chips label { display: inline-flex; gap: 6px; align-items: center; cursor: pointer; font-size: 0.92rem; }
+.cause-select { font-size: 0.86rem; max-width: 12em; }

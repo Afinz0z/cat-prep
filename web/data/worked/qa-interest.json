@@ -1,0 +1,56 @@
+{
+  "topic": "qa-interest",
+  "examples": [
+    {
+      "qtype": "simple-interest",
+      "title": "Simple interest",
+      "problem": "Find the simple interest on ₹12,000 at 9% per annum for 2.5 years.",
+      "steps": [
+        "One year's interest = 9% of 12,000 = 1,080.",
+        "For 2.5 years: 1,080 × 2.5 = 2,700."
+      ],
+      "answer": "₹2,700"
+    },
+    {
+      "qtype": "compound-interest",
+      "title": "Compound interest",
+      "problem": "Find the compound interest on ₹25,000 at 4% per annum for 2 years, compounded annually.",
+      "steps": [
+        "Amount = 25,000 × 1.04 × 1.04 = 25,000 × 1.0816 = 27,040.",
+        "CI = 27,040 - 25,000 = 2,040."
+      ],
+      "answer": "₹2,040"
+    },
+    {
+      "qtype": "compounding-periods",
+      "title": "Half-yearly and quarterly compounding",
+      "problem": "Find the compound interest on ₹20,000 for 1.5 years at 10% per annum, compounded half-yearly.",
+      "steps": [
+        "The half-yearly rate is 5%, and 1.5 years is 3 periods.",
+        "Amount = 20,000 × 1.05³ = 20,000 × 1.157625 = 23,152.50.",
+        "CI = 23,152.50 - 20,000 = 3,152.50."
+      ],
+      "answer": "₹3,152.50"
+    },
+    {
+      "qtype": "ci-vs-si",
+      "title": "Compound interest against simple interest",
+      "problem": "Find the difference between the compound interest (compounded annually) and the simple interest on ₹8,000 for 2 years at 15% per annum.",
+      "steps": [
+        "For 2 years, CI - SI = P × (R/100)².",
+        "8,000 × 0.15 × 0.15 = 180."
+      ],
+      "answer": "₹180"
+    },
+    {
+      "qtype": "instalments",
+      "title": "Equal instalments",
+      "problem": "A loan is repaid in two equal annual instalments of ₹6,615 at 5% per annum compound interest, the first at the end of year 1. How much was borrowed?",
+      "steps": [
+        "Bring each instalment back to today: 6,615 ÷ 1.05 = 6,300 and 6,615 ÷ 1.1025 = 6,000.",
+        "Loan = 6,300 + 6,000 = 12,300."
+      ],
+      "answer": "₹12,300"
+    }
+  ]
+}

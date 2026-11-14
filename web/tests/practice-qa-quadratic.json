@@ -1,108 +1,118 @@
 {
- "id": "practice-qa-quadratic",
- "title": "Quadratic equations: practice set",
- "topic": "qa-quadratic",
- "kind": "practice",
- "source": "original",
- "sourceNote": "Original practice questions written for this group. None of them is a CAT previous-year question.",
- "strict": false,
- "calculator": true,
- "instructions": [
-  "10 questions, 20 minutes, CAT marking: +3 right, -1 wrong multiple choice, 0 for a wrong type-in answer.",
-  "Type-in answers take a number only: no %, ₹ or units. Use a decimal, not a fraction."
- ],
- "sections": [
-  {
-   "name": "Quadratic equations",
-   "minutes": 20,
-   "questions": [
+  "id": "practice-qa-quadratic",
+  "title": "Quadratic equations: practice set",
+  "topic": "qa-quadratic",
+  "kind": "practice",
+  "source": "original",
+  "sourceNote": "Original practice questions written for this group. None of them is a CAT previous-year question.",
+  "strict": false,
+  "calculator": true,
+  "instructions": [
+    "10 questions, 20 minutes, CAT marking: +3 right, -1 wrong multiple choice, 0 for a wrong type-in answer.",
+    "Type-in answers take a number only: no %, ₹ or units. Use a decimal, not a fraction."
+  ],
+  "sections": [
     {
-     "id": "q1",
-     "type": "mcq",
-     "text": "Which of these is a root of x² − 5x − 14 = 0?",
-     "options": [
-      "−7",
-      "2",
-      "5",
-      "7"
-     ]
-    },
-    {
-     "id": "q2",
-     "type": "mcq",
-     "text": "What is the sum of the roots of 2x² − 9x + 4 = 0?",
-     "options": [
-      "4.5",
-      "−4.5",
-      "2",
-      "9"
-     ]
-    },
-    {
-     "id": "q3",
-     "type": "mcq",
-     "text": "What is the product of the roots of 3x² + 5x − 12 = 0?",
-     "options": [
-      "4",
-      "−12",
-      "−4",
-      "12"
-     ]
-    },
-    {
-     "id": "q4",
-     "type": "tita",
-     "text": "For what value of k does x² − 8x + k = 0 have two equal roots?"
-    },
-    {
-     "id": "q5",
-     "type": "mcq",
-     "text": "Which equation has roots 3 and −5?",
-     "options": [
-      "x² − 2x − 15 = 0",
-      "x² + 2x + 15 = 0",
-      "x² − 2x + 15 = 0",
-      "x² + 2x − 15 = 0"
-     ]
-    },
-    {
-     "id": "q6",
-     "type": "tita",
-     "text": "If α and β are the roots of x² − 5x + 3 = 0, find α² + β²."
-    },
-    {
-     "id": "q7",
-     "type": "mcq",
-     "text": "What is the minimum value of x² − 6x + 13 for real x?",
-     "options": [
-      "3",
-      "13",
-      "4",
-      "9"
-     ]
-    },
-    {
-     "id": "q8",
-     "type": "tita",
-     "text": "The length of a rectangle is 3 m more than its breadth, and its area is 70 square metres. What is its perimeter in metres?"
-    },
-    {
-     "id": "q9",
-     "type": "tita",
-     "text": "If α and β are the roots of x² − 6x + 4 = 0, find the value of α/β + β/α."
-    },
-    {
-     "id": "q10",
-     "type": "mcq",
-     "text": "For how many integer values of k does x² + kx + 16 = 0 have no real roots?",
-     "options": [
-      "7",
-      "14",
-      "15",
-      "16"
-     ]
+      "name": "Quadratic equations",
+      "minutes": 20,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "qtype": "solving-quadratics",
+          "text": "Which of these is a root of x² − 5x − 14 = 0?",
+          "options": [
+            "−7",
+            "2",
+            "5",
+            "7"
+          ]
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "qtype": "sum-and-product",
+          "text": "What is the sum of the roots of 2x² − 9x + 4 = 0?",
+          "options": [
+            "4.5",
+            "−4.5",
+            "2",
+            "9"
+          ]
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "qtype": "sum-and-product",
+          "text": "What is the product of the roots of 3x² + 5x − 12 = 0?",
+          "options": [
+            "4",
+            "−12",
+            "−4",
+            "12"
+          ]
+        },
+        {
+          "id": "q4",
+          "type": "tita",
+          "qtype": "discriminant",
+          "text": "For what value of k does x² − 8x + k = 0 have two equal roots?"
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "qtype": "sum-and-product",
+          "text": "Which equation has roots 3 and −5?",
+          "options": [
+            "x² − 2x − 15 = 0",
+            "x² + 2x + 15 = 0",
+            "x² − 2x + 15 = 0",
+            "x² + 2x − 15 = 0"
+          ]
+        },
+        {
+          "id": "q6",
+          "type": "tita",
+          "qtype": "root-identities",
+          "text": "If α and β are the roots of x² − 5x + 3 = 0, find α² + β²."
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "qtype": "maximum-minimum",
+          "text": "What is the minimum value of x² − 6x + 13 for real x?",
+          "options": [
+            "3",
+            "13",
+            "4",
+            "9"
+          ]
+        },
+        {
+          "id": "q8",
+          "type": "tita",
+          "qtype": "solving-quadratics",
+          "text": "The length of a rectangle is 3 m more than its breadth, and its area is 70 square metres. What is its perimeter in metres?"
+        },
+        {
+          "id": "q9",
+          "type": "tita",
+          "qtype": "root-identities",
+          "text": "If α and β are the roots of x² − 6x + 4 = 0, find the value of α/β + β/α."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "qtype": "discriminant",
+          "text": "For how many integer values of k does x² + kx + 16 = 0 have no real roots?",
+          "options": [
+            "7",
+            "14",
+            "15",
+            "16"
+          ]
+        }
+      ]
     }
-   ]
-  }
- ]
+  ]
 }

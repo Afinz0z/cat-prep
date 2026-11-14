@@ -1,0 +1,60 @@
+{
+  "topic": "qa-tsd",
+  "examples": [
+    {
+      "qtype": "speed-basics",
+      "title": "Speed, time and distance basics",
+      "problem": "Walking at 4 km/h, Sana reaches the bus stop 5 minutes after her bus has left. Walking at 5 km/h, she gets there 7 minutes before it leaves. How far is the bus stop from her home?",
+      "steps": [
+        "The two walking times differ by 5 + 7 = 12 minutes, which is 0.2 hours.",
+        "With the distance as d km, the times are d/4 and d/5 hours, so d/4 − d/5 = 0.2.",
+        "That gives d/20 = 0.2, so d = 4 km. Check: 60 minutes at 4 km/h and 48 minutes at 5 km/h differ by 12 minutes."
+      ],
+      "answer": "4 km"
+    },
+    {
+      "qtype": "average-speed",
+      "title": "Average speed",
+      "problem": "A delivery rider covers 20 km at 40 km/h and then 90 km at 60 km/h. What is the average speed for the whole trip?",
+      "steps": [
+        "Time for the first part = 20/40 = 0.5 hours.",
+        "Time for the second part = 90/60 = 1.5 hours.",
+        "Average speed = total distance ÷ total time = 110/2 = 55 km/h."
+      ],
+      "answer": "55 km/h"
+    },
+    {
+      "qtype": "relative-speed",
+      "title": "Relative speed",
+      "problem": "Two cyclists start at the same time from villages 52 km apart and ride towards each other at 12 km/h and 14 km/h. When and where do they meet?",
+      "steps": [
+        "Riding towards each other, they close the gap at 12 + 14 = 26 km/h.",
+        "Time to meet = 52/26 = 2 hours.",
+        "In that time the first cyclist rides 12 × 2 = 24 km."
+      ],
+      "answer": "After 2 hours, 24 km from the first cyclist's village"
+    },
+    {
+      "qtype": "trains-and-platforms",
+      "title": "Trains and platforms",
+      "problem": "A train 200 m long runs at 81 km/h. A man walks beside the track at 9 km/h, towards the train. How long does the train take to pass him?",
+      "steps": [
+        "They move towards each other, so the relative speed is 81 + 9 = 90 km/h.",
+        "90 × 5/18 = 25 m/s.",
+        "Passing a man means covering the train's own length: 200/25 = 8 seconds."
+      ],
+      "answer": "8 seconds"
+    },
+    {
+      "qtype": "boats-and-streams",
+      "title": "Boats and streams",
+      "problem": "A boat's speed in still water is 15 km/h. It goes 36 km downstream and comes back in 5 hours in all. What is the speed of the stream?",
+      "steps": [
+        "With stream speed s, the trip takes 36/(15 + s) + 36/(15 − s) = 5 hours.",
+        "Combining the fractions: 36 × 30/(225 − s²) = 5, so 225 − s² = 216.",
+        "So s² = 9 and s = 3 km/h. Check: 36/18 + 36/12 = 2 + 3 = 5 hours."
+      ],
+      "answer": "3 km/h"
+    }
+  ]
+}

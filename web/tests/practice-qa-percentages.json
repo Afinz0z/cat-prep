@@ -19,6 +19,7 @@
         {
           "id": "q1",
           "type": "mcq",
+          "qtype": "fraction-to-percent",
           "text": "What is 3/16 expressed as a percentage?",
           "options": [
             "1.88%",
@@ -30,11 +31,13 @@
         {
           "id": "q2",
           "type": "tita",
+          "qtype": "percent-of-quantity",
           "text": "Find the value of 35% of 240 plus 12% of 150."
         },
         {
           "id": "q3",
           "type": "mcq",
+          "qtype": "percent-change",
           "text": "The price of an article goes up from ₹400 to ₹470. What is the percentage increase?",
           "options": [
             "15%",
@@ -46,11 +49,13 @@
         {
           "id": "q4",
           "type": "tita",
+          "qtype": "percent-of-quantity",
           "text": "In a class, 60% of the students are girls. There are 28 boys. How many students are in the class?"
         },
         {
           "id": "q5",
           "type": "mcq",
+          "qtype": "percent-change",
           "text": "A is 25% more than B. B is what percent less than A?",
           "options": [
             "25%",
@@ -62,6 +67,7 @@
         {
           "id": "q6",
           "type": "mcq",
+          "qtype": "successive-change",
           "text": "The price of an article is increased by 20% and the new price is then reduced by 25%. The net change is a decrease of",
           "options": [
             "10%",
@@ -73,6 +79,7 @@
         {
           "id": "q7",
           "type": "mcq",
+          "qtype": "successive-change",
           "text": "The population of a town grew by 10% in the first year and by 20% in the second year. After two years it is 15,840. What was the population at the start?",
           "options": [
             "11,088",
@@ -84,11 +91,13 @@
         {
           "id": "q8",
           "type": "tita",
+          "qtype": "percent-change",
           "text": "A party's vote share rose from 40% to 46%. Let p be the rise in percentage points and r the percentage increase in its vote share. Find p + r."
         },
         {
           "id": "q9",
           "type": "mcq",
+          "qtype": "percent-overlap",
           "text": "In an exam, 80% of the candidates passed Quant, 70% passed Verbal, and 15% failed both. What percent passed both?",
           "options": [
             "65%",
@@ -100,6 +109,7 @@
         {
           "id": "q10",
           "type": "tita",
+          "qtype": "successive-change",
           "text": "The price of an article goes up 20%, then falls 25%, and then rises by r% so that it returns to the original price. Find r to two decimal places."
         }
       ]

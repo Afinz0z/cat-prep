@@ -1,0 +1,118 @@
+{
+  "id": "practice2-qa-ratio",
+  "title": "Ratio and proportion: practice set 2",
+  "topic": "qa-ratio",
+  "kind": "practice",
+  "source": "original",
+  "sourceNote": "Original practice questions written for this group. None of them is a CAT previous-year question.",
+  "strict": false,
+  "calculator": true,
+  "instructions": [
+    "10 questions, 20 minutes, CAT marking: +3 right, -1 wrong multiple choice, 0 for a wrong type-in answer.",
+    "Type-in answers take a number only: no %, ₹ or units. Use a decimal, not a fraction."
+  ],
+  "sections": [
+    {
+      "name": "Ratio",
+      "minutes": 20,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "qtype": "ratio-division",
+          "text": "₹2,250 is shared between Farhan and Gauri in the ratio 4 : 5. How much does Farhan get?",
+          "options": [
+            "₹1,250",
+            "₹562.50",
+            "₹1,000",
+            "₹1,800"
+          ]
+        },
+        {
+          "id": "q2",
+          "type": "tita",
+          "qtype": "ratio-division",
+          "text": "A sum of money is divided among three friends in the ratio 2 : 3 : 4. The largest share is ₹840 more than the smallest. What is the total sum (in ₹)?"
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "qtype": "variation",
+          "text": "A hostel has enough rice to feed 120 students for 25 days. If 30 more students arrive, how many days will the rice last?",
+          "options": [
+            "20",
+            "31.25",
+            "18.75",
+            "5"
+          ]
+        },
+        {
+          "id": "q4",
+          "type": "tita",
+          "qtype": "combining-ratios",
+          "text": "p : q = 3 : 4, q : r = 6 : 7 and r : s = 2 : 3. If p = 36, find s."
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "qtype": "ratio-equation",
+          "text": "Five years ago the ages of Iqbal and Jatin were in the ratio 3 : 4. Five years from now they will be in the ratio 5 : 6. What is Iqbal's present age (in years)?",
+          "options": [
+            "15",
+            "20",
+            "25",
+            "30"
+          ]
+        },
+        {
+          "id": "q6",
+          "type": "tita",
+          "qtype": "partnership",
+          "text": "Leela starts a business with ₹60,000. Four months later Mohan joins with ₹90,000. Two months after Mohan joins, Leela takes out ₹20,000. The profit at the end of the year is ₹55,000, shared in proportion to investment × time. What is Mohan's share (in ₹)?"
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "qtype": "combining-ratios",
+          "text": "x : y = 3 : 5 and y : z = 4 : 7. What is (2x + y) : (y + z)?",
+          "options": [
+            "1 : 1",
+            "11 : 12",
+            "44 : 35",
+            "4 : 5"
+          ]
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "qtype": "variation",
+          "text": "A taxi fare is a fixed charge plus a charge per km. A 10 km ride costs ₹230 and a 16 km ride costs ₹338. What does a 25 km ride cost?",
+          "options": [
+            "₹575",
+            "₹450",
+            "₹500",
+            "₹528.13"
+          ]
+        },
+        {
+          "id": "q9",
+          "type": "mcq",
+          "qtype": "ratio-equation",
+          "text": "The monthly incomes of Anil and Bala are in the ratio 4 : 3. Anil spends 80% of his income and Bala spends 70% of his. Bala saves ₹600 more than Anil each month. What is Anil's monthly income?",
+          "options": [
+            "₹24,000",
+            "₹18,000",
+            "₹4,800",
+            "₹6,000"
+          ]
+        },
+        {
+          "id": "q10",
+          "type": "tita",
+          "qtype": "ratio-division",
+          "text": "A sum of money is divided among A, B and C. A gets half as much as B and C together, and B gets one-third as much as A and C together. C gets ₹600 more than A. What is the total sum (in ₹)?"
+        }
+      ]
+    }
+  ]
+}

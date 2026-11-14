@@ -1,0 +1,118 @@
+{
+  "id": "practice2-qa-profit-loss",
+  "title": "Profit, loss and discount: practice set 2",
+  "topic": "qa-profit-loss",
+  "kind": "practice",
+  "source": "original",
+  "sourceNote": "Original practice questions written for this group. None of them is a CAT previous-year question.",
+  "strict": false,
+  "calculator": true,
+  "instructions": [
+    "10 questions, 20 minutes, CAT marking: +3 right, -1 wrong multiple choice, 0 for a wrong type-in answer.",
+    "Type-in answers take a number only: no %, ₹ or units. Use a decimal, not a fraction."
+  ],
+  "sections": [
+    {
+      "name": "Profit and loss",
+      "minutes": 20,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "qtype": "profit-basics",
+          "text": "A shopkeeper buys a lamp for ₹640 and sells it for ₹560. What is his loss percentage?",
+          "options": [
+            "14.29%",
+            "12.5%",
+            "87.5%",
+            "1.25%"
+          ]
+        },
+        {
+          "id": "q2",
+          "type": "tita",
+          "qtype": "profit-basics",
+          "text": "By selling a watch for ₹1,760 a trader gains 10%. At what price (in ₹) should he sell it to gain 25%?"
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "qtype": "markup-discount",
+          "text": "A fan is marked at ₹2,400 and sold at a discount of 12.5%. Its cost price is ₹1,750. What is the profit percentage?",
+          "options": [
+            "20%",
+            "16.67%",
+            "37.14%",
+            "24.64%"
+          ]
+        },
+        {
+          "id": "q4",
+          "type": "tita",
+          "qtype": "successive-discount",
+          "text": "Two successive discounts of 25% and 15% are equal to a single discount of what percent? Give the answer to two decimal places."
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "qtype": "markup-discount",
+          "text": "A retailer wants a profit of 17% after giving a 10% discount on the marked price. By what percent above the cost price must he mark his goods?",
+          "options": [
+            "27%",
+            "7%",
+            "28.7%",
+            "30%"
+          ]
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "qtype": "false-weight",
+          "text": "A grocer sells rice at 5% below his cost price, but uses a weight of 800 g in place of 1 kg. What is his actual profit percentage?",
+          "options": [
+            "15%",
+            "25%",
+            "18.75%",
+            "20%"
+          ]
+        },
+        {
+          "id": "q7",
+          "type": "tita",
+          "qtype": "combined-transactions",
+          "text": "A trader buys two phones for ₹35,000 in all. He sells one at a 15% profit and the other at a 10% loss, and overall he makes neither a profit nor a loss. What was the cost price of the phone sold at a loss (in ₹)?"
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "qtype": "profit-basics",
+          "text": "By selling 40 pens, a shopkeeper makes a profit equal to the selling price of 8 pens. What is his profit percentage?",
+          "options": [
+            "20%",
+            "16.67%",
+            "80%",
+            "25%"
+          ]
+        },
+        {
+          "id": "q9",
+          "type": "mcq",
+          "qtype": "combined-transactions",
+          "text": "A dealer buys 60 bags of flour at the same price. He sells half of them at a 20% profit, one-third of the rest at a 10% loss and the remaining bags at a 5% profit. What is his overall profit percentage?",
+          "options": [
+            "5%",
+            "7.5%",
+            "10%",
+            "15%"
+          ]
+        },
+        {
+          "id": "q10",
+          "type": "tita",
+          "qtype": "markup-discount",
+          "text": "A shopkeeper marks a television 50% above its cost price. In a sale he gives a 20% discount and also hands the buyer a free gift that costs him ₹1,200. He still makes a profit of 10% on the cost of the television. What is the marked price of the television (in ₹)?"
+        }
+      ]
+    }
+  ]
+}

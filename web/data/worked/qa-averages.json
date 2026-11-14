@@ -1,0 +1,58 @@
+{
+  "topic": "qa-averages",
+  "examples": [
+    {
+      "qtype": "basic-average",
+      "title": "Average by deviation",
+      "problem": "Find the average of 83, 79, 88, 76 and 84.",
+      "steps": [
+        "Take 80 as the guess.",
+        "The deviations are +3, -1, +8, -4 and +4, which add to +10.",
+        "Average = 80 + 10 ÷ 5 = 82."
+      ],
+      "answer": "82"
+    },
+    {
+      "qtype": "change-in-members",
+      "title": "Adding, removing or replacing a member",
+      "problem": "The average of 12 numbers is 25. When a 13th number is added, the average becomes 26. What is the 13th number?",
+      "steps": [
+        "Old total = 12 × 25 = 300.",
+        "New total = 13 × 26 = 338.",
+        "The 13th number = 338 - 300 = 38."
+      ],
+      "answer": "38"
+    },
+    {
+      "qtype": "weighted-average",
+      "title": "Weighted average",
+      "problem": "25 students have an average mark of 70 and 15 students have an average mark of 78. What is the average mark of all 40?",
+      "steps": [
+        "The weights are 25 : 15 = 5 : 3.",
+        "The average lies 3/8 of the way from 70 to 78: 3/8 × 8 = 3.",
+        "Average = 70 + 3 = 73."
+      ],
+      "answer": "73"
+    },
+    {
+      "qtype": "alligation",
+      "title": "Alligation",
+      "problem": "Wheat at ₹28 per kg is mixed with wheat at ₹36 per kg to get a mixture worth ₹31 per kg. In what ratio are they mixed?",
+      "steps": [
+        "Cheaper : dearer = (dearer - mean) : (mean - cheaper).",
+        "(36 - 31) : (31 - 28) = 5 : 3."
+      ],
+      "answer": "5 : 3 (cheaper : dearer)"
+    },
+    {
+      "qtype": "repeated-replacement",
+      "title": "Repeated replacement",
+      "problem": "A 27 litre jar is full of pure juice. 9 litres are taken out and replaced with water, and this is done once more. How much juice is left?",
+      "steps": [
+        "Each step keeps 1 - 9/27 = 2/3 of the juice.",
+        "After two steps: 27 × 2/3 × 2/3 = 12 litres."
+      ],
+      "answer": "12 litres"
+    }
+  ]
+}

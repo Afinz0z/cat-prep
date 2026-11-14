@@ -1,0 +1,67 @@
+{
+  "id": "dilr-grouping-2",
+  "title": "Grouping and selection: set 2",
+  "topic": "dilr-grouping",
+  "kind": "practice",
+  "difficulty": "hard",
+  "source": "original",
+  "sourceNote": "An original set written for this group. It is not a CAT previous-year set.",
+  "strict": false,
+  "calculator": true,
+  "instructions": [
+    "4 questions, 12 minutes.",
+    "CAT marking: +3 right, -1 wrong multiple choice, 0 for a wrong type-in answer.",
+    "Type-in answers take a number only: no %, ₹ or units. Use a decimal, not a fraction."
+  ],
+  "sections": [
+    {
+      "name": "DILR",
+      "minutes": 12,
+      "groups": [
+        {
+          "id": "g1",
+          "title": "Trainee project teams",
+          "text": "Nine trainees are split into three project teams, Red, Blue and Green, with three trainees in each team. Kiran, Lata and Mohan are coders. Neha, Om and Payal are designers. Qasim, Ritu and Suresh are analysts. Each team has one lead, chosen from its own members.\n\n1. Each team has exactly one coder.\n\n2. Payal is in the same team as Kiran.\n\n3. Om and Suresh are in the same team.\n\n4. Qasim is in Red.\n\n5. Lata's team has exactly one analyst.\n\n6. No designer is a lead. Exactly one of the three leads is an analyst.\n\n7. Neither Lata nor Suresh is a lead."
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "text": "Who leads the team that Om is in?",
+          "options": [
+            "Suresh",
+            "Mohan",
+            "Kiran",
+            "Qasim"
+          ],
+          "group": "g1"
+        },
+        {
+          "id": "q2",
+          "type": "tita",
+          "text": "In how many different ways can the three teams be formed and their leads chosen?",
+          "group": "g1"
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "text": "If Kiran is in Blue, who leads Red?",
+          "options": [
+            "Lata",
+            "Neha",
+            "Mohan",
+            "Qasim"
+          ],
+          "group": "g1"
+        },
+        {
+          "id": "q4",
+          "type": "tita",
+          "text": "How many of the nine trainees could be in Red in at least one valid arrangement?",
+          "group": "g1"
+        }
+      ]
+    }
+  ]
+}

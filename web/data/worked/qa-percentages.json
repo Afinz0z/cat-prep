@@ -1,0 +1,57 @@
+{
+  "topic": "qa-percentages",
+  "examples": [
+    {
+      "qtype": "fraction-to-percent",
+      "title": "Fraction to percentage",
+      "problem": "Express 9/40 as a percentage.",
+      "steps": [
+        "1/40 is a quarter of 1/10, so 1/40 = 10% ÷ 4 = 2.5%.",
+        "Multiply by the numerator: 9 × 2.5% = 22.5%."
+      ],
+      "answer": "22.5%"
+    },
+    {
+      "qtype": "percent-of-quantity",
+      "title": "Percentage of a quantity",
+      "problem": "A school has 1,250 students and 36% of them come by bus. Of the bus users, 40% are in the primary wing. How many primary-wing students come by bus?",
+      "steps": [
+        "Bus users = 36% of 1,250 = 450.",
+        "Primary-wing bus users = 40% of 450 = 180."
+      ],
+      "answer": "180"
+    },
+    {
+      "qtype": "percent-change",
+      "title": "Percentage change",
+      "problem": "A bike's mileage drops from 48 km per litre to 42 km per litre. What is the percentage fall?",
+      "steps": [
+        "The fall is 48 - 42 = 6 km per litre.",
+        "Divide by the starting value: 6 ÷ 48 = 0.125, so the fall is 12.5%."
+      ],
+      "answer": "12.5% fall"
+    },
+    {
+      "qtype": "successive-change",
+      "title": "Successive percentage changes",
+      "problem": "A price rises by 15% and then falls by 20%. What is the net change?",
+      "steps": [
+        "The multipliers are 1.15 and 0.8.",
+        "1.15 × 0.8 = 0.92, so the final price is 92% of the original.",
+        "Check with the shortcut: 15 - 20 + (15 × -20) ÷ 100 = -8."
+      ],
+      "answer": "8% fall"
+    },
+    {
+      "qtype": "percent-overlap",
+      "title": "Overlapping groups",
+      "problem": "Of 600 employees, 55% speak Hindi, 40% speak Tamil and 20% speak both. How many speak neither language?",
+      "steps": [
+        "At least one language = 55 + 40 - 20 = 75%.",
+        "Neither = 100 - 75 = 25%.",
+        "25% of 600 = 150."
+      ],
+      "answer": "150"
+    }
+  ]
+}

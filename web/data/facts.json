@@ -1,0 +1,117 @@
+{
+  "asOf": "2026-11-14",
+  "officialMock": {
+    "title": "The official CAT 2026 mock",
+    "when": "It is out now, free, with no registration.",
+    "note": "On iimcat.ac.in, open CAT 2026 Mock Test Link under Quick Tour, follow the link in the PDF, then click Sign In on the sample login screen. It runs 120 minutes, 40 a section, with questions from past CAT papers. Unlike the real exam it has a Submit button for each section.",
+    "link": "https://iimcat.ac.in",
+    "source": "https://g03.tcsion.com//per/g03/pub/726/EForms/image/ImageDocUpload/71161/8/1175320.pdf"
+  },
+  "iimsSource": "Each IIM's own admissions document where one was found; Careers360 or CollegeDekho where the row says so. Cutoffs are for the 2026 to 2028 intake (CAT 2025) unless the row says otherwise. Checked on 14 Nov 2026. Cutoffs change every year, so treat them as a guide.",
+  "iims": [
+    {
+      "name": "IIM Ahmedabad",
+      "overall": "95",
+      "sectional": "VARC 85, DILR 85, QA 85 (General, EWS)",
+      "catWeight": "Overall CAT score is 65% of the composite score for the AWT and PI shortlist; application rating is 35%",
+      "note": "2026-28 shortlisting criteria dated 9 Jan 2026 (1,308 called). The 2027-29 policy (Sep 2026) keeps 95 overall and 85 per section and uses the CAT total percentile for the 65% share.",
+      "link": "https://iima.ac.in/sites/default/files/2026-01/ShortlistingCriteria_PGP_2026-28_Jan%2009%2C%202026.pdf"
+    },
+    {
+      "name": "IIM Bangalore",
+      "overall": "85",
+      "sectional": "VARC 80, DILR 75, QA 75 (General, first shortlist)",
+      "catWeight": "CAT is 55 of 100 pre-PI points (VARC 19, DILR 21, QA 15)",
+      "note": "2026-28 admission procedure with CAT 2025 cut-offs; IIMB says the scores of those called were higher. The 2027-29 document is out with the same weights and still shows these 2026-28 cut-offs.",
+      "link": "https://www.iimb.ac.in/sites/default/files/inline-files/admissions-process-PGP-2026.pdf"
+    },
+    {
+      "name": "IIM Calcutta",
+      "overall": "85",
+      "sectional": "VARC 80, DILR 80, QA 75 (Open)",
+      "catWeight": "Total CAT scaled score is 56 of 85 points for the PI and WAT shortlist",
+      "note": "2027-29 policy (CAT 2026), which is what the official page now shows; CAT is 30 of 100 at final selection.",
+      "link": "https://iimcal.ac.in/programs/pgp/admission/admission-policy/admission-procedure-for-domestic-candidates"
+    },
+    {
+      "name": "IIM Lucknow",
+      "overall": "not found",
+      "sectional": "not found",
+      "catWeight": "Scaled CAT score is 60 of 100 composite points for the PI shortlist, per Careers360",
+      "note": "2026-28. IIM Lucknow's own policy document was not found on iiml.ac.in. Careers360 says CAT is 30% of final selection for the MBA; its cut-off table did not read cleanly, so no cut-off is given here.",
+      "link": "https://www.careers360.com/mba/articles/iim-lucknow-admission-criteria-2026-28-mba-pgp-abm-sm-selection-weightage-cat-2025-iim-call"
+    },
+    {
+      "name": "IIM Kozhikode",
+      "overall": "85",
+      "sectional": "75 in each section (General)",
+      "catWeight": "CAT index score (three sections, equal weight) is 50% of the Stage 2 shortlist score",
+      "note": "2026-28 policy; CAT is 35% of the final score.",
+      "link": "https://iimk.ac.in/uploads/programsmenu/PGP%20Admissions%20Policy%2026-28_20251209102809.pdf"
+    },
+    {
+      "name": "IIM Indore",
+      "overall": "90",
+      "sectional": "80 in each section (General), per CollegeDekho",
+      "catWeight": "CAT is 55 of 100 shortlist points, per CollegeDekho",
+      "note": "2026-28. The official procedure PDF on iimidr.ac.in now returns 404, so these figures come from CollegeDekho's summary of it.",
+      "link": "https://www.collegedekho.com/colleges/iim-indore/iim-indore-cat-cutoff-2026-article-86502"
+    },
+    {
+      "name": "IIM Shillong",
+      "overall": "not published (the table lists sectional minimums only)",
+      "sectional": "75 in each section (Others)",
+      "catWeight": "Total CAT percentile is 65% of the shortlist composite score; application rating is 35%",
+      "note": "2026-28 admission process; CAT 2025 score is 40% of the final overall score.",
+      "link": "https://www.iimshillong.ac.in/wp-content/uploads/2025/12/PGP-2026-28-Admission-Process.pdf"
+    },
+    {
+      "name": "IIM Udaipur",
+      "overall": "not found",
+      "sectional": "not found",
+      "catWeight": "not found (Careers360 calls CAT 2025 the primary shortlisting criterion but gives no weight)",
+      "note": "2026-28. IIM Udaipur's own policy was not found. Careers360 lists the cut-offs as TBA and says CAT is 55% of the final merit list.",
+      "link": "https://www.careers360.com/mba/articles/iim-udaipur-admission-criteria-2026-28-10th-12th-graduation-work-ex-weightage-cat-2025-cutoff-selection-criteria"
+    },
+    {
+      "name": "IIM Trichy",
+      "overall": "95.25",
+      "sectional": "75 in each section (GEN)",
+      "catWeight": "CAT percentile cut-offs decide the PI shortlist; CAT percentile is 52% of the final score",
+      "note": "2026-28 policy page. PIs run through JAP 2026, the joint process with IIM Kashipur, Raipur and Ranchi.",
+      "link": "https://www.iimtrichy.ac.in/en/pgpm-admin-criteria"
+    },
+    {
+      "name": "IIM Raipur",
+      "overall": "not found",
+      "sectional": "not found",
+      "catWeight": "PI shortlisting goes through JAP 2026 and the page gives no cut-offs; CAT 2025 index score is 50 of 150 final marks",
+      "note": "2026-28 policy page. The CAT index uses the three sectional percentiles and the overall percentile with equal weights.",
+      "link": "https://iimraipur.ac.in/admission-policy-4/"
+    },
+    {
+      "name": "IIM Ranchi",
+      "overall": "not found",
+      "sectional": "not found",
+      "catWeight": "not found",
+      "note": "IIM Ranchi's own policy was not found. IIM Raipur's 2026-28 page lists Ranchi as a JAP 2026 participant.",
+      "link": "https://iimraipur.ac.in/admission-policy-4/"
+    },
+    {
+      "name": "IIM Kashipur",
+      "overall": "95 (CAT 2024)",
+      "sectional": "75 in each section (General, CAT 2024 figures)",
+      "catWeight": "Sectional and overall percentile cut-offs decide the PI shortlist; CAT score is 41 of 100 in the final merit list",
+      "note": "The 2026-28 policy shows the CAT 2024 cut-offs used for the 2025-27 batch and says the 2026-28 cut-offs will follow JAP 2026 guidelines.",
+      "link": "https://www.iimkashipur.ac.in/admin/pdf/173372323875.pdf"
+    },
+    {
+      "name": "IIM Rohtak",
+      "overall": "97 (General, Stage 1 minimum, per Careers360)",
+      "sectional": "not found",
+      "catWeight": "Overall CAT percentile is a gate for the PI, per Careers360; CAT is 60% of final selection",
+      "note": "2026-28. IIM Rohtak's own policy was not found, so these are Careers360's figures and were not checked against the institute.",
+      "link": "https://www.careers360.com/mba/articles/iim-rohtak-admission-criteria-2026-released-selection-process-cat-2025-cutoff-pi-weightage-fees"
+    }
+  ]
+}

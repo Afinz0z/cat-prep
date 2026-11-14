@@ -1,0 +1,78 @@
+{
+  "id": "varc-rc-2",
+  "title": "Reading comprehension: passage 2",
+  "topic": "varc-rc",
+  "kind": "practice",
+  "source": "public-domain",
+  "sourceNote": "Passage adapted from a public-domain work: Henry David Thoreau, \"Resistance to Civil Government\", later titled On the Duty of Civil Disobedience (1849).",
+  "strict": false,
+  "calculator": false,
+  "instructions": [
+    "One passage, 4 questions, 10 minutes. CAT marking: +3 right, -1 wrong multiple choice, 0 for a wrong type-in answer.",
+    "Spend about four minutes reading, then a minute or so on each question. The passage stays on screen while you answer."
+  ],
+  "sections": [
+    {
+      "name": "VARC",
+      "minutes": 10,
+      "groups": [
+        {
+          "id": "g1",
+          "title": "Passage",
+          "text": "I heartily accept the motto, \"That government is best which governs least\"; and I should like to see it acted up to more rapidly and systematically. Carried out, it finally amounts to this, which also I believe: \"That government is best which governs not at all\"; and when men are prepared for it, that will be the kind of government which they will have. Government is at best but an expedient; but most governments are usually, and all governments are sometimes, inexpedient. The objections which have been brought against a standing army, and they are many and weighty, and deserve to prevail, may also at last be brought against a standing government. The standing army is only an arm of the standing government. The government itself, which is only the mode which the people have chosen to execute their will, is equally liable to be abused and perverted before the people can act through it. Witness the present Mexican war, the work of comparatively a few individuals using the standing government as their tool; for, in the outset, the people would not have consented to this measure.\n\nThis American government: what is it but a tradition, though a recent one, endeavoring to transmit itself unimpaired to posterity, but each instant losing some of its integrity? It has not the vitality and force of a single living man; for a single man can bend it to his will. It is excellent, we must all allow; yet this government never of itself furthered any enterprise, but by the alacrity with which it got out of its way. It does not keep the country free. It does not settle the West. It does not educate. The character inherent in the American people has done all that has been accomplished; and it would have done somewhat more, if the government had not sometimes got in its way.\n\nBut, to speak practically and as a citizen, unlike those who call themselves no-government men, I ask for, not at once no government, but at once a better government. Let every man make known what kind of government would command his respect, and that will be one step toward obtaining it.\n\nAfter all, the practical reason why, when the power is once in the hands of the people, a majority are permitted, and for a long period continue, to rule, is not because they are most likely to be in the right, nor because this seems fairest to the minority, but because they are physically the strongest. But a government in which the majority rule in all cases cannot be based on justice, even as far as men understand it. Can there not be a government in which majorities do not virtually decide right and wrong, but conscience? Must the citizen ever for a moment, or in the least degree, resign his conscience to the legislator? Why has every man a conscience, then? I think that we should be men first, and subjects afterward. It is not desirable to cultivate a respect for the law, so much as for the right. Law never made men a whit more just; and, by means of their respect for it, even the well-disposed are daily made the agents of injustice.",
+          "words": 540
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "group": "g1",
+          "text": "Which of the following best states the main point of the passage?",
+          "options": [
+            "Government should be abolished at once, since the people can manage their affairs without it.",
+            "The Mexican war shows that a small group can misuse a standing army against the wishes of the people.",
+            "Government is at best a convenience that often gets in the people's way, and questions of right should be settled by conscience, not by a majority.",
+            "Majority rule is the fairest form of government, though it needs to be watched closely."
+          ]
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "group": "g1",
+          "text": "Which of the following can be inferred from the passage about the author's view of majority rule?",
+          "options": [
+            "The majority is allowed to rule because it is the strongest, and that gives it no claim to be right.",
+            "The majority's decisions are just as long as the government stays small.",
+            "The minority should obey the majority until it can win a majority of its own.",
+            "Majority rule is unjust only when it is used to start wars."
+          ]
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "group": "g1",
+          "text": "The sentence \"It is excellent, we must all allow\" is best read as",
+          "options": [
+            "sincere praise, which the author qualifies only slightly",
+            "an ironic concession that the author at once undercuts",
+            "a statement of the author's settled view of the American government",
+            "an admission that the government has helped to settle the West"
+          ]
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "group": "g1",
+          "text": "According to the passage, the author objects to a standing government because",
+          "options": [
+            "it is the same thing as a standing army",
+            "it costs the people more than they can afford",
+            "it was set up without the consent of the people",
+            "like a standing army, it can be used by a few individuals before the people as a whole can act through it"
+          ]
+        }
+      ]
+    }
+  ]
+}

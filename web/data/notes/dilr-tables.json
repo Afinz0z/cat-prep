@@ -1,0 +1,39 @@
+{
+  "topic": "dilr-tables",
+  "title": "Tables and charts",
+  "blocks": [
+    {
+      "heading": "Read the table first",
+      "lines": [
+        "Check rows, columns, units and any totals row before the questions.",
+        "Note what each number means: hundreds, lakh, or a percent of what.",
+        "For missing cells, write the row or column total as an equation first."
+      ]
+    },
+    {
+      "heading": "Percent change and comparison",
+      "lines": [
+        "Percent change = change ÷ starting value × 100.",
+        "Approximate when ranking: 13 on 52 is 25%, 13 on 60 is a little under 22%.",
+        "For 'which is largest', rank the values; exact figures are rarely needed."
+      ]
+    },
+    {
+      "heading": "Totals and averages",
+      "lines": [
+        "A question about the whole may need only the totals row.",
+        "Average = total ÷ count. Check whether it asks per month or per person.",
+        "Price × quantity questions: work in one unit (₹ thousand or ₹ lakh) throughout."
+      ]
+    },
+    {
+      "heading": "Common traps",
+      "lines": [
+        "Mixing up percent change with percentage points.",
+        "Taking the wrong month or year as the base.",
+        "Dropping a unit, such as hundreds, in the final answer.",
+        "Reading a value from the wrong row of a long table."
+      ]
+    }
+  ]
+}

@@ -7,6 +7,10 @@ answers go to the private keys folder, which is outside this repository.
 Index: web/tests/index.json lists every test file for the Practice page.
 
     python tools/build_tests.py --pool ../private/drill-pool --keys ../private/keys --start 2026-11-14
+
+To add later days from a second pool without touching the sets already built:
+
+    python tools/build_tests.py --pool ../private/drill-pool-2 --keys ../private/keys --start 2026-11-24 --end 2026-11-28 --append
 """
 import argparse
 import datetime as dt
@@ -16,7 +20,10 @@ import pathlib
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 TESTS = ROOT / "web" / "tests"
 TOPIC_ORDER = ["qa-percentages", "qa-ratio", "qa-averages", "qa-profit-loss", "qa-interest",
-               "qa-tsd", "qa-work", "qa-linear", "qa-quadratic", "qa-inequalities"]
+               "qa-tsd", "qa-work", "qa-linear", "qa-quadratic", "qa-inequalities",
+               "dilr-tables", "dilr-arrangements", "dilr-grouping", "dilr-venn",
+               "varc-rc", "varc-odd-one", "varc-summary"]
+DAILY_TOPICS = TOPIC_ORDER[:10]
 
 
 def inside_repo(path):
@@ -27,19 +34,19 @@ def inside_repo(path):
         return False
 
 
-def build_daily(pool_dir, keys_dir, start):
+def build_daily(pool_dir, keys_dir, start, end=None):
     pools = {}
     for f in sorted(pool_dir.glob("*.json")):
         data = json.loads(f.read_text(encoding="utf-8"))
         pools[data["topic"]] = list(data["questions"])
-    topics = [t for t in TOPIC_ORDER if t in pools] + sorted(set(pools) - set(TOPIC_ORDER))
+    topics = [t for t in DAILY_TOPICS if t in pools] + sorted(set(pools) - set(DAILY_TOPICS))
     n = len(topics)
     if n < 5:
         raise SystemExit("Need at least five topics in the drill pool.")
     used = {t: 0 for t in topics}
     day = start
     made = []
-    while True:
+    while end is None or day <= end:
         # Five topics, spread out: on day i take topics i, i+2, i+4, ... (wrapping).
         i = len(made)
         picks = []
@@ -107,6 +114,9 @@ def build_index():
             entry["topic"] = t["topic"]
         if t.get("day"):
             entry["day"] = t["day"]
+        for extra in ("difficulty", "opensOn"):
+            if t.get(extra):
+                entry[extra] = t[extra]
         entries.append(entry)
     order = {"check": 0, "practice": 1, "daily": 2}
     entries.sort(key=lambda e: (order.get(e["kind"], 3), rank.get(e.get("topic"), 99), e.get("day", ""), e["id"]))
@@ -119,15 +129,23 @@ def main():
     ap.add_argument("--pool", type=pathlib.Path)
     ap.add_argument("--keys", type=pathlib.Path)
     ap.add_argument("--start", type=dt.date.fromisoformat)
+    ap.add_argument("--end", type=dt.date.fromisoformat)
+    ap.add_argument("--append", action="store_true", help="keep the Daily 5 sets already built")
     args = ap.parse_args()
     if args.pool:
         if not args.keys or not args.start:
             raise SystemExit("--pool needs --keys and --start too.")
         if inside_repo(args.keys) or inside_repo(args.pool):
             raise SystemExit("The drill pool and keys must stay outside the repository.")
-        for old in TESTS.glob("daily-*.json"):
-            old.unlink()
-        made = build_daily(args.pool, args.keys, args.start)
+        if args.append:
+            clash = [args.start + dt.timedelta(days=i) for i in range(((args.end or args.start) - args.start).days + 1)]
+            clash = [d for d in clash if (TESTS / f"daily-{d.isoformat()}.json").exists()]
+            if clash:
+                raise SystemExit(f"Daily 5 for {clash[0]} already exists; pick a later --start.")
+        else:
+            for old in TESTS.glob("daily-*.json"):
+                old.unlink()
+        made = build_daily(args.pool, args.keys, args.start, args.end)
         print(f"Daily 5 sets: {len(made)}, {made[0]} to {made[-1]}")
     print(f"Index: {build_index()} tests")
 

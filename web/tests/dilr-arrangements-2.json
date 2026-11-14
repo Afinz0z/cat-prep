@@ -1,0 +1,67 @@
+{
+  "id": "dilr-arrangements-2",
+  "title": "Seating arrangements: set 2",
+  "topic": "dilr-arrangements",
+  "kind": "practice",
+  "difficulty": "hard",
+  "source": "original",
+  "sourceNote": "An original set written for this group. It is not a CAT previous-year set.",
+  "strict": false,
+  "calculator": true,
+  "instructions": [
+    "4 questions, 12 minutes.",
+    "CAT marking: +3 right, -1 wrong multiple choice, 0 for a wrong type-in answer.",
+    "Type-in answers take a number only: no %, ₹ or units. Use a decimal, not a fraction."
+  ],
+  "sections": [
+    {
+      "name": "DILR",
+      "minutes": 12,
+      "groups": [
+        {
+          "id": "g1",
+          "title": "Office round table",
+          "text": "Eight colleagues, Kavya, Lalit, Meera, Naveen, Omkar, Pooja, Rahul and Sana, sit around a round table with eight equally spaced seats, all facing the centre. Each works in one of four departments, Finance, HR, Sales and Tech, and each department has exactly two of them.\n\nBecause they face the centre, the person on someone's immediate left is in the next seat clockwise (seen from above), and the person on their immediate right is in the next seat anticlockwise.\n\n1. Kavya sits opposite Meera.\n\n2. The two Sales people sit opposite each other. So do the two Tech people.\n\n3. Omkar sits between the two HR people, next to both of them.\n\n4. Naveen sits second to the right of Kavya.\n\n5. Rahul sits immediately to the right of Omkar.\n\n6. Lalit sits next to Naveen.\n\n7. Pooja works in Finance. The other Finance person does not sit next to her."
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "text": "Which department does Lalit work in?",
+          "options": [
+            "Finance",
+            "HR",
+            "Sales",
+            "Tech"
+          ],
+          "group": "g1"
+        },
+        {
+          "id": "q2",
+          "type": "tita",
+          "text": "Counting clockwise from Sana, how many people sit between Sana and Naveen?",
+          "group": "g1"
+        },
+        {
+          "id": "q3",
+          "type": "tita",
+          "text": "If Pooja sits immediately to the right of Kavya, how many people sit between Lalit and Rahul, counting clockwise from Lalit?",
+          "group": "g1"
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "text": "If Omkar works in Sales, which of the following is true?",
+          "options": [
+            "Meera works in Sales",
+            "Naveen works in Tech",
+            "Kavya works in Tech",
+            "Rahul works in Finance"
+          ],
+          "group": "g1"
+        }
+      ]
+    }
+  ]
+}

@@ -1,12 +1,16 @@
 // Group chat with likes and @mentions, and study rooms that share one clock.
 import { rpc } from "./db.js";
-import { el, boot, busy, fmtDateTime, fmtTime, fmtClock, markChatSeen, showError, fill } from "./ui.js";
+import { el, boot, busy, fmtDateTime, fmtTime, fmtClock, markChatSeen, showError, fill, loadJson, istToday, local, setLocal } from "./ui.js";
 import { startReminders, cacheSettings, startFocus, getFocus } from "./reminders.js";
+import { nowMin } from "./plan.js";
 
 const main = document.getElementById("main");
 let me = null;
 let messages = [];
 let lastId = 0;
+let paperTitles = {};
+let paperList = [];
+let todayPaper = null;
 const log = el("div", { class: "chat-log", "aria-live": "polite", "aria-label": "Messages", tabindex: "0" });
 const roomsHost = el("div");
 
@@ -20,9 +24,13 @@ function messageNode(m) {
   const like = el("button", { type: "button", class: `btn small${m.liked ? " on" : ""}`, "aria-pressed": String(m.liked) },
     m.likes ? `Like ${m.likes}` : "Like");
   const del = m.me ? el("button", { type: "button", class: "btn quiet small" }, "Delete") : null;
-  const node = el("div", { class: `msg${m.me ? " me" : ""}${mentioned ? " mention" : ""}`, "data-id": String(m.id) },
-    el("div", { class: "msg-head" }, el("strong", {}, m.name), el("span", {}, fmtDateTime(m.at)), like, del),
-    el("div", { class: "msg-body" }, bodyWithMentions(m.text)));
+  const about = m.paperId ? paperTitles[m.paperId] || m.paperId : null;
+  const node = el("div", { class: `msg${m.me ? " me" : ""}${mentioned ? " mention" : ""}${m.hidden ? " hidden-msg" : ""}`, "data-id": String(m.id) },
+    el("div", { class: "msg-head" }, el("strong", {}, m.name), el("span", {}, fmtDateTime(m.at)), m.hidden ? null : like, del),
+    m.hidden
+      ? el("div", { class: "msg-body" }, el("em", {}, `About ${about}. Hidden until you've sat it: `), el("a", { href: "mocks.html#calendar" }, "log the paper"), el("em", {}, " to read it."))
+      : el("div", { class: "msg-body" }, bodyWithMentions(m.text)),
+    about && !m.hidden ? el("p", { class: "muted small" }, `About ${about}`) : null);
   like.addEventListener("click", () => busy(like, async () => {
     await rpc("cat_chat_like", { p_message_id: m.id, p_on: !m.liked });
     m.liked = !m.liked;
@@ -61,11 +69,22 @@ async function poll(first = false) {
 function composer() {
   const text = el("textarea", { maxlength: 1000, enterkeyhint: "send", placeholder: "Message the group. Type @name to ping someone.", "aria-label": "Message" });
   const send = el("button", { type: "submit", class: "btn primary" }, "Send");
-  const form = el("form", { class: "chat-form" }, text, send);
+  // A message about a paper stays hidden from anyone who hasn't logged that paper.
+  const paper = el("select", { "aria-label": "About a paper" },
+    el("option", { value: "" }, "Not about a paper"),
+    paperList.map((p) => el("option", { value: p.id, selected: todayPaper === p.id && nowMin() >= 750 }, `About ${p.title} (hidden until sat)`)));
+  const form = el("form", { class: "chat-form" }, text, el("div", { class: "row" }, paper, send));
+  const q = new URLSearchParams(location.search);
+  if (q.get("ask")) {
+    text.value = `@${q.get("ask").replace(/[^A-Za-z0-9._-]/g, "")} how do you approach ${q.get("topic") || "this topic"}? `;
+    history.replaceState(null, "", "chat.html");
+    setTimeout(() => text.focus(), 0);
+  }
   const go = () => busy(send, async () => {
     if (!text.value.trim()) return;
-    await rpc("cat_chat_send", { p_text: text.value });
+    await rpc("cat_chat_send", { p_text: text.value, p_paper_id: paper.value || null });
     text.value = "";
+    morningDone();
     await poll();
     log.scrollTop = log.scrollHeight;
   });
@@ -77,6 +96,29 @@ function composer() {
     }
   });
   return form;
+}
+
+// ---- morning post ------------------------------------------------------------------------
+// From 8 in the morning: say what you'll study and the one thing you'll fix today.
+const morningKey = () => `cat-morning-${istToday()}`;
+const morningHost = el("div");
+function morningDone() {
+  if (nowMin() >= 480) setLocal(morningKey(), true);
+  morningHost.replaceChildren();
+}
+function morningCard(textArea) {
+  if (nowMin() < 480 || nowMin() >= 840 || local(morningKey(), false)) return;
+  const posted = messages.some((m) => m.me && m.at && new Date(m.at).toLocaleDateString("en-CA", { timeZone: "Asia/Kolkata" }) === istToday());
+  if (posted) return;
+  const fillIt = el("button", { type: "button", class: "btn small primary" }, "Start my morning post");
+  fillIt.addEventListener("click", () => {
+    textArea.value = "Morning post. Today: \nFixing: \nPaper or set: ";
+    textArea.focus();
+    textArea.setSelectionRange(21, 21);
+  });
+  fill(morningHost, el("div", { class: "notice morning" },
+    el("p", {}, el("strong", {}, "Morning post. "), "Say what you'll study today and the one mistake you're fixing. Saying it to the group makes it more likely to happen."),
+    el("div", { class: "row" }, fillIt, el("button", { type: "button", class: "btn small quiet", onclick: () => { setLocal(morningKey(), true); morningHost.replaceChildren(); } }, "Not today"))));
 }
 
 // ---- study rooms ---------------------------------------------------------------------
@@ -151,12 +193,23 @@ async function init() {
   if (!me) return;
   cacheSettings(me.settings);
   startReminders();
+  try {
+    const [papers, calendar] = await Promise.all([loadJson("data/papers.json"), rpc("cat_calendar").catch(() => [])]);
+    const order = [...new Set([...calendar.filter((c) => c.paper).map((c) => c.paper), ...papers.calendar.map((c) => c.paper)])];
+    paperTitles = Object.fromEntries(papers.papers.map((p) => [p.id, p.title]));
+    paperList = order.map((id) => ({ id, title: paperTitles[id] || id }));
+    todayPaper = (calendar.find((c) => !c.owner && c.paper && c.day === istToday()) || papers.calendar.find((c) => c.day === istToday()))?.paper || null;
+  } catch {
+    paperList = [];
+  }
+  const form = composer();
   fill(main, el("div", { class: "page-head" }, el("h1", {}, "Chat")),
     el("div", { class: "grid" },
-      el("section", { class: "panel span-8" }, log, composer(),
+      el("section", { class: "panel span-8" }, log, morningHost, form,
         el("p", { class: "muted small" }, el("span", { class: "kbd-hint" }, "Enter sends, Shift and Enter makes a new line. "), "Talk about approaches to a test question in that question's discussion on its results page, so nobody sees an answer before they've tried it.")),
       el("section", { class: "panel span-4" }, roomsHost)));
   await poll(true);
+  morningCard(form.querySelector("textarea"));
   loadRooms();
   setInterval(() => { if (!document.hidden) poll(); }, 8000);
   setInterval(loadRooms, 60000);

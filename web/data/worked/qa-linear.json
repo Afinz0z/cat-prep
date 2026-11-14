@@ -1,0 +1,60 @@
+{
+  "topic": "qa-linear",
+  "examples": [
+    {
+      "qtype": "word-problems",
+      "title": "Word problems",
+      "problem": "At a shop, dal costs ₹40 a kg more than rice. 2 kg of rice and 3 kg of dal cost ₹420 together. Find the price of each per kg.",
+      "steps": [
+        "Let rice cost r rupees a kg, so dal costs r + 40.",
+        "2r + 3(r + 40) = 420, so 5r + 120 = 420.",
+        "r = 60, so rice costs ₹60 a kg and dal costs ₹100 a kg."
+      ],
+      "answer": "Rice ₹60 per kg, dal ₹100 per kg"
+    },
+    {
+      "qtype": "ages",
+      "title": "Ages",
+      "problem": "The ages of a mother and her daughter add up to 50. Five years ago the mother was 7 times as old as the daughter. Find their present ages.",
+      "steps": [
+        "Let the daughter be d years old now, so the mother is 50 − d.",
+        "Five years ago: (50 − d) − 5 = 7(d − 5), so 45 − d = 7d − 35.",
+        "8d = 80, so d = 10 and the mother is 40."
+      ],
+      "answer": "Daughter 10 years, mother 40 years"
+    },
+    {
+      "qtype": "simultaneous-equations",
+      "title": "Simultaneous equations",
+      "problem": "Solve 3x + 5y = 21 and 5x + 3y = 19.",
+      "steps": [
+        "Add the equations: 8x + 8y = 40, so x + y = 5.",
+        "Subtract the first from the second: 2x − 2y = −2, so x − y = −1.",
+        "Add these two results: 2x = 4, so x = 2 and y = 3."
+      ],
+      "answer": "x = 2, y = 3"
+    },
+    {
+      "qtype": "consistency",
+      "title": "Consistency of a pair of equations",
+      "problem": "For which values of k does the system kx + 2y = 5 and 3x + y = 1 have exactly one solution?",
+      "steps": [
+        "Exactly one solution needs k/3 to differ from 2/1.",
+        "k/3 = 2 only when k = 6, so every other value of k gives one solution.",
+        "At k = 6 the constants give 5/1, which differs from 2, so the lines are parallel and there is no solution."
+      ],
+      "answer": "Every value of k except 6"
+    },
+    {
+      "qtype": "integer-solutions",
+      "title": "Integer solutions",
+      "problem": "How many pairs of positive integers (x, y) satisfy 5x + 3y = 64?",
+      "steps": [
+        "Find one pair: x = 2 gives 3y = 54, so y = 18.",
+        "Other pairs come from adding 3 to x and taking 5 from y: (5, 13), (8, 8) and (11, 3).",
+        "The next step gives y = −2, which is not allowed. x must leave remainder 2 when divided by 3, so 2 is the smallest x."
+      ],
+      "answer": "4 pairs"
+    }
+  ]
+}

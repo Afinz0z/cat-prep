@@ -1,0 +1,67 @@
+{
+  "id": "dilr-tables-2",
+  "title": "Tables and charts: set 2",
+  "topic": "dilr-tables",
+  "kind": "practice",
+  "difficulty": "medium",
+  "source": "original",
+  "sourceNote": "An original set written for this group. It is not a CAT previous-year set.",
+  "strict": false,
+  "calculator": true,
+  "instructions": [
+    "4 questions, 12 minutes.",
+    "CAT marking: +3 right, -1 wrong multiple choice, 0 for a wrong type-in answer.",
+    "Type-in answers take a number only: no %, ₹ or units. Use a decimal, not a fraction."
+  ],
+  "sections": [
+    {
+      "name": "DILR",
+      "minutes": 12,
+      "groups": [
+        {
+          "id": "g1",
+          "title": "Electronics store sales",
+          "text": "Five salespeople at an electronics store in Kochi sell phones, laptops and TVs. Prices are fixed: a phone sells for ₹20,000, a laptop for ₹50,000 and a TV for ₹40,000. A salesperson's sales value is the total price of everything they sold.\n\nThe list shows units sold in March as phones, laptops, TVs. A ? marks a figure that is missing.\n\nAnil: 12, ?, 5\n\nBindu: ?, 6, ?\n\nCyril: 9, 4, ?\n\nDeepa: 15, ?, 3\n\nFaisal: ?, 5, 6\n\nTotal: 60, 25, 22\n\nThe following are also known.\n\n1. Each salesperson sold at least 2 units of each product.\n\n2. Faisal sold more phones than any other salesperson.\n\n3. Anil sold more laptops than Deepa.\n\n4. Bindu's sales value was exactly ₹6,00,000."
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "text": "Who sold the most units in March, counting all three products together?",
+          "options": [
+            "Anil",
+            "Deepa",
+            "Bindu",
+            "Faisal"
+          ],
+          "group": "g1"
+        },
+        {
+          "id": "q2",
+          "type": "tita",
+          "text": "What was the store's total sales value in March, in ₹ lakh?",
+          "group": "g1"
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "text": "If Bindu sold more TVs than phones, how many phones did Faisal sell?",
+          "options": [
+            "21",
+            "19",
+            "17",
+            "23"
+          ],
+          "group": "g1"
+        },
+        {
+          "id": "q4",
+          "type": "tita",
+          "text": "If Anil's sales value was more than ₹8,00,000, what was Deepa's sales value, in ₹ thousand?",
+          "group": "g1"
+        }
+      ]
+    }
+  ]
+}

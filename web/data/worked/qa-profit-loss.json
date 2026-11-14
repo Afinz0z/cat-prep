@@ -1,0 +1,57 @@
+{
+  "topic": "qa-profit-loss",
+  "examples": [
+    {
+      "qtype": "profit-basics",
+      "title": "Cost, selling price and profit",
+      "problem": "An article costing ₹720 is sold at a profit of 15%. What is the selling price?",
+      "steps": [
+        "SP = CP × (1 + 15/100) = 720 × 1.15.",
+        "720 × 1.15 = 828."
+      ],
+      "answer": "₹828"
+    },
+    {
+      "qtype": "markup-discount",
+      "title": "Mark-up and discount",
+      "problem": "An article costs ₹500. It is marked 30% above cost and sold at a 10% discount. What is the profit percentage?",
+      "steps": [
+        "MP = 500 × 1.3 = 650.",
+        "SP = 650 × 0.9 = 585.",
+        "Profit = 85 on a cost of 500, which is 17%."
+      ],
+      "answer": "17%"
+    },
+    {
+      "qtype": "successive-discount",
+      "title": "Successive discounts",
+      "problem": "What single discount is equal to successive discounts of 10% and 5%?",
+      "steps": [
+        "Multiply the price multipliers: 0.9 × 0.95 = 0.855.",
+        "Single discount = 1 - 0.855 = 0.145, which is 14.5%."
+      ],
+      "answer": "14.5%"
+    },
+    {
+      "qtype": "combined-transactions",
+      "title": "Overall profit on several deals",
+      "problem": "A trader buys a sofa for ₹20,000 and a table for ₹5,000. He sells the sofa at a 10% profit and the table at a 20% loss. What is his overall profit percentage?",
+      "steps": [
+        "Sofa SP = 22,000 and table SP = 4,000, so total SP = 26,000.",
+        "Total CP = 25,000, so the profit is 1,000.",
+        "1,000 ÷ 25,000 = 4%."
+      ],
+      "answer": "4% profit"
+    },
+    {
+      "qtype": "false-weight",
+      "title": "False weights",
+      "problem": "A dealer claims to sell at cost price but gives 950 g for every kilogram. What is his profit percentage?",
+      "steps": [
+        "Take the cost of 1 kg as 100. The buyer pays 100 and gets goods that cost 95.",
+        "Profit = 5 on a cost of 95: 5 ÷ 95 = 5.26%."
+      ],
+      "answer": "5.26%"
+    }
+  ]
+}

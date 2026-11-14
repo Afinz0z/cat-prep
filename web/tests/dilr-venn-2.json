@@ -1,0 +1,67 @@
+{
+  "id": "dilr-venn-2",
+  "title": "Venn diagrams: set 2",
+  "topic": "dilr-venn",
+  "kind": "practice",
+  "difficulty": "medium",
+  "source": "original",
+  "sourceNote": "An original set written for this group. It is not a CAT previous-year set.",
+  "strict": false,
+  "calculator": true,
+  "instructions": [
+    "4 questions, 12 minutes.",
+    "CAT marking: +3 right, -1 wrong multiple choice, 0 for a wrong type-in answer.",
+    "Type-in answers take a number only: no %, ₹ or units. Use a decimal, not a fraction."
+  ],
+  "sections": [
+    {
+      "name": "DILR",
+      "minutes": 12,
+      "groups": [
+        {
+          "id": "g1",
+          "title": "College clubs",
+          "text": "A college has three clubs: Music, Drama and Quiz. 100 students are members of at least one club. Music has 55 members, Drama has 45 and Quiz has 40.\n\nThe number of students in exactly two clubs is twice the number in all three clubs.\n\nFor each pair of clubs, at least 3 students belong to that pair and not to the third club."
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "type": "tita",
+          "text": "How many students are in all three clubs?",
+          "group": "g1"
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "text": "What is the largest possible number of students in Music only?",
+          "options": [
+            "35",
+            "39",
+            "45",
+            "42"
+          ],
+          "group": "g1"
+        },
+        {
+          "id": "q3",
+          "type": "tita",
+          "text": "What is the smallest possible number of students in Drama only?",
+          "group": "g1"
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "text": "If the number in Music only equals the number in Drama only and Quiz only put together, how many students are in Music only?",
+          "options": [
+            "30",
+            "25",
+            "35",
+            "40"
+          ],
+          "group": "g1"
+        }
+      ]
+    }
+  ]
+}

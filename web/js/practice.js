@@ -1,8 +1,11 @@
-// Practice: site tests, the review queue, speed drills and bookmarks.
+// Practice: site tests, the review queue, the error log, formula cards, speed
+// drills, the RC log, the DILR set-choice drill, search and bookmarks.
 import { rpc } from "./db.js";
-import { el, boot, busy, loadJson, istToday, fmtDate, fmtDateTime, showError, fill } from "./ui.js";
+import { el, boot, busy, loadJson, istToday, fmtDate, fmtDateTime, fmtTime, showError, fill } from "./ui.js";
 import { startReminders, cacheSettings } from "./reminders.js";
 import { createCalculator } from "./calculator.js";
+import { openComposed, isoDow } from "./plan.js";
+import { errorsView, searchView, cardsView, rcView, choiceView } from "./practice-more.js";
 
 const main = document.getElementById("main");
 const LETTERS = ["A", "B", "C", "D", "E"];
@@ -27,29 +30,84 @@ function firstAttempts() {
 }
 
 // ---- tests ---------------------------------------------------------------------
-function testsView() {
+function testItem(t, first, today) {
+  const a = first[t.id];
+  const count = t.sections.reduce((n, x) => n + x.count, 0);
+  const minutes = t.sections.reduce((n, x) => n + x.minutes, 0);
+  const locked = t.opensOn && t.opensOn > today;
+  return el("li", {},
+    el("span", { class: "grow" }, el("strong", {}, t.title), el("br"),
+      el("span", { class: "muted small" }, `${count} questions, ${minutes} minutes`, t.difficulty ? `, ${t.difficulty}` : "",
+        a ? `. First try: ${a.totals.marks} marks, ${a.totals.correct} right, ${a.totals.wrong} wrong.` : ".",
+        locked ? ` Opens on ${fmtDate(t.opensOn)}, so the first try is fresh.` : "")),
+    a ? el("a", { class: "btn", href: `test.html?attempt=${a.attemptId}` }, "Results and discussion") : null,
+    locked ? el("button", { type: "button", class: "btn", disabled: true }, "Not open yet")
+      : el("a", { class: a ? "btn quiet" : "btn primary", href: `test.html?id=${encodeURIComponent(t.id)}` }, a ? "Take again" : "Start"));
+}
+
+function composedPanel(today) {
+  const sunday = isoDow(today) === 0;
+  const mixed = el("button", { type: "button", class: "btn primary" }, "Today's mixed set");
+  mixed.addEventListener("click", () => busy(mixed, () => openComposed("mixed")));
+  const retest = el("button", { type: "button", class: "btn", disabled: !sunday }, sunday ? "This week's retest" : "Retest opens on Sunday");
+  retest.addEventListener("click", () => busy(retest, () => openComposed("retest")));
+  return el("section", { class: "panel" },
+    el("h2", {}, "Mixed sets and the Sunday retest"),
+    el("p", { class: "muted" }, "A mixed set is 10 questions from topics you started 3 to 5 days ago, in random order, so you have to pick the method before you solve. On Sundays the retest gives you back the questions you missed that week. Each is worth 10 points."),
+    el("div", { class: "row" }, mixed, retest));
+}
+
+async function cosolvePanel(today) {
+  const sets = index.filter((t) => String(t.topic || "").startsWith("dilr-"));
+  const [list, people] = await Promise.all([rpc("cat_cosolves"), rpc("cat_profiles")]);
+  const titles = Object.fromEntries(index.map((t) => [t.id, t.title]));
+  const panel = el("section", { class: "panel", id: "cosolve" });
+  const listHost = el("div");
+  const paint = (rows) => fill(listHost, rows.length ? el("ul", { class: "list" }, rows.map((c) => el("li", {},
+    el("span", { class: "grow" }, el("strong", {}, titles[c.testId] || c.testId), el("br"),
+      el("span", { class: "muted small" }, `${c.mine ? `With ${c.partner}` : `${c.host} invited you`}, starting at ${fmtTime(c.startsAt)}${fmtDate(c.startsAt) === fmtDate(today) ? "" : ` on ${fmtDate(c.startsAt)}`}.`)),
+    el("a", { class: "btn primary", href: `test.html?id=${encodeURIComponent(c.testId)}&cosolve=${c.id}` }, "Open"))))
+    : el("p", { class: "muted small" }, "No invitations right now."));
+  paint(list);
+  const others = people.filter((x) => !x.me);
+  if (!others.length || !sets.length) {
+    fill(panel, el("h2", {}, "Co-solve a DILR set"), listHost);
+    return panel;
+  }
+  const set = el("select", { "aria-label": "Set" }, sets.map((t) => el("option", { value: t.id }, t.title)));
+  const who = el("select", { "aria-label": "Who" }, others.map((x) => el("option", { value: x.name }, x.name)));
+  const mins = el("input", { type: "number", min: 1, max: 120, value: "10", inputmode: "numeric", style: "width:5em", "aria-label": "Minutes from now" });
+  const send = el("button", { type: "submit", class: "btn" }, "Invite");
+  const form = el("form", { class: "row" }, set, who, el("span", {}, "in"), mins, el("span", {}, "min"), send);
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    busy(send, async () => paint(await rpc("cat_cosolve_create", { p_test_id: set.value, p_partner: who.value, p_in_min: Number(mins.value) })));
+  });
+  fill(panel, el("h2", {}, "Co-solve a DILR set"),
+    el("p", { class: "muted" }, "Sit the same set at the same time with one other person: one shared clock, each on your own screen, and a shared whiteboard once you've both finished. They see the invitation here."),
+    form, listHost);
+  return panel;
+}
+
+async function testsView() {
   const first = firstAttempts();
   const today = istToday();
+  const topicOf = (t) => String(t.topic || "");
   const groups = [
     ["Checks", index.filter((t) => t.kind === "check")],
-    ["Practice sets, one per Must topic", index.filter((t) => t.kind === "practice")],
+    ["QA practice sets", index.filter((t) => t.kind === "practice" && topicOf(t).startsWith("qa-"))],
+    ["DILR sets", index.filter((t) => t.kind === "practice" && topicOf(t).startsWith("dilr-"))],
+    ["VARC sets", index.filter((t) => t.kind === "practice" && topicOf(t).startsWith("varc-"))],
     ["Daily 5", index.filter((t) => t.kind === "daily" && t.day <= today).sort((a, b) => b.day.localeCompare(a.day)).slice(0, 7)],
   ].filter(([, list]) => list.length);
+  const cos = await cosolvePanel(today).catch((err) => el("p", { class: "notice error" }, err.message));
   return el("div", { class: "stack" },
+    composedPanel(today),
     groups.map(([title, list]) => el("section", { class: "panel" },
       el("h2", {}, title),
-      el("ul", { class: "list" }, list.map((t) => {
-        const a = first[t.id];
-        const count = t.sections.reduce((n, s) => n + s.count, 0);
-        const minutes = t.sections.reduce((n, s) => n + s.minutes, 0);
-        return el("li", {},
-          el("span", { class: "grow" }, el("strong", {}, t.title), el("br"),
-            el("span", { class: "muted small" }, `${count} questions, ${minutes} minutes`,
-              a ? `. First try: ${a.totals.marks} marks, ${a.totals.correct} right, ${a.totals.wrong} wrong.` : ".")),
-          a ? el("a", { class: "btn", href: `test.html?attempt=${a.attemptId}` }, "Results and discussion") : null,
-          el("a", { class: a ? "btn quiet" : "btn primary", href: `test.html?id=${encodeURIComponent(t.id)}` }, a ? "Take again" : "Start"));
-      })))),
-    el("p", { class: "muted small" }, "All questions here are original, written for this group. Full CAT previous papers are linked on the Mocks page."));
+      el("ul", { class: "list" }, list.map((t) => testItem(t, first, today))))),
+    cos,
+    el("p", { class: "muted small" }, "All questions here are original, written for this group, apart from reading passages taken from public-domain books. Full CAT previous papers are linked on the Mocks page."));
 }
 
 // ---- review queue ----------------------------------------------------------------
@@ -116,6 +174,17 @@ function reviewItem(item, q) {
       : `Not right. It comes back tomorrow.${res.answer === null || res.answer === undefined ? " The answer stays hidden until you show it on that test's results page." : ""}`;
     if (res.answer !== null && res.answer !== undefined) {
       box.append(el("p", {}, el("strong", {}, `Answer: ${res.answer}. `), res.solution || ""));
+    }
+    // Saying why the answer is right fixes it better than reading the solution.
+    if (res.result === "correct") {
+      const why = el("input", { type: "text", maxlength: 300, placeholder: "In one line, why is it right?", "aria-label": "Why it's right" });
+      const keep = el("button", { type: "button", class: "btn small" }, "Keep it");
+      keep.addEventListener("click", () => busy(keep, async () => {
+        if (!why.value.trim()) return;
+        await rpc("cat_explain", { p_test_id: item.testId, p_question_id: item.questionId, p_text: why.value });
+        keep.replaceWith(el("span", { class: "good small" }, "Kept with your notes."));
+      }));
+      box.append(el("div", { class: "row" }, why, keep));
     }
   }));
   return box;
@@ -304,7 +373,17 @@ async function init() {
     return;
   }
   const host = el("div");
-  const views = { tests: ["Tests", testsView], reviews: ["Review queue", reviewsView], drills: ["Speed drills", drillsView], bookmarks: ["Bookmarks", bookmarksView] };
+  const views = {
+    tests: ["Tests", testsView],
+    reviews: ["Review queue", reviewsView],
+    errors: ["Error log", errorsView],
+    cards: ["Formula cards", cardsView],
+    drills: ["Speed drills", drillsView],
+    rc: ["RC log", rcView],
+    choice: ["Set choice", () => choiceView(index)],
+    search: ["Search", searchView],
+    bookmarks: ["Bookmarks", bookmarksView],
+  };
   const tabs = el("div", { class: "tabs", role: "tablist" });
   const show = async (key) => {
     for (const b of tabs.children) b.setAttribute("aria-selected", String(b.dataset.key === key));

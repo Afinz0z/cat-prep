@@ -1,0 +1,83 @@
+{
+  "id": "daily-2026-11-26",
+  "title": "Daily 5, Thu 26 Nov",
+  "kind": "daily",
+  "day": "2026-11-26",
+  "source": "original",
+  "sourceNote": "Original questions written for this group. None of them is a CAT previous-year question.",
+  "strict": false,
+  "calculator": true,
+  "instructions": [
+    "5 questions, 10 minutes, CAT marking: +3 right, -1 wrong multiple choice, 0 for a wrong type-in answer.",
+    "Everyone gets the same five. The ranking is by marks, then by time.",
+    "Type-in answers take a number only: no %, rupee sign or units."
+  ],
+  "sections": [
+    {
+      "name": "Daily 5",
+      "minutes": 10,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "text": "The 11 players in a cricket team have an average age of 26 years. When the coach is included, the average age goes up by 1 year. How old is the coach?",
+          "topic": "qa-averages",
+          "options": [
+            "37",
+            "38",
+            "27",
+            "39"
+          ]
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "text": "A sum lent at compound interest, compounded annually, amounts to ₹6,050 after 2 years and ₹6,655 after 3 years. What is the rate of interest per annum?",
+          "topic": "qa-interest",
+          "options": [
+            "8%",
+            "9%",
+            "11%",
+            "10%"
+          ]
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "text": "10 workers, working 8 hours a day, finish a job in 15 days. How many days will 12 workers need for the same job if they work 5 hours a day at the same rate?",
+          "topic": "qa-work",
+          "options": [
+            "12 days",
+            "18 days",
+            "25 days",
+            "20 days"
+          ]
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "text": "The roots of x² − 8x + 12 = 0 are α and β. Find 1/α + 1/β.",
+          "topic": "qa-quadratic",
+          "options": [
+            "3/2",
+            "2/3",
+            "1/2",
+            "4/3"
+          ]
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "text": "A student needs 40% of the maximum marks to pass. She scores 72 marks and misses the pass mark by 16. What are the maximum marks?",
+          "topic": "qa-percentages",
+          "options": [
+            "200",
+            "180",
+            "240",
+            "220"
+          ]
+        }
+      ]
+    }
+  ]
+}

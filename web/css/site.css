@@ -10,7 +10,7 @@
   --line-soft: #e3e8ee;
   --btn: #ffffff;
   --btn-hover: #eef2f6;
-  --btn-line: #b3bdc8;
+  --btn-line: #87929f;
   --input: #ffffff;
   --exam: #1b4b87;
   --exam-dark: #143a6b;
@@ -64,7 +64,7 @@
     --line-soft: #222d39;
     --btn: #1b2530;
     --btn-hover: #233040;
-    --btn-line: #3a4858;
+    --btn-line: #5f6f82;
     --input: #10171f;
     --exam: #2e64ac;
     --exam-dark: #24528f;
@@ -112,7 +112,7 @@
   --line-soft: #222d39;
   --btn: #1b2530;
   --btn-hover: #233040;
-  --btn-line: #3a4858;
+  --btn-line: #5f6f82;
   --input: #10171f;
   --exam: #2e64ac;
   --exam-dark: #24528f;
@@ -210,7 +210,7 @@ a { color: var(--exam-ink); text-underline-offset: 0.15em; }
 
 input, select, textarea { font: inherit; color: var(--ink); }
 input[type="text"], input[type="email"], input[type="password"], input[type="number"],
-input[type="date"], input[type="datetime-local"], select, textarea {
+input[type="date"], input[type="datetime-local"], input[type="time"], input[type="url"], input[type="search"], select, textarea {
   border: 1px solid var(--btn-line);
   border-radius: var(--r-ctl);
   padding: 5px 9px;
@@ -612,7 +612,7 @@ kbd { border: 1px solid var(--btn-line); border-bottom-width: 2px; border-radius
   .btn.small { min-height: 36px; padding: 6px 12px; }
   .btn.quiet { padding-left: 8px; padding-right: 8px; }
   input[type="text"], input[type="email"], input[type="password"], input[type="number"],
-  input[type="date"], input[type="datetime-local"], select { min-height: 44px; }
+  input[type="date"], input[type="datetime-local"], input[type="time"], input[type="url"], input[type="search"], select { min-height: 44px; }
   /* Safari zooms into any field with text under 16px. */
   input, select, textarea, label.field > input, label.field > select, label.field > textarea { font-size: max(16px, 1rem); }
   input[type="checkbox"], input[type="radio"] { width: 22px; height: 22px; flex: none; }
@@ -625,14 +625,148 @@ kbd { border: 1px solid var(--btn-line); border-bottom-width: 2px; border-radius
 @media (hover: none) and (pointer: coarse) {
   .kbd-hint { display: none; }
 }
+@media (max-width: 560px) {
+  .blk { grid-template-columns: 1fr; }
+  .blk-target { grid-column: 1; }
+  .grid-2 { grid-template-columns: 1fr; }
+  .bar-cell { width: 35%; }
+  /* The IIM table has four wordy columns: on a phone each IIM becomes its own block. */
+  table.plain.iims thead { display: none; }
+  table.plain.iims, table.plain.iims tbody, table.plain.iims tr, table.plain.iims td { display: block; width: auto; }
+  table.plain.iims tr { border-bottom: 1px solid var(--line); padding: 10px 0; }
+  table.plain.iims td { border: 0; padding: 2px 0; }
+  table.plain.iims td:first-child { font-weight: 700; padding-bottom: 4px; }
+  table.plain.iims td[data-label]::before { content: attr(data-label) ": "; color: var(--ink-soft); }
+}
 @media (prefers-reduced-motion: reduce) {
   * { scroll-behavior: auto !important; transition: none !important; animation: none !important; }
 }
 @media print {
-  .top-bar, .toasts, .btn, .tabs, .no-print, .chat-form { display: none !important; }
+  .top-bar, .toasts, .btn, .tabs, .no-print, .chat-form, .offline-bar, .skip-link { display: none !important; }
+  html.warm body::after { display: none; }
+  body.printing-cards > *:not(#print-cards) { display: none !important; }
+  body.printing-cards #print-cards { display: block; column-count: 2; column-gap: 24px; font-size: 10pt; }
+  .print-card { break-inside: avoid; border-bottom: 1px solid #999; padding: 6px 0 8px; }
+  .print-card h2 { font-size: 12pt; margin: 0 0 4px; }
+  .print-card h4 { margin: 6px 0 2px; font-size: 10pt; }
+  .print-card ul { margin: 0; padding-left: 1.2em; }
   body { background: #fff; color: #000; }
   .panel, .note-card { border-color: #999; break-inside: avoid; }
   .hero { background: #fff; color: #000; border: 1px solid #999; }
   .page, .results-page { padding: 0; max-width: none; }
   a { color: #000; }
 }
+
+/* ---- added with the 100 ideas ---------------------------------------------------- */
+
+/* Skip link: off screen until a keyboard user tabs to it. */
+.skip-link {
+  position: absolute; left: 12px; top: -80px; z-index: 100;
+  background: var(--paper); color: var(--ink); border: 2px solid var(--focus);
+  padding: 8px 14px; border-radius: var(--r-ctl); font-weight: 700;
+}
+.skip-link:focus { top: 10px; }
+#main:focus { outline: none; }
+.offline-bar {
+  background: var(--warn-soft); color: var(--ink); border-bottom: 2px solid var(--marigold);
+  padding: 8px 16px; font-size: 0.9rem; text-align: center;
+}
+/* Warmer colours late in the evening: a flat tint that clicks pass through. */
+html.warm body::after {
+  content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 200;
+  background: #ff9a3c; opacity: 0.1; mix-blend-mode: multiply;
+}
+.warn { color: var(--warn); }
+.row.nowrap { flex-wrap: nowrap; white-space: nowrap; }
+.stack.tight > * + * { margin-top: 6px; }
+.stack.tight input { width: 100%; }
+.grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+
+/* Today: the day's timetable */
+.plan-blocks { list-style: none; padding: 0; margin: 8px 0 10px; }
+.plan-blocks > li { display: flex; gap: 10px; align-items: flex-start; padding: 7px 8px; border-top: 1px solid var(--line-soft); }
+.plan-blocks > li:first-child { border-top: 0; }
+.plan-blocks input { margin-top: 4px; }
+.blk { flex: 1; display: grid; grid-template-columns: 7.5em minmax(0, 1fr); gap: 0 12px; cursor: pointer; min-width: 0; }
+.blk-time { font-family: var(--display); font-stretch: 86%; font-weight: 700; font-variant-numeric: tabular-nums; color: var(--ink-soft); }
+.blk-title { font-weight: 600; }
+.blk-target { grid-column: 2; font-size: 0.86rem; color: var(--ink-soft); }
+.plan-blocks > li.now { background: var(--exam-soft); box-shadow: inset 4px 0 0 var(--exam); }
+.plan-blocks > li.now .blk-time { color: var(--exam-ink); }
+.plan-blocks > li.next { box-shadow: inset 4px 0 0 var(--marigold); }
+.plan-blocks > li.late .blk-time { color: var(--bad); }
+.plan-blocks input:checked + .blk .blk-title { color: var(--ink-soft); text-decoration: line-through; }
+.day-notes { padding-left: 1.2em; margin: 0 0 8px; }
+.day-notes li { margin: 2px 0; }
+.nerves { border-left: 4px solid var(--marigold); padding: 4px 0 4px 12px; }
+.nerves.big { font-size: 1.12rem; font-weight: 600; }
+.plan-line { display: block; font-size: 0.88rem; color: var(--ink-soft); }
+
+/* Meters with a target line: 70% for readiness, the planned budget for spending. */
+.meter.line-70::after, .meter.line-budget::after {
+  content: ""; position: absolute; top: 0; bottom: 0; width: 2px; background: var(--ink);
+}
+.meter.line-70::after { left: 70%; }
+.meter.line-budget::after { left: 40%; }
+.meter.over > span { background: var(--bad); }
+.ready { margin: 6px 0 2px; max-width: 540px; }
+.ready .meter { margin-bottom: 4px; }
+.ready p { margin-bottom: 4px; }
+
+/* Board: points by day */
+.bar-cell { width: 45%; }
+.hbar { display: block; height: 10px; background: var(--bar); border-radius: 2px; min-width: 2px; margin-top: 6px; }
+
+/* Topics: worked examples */
+.note-card.worked section { border-top: 1px solid var(--line-soft); padding-top: 6px; margin-top: 8px; }
+.note-card.worked section:first-of-type { border-top: 0; }
+.note-card.worked ol { margin: 4px 0 6px; padding-left: 1.4em; }
+#print-cards { display: none; }
+
+/* Practice: set choice */
+.set-opening { max-height: 18em; overflow: auto; font-size: 0.94rem; }
+
+/* Mocks: calendar and debriefs */
+table.plain.cal tr:has(+ tr.sub) td { border-bottom: 0; }
+table.plain.cal tr.sub td { padding-top: 0; padding-bottom: 0; }
+table.plain.cal tr.sub td:not(:empty) { padding-bottom: 8px; }
+details.edit summary { cursor: pointer; color: var(--exam-ink); }
+details.edit .row { margin-top: 6px; }
+.debrief { max-width: 760px; }
+ul.thread { list-style: none; }
+ul.thread > li { border-top: 1px solid var(--line-soft); padding: 6px 0; }
+ul.thread > li:first-child { border-top: 0; }
+ul.thread > li p { margin: 0 0 2px; white-space: pre-wrap; overflow-wrap: anywhere; }
+ul.thread > li.me p:first-child { color: var(--marigold-ink); }
+
+/* Chat */
+.msg.hidden-msg .msg-body { color: var(--ink-soft); }
+.notice.morning { margin: 8px 0 0; }
+.chat-form { flex-wrap: wrap; }
+.chat-form textarea { flex: 1 1 60%; }
+.chat-form .row { margin: 0; flex-wrap: nowrap; align-self: flex-end; }
+.chat-form select { max-width: 15em; }
+
+/* Exam day */
+dl.damage { margin: 0; }
+dl.damage dt { font-weight: 700; margin-top: 10px; }
+dl.damage dt:first-child { margin-top: 0; }
+dl.damage dd { margin: 2px 0 0; }
+.calc-out { margin-top: 10px; }
+.calc-out strong { font-family: var(--display); font-size: 1.6rem; font-weight: 800; font-stretch: 80%; }
+
+/* Whiteboard and spoken approaches */
+.board-dialog { width: min(920px, calc(100vw - 24px)); max-width: none; }
+.board-canvas {
+  display: block; width: 100%; height: min(60vh, 540px); height: min(60dvh, 540px);
+  background: var(--paper); border: 1px solid var(--line); border-radius: var(--r-ctl);
+  touch-action: none; cursor: crosshair;
+}
+.swatch::before { content: ""; display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; vertical-align: middle; background: var(--ink); }
+.sw-blue::before { background: var(--exam-ink); }
+.sw-amber::before { background: var(--marigold); }
+.sw-red::before { background: var(--bad); }
+.swatch[aria-pressed="true"] { border-color: var(--exam); box-shadow: inset 0 -3px 0 var(--exam); }
+.voice { margin-top: 10px; }
+.voice h4 { margin: 0 0 4px; font-size: 0.94rem; }
+.voice audio { height: 36px; max-width: 100%; }

@@ -19,6 +19,7 @@
         {
           "id": "q1",
           "type": "mcq",
+          "qtype": "basic-average",
           "text": "Find the average of 68, 72, 75, 70 and 65.",
           "options": [
             "68",
@@ -30,11 +31,13 @@
         {
           "id": "q2",
           "type": "tita",
+          "qtype": "change-in-members",
           "text": "The average of 6 numbers is 15. When one number is removed, the average of the other 5 is 14. What is the number removed?"
         },
         {
           "id": "q3",
           "type": "mcq",
+          "qtype": "weighted-average",
           "text": "A class of 30 students has an average mark of 40. Another class of 20 students has an average mark of 55. What is the average mark of all 50 students?",
           "options": [
             "47.5",
@@ -46,11 +49,13 @@
         {
           "id": "q4",
           "type": "tita",
+          "qtype": "change-in-members",
           "text": "The average weight of 8 persons rises by 2.5 kg when one of them, who weighs 65 kg, is replaced by a new person. What is the weight of the new person in kg?"
         },
         {
           "id": "q5",
           "type": "mcq",
+          "qtype": "alligation",
           "text": "Rice at ₹40 per kg is mixed with rice at ₹55 per kg to get a mixture worth ₹48 per kg. In what ratio (cheaper : dearer) are they mixed?",
           "options": [
             "8 : 7",
@@ -62,11 +67,13 @@
         {
           "id": "q6",
           "type": "tita",
+          "qtype": "alligation",
           "text": "A 60 litre mixture of milk and water has 25% water. How many litres of water must be added so that water is 40% of the new mixture?"
         },
         {
           "id": "q7",
           "type": "mcq",
+          "qtype": "change-in-members",
           "text": "A batter's average after 10 innings is 42. After the 11th innings the average is 45. How many runs did he score in the 11th innings?",
           "options": [
             "45",
@@ -78,6 +85,7 @@
         {
           "id": "q8",
           "type": "mcq",
+          "qtype": "repeated-replacement",
           "text": "A vessel holds 40 litres of pure milk. 8 litres are taken out and replaced with water. Then 8 litres of the mixture are taken out and replaced with water. How many litres of milk are now in the vessel?",
           "options": [
             "32",
@@ -89,6 +97,7 @@
         {
           "id": "q9",
           "type": "mcq",
+          "qtype": "alligation",
           "text": "Rice at ₹30 per kg and rice at ₹45 per kg are mixed and the mixture is sold at ₹46.80 per kg, giving a profit of 20%. In what ratio (cheaper : dearer) were they mixed?",
           "options": [
             "3 : 2",
@@ -100,6 +109,7 @@
         {
           "id": "q10",
           "type": "tita",
+          "qtype": "basic-average",
           "text": "The average marks of 40 students were worked out as 62. It was then found that two marks, 48 and 75, had been copied as 84 and 57. What is the correct average?"
         }
       ]

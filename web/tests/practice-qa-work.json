@@ -1,108 +1,118 @@
 {
- "id": "practice-qa-work",
- "title": "Time and work: practice set",
- "topic": "qa-work",
- "kind": "practice",
- "source": "original",
- "sourceNote": "Original practice questions written for this group. None of them is a CAT previous-year question.",
- "strict": false,
- "calculator": true,
- "instructions": [
-  "10 questions, 20 minutes, CAT marking: +3 right, -1 wrong multiple choice, 0 for a wrong type-in answer.",
-  "Type-in answers take a number only: no %, ₹ or units. Use a decimal, not a fraction."
- ],
- "sections": [
-  {
-   "name": "Time and work",
-   "minutes": 20,
-   "questions": [
+  "id": "practice-qa-work",
+  "title": "Time and work: practice set",
+  "topic": "qa-work",
+  "kind": "practice",
+  "source": "original",
+  "sourceNote": "Original practice questions written for this group. None of them is a CAT previous-year question.",
+  "strict": false,
+  "calculator": true,
+  "instructions": [
+    "10 questions, 20 minutes, CAT marking: +3 right, -1 wrong multiple choice, 0 for a wrong type-in answer.",
+    "Type-in answers take a number only: no %, ₹ or units. Use a decimal, not a fraction."
+  ],
+  "sections": [
     {
-     "id": "q1",
-     "type": "mcq",
-     "text": "A can finish a job in 12 days and B can finish it in 6 days. Working together at their usual rates, how many days do they need?",
-     "options": [
-      "3 days",
-      "4 days",
-      "9 days",
-      "18 days"
-     ]
-    },
-    {
-     "id": "q2",
-     "type": "tita",
-     "text": "A can complete a job alone in 10 days. A works for 4 days and then leaves. B finishes the rest of the job alone in 9 days. How many days would B take to do the whole job alone?"
-    },
-    {
-     "id": "q3",
-     "type": "mcq",
-     "text": "A tap fills a tank in 6 hours. An outlet pipe at the bottom can empty the full tank in 10 hours. If both are open together, how many hours does the empty tank take to fill?",
-     "options": [
-      "3.75 hours",
-      "16 hours",
-      "15 hours",
-      "30 hours"
-     ]
-    },
-    {
-     "id": "q4",
-     "type": "tita",
-     "text": "12 men can build a wall in 15 days. Every man works at the same rate. How many days will 9 men need for the same wall?"
-    },
-    {
-     "id": "q5",
-     "type": "mcq",
-     "text": "A and B together can do a job in 8 days. A alone can do it in 12 days. How many days would B take alone?",
-     "options": [
-      "4 days",
-      "24 days",
-      "20 days",
-      "48 days"
-     ]
-    },
-    {
-     "id": "q6",
-     "type": "mcq",
-     "text": "A, B and C can finish a job alone in 12, 15 and 20 days. They work on it together and are paid ₹6,000 in all, shared in proportion to the work each does. How much does A get?",
-     "options": [
-      "₹2,000",
-      "₹3,000",
-      "₹2,500",
-      "₹3,200"
-     ]
-    },
-    {
-     "id": "q7",
-     "type": "mcq",
-     "text": "A can do a job in 10 days and B in 15 days. They work on alternate days, A on day 1, B on day 2, A on day 3, and so on. In how many days is the job finished?",
-     "options": [
-      "6 days",
-      "12 days",
-      "14 days",
-      "25 days"
-     ]
-    },
-    {
-     "id": "q8",
-     "type": "tita",
-     "text": "Pipe A can fill a tank in 12 hours and pipe B can fill it in 18 hours. Both are opened together. After 4 hours pipe A is closed. How many more hours does pipe B take to fill the rest of the tank?"
-    },
-    {
-     "id": "q9",
-     "type": "tita",
-     "text": "A is 50% more efficient than B. To do the whole job alone, A takes 10 days less than B. Working together, how many days will they take?"
-    },
-    {
-     "id": "q10",
-     "type": "mcq",
-     "text": "15 men can finish a job in 24 days. After 8 days, 5 men leave and the rest carry on at the same rate. In how many days in all, counting the first 8, is the job finished?",
-     "options": [
-      "32 days",
-      "20 days",
-      "36 days",
-      "40 days"
-     ]
+      "name": "Time and work",
+      "minutes": 20,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "qtype": "working-together",
+          "text": "A can finish a job in 12 days and B can finish it in 6 days. Working together at their usual rates, how many days do they need?",
+          "options": [
+            "3 days",
+            "4 days",
+            "9 days",
+            "18 days"
+          ]
+        },
+        {
+          "id": "q2",
+          "type": "tita",
+          "qtype": "working-together",
+          "text": "A can complete a job alone in 10 days. A works for 4 days and then leaves. B finishes the rest of the job alone in 9 days. How many days would B take to do the whole job alone?"
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "qtype": "pipes-and-cisterns",
+          "text": "A tap fills a tank in 6 hours. An outlet pipe at the bottom can empty the full tank in 10 hours. If both are open together, how many hours does the empty tank take to fill?",
+          "options": [
+            "3.75 hours",
+            "16 hours",
+            "15 hours",
+            "30 hours"
+          ]
+        },
+        {
+          "id": "q4",
+          "type": "tita",
+          "qtype": "man-days",
+          "text": "12 men can build a wall in 15 days. Every man works at the same rate. How many days will 9 men need for the same wall?"
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "qtype": "working-together",
+          "text": "A and B together can do a job in 8 days. A alone can do it in 12 days. How many days would B take alone?",
+          "options": [
+            "4 days",
+            "24 days",
+            "20 days",
+            "48 days"
+          ]
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "qtype": "efficiency-and-wages",
+          "text": "A, B and C can finish a job alone in 12, 15 and 20 days. They work on it together and are paid ₹6,000 in all, shared in proportion to the work each does. How much does A get?",
+          "options": [
+            "₹2,000",
+            "₹3,000",
+            "₹2,500",
+            "₹3,200"
+          ]
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "qtype": "alternate-days",
+          "text": "A can do a job in 10 days and B in 15 days. They work on alternate days, A on day 1, B on day 2, A on day 3, and so on. In how many days is the job finished?",
+          "options": [
+            "6 days",
+            "12 days",
+            "14 days",
+            "25 days"
+          ]
+        },
+        {
+          "id": "q8",
+          "type": "tita",
+          "qtype": "pipes-and-cisterns",
+          "text": "Pipe A can fill a tank in 12 hours and pipe B can fill it in 18 hours. Both are opened together. After 4 hours pipe A is closed. How many more hours does pipe B take to fill the rest of the tank?"
+        },
+        {
+          "id": "q9",
+          "type": "tita",
+          "qtype": "efficiency-and-wages",
+          "text": "A is 50% more efficient than B. To do the whole job alone, A takes 10 days less than B. Working together, how many days will they take?"
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "qtype": "man-days",
+          "text": "15 men can finish a job in 24 days. After 8 days, 5 men leave and the rest carry on at the same rate. In how many days in all, counting the first 8, is the job finished?",
+          "options": [
+            "32 days",
+            "20 days",
+            "36 days",
+            "40 days"
+          ]
+        }
+      ]
     }
-   ]
-  }
- ]
+  ]
 }

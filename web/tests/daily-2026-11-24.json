@@ -1,0 +1,53 @@
+{
+  "id": "daily-2026-11-24",
+  "title": "Daily 5, Tue 24 Nov",
+  "kind": "daily",
+  "day": "2026-11-24",
+  "source": "original",
+  "sourceNote": "Original questions written for this group. None of them is a CAT previous-year question.",
+  "strict": false,
+  "calculator": true,
+  "instructions": [
+    "5 questions, 10 minutes, CAT marking: +3 right, -1 wrong multiple choice, 0 for a wrong type-in answer.",
+    "Everyone gets the same five. The ranking is by marks, then by time.",
+    "Type-in answers take a number only: no %, rupee sign or units."
+  ],
+  "sections": [
+    {
+      "name": "Daily 5",
+      "minutes": 10,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "tita",
+          "text": "30% of a number is 72. What is 45% of the same number?",
+          "topic": "qa-percentages"
+        },
+        {
+          "id": "q2",
+          "type": "tita",
+          "text": "The average of 5 numbers is 18. Each number is multiplied by 3, and then 4 is added to each result. What is the new average?",
+          "topic": "qa-averages"
+        },
+        {
+          "id": "q3",
+          "type": "tita",
+          "text": "A sum earns ₹1,800 as simple interest in 3 years at 12% per annum. What is the sum, in rupees?",
+          "topic": "qa-interest"
+        },
+        {
+          "id": "q4",
+          "type": "tita",
+          "text": "A, B and C can each finish a job alone in 10, 12 and 15 days. How many days do they take working together?",
+          "topic": "qa-work"
+        },
+        {
+          "id": "q5",
+          "type": "tita",
+          "text": "One root of x² + kx + 12 = 0 is 3. What is the other root?",
+          "topic": "qa-quadratic"
+        }
+      ]
+    }
+  ]
+}

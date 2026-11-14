@@ -1,7 +1,7 @@
 // You: profile, reminder settings, theme, account on this device, and the admin tools.
 import * as db from "./db.js";
 import { rpc } from "./db.js";
-import { el, boot, busy, currentTheme, setTheme, applyTextSize, confirmBox, fmtDate, showError, fill } from "./ui.js";
+import { el, boot, busy, currentTheme, setTheme, applyTextSize, confirmBox, fmtDate, fmtDateTime, showError, fill, local, setLocal, applyWarm, loadJson } from "./ui.js";
 import { startReminders, cacheSettings, getSettings, DEFAULTS } from "./reminders.js";
 
 const main = document.getElementById("main");
@@ -47,12 +47,21 @@ function settingsPanel() {
       num("eyeEveryMin", "Eye break every (0 is off)", 0, 60, "min"),
       el("label", { class: "field" }, "Text size", size)),
     check("sound", "Chime with reminders"),
+    check("quiet", "No chimes or eye reminders from 22:30 to 06:00"),
+    check("autoBreak", "Start the break on its own when a focus block ends (you can skip it)"),
     check("windDown", "Wind-down reminder at 23:00"),
+    check("walk", "Morning walk reminder"),
+    check("lunch", "Lunch reminder on paper days"),
+    check("caffeine", "No-caffeine reminder at 14:00"),
+    check("examReminders", "Admit card and route reminders on 28 November"),
+    el("label", { class: "field" }, "Time you'll leave for the centre on 29 November",
+      el("input", { type: "time", value: s.travelAt || "", "data-key": "travelAt", style: "width:8em" })),
+    el("p", { class: "muted small" }, "With that time set, the site reminds you at the same time on the 28th to check the route at that hour."),
     el("div", { class: "row" }, save, reset), status);
   const read = () => {
     const out = {};
     for (const input of panel.querySelectorAll("[data-key]")) {
-      out[input.dataset.key] = input.type === "checkbox" ? input.checked : Number(input.value);
+      out[input.dataset.key] = input.type === "checkbox" ? input.checked : input.type === "time" ? input.value || null : Number(input.value);
     }
     return out;
   };
@@ -71,11 +80,14 @@ function settingsPanel() {
 }
 
 function devicePanel() {
-  const themes = ["system", "light", "dark"].map((t) => {
+  const THEME_LABEL = { system: "Follow this device", light: "Light", dark: "Dark", sunset: "Light by day, dark from 18:00 to 06:30" };
+  const themes = Object.keys(THEME_LABEL).map((t) => {
     const r = el("input", { type: "radio", name: "theme", id: `theme-${t}`, value: t, checked: currentTheme() === t });
     r.addEventListener("change", () => setTheme(t));
-    return el("label", { for: `theme-${t}`, class: "option" }, r, ` ${t === "system" ? "Follow this device" : t === "light" ? "Light" : "Dark"}`);
+    return el("label", { for: `theme-${t}`, class: "option" }, r, ` ${THEME_LABEL[t]}`);
   });
+  const warm = el("input", { type: "checkbox", id: "warm", checked: local("cat-warm", false) === true });
+  warm.addEventListener("change", () => { setLocal("cat-warm", warm.checked); applyWarm(); });
   const perm = "Notification" in window ? Notification.permission : "unsupported";
   const notifyBtn = el("button", { type: "button", class: "btn", disabled: perm !== "default" },
     perm === "granted" ? "Notifications are on" : perm === "denied" ? "Notifications are blocked in this browser" : perm === "unsupported" ? "This browser has no notifications" : "Turn on notifications");
@@ -98,11 +110,51 @@ function devicePanel() {
     : null;
   return el("section", { class: "panel span-6" }, el("h2", {}, "This device"),
     el("h3", {}, "Theme"), el("div", {}, themes),
-    el("p", { class: "muted small" }, "Dark is easier on the eyes at night. The theme is kept on this device only."),
+    el("p", {}, warm, el("label", { for: "warm" }, " Warmer colours from 21:00, to go easier on sleep")),
+    el("p", { class: "muted small" }, "Dark is easier on the eyes at night. These are kept on this device only."),
     el("h3", {}, "Notifications and app"),
     el("p", { class: "muted small" }, "With notifications on, reminders still reach you while the site is in a background tab. On a phone, install the site to the home screen for the same."),
     appleTip,
-    el("div", { class: "row" }, notifyBtn, install));
+    el("div", { class: "row" }, notifyBtn, install),
+    el("details", {}, el("summary", {}, "Reminders on an iPhone or iPad"),
+      el("ol", {},
+        el("li", {}, "Open the site in Safari, tap Share, then Add to Home Screen."),
+        el("li", {}, "Open it from the new home-screen icon and sign in there. That sign-in is separate from Safari's."),
+        el("li", {}, "On this page, tap Turn on notifications and allow them."),
+        el("li", {}, "In Settings, Notifications, find the site's name and turn on Time Sensitive if you see it.")),
+      el("p", { class: "muted small" }, "iOS only shows reminders while the site is open or was open recently. For the paper and bed time, a phone alarm is the safer backup.")),
+    el("details", {}, el("summary", {}, "Silence the phone while you study"),
+      el("p", {}, el("strong", {}, "iPhone: "), "Settings, Focus, Do Not Disturb. Under Allowed apps, add this site's home-screen app if you want its break reminders. Turn it on from Control Centre when you start the timer."),
+      el("p", {}, el("strong", {}, "Android: "), "Settings, Notifications, Do Not Disturb. Under Apps, allow Chrome (or the installed site) so break reminders still come through."),
+      el("p", { class: "muted small" }, "Better still, leave the phone in another room and use a laptop or tablet for the site.")));
+}
+
+// Buddy (you see each other's plan ticks) and target IIMs.
+async function buddyPanel() {
+  const [people, buddy, facts] = await Promise.all([rpc("cat_profiles"), rpc("cat_buddy").catch(() => null), loadJson("data/facts.json").catch(() => null)]);
+  const others = people.filter((x) => !x.me);
+  const pick = el("select", { "aria-label": "Buddy" }, el("option", { value: "" }, "No buddy"),
+    others.map((x) => el("option", { value: x.name, selected: buddy?.name === x.name }, x.name)));
+  const saveBuddy = el("button", { type: "button", class: "btn" }, "Save buddy");
+  const status = el("p", { class: "status-line", role: "status" });
+  saveBuddy.addEventListener("click", () => busy(saveBuddy, async () => {
+    me = (await rpc("cat_set_buddy", { p_name: pick.value || null })).member;
+    status.textContent = pick.value ? `${pick.value} is your buddy. Their plan ticks show on your Today page.` : "No buddy now.";
+  }));
+  const names = (facts?.iims || []).map((x) => x.name || x.short || x).filter((x) => typeof x === "string");
+  const iims = el("input", { type: "text", maxlength: 200, value: me.iims || "", list: "iim-list", placeholder: "e.g. IIM Indore, IIM Kozhikode, IIM Rohtak" });
+  const saveIims = el("button", { type: "button", class: "btn" }, "Save targets");
+  saveIims.addEventListener("click", () => busy(saveIims, async () => {
+    me = (await rpc("cat_set_iims", { p_text: iims.value })).member;
+    status.textContent = "Targets saved. The exam-day page shows the group's.";
+  }));
+  return el("section", { class: "panel span-6", id: "buddy" }, el("h2", {}, "Buddy and targets"),
+    el("p", { class: "muted small" }, "A buddy sees your plan ticks and focus time for the day, and you see theirs. Pick someone whose slot and hours are close to yours."),
+    el("div", { class: "row" }, pick, saveBuddy),
+    buddy?.name ? el("p", { class: "small" }, `${buddy.name} today: ${buddy.ticks?.length || 0} plan blocks ticked, ${buddy.focusMin || 0} minutes focused.`) : null,
+    el("label", { class: "field" }, "IIMs you're aiming for", iims),
+    names.length ? el("datalist", { id: "iim-list" }, names.map((n) => el("option", { value: n }))) : null,
+    el("div", { class: "row" }, saveIims), status);
 }
 
 function accountPanel() {
@@ -120,6 +172,7 @@ function accountPanel() {
   }));
   const out = el("button", { type: "button", class: "btn" }, "Sign out of this device");
   out.addEventListener("click", async () => {
+    setLocal("cat-had-session", false);
     await db.signOut();
     location.href = "index.html";
   });
@@ -152,15 +205,65 @@ async function adminPanel() {
     });
     return el("tr", {}, el("td", {}, m.name, m.isAdmin ? " (admin)" : ""), el("td", {}, `Slot ${m.slot}`), el("td", {}, fmtDate(m.joinedAt)), el("td", {}, team), el("td", {}, remove));
   });
+  // Notice at the top of everyone's Today page.
+  const today = await rpc("cat_today");
+  const notice = el("textarea", { maxlength: 600, rows: 2, placeholder: "e.g. Paper moved to 13:00 on Saturday" }, today.notice?.text || "");
+  const postNotice = el("button", { type: "button", class: "btn" }, "Post the notice");
+  const noticeStatus = el("p", { class: "status-line", role: "status" });
+  postNotice.addEventListener("click", () => busy(postNotice, async () => {
+    await rpc("cat_admin_notice", { p_text: notice.value });
+    noticeStatus.textContent = notice.value.trim() ? "Posted. It shows on everyone's Today page until they dismiss it." : "Notice cleared.";
+  }));
+  // Group hours goal for the week.
+  const goal = await rpc("cat_week_goal").catch(() => null);
+  const hours = el("input", { type: "number", min: 1, max: 2000, step: 1, value: goal?.goalHours ?? "", style: "width:6em", inputmode: "numeric", "aria-label": "Group hours this week" });
+  const saveGoal = el("button", { type: "button", class: "btn" }, "Set the goal");
+  const clearGoal = el("button", { type: "button", class: "btn quiet" }, "Clear the goal");
+  saveGoal.addEventListener("click", () => busy(saveGoal, async () => { await rpc("cat_admin_week_goal", { p_hours: Number(hours.value) }); saveGoal.textContent = "Set"; }));
+  clearGoal.addEventListener("click", () => busy(clearGoal, async () => { await rpc("cat_admin_week_goal", { p_hours: null }); hours.value = ""; }));
+  // Reported questions.
+  const reportsHost = el("div");
+  const paintReports = (list) => fill(reportsHost, list.length ? el("ul", { class: "list" }, list.map((r) => {
+    const done = el("button", { type: "button", class: "btn small" }, "Mark fixed");
+    done.addEventListener("click", () => busy(done, async () => paintReports(await rpc("cat_admin_report_resolve", { p_id: r.id }))));
+    return el("li", {}, el("span", { class: "grow" }, el("strong", {}, `${r.testId}, ${String(r.questionId).replace(/^.*~/, "")}`),
+      el("span", { class: "muted small" }, ` from ${r.name}, ${fmtDateTime(r.at)}`), el("br"), r.text), done);
+  })) : el("p", { class: "muted small" }, "No open reports."));
+  paintReports(await rpc("cat_admin_reports").catch(() => []));
+  // Everything the group has, as one file.
+  const exp = el("button", { type: "button", class: "btn" }, "Download the group's data (JSON)");
+  exp.addEventListener("click", () => busy(exp, async () => {
+    const data = await rpc("cat_admin_export");
+    const url = URL.createObjectURL(new Blob([JSON.stringify(data, null, 2)], { type: "application/json" }));
+    const a = el("a", { href: url, download: `cat-prep-export-${new Date().toISOString().slice(0, 10)}.json` });
+    document.body.append(a);
+    a.click();
+    a.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 5000);
+  }));
   return el("section", { class: "panel span-12" }, el("h2", {}, "Running the group"),
     el("p", { class: "muted" }, "Only you see this. Share the code privately, in your family or friends' chat, never on a public page."),
     el("div", { class: "row" }, el("label", {}, "Group code ", code), saveCode),
     el("div", { class: "table-wrap" }, el("table", { class: "plain" }, el("thead", {}, el("tr", {}, ["Name", "Slot", "Joined", "Team", ""].map((h) => el("th", {}, h)))), el("tbody", {}, rows))),
-    el("p", { class: "muted small" }, "Teams add a team total to the board. Leave everyone without a team to switch it off."));
+    el("p", { class: "muted small" }, "Teams add a team total to the board. Leave everyone without a team to switch it off."),
+    el("h3", {}, "Notice for everyone"), notice, el("div", { class: "row" }, postNotice), noticeStatus,
+    el("h3", {}, "Group hours this week"),
+    el("p", { class: "muted small" }, goal?.goalHours ? `${Math.round((goal.doneMin || 0) / 60)} of ${goal.goalHours} hours done so far this week.` : "No goal set for this week."),
+    el("div", { class: "row" }, hours, el("span", {}, "hours"), saveGoal, clearGoal),
+    el("h3", {}, "Reported questions"), reportsHost,
+    el("h3", {}, "Backup"),
+    el("p", { class: "muted small" }, "Members, scores, mocks, posts and settings. Keep the file private: it has everyone's names and results."),
+    el("div", { class: "row" }, exp));
 }
 
 async function render() {
-  const grid = el("div", { class: "grid" }, profilePanel(), settingsPanel(), devicePanel(), accountPanel());
+  const grid = el("div", { class: "grid" }, profilePanel(), settingsPanel(), devicePanel());
+  try {
+    grid.append(await buddyPanel());
+  } catch (err) {
+    showError(err);
+  }
+  grid.append(accountPanel());
   try {
     const admin = await adminPanel();
     if (admin) grid.append(admin);
@@ -168,6 +271,7 @@ async function render() {
     showError(err);
   }
   fill(main, el("div", { class: "page-head" }, el("h1", {}, "You")), grid);
+  if (location.hash) document.getElementById(location.hash.slice(1))?.scrollIntoView();
 }
 
 async function init() {

@@ -1,0 +1,118 @@
+{
+  "id": "practice2-qa-linear",
+  "title": "Linear equations and word problems: practice set 2",
+  "topic": "qa-linear",
+  "kind": "practice",
+  "source": "original",
+  "sourceNote": "Original practice questions written for this group. None of them is a CAT previous-year question.",
+  "strict": false,
+  "calculator": true,
+  "instructions": [
+    "10 questions, 20 minutes, CAT marking: +3 right, -1 wrong multiple choice, 0 for a wrong type-in answer.",
+    "Type-in answers take a number only: no %, ₹ or units. Use a decimal, not a fraction."
+  ],
+  "sections": [
+    {
+      "name": "Linear equations",
+      "minutes": 20,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "qtype": "word-problems",
+          "text": "The sum of two numbers is 50, and one of them is 8 more than the other. What is the larger number?",
+          "options": [
+            "29",
+            "25",
+            "21",
+            "42"
+          ]
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "qtype": "simultaneous-equations",
+          "text": "Solve 4x + 3y = 26 and 2x − y = 8. What is x + y?",
+          "options": [
+            "3",
+            "5",
+            "7",
+            "10"
+          ]
+        },
+        {
+          "id": "q3",
+          "type": "tita",
+          "qtype": "ages",
+          "text": "Meera is 6 years older than her brother. In 4 years, the sum of their ages will be 40. How old is Meera now, in years?"
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "qtype": "consistency",
+          "text": "For what value of k does the system 3x − 2y = 5 and 6x + ky = 7 have no solution?",
+          "options": [
+            "4",
+            "−4",
+            "−1",
+            "No value of k"
+          ]
+        },
+        {
+          "id": "q5",
+          "type": "tita",
+          "qtype": "word-problems",
+          "text": "A worker is paid ₹800 for each day he works and is fined ₹200 for each day he is absent. Over 30 days he receives ₹16,000 in all. On how many days was he absent?"
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "qtype": "ages",
+          "text": "Five years ago, the ages of Anil and Bhavna were in the ratio 3 : 4. Ten years from now, they will be in the ratio 6 : 7. What is Bhavna's present age, in years?",
+          "options": [
+            "20",
+            "25",
+            "30",
+            "35"
+          ]
+        },
+        {
+          "id": "q7",
+          "type": "tita",
+          "qtype": "simultaneous-equations",
+          "text": "The digits of a two-digit number add up to 11. When the digits are reversed, the new number is 27 more than the original. What is the original number?"
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "qtype": "integer-solutions",
+          "text": "How many pairs of non-negative integers (x, y) satisfy 4x + 7y = 100?",
+          "options": [
+            "3",
+            "5",
+            "15",
+            "4"
+          ]
+        },
+        {
+          "id": "q9",
+          "type": "tita",
+          "qtype": "simultaneous-equations",
+          "text": "A shop charges ₹110 for 2 pens, 3 notebooks and 4 erasers, and ₹130 for 4 pens, 3 notebooks and 2 erasers. What is the total cost, in rupees, of 1 pen, 1 notebook and 1 eraser?"
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "qtype": "integer-solutions",
+          "text": "Riya spends exactly ₹300 on apples at ₹15 each and mangoes at ₹24 each, and she buys at least one of each. What is the largest number of fruits she could have bought?",
+          "options": [
+            "12",
+            "14",
+            "17",
+            "20"
+          ]
+        }
+      ]
+    }
+  ]
+}

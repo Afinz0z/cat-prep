@@ -1,0 +1,65 @@
+{
+  "id": "daily-2026-11-28",
+  "title": "Daily 5, Sat 28 Nov",
+  "kind": "daily",
+  "day": "2026-11-28",
+  "source": "original",
+  "sourceNote": "Original questions written for this group. None of them is a CAT previous-year question.",
+  "strict": false,
+  "calculator": true,
+  "instructions": [
+    "5 questions, 10 minutes, CAT marking: +3 right, -1 wrong multiple choice, 0 for a wrong type-in answer.",
+    "Everyone gets the same five. The ranking is by marks, then by time.",
+    "Type-in answers take a number only: no %, rupee sign or units."
+  ],
+  "sections": [
+    {
+      "name": "Daily 5",
+      "minutes": 10,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "tita",
+          "text": "A sum doubles in 5 years at compound interest. At the same rate, in how many years will it become 8 times itself?",
+          "topic": "qa-interest"
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "text": "A and B together finish a job in 12 days, B and C in 15 days, and C and A in 20 days. How many days do A, B and C take working together?",
+          "topic": "qa-work",
+          "options": [
+            "10 days",
+            "5 days",
+            "12 days",
+            "15 days"
+          ]
+        },
+        {
+          "id": "q3",
+          "type": "tita",
+          "text": "The product of two consecutive positive even integers is 168. What is their sum?",
+          "topic": "qa-quadratic"
+        },
+        {
+          "id": "q4",
+          "type": "tita",
+          "text": "An election has two candidates. The winner gets 58% of the valid votes and wins by 4,800 votes. How many valid votes were cast?",
+          "topic": "qa-percentages"
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "text": "The average of 11 results is 60. The average of the first 6 is 58 and the average of the last 6 is 63. What is the 6th result?",
+          "topic": "qa-averages",
+          "options": [
+            "64",
+            "61",
+            "70",
+            "66"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "id": "varc-summary-2",
+  "title": "Para summary: set 2",
+  "topic": "varc-summary",
+  "kind": "practice",
+  "source": "public-domain",
+  "sourceNote": "Passages adapted from public-domain works: Henry David Thoreau, Walden (1854); Robert Louis Stevenson, \"An Apology for Idlers\" in Virginibus Puerisque (1881); William James, Talks to Teachers on Psychology (1899); John Ruskin, Unto This Last (1860); William Hazlitt, \"On the Ignorance of the Learned\" in Table-Talk (1821).",
+  "strict": false,
+  "calculator": false,
+  "instructions": [
+    "5 questions, 12 minutes. CAT marking: +3 right, -1 wrong multiple choice, 0 for a wrong type-in answer.",
+    "All five are multiple choice, so each wrong answer costs a mark. Skip a question if you are only guessing.",
+    "Allow about two minutes for each passage. The passages are older English prose, lightly adapted."
+  ],
+  "sections": [
+    {
+      "name": "VARC",
+      "minutes": 12,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "text": "Most of the luxuries, and many of the so-called comforts of life, are not only not indispensable, but positive hindrances to the elevation of mankind. With respect to luxuries and comforts, the wisest have ever lived a more simple and meagre life than the poor. The ancient philosophers, Chinese, Hindu, Persian, and Greek, were a class than which none has been poorer in outward riches, none so rich in inward. None can be an impartial or wise observer of human life but from the vantage ground of what we should call voluntary poverty. There are nowadays professors of philosophy, but not philosophers. To be a philosopher is not merely to have subtle thoughts, nor even to found a school, but so to love wisdom as to live according to its dictates, a life of simplicity, independence, magnanimity, and trust.\n\nChoose the option that best captures the essence of the passage.",
+          "options": [
+            "The ancient philosophers of Asia and Greece owned very little.",
+            "Society should limit the wealth of its citizens so that everyone can live like a philosopher.",
+            "The poor are wiser than the rich because hardship teaches what comfort cannot.",
+            "Luxury holds people back; the wise have chosen simple lives, and to be a philosopher is to live by wisdom, which takes more than clever thinking."
+          ]
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "text": "Extreme busyness is a symptom of deficient vitality; and a faculty for idleness implies a catholic appetite and a strong sense of personal identity. There is a sort of dead-alive, hackneyed people about, who are scarcely conscious of living except in the exercise of some conventional occupation. Bring these fellows into the country, or set them aboard ship, and you will see how they pine for their desk or their study. They have no curiosity; they cannot give themselves over to random provocations; they do not take pleasure in the exercise of their faculties for its own sake; and unless Necessity lays about them with a stick, they will even stand still. When they do not require to go to the office, when they are not hungry and have no mind to drink, the whole breathing world is a blank to them.\n\nChoose the option that best captures the essence of the passage.",
+          "options": [
+            "Busy people grow restless when they are taken away from their desks.",
+            "Constant busyness shows a thin inner life: people who cannot be idle lack curiosity and find the world empty once their routine work is taken away.",
+            "Hard work does harm, and society would be better off if fewer people held regular jobs.",
+            "Idle people are lazy by nature, while busy people are driven by curiosity."
+          ]
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "text": "The great thing in all education is to make our nervous system our ally instead of our enemy. For this we must make automatic and habitual, as early as possible, as many useful actions as we can, and as carefully guard against the growing into ways that are likely to be disadvantageous. The more of the details of our daily life we can hand over to the effortless custody of automatism, the more our higher powers of mind will be set free for their own proper work. There is no more miserable human being than one in whom nothing is habitual but indecision, and for whom the lighting of every cigar, the drinking of every cup, the time of rising and going to bed every day, and the beginning of every bit of work are subjects of express volitional deliberation.\n\nChoose the option that best captures the essence of the passage.",
+          "options": [
+            "People who must decide afresh each day when to rise and when to sleep are unhappy.",
+            "Schools should spend more time on drill and less on teaching pupils to think for themselves.",
+            "Education should turn as many useful actions as possible into early habits, because routine done automatically frees the mind for higher work, while a life without habits is spent deciding.",
+            "Since habits are hard to change, education should form none until a child can choose wisely."
+          ]
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "text": "It is the manner and issue of consumption which are the real tests of production. Production does not consist in things laboriously made, but in things serviceably consumable; and the question for the nation is not how much labour it employs, but how much life it produces. For as consumption is the end and aim of production, so life is the end and aim of consumption. There is no wealth but life: life, including all its powers of love, of joy, and of admiration. That country is the richest which nourishes the greatest number of noble and happy human beings; that man is richest who, having perfected the functions of his own life to the utmost, has also the widest helpful influence, both personal and by means of his possessions, over the lives of others.\n\nChoose the option that best captures the essence of the passage.",
+          "options": [
+            "Production should be judged by the life it finally supports, so the real wealth of a nation or a person lies in noble and happy lives and in helping others to live well.",
+            "Goods that take great labour to make are not always useful once they are consumed.",
+            "Governments should tax luxury goods so that more people can lead happy lives.",
+            "Since life is the aim of consumption, a nation grows richer the more it consumes."
+          ]
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "text": "Anyone who has passed through the regular gradations of a classical education, and is not made a fool by it, may consider himself as having had a very narrow escape. It is an old remark, that boys who shine at school do not make the greatest figure when they grow up and come out into the world. The things which a boy is set to learn at school, and on which his success depends, are things which do not require the exercise either of the highest or the most useful faculties of the mind. Memory (and that of the lowest kind) is the chief faculty called into play in repeating lessons by rote. What passes for stupidity is much oftener a want of interest, of a sufficient motive to fix the attention and force a reluctant application to the dry and unmeaning pursuits of school-learning.\n\nChoose the option that best captures the essence of the passage.",
+          "options": [
+            "Pupils who do badly at school are often bored, not stupid.",
+            "School success rewards rote memory over the higher powers of mind, so it is a poor guide to ability, and many pupils who seem dull simply lack interest.",
+            "Formal education does more harm than good and should be done away with.",
+            "Boys who do well at school seldom succeed in life because memory is a useless faculty."
+          ]
+        }
+      ]
+    }
+  ]
+}

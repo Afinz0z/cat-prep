@@ -56,19 +56,29 @@ def build(code: str, keys_dir: Path) -> str:
                     raise SystemExit(f"{test['id']}: {q['id']} has no answer")
                 if q["type"] == "tita" and "answer" not in entry and not ("min" in entry and "max" in entry):
                     raise SystemExit(f"{test['id']}: {q['id']} has no answer or range")
-                qs.append({"id": q["id"], "type": q["type"]})
+                item = {"id": q["id"], "type": q["type"]}
+                # Topic and question type are public; the readiness meter and
+                # worked examples use them. Shared passages are flagged so mixed
+                # sets leave set-based questions out.
+                for field in ("topic", "qtype", "group"):
+                    if q.get(field):
+                        item[field] = q[field]
+                qs.append(item)
             sections.append({"name": s["name"], "minutes": s["minutes"], "questions": qs})
         extra = set(key) - {q["id"] for s in sections for q in s["questions"]}
         if extra:
             raise SystemExit(f"{test['id']}: key has entries for unknown questions {sorted(extra)}")
         out.append(
-            "insert into private.tests (test_id, title, sections, key) values (%s, %s, %s::jsonb, %s::jsonb) "
-            "on conflict (test_id) do update set title = excluded.title, sections = excluded.sections, key = excluded.key;"
+            "insert into private.tests (test_id, title, sections, key, kind, topic) values (%s, %s, %s::jsonb, %s::jsonb, %s, %s) "
+            "on conflict (test_id) do update set title = excluded.title, sections = excluded.sections, key = excluded.key, "
+            "kind = excluded.kind, topic = excluded.topic;"
             % (
                 dollar(test["id"]),
                 dollar(test["title"]),
                 dollar(json.dumps(sections, ensure_ascii=False)),
                 dollar(json.dumps(key, ensure_ascii=False)),
+                dollar(test.get("kind", "check")),
+                dollar(test["topic"]) if test.get("topic") else "null",
             )
         )
     out.append("commit;")

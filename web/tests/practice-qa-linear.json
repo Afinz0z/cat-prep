@@ -1,108 +1,118 @@
 {
- "id": "practice-qa-linear",
- "title": "Linear equations and word problems: practice set",
- "topic": "qa-linear",
- "kind": "practice",
- "source": "original",
- "sourceNote": "Original practice questions written for this group. None of them is a CAT previous-year question.",
- "strict": false,
- "calculator": true,
- "instructions": [
-  "10 questions, 20 minutes, CAT marking: +3 right, -1 wrong multiple choice, 0 for a wrong type-in answer.",
-  "Type-in answers take a number only: no %, ₹ or units. Use a decimal, not a fraction."
- ],
- "sections": [
-  {
-   "name": "Linear equations",
-   "minutes": 20,
-   "questions": [
+  "id": "practice-qa-linear",
+  "title": "Linear equations and word problems: practice set",
+  "topic": "qa-linear",
+  "kind": "practice",
+  "source": "original",
+  "sourceNote": "Original practice questions written for this group. None of them is a CAT previous-year question.",
+  "strict": false,
+  "calculator": true,
+  "instructions": [
+    "10 questions, 20 minutes, CAT marking: +3 right, -1 wrong multiple choice, 0 for a wrong type-in answer.",
+    "Type-in answers take a number only: no %, ₹ or units. Use a decimal, not a fraction."
+  ],
+  "sections": [
     {
-     "id": "q1",
-     "type": "mcq",
-     "text": "A pen costs ₹5 more than a pencil. Three pens and two pencils together cost ₹65. What is the price of one pen?",
-     "options": [
-      "₹20",
-      "₹15",
-      "₹25",
-      "₹10"
-     ]
-    },
-    {
-     "id": "q2",
-     "type": "mcq",
-     "text": "The sum of three consecutive integers is 96. What is the largest of them?",
-     "options": [
-      "31",
-      "32",
-      "34",
-      "33"
-     ]
-    },
-    {
-     "id": "q3",
-     "type": "mcq",
-     "text": "A father is 4 times as old as his son. After 5 years he will be 3 times as old as his son. What is the son's age now, in years?",
-     "options": [
-      "10",
-      "8",
-      "40",
-      "15"
-     ]
-    },
-    {
-     "id": "q4",
-     "type": "tita",
-     "text": "A bag holds 20 coins, all of ₹2 or ₹5. Their total value is ₹64. How many ₹5 coins are in the bag?"
-    },
-    {
-     "id": "q5",
-     "type": "mcq",
-     "text": "For which value of k does the system 2x + 3y = 7 and 4x + ky = 14 have infinitely many solutions?",
-     "options": [
-      "12",
-      "3",
-      "6",
-      "7"
-     ]
-    },
-    {
-     "id": "q6",
-     "type": "tita",
-     "text": "Solve x + 2y = 11 and 3x − y = 12. What is the value of x × y?"
-    },
-    {
-     "id": "q7",
-     "type": "mcq",
-     "text": "How many pairs of positive integers (x, y) satisfy 3x + 5y = 47?",
-     "options": [
-      "4",
-      "3",
-      "2",
-      "5"
-     ]
-    },
-    {
-     "id": "q8",
-     "type": "tita",
-     "text": "Ravi has only ₹10 notes and ₹50 notes. He has twice as many ₹10 notes as ₹50 notes, and the notes are worth ₹1,400 in total. How many notes does he have?"
-    },
-    {
-     "id": "q9",
-     "type": "tita",
-     "text": "A fraction becomes 2/3 when 3 is added to both its numerator and its denominator. It becomes 1/2 when 2 is subtracted from both. What is the sum of the original numerator and denominator?"
-    },
-    {
-     "id": "q10",
-     "type": "mcq",
-     "text": "Ten years ago A was three times as old as B. Five years from now A will be twice as old as B. What is A's present age, in years?",
-     "options": [
-      "65",
-      "45",
-      "50",
-      "55"
-     ]
+      "name": "Linear equations",
+      "minutes": 20,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "qtype": "word-problems",
+          "text": "A pen costs ₹5 more than a pencil. Three pens and two pencils together cost ₹65. What is the price of one pen?",
+          "options": [
+            "₹20",
+            "₹15",
+            "₹25",
+            "₹10"
+          ]
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "qtype": "word-problems",
+          "text": "The sum of three consecutive integers is 96. What is the largest of them?",
+          "options": [
+            "31",
+            "32",
+            "34",
+            "33"
+          ]
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "qtype": "ages",
+          "text": "A father is 4 times as old as his son. After 5 years he will be 3 times as old as his son. What is the son's age now, in years?",
+          "options": [
+            "10",
+            "8",
+            "40",
+            "15"
+          ]
+        },
+        {
+          "id": "q4",
+          "type": "tita",
+          "qtype": "word-problems",
+          "text": "A bag holds 20 coins, all of ₹2 or ₹5. Their total value is ₹64. How many ₹5 coins are in the bag?"
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "qtype": "consistency",
+          "text": "For which value of k does the system 2x + 3y = 7 and 4x + ky = 14 have infinitely many solutions?",
+          "options": [
+            "12",
+            "3",
+            "6",
+            "7"
+          ]
+        },
+        {
+          "id": "q6",
+          "type": "tita",
+          "qtype": "simultaneous-equations",
+          "text": "Solve x + 2y = 11 and 3x − y = 12. What is the value of x × y?"
+        },
+        {
+          "id": "q7",
+          "type": "mcq",
+          "qtype": "integer-solutions",
+          "text": "How many pairs of positive integers (x, y) satisfy 3x + 5y = 47?",
+          "options": [
+            "4",
+            "3",
+            "2",
+            "5"
+          ]
+        },
+        {
+          "id": "q8",
+          "type": "tita",
+          "qtype": "word-problems",
+          "text": "Ravi has only ₹10 notes and ₹50 notes. He has twice as many ₹10 notes as ₹50 notes, and the notes are worth ₹1,400 in total. How many notes does he have?"
+        },
+        {
+          "id": "q9",
+          "type": "tita",
+          "qtype": "simultaneous-equations",
+          "text": "A fraction becomes 2/3 when 3 is added to both its numerator and its denominator. It becomes 1/2 when 2 is subtracted from both. What is the sum of the original numerator and denominator?"
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "qtype": "ages",
+          "text": "Ten years ago A was three times as old as B. Five years from now A will be twice as old as B. What is A's present age, in years?",
+          "options": [
+            "65",
+            "45",
+            "50",
+            "55"
+          ]
+        }
+      ]
     }
-   ]
-  }
- ]
+  ]
 }

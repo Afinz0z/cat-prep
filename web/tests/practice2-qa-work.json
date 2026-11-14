@@ -1,0 +1,118 @@
+{
+  "id": "practice2-qa-work",
+  "title": "Time and work: practice set 2",
+  "topic": "qa-work",
+  "kind": "practice",
+  "source": "original",
+  "sourceNote": "Original practice questions written for this group. None of them is a CAT previous-year question.",
+  "strict": false,
+  "calculator": true,
+  "instructions": [
+    "10 questions, 20 minutes, CAT marking: +3 right, -1 wrong multiple choice, 0 for a wrong type-in answer.",
+    "Type-in answers take a number only: no %, ₹ or units. Use a decimal, not a fraction."
+  ],
+  "sections": [
+    {
+      "name": "Time and work",
+      "minutes": 20,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "qtype": "working-together",
+          "text": "Ravi can paint a fence in 10 hours and Sunil can paint it in 15 hours. Working together at these rates, how long do they take?",
+          "options": [
+            "5 hours",
+            "6 hours",
+            "12.5 hours",
+            "25 hours"
+          ]
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "qtype": "man-days",
+          "text": "Eight workers, each working 6 hours a day, finish a job in 21 days. How many days will 12 workers need for the same job if each works 7 hours a day? All the workers work at the same rate.",
+          "options": [
+            "12 days",
+            "14 days",
+            "16.33 days",
+            "36.75 days"
+          ]
+        },
+        {
+          "id": "q3",
+          "type": "tita",
+          "qtype": "pipes-and-cisterns",
+          "text": "Pipe A fills a tank in 20 minutes and pipe B fills it in 30 minutes. A leak at the bottom can empty the full tank in 60 minutes. Both pipes are opened together while the leak is present. How many minutes does the empty tank take to fill?"
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "qtype": "efficiency-and-wages",
+          "text": "Asha works twice as fast as Bina. Together they finish a job in 12 days. How many days would Bina take to do it alone?",
+          "options": [
+            "18 days",
+            "24 days",
+            "36 days",
+            "6 days"
+          ]
+        },
+        {
+          "id": "q5",
+          "type": "tita",
+          "qtype": "working-together",
+          "text": "A can do a job in 12 days and B can do it in 18 days. They start together, but A leaves 3 days before the job is finished and B completes it. How many days does the job take in all?"
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "qtype": "alternate-days",
+          "text": "A can do a job in 8 days and B can do it in 12 days. They work on alternate days: B on day 1, A on day 2, B on day 3, and so on. How many days does the job take?",
+          "options": [
+            "9 2/3 days",
+            "9.5 days",
+            "9.6 days",
+            "10 days"
+          ]
+        },
+        {
+          "id": "q7",
+          "type": "tita",
+          "qtype": "efficiency-and-wages",
+          "text": "A, B and C can do a job alone in 10, 12 and 15 days. All three start together. C leaves after 2 days, and A and B finish the job. They are paid ₹9,000 in all, shared in proportion to the work each one does. How much does C get, in rupees?"
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "qtype": "pipes-and-cisterns",
+          "text": "Pipes A and B can fill a tank in 12 hours and 15 hours. Pipe C can empty it. With all three open, the empty tank fills in 20 hours. How long would C alone take to empty the full tank?",
+          "options": [
+            "5 hours",
+            "10 hours",
+            "30 hours",
+            "60 hours"
+          ]
+        },
+        {
+          "id": "q9",
+          "type": "tita",
+          "qtype": "man-days",
+          "text": "A contractor agrees to finish a job in 50 days and puts 24 workers on it. After 30 days only 2/5 of the job is done. How many more workers must he add so that the job is finished on time? All the workers work at the same rate."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "qtype": "working-together",
+          "text": "A and B together finish a job in 6 days. A alone would take 5 days more than B alone. How many days would A take alone?",
+          "options": [
+            "10 days",
+            "11 days",
+            "12 days",
+            "15 days"
+          ]
+        }
+      ]
+    }
+  ]
+}

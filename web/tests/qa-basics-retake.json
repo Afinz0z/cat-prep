@@ -1,0 +1,207 @@
+{
+  "id": "qa-basics-retake",
+  "title": "QA basics retake",
+  "kind": "check",
+  "source": "original",
+  "sourceNote": "Original practice questions written for this check. None of them is a CAT previous-year question.",
+  "strict": false,
+  "calculator": false,
+  "instructions": [
+    "One section, 30 questions, 40 minutes. Every question is type-in (TITA): there are no options and no negative marks.",
+    "No calculator for this check, so the calculator button is hidden. You can use rough paper.",
+    "Type the number only, with no %, ₹ or units. Use a decimal, not a fraction (1.5, not 3/2). Type a decrease as a negative number.",
+    "If you can't see how to start within about 30 seconds, leave it blank and move on.",
+    "If you answer but aren't sure, use Mark for Review & Next. The answer still counts, and the flag shows you which ones to recheck.",
+    "The site records how long you spend on each question, so you don't need to note slow ones.",
+    "Go in order. When the timer ends, the section submits itself."
+  ],
+  "sections": [
+    {
+      "name": "QA basics",
+      "minutes": 40,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "tita",
+          "text": "Express 7/8 as a percentage.",
+          "topic": "qa-percentages"
+        },
+        {
+          "id": "q2",
+          "type": "tita",
+          "text": "Convert 1/11 to a percentage, correct to two decimal places.",
+          "topic": "qa-percentages"
+        },
+        {
+          "id": "q3",
+          "type": "tita",
+          "text": "The price of a bag is cut by 30%. Later the new price goes up by 30%. What is the overall percentage change from the original price? Type a decrease as a negative number.",
+          "topic": "qa-percentages"
+        },
+        {
+          "id": "q4",
+          "type": "tita",
+          "text": "Rahul earns 60% more than Meera. By what percentage are Meera's earnings lower than Rahul's?",
+          "topic": "qa-percentages"
+        },
+        {
+          "id": "q5",
+          "type": "tita",
+          "text": "₹2,100 is shared between R and S in the ratio 4 : 3. How much does R get, in rupees?",
+          "topic": "qa-ratio"
+        },
+        {
+          "id": "q6",
+          "type": "tita",
+          "text": "Three numbers p, q and r add up to 62. If p : q = 3 : 4 and q : r = 6 : 5, what is r?",
+          "topic": "qa-ratio"
+        },
+        {
+          "id": "q7",
+          "type": "tita",
+          "text": "The average of 8 numbers is 25. One number is taken out, and the average of the other 7 is 23. Which number was taken out?",
+          "topic": "qa-averages"
+        },
+        {
+          "id": "q8",
+          "type": "tita",
+          "text": "A grocer mixes 3 kg of sugar worth ₹42 a kg with 5 kg worth ₹50 a kg. What is the mixture worth per kg, in rupees?",
+          "topic": "qa-averages"
+        },
+        {
+          "id": "q9",
+          "type": "tita",
+          "text": "A grocer has 6 kg of dal worth ₹120 a kg. How many kg of dal worth ₹96 a kg should she add so that the mixture is worth ₹104 a kg?",
+          "topic": "qa-averages"
+        },
+        {
+          "id": "q10",
+          "type": "tita",
+          "text": "A lamp costs a trader ₹600. He sets its marked price 40% above cost, then sells it at 15% off the marked price. What percentage profit does he make?",
+          "topic": "qa-profit-loss"
+        },
+        {
+          "id": "q11",
+          "type": "tita",
+          "text": "₹8,000 is invested at 5% per annum, compounded annually. How much compound interest does it earn in 2 years, in rupees?",
+          "topic": "qa-interest"
+        },
+        {
+          "id": "q12",
+          "type": "tita",
+          "text": "A sum lent at simple interest doubles in 16 years. What is the rate of interest per annum, in percent?",
+          "topic": "qa-interest"
+        },
+        {
+          "id": "q13",
+          "type": "tita",
+          "text": "Neha rides her scooter from home to college at 20 km/h and comes back along the same road at 30 km/h. What is her average speed for the round trip, in km/h?",
+          "topic": "qa-tsd"
+        },
+        {
+          "id": "q14",
+          "type": "tita",
+          "text": "A 140 m train and a 110 m train approach each other on parallel tracks at 48 km/h and 42 km/h. From the moment their fronts meet, how many seconds pass until their rear ends are clear of each other?",
+          "topic": "qa-tsd"
+        },
+        {
+          "id": "q15",
+          "type": "tita",
+          "text": "Ravi can paint a wall in 12 hours and Sunil can paint it in 24 hours. Working together, how many hours will they take?",
+          "topic": "qa-work"
+        },
+        {
+          "id": "q16",
+          "type": "tita",
+          "text": "Going downstream, a boat covers 36 km in 2 hours. Coming back upstream over the same 36 km, it takes 3 hours. Find the speed of the stream in km/h.",
+          "topic": "qa-tsd"
+        },
+        {
+          "id": "q17",
+          "type": "tita",
+          "text": "Given 5x + 2y = 31 and 2x + 5y = 25, what is x + y?",
+          "topic": "qa-linear"
+        },
+        {
+          "id": "q18",
+          "type": "tita",
+          "text": "The equation 2x² − 11x + 5 = 0 has roots m and n, where m > n. What is m − n?",
+          "topic": "qa-quadratic"
+        },
+        {
+          "id": "q19",
+          "type": "tita",
+          "text": "Given x + 1/x = 5, find the value of x² + 1/x².",
+          "topic": "qa-quadratic"
+        },
+        {
+          "id": "q20",
+          "type": "tita",
+          "text": "For how many integers x is |x + 4| < 6?",
+          "topic": "qa-inequalities"
+        },
+        {
+          "id": "q21",
+          "type": "tita",
+          "text": "Find x if 16ˣ = 8. Type it as a decimal.",
+          "topic": "qa-linear"
+        },
+        {
+          "id": "q22",
+          "type": "tita",
+          "text": "An uncle is now 5 times as old as his nephew. In 8 years he will be 3 times as old as his nephew. What is the nephew's present age, in years?",
+          "topic": "qa-linear"
+        },
+        {
+          "id": "q23",
+          "type": "tita",
+          "text": "A circle has radius 13 cm, and one of its chords is 24 cm long. How far is the chord from the centre, in cm?",
+          "topic": "qa-quadratic"
+        },
+        {
+          "id": "q24",
+          "type": "tita",
+          "text": "An equilateral triangle has sides of 8 cm. What is its area, in cm²? Take √3 = 1.732 and give the answer to two decimal places.",
+          "topic": "qa-quadratic"
+        },
+        {
+          "id": "q25",
+          "type": "tita",
+          "text": "A regular octagon has 8 equal interior angles. What is each angle, in degrees?",
+          "topic": "qa-averages"
+        },
+        {
+          "id": "q26",
+          "type": "tita",
+          "text": "How many positive whole numbers divide 144 exactly?",
+          "topic": "qa-ratio"
+        },
+        {
+          "id": "q27",
+          "type": "tita",
+          "text": "3¹¹ is divided by 13. What is the remainder?",
+          "topic": "qa-linear"
+        },
+        {
+          "id": "q28",
+          "type": "tita",
+          "text": "Which is the smallest three-digit number that gives a remainder of 3 on division by 4, by 6, by 9 and by 12?",
+          "topic": "qa-work"
+        },
+        {
+          "id": "q29",
+          "type": "tita",
+          "text": "What do the first 12 terms of 5, 8, 11, 14, ... add up to?",
+          "topic": "qa-averages"
+        },
+        {
+          "id": "q30",
+          "type": "tita",
+          "text": "A coach must pick 2 players from a squad of 7. How many different pairs can she pick?",
+          "topic": "qa-quadratic"
+        }
+      ]
+    }
+  ],
+  "opensOn": "2026-11-23"
+}

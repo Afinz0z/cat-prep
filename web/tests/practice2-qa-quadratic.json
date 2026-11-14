@@ -1,0 +1,118 @@
+{
+  "id": "practice2-qa-quadratic",
+  "title": "Quadratic equations: practice set 2",
+  "topic": "qa-quadratic",
+  "kind": "practice",
+  "source": "original",
+  "sourceNote": "Original practice questions written for this group. None of them is a CAT previous-year question.",
+  "strict": false,
+  "calculator": true,
+  "instructions": [
+    "10 questions, 20 minutes, CAT marking: +3 right, -1 wrong multiple choice, 0 for a wrong type-in answer.",
+    "Type-in answers take a number only: no %, ₹ or units. Use a decimal, not a fraction."
+  ],
+  "sections": [
+    {
+      "name": "Quadratic equations",
+      "minutes": 20,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "qtype": "solving-quadratics",
+          "text": "What are the roots of x² + x − 20 = 0?",
+          "options": [
+            "4 and −5",
+            "−4 and 5",
+            "4 and 5",
+            "−4 and −5"
+          ]
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "qtype": "sum-and-product",
+          "text": "What is the sum of the roots of 3x² − 12x + 7 = 0?",
+          "options": [
+            "−4",
+            "7/3",
+            "12",
+            "4"
+          ]
+        },
+        {
+          "id": "q3",
+          "type": "tita",
+          "qtype": "discriminant",
+          "text": "For what positive value of k does 4x² + kx + 9 = 0 have two equal roots?"
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "qtype": "maximum-minimum",
+          "text": "A ball is thrown straight up. Its height after t seconds is h = 20t − 5t² metres. What is the greatest height it reaches?",
+          "options": [
+            "2 m",
+            "15 m",
+            "20 m",
+            "40 m"
+          ]
+        },
+        {
+          "id": "q5",
+          "type": "tita",
+          "qtype": "root-identities",
+          "text": "If α and β are the roots of x² − 7x + 2 = 0, find α³ + β³."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "qtype": "sum-and-product",
+          "text": "The roots of x² − 7x + 10 = 0 are α and β. Which equation has the roots α + 1 and β + 1?",
+          "options": [
+            "x² − 8x + 11 = 0",
+            "x² − 9x + 11 = 0",
+            "x² − 9x + 18 = 0",
+            "x² − 8x + 18 = 0"
+          ]
+        },
+        {
+          "id": "q7",
+          "type": "tita",
+          "qtype": "solving-quadratics",
+          "text": "A group of friends share a ₹1,200 bill equally. If 2 more friends had joined, each person would have paid ₹50 less. How many friends are in the group?"
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "qtype": "discriminant",
+          "text": "The equation x² + (k − 3)x + k = 0 has real roots. Which of these gives every possible value of k?",
+          "options": [
+            "1 ≤ k ≤ 9",
+            "k ≤ 1 or k ≥ 9",
+            "k < 1 or k > 9",
+            "k ≥ 9"
+          ]
+        },
+        {
+          "id": "q9",
+          "type": "tita",
+          "qtype": "root-identities",
+          "text": "If α and β are the roots of x² − 4x + 1 = 0, find α⁴ + β⁴."
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "qtype": "maximum-minimum",
+          "text": "A shop sells 200 kurtas a month at ₹600 each. For every ₹20 it cuts the price, it sells 10 more kurtas a month. What price gives the largest monthly revenue?",
+          "options": [
+            "₹400",
+            "₹500",
+            "₹550",
+            "₹600"
+          ]
+        }
+      ]
+    }
+  ]
+}

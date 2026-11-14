@@ -1,0 +1,48 @@
+{
+  "id": "varc-odd-one-1",
+  "title": "Odd sentence out: set 1",
+  "topic": "varc-odd-one",
+  "kind": "practice",
+  "source": "public-domain",
+  "sourceNote": "Passages adapted from public-domain works: John Stuart Mill, On Liberty (1859); Ralph Waldo Emerson, \"Self-Reliance\" in Essays: First Series (1841); Rabindranath Tagore, Nationalism (1917); William Hazlitt, \"On Going a Journey\" in Table-Talk (1822); Thorstein Veblen, The Theory of the Leisure Class (1899). Each question also has one sentence written for this group.",
+  "strict": false,
+  "calculator": false,
+  "instructions": [
+    "5 questions, 12 minutes. CAT marking: +3 right, -1 wrong multiple choice, 0 for a wrong type-in answer.",
+    "Every question here is type-in, so a wrong answer costs nothing. Type one number from 1 to 5.",
+    "Read all five sentences before you decide. Pronouns, repeated ideas and a claim followed by its support show which sentences link up."
+  ],
+  "sections": [
+    {
+      "name": "VARC",
+      "minutes": 12,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "tita",
+          "text": "Five sentences are given below. Four of them form a coherent paragraph. Type the number of the sentence that does not belong.\n\n1. But if he is equally unable to refute the reasons on the opposite side, if he does not so much as know what they are, he has no ground for preferring either opinion.\n\n2. His reasons may be good, and no one may have been able to refute them.\n\n3. Most disputes, however, are settled less by the strength of the arguments than by the standing of those who put them forward.\n\n4. The rational position for him would be suspension of judgment.\n\n5. He who knows only his own side of the case knows little of that."
+        },
+        {
+          "id": "q2",
+          "type": "tita",
+          "text": "Five sentences are given below. Four of them form a coherent paragraph. Type the number of the sentence that does not belong.\n\n1. The virtue in most request is conformity.\n\n2. Society is a joint-stock company, in which the members agree, for the better securing of his bread to each shareholder, to surrender the liberty and culture of the eater.\n\n3. Self-reliance is its aversion; it loves not realities and creators, but names and customs.\n\n4. Society everywhere is in conspiracy against the manhood of every one of its members.\n\n5. Men first joined together in societies for protection against wild beasts and hostile neighbours."
+        },
+        {
+          "id": "q3",
+          "type": "tita",
+          "text": "Five sentences are given below. Four of them form a coherent paragraph. Type the number of the sentence that does not belong.\n\n1. Applied science has freed millions of people from famine and from the diseases that once emptied whole cities.\n\n2. Trading upon the greed and fear of man, it occupies more and more space in society, and at last becomes its ruling force.\n\n3. Society has a political side, but this is only for a special purpose; it is for self-preservation; it is merely the side of power, not of human ideals.\n\n4. For then it goads all its neighbouring societies with greed of material prosperity, and consequent mutual jealousy, and by the fear of each other's growth into powerfulness.\n\n5. But when with the help of science and the perfecting of organization this power begins to grow and brings in harvests of wealth, then it crosses its boundaries with amazing rapidity."
+        },
+        {
+          "id": "q4",
+          "type": "tita",
+          "text": "Five sentences are given below. Four of them form a coherent paragraph. Type the number of the sentence that does not belong.\n\n1. I go out of town in order to forget the town and all that is in it.\n\n2. I cannot see the wit of walking and talking at the same time.\n\n3. When I am in the country I wish to vegetate like the country.\n\n4. A companion who knows the names of the birds and the history of every village doubles the pleasure of a country walk.\n\n5. I am not for criticising hedge-rows and black cattle."
+        },
+        {
+          "id": "q5",
+          "type": "tita",
+          "text": "Five sentences are given below. Four of them form a coherent paragraph. Type the number of the sentence that does not belong.\n\n1. In order to gain and to hold the esteem of men it is not sufficient merely to possess wealth or power.\n\n2. Wealth that is quietly saved and invested grows faster than wealth that is spent, and secures a family's future.\n\n3. The wealth or power must be put in evidence, for esteem is awarded only on evidence.\n\n4. In all but the lowest stages of culture the normally constituted man is comforted and upheld in his self-respect by \"decent surroundings\" and by exemption from \"menial offices\".\n\n5. And not only does the evidence of wealth serve to impress one's importance on others and to keep their sense of his importance alive and alert, but it is of scarcely less use in building up and preserving one's self-complacency."
+        }
+      ]
+    }
+  ]
+}

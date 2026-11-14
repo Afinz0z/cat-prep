@@ -93,17 +93,34 @@ export function setLocal(key, value) {
 }
 
 // ---- theme and text size -----------------------------------------------------
-const THEMES = ["system", "light", "dark"];
+const THEMES = ["system", "light", "dark", "sunset"];
+// Minutes since midnight in India, whatever the device's time zone.
+const istMin = () => {
+  const d = new Date();
+  return (d.getUTCHours() * 60 + d.getUTCMinutes() + 330) % 1440;
+};
 export function currentTheme() {
   const t = local("cat-theme", "system");
   return THEMES.includes(t) ? t : "system";
 }
+// "sunset" is light by day and dark from 18:00 to 06:30.
+function applyTheme() {
+  let t = currentTheme();
+  if (t === "sunset") t = istMin() >= 1080 || istMin() < 390 ? "dark" : "light";
+  if (t === "system") delete document.documentElement.dataset.theme;
+  else if (document.documentElement.dataset.theme !== t) document.documentElement.dataset.theme = t;
+}
+// A warmer page from 21:00 to 06:00, if switched on for this device.
+export function applyWarm() {
+  const on = local("cat-warm", false) === true && (istMin() >= 1260 || istMin() < 360);
+  document.documentElement.classList.toggle("warm", on);
+}
 export function setTheme(t) {
   setLocal("cat-theme", t);
-  if (t === "system") delete document.documentElement.dataset.theme;
-  else document.documentElement.dataset.theme = t;
+  applyTheme();
   window.dispatchEvent(new CustomEvent("cat:theme"));
 }
+setInterval(() => { applyTheme(); applyWarm(); }, 60000);
 export function applyTextSize(pct) {
   const v = Math.min(130, Math.max(90, Number(pct) || 100));
   setLocal("cat-text", v);
@@ -210,12 +227,29 @@ function countdownText() {
 
 function themeButton() {
   const label = () => `Theme: ${currentTheme()}`;
-  const btn = el("button", { type: "button", class: "theme-btn", title: "Switch between system, light and dark" }, label());
+  const btn = el("button", { type: "button", class: "theme-btn", title: "Switch between system, light, dark and sunset (dark from 18:00)" }, label());
   btn.addEventListener("click", () => {
     setTheme(THEMES[(THEMES.indexOf(currentTheme()) + 1) % THEMES.length]);
     btn.textContent = label();
   });
   return btn;
+}
+
+// Keyboard and screen-reader users can jump past the navigation.
+function skipLink() {
+  if (document.querySelector(".skip-link")) return;
+  const main = document.getElementById("main");
+  if (main && !main.hasAttribute("tabindex")) main.setAttribute("tabindex", "-1");
+  document.body.prepend(el("a", { class: "skip-link", href: "#main" }, "Skip to the page"));
+}
+
+// A plain line at the top while the device has no connection.
+function offlineBar() {
+  const bar = el("div", { class: "offline-bar", role: "status", hidden: navigator.onLine },
+    "You're offline. A test you're in the middle of is kept on this device: submit it once you're back online. Nothing else can be saved until then.");
+  document.body.prepend(bar);
+  window.addEventListener("offline", () => { bar.hidden = false; });
+  window.addEventListener("online", () => { bar.hidden = true; });
 }
 
 function renderHeader(page, member) {
@@ -246,7 +280,7 @@ function statusLine() {
   return el("p", { class: "status-line", role: "status" });
 }
 
-function authGate(main) {
+function authGate(main, note = null) {
   let mode = "in";
   const email = el("input", { type: "email", autocomplete: "email", required: true });
   const password = el("input", { type: "password", autocomplete: "current-password", required: true, minlength: 8 });
@@ -277,7 +311,9 @@ function authGate(main) {
       status.textContent = err.message;
     }
   });
-  const form = el("form", { class: "panel" }, title, intro,
+  const ended = note || (local("cat-had-session", false) === true
+    ? "Your sign-in on this device has ended. Sign in again; everything you saved is still there." : null);
+  const form = el("form", { class: "panel" }, title, ended ? el("p", { class: "notice" }, ended) : null, intro,
     el("label", { class: "field" }, "Email", email),
     el("label", { class: "field" }, "Password", password),
     el("div", { class: "row" }, submit, swap), forgot, status);
@@ -320,7 +356,7 @@ function joinGate(main) {
     el("label", { class: "field" }, "Name the others will see (2 to 20 letters)", name),
     el("label", { class: "field" }, "Your CAT 2026 slot, from the admit card", slot),
     el("div", { class: "row" }, submit,
-      el("button", { type: "button", class: "btn quiet", onclick: async () => { await db.signOut(); location.reload(); } }, "Sign out")),
+      el("button", { type: "button", class: "btn quiet", onclick: async () => { setLocal("cat-had-session", false); await db.signOut(); location.reload(); } }, "Sign out")),
     status);
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -366,6 +402,10 @@ function recoveryGate(main) {
 // the sign-in, join or set-password form in place of the page.
 export async function boot(page) {
   const main = document.getElementById("main");
+  skipLink();
+  offlineBar();
+  applyTheme();
+  applyWarm();
   renderHeader(page, null);
   if (!db.configured()) {
     main.replaceChildren(el("div", { class: "gate" }, el("div", { class: "notice" },
@@ -385,7 +425,7 @@ export async function boot(page) {
     me = (await db.rpc("cat_me")).member;
   } catch (err) {
     if (err.status === 401) {
-      authGate(main);
+      authGate(main, "Your sign-in on this device has ended. Sign in again; everything you saved is still there.");
       return null;
     }
     main.replaceChildren(el("div", { class: "gate" }, el("div", { class: "notice error" }, err.message),
@@ -397,6 +437,7 @@ export async function boot(page) {
     return null;
   }
   if (me.settings?.textSize) applyTextSize(me.settings.textSize);
+  setLocal("cat-had-session", true);
   renderHeader(page, me);
   startPulse(page);
   return me;
@@ -413,8 +454,12 @@ export function markPostsSeen(id) {
   setNavBadge("practice.html", 0);
 }
 
+let lastPulse = 0;
 async function pulse(page) {
   if (document.hidden) return;
+  // Switching apps back and forth on a phone shouldn't send a burst of calls.
+  if (Date.now() - lastPulse < 10000) return;
+  lastPulse = Date.now();
   let p;
   try {
     p = await db.rpc("cat_pulse", { p_chat_after: local("cat-chat-seen", 0) || 0, p_posts_after: local("cat-posts-seen", 0) || 0 });
@@ -425,13 +470,15 @@ async function pulse(page) {
   if (local("cat-posts-seen", null) === null) setLocal("cat-posts-seen", p.postsLatest);
   if (page !== "chat.html") setNavBadge("chat.html", p.chatNew);
   setNavBadge("practice.html", p.postsNew);
+  // Quiet hours, 22:30 to 06:00: badges still update, but no pop-ups.
+  const quiet = (local("cat-settings", {})?.quiet ?? true) && (istMin() >= 1350 || istMin() < 360);
   const seenMentions = local("cat-mentions-told", 0);
-  if (page !== "chat.html" && p.mentions > 0 && p.mentions !== seenMentions) {
+  if (!quiet && page !== "chat.html" && p.mentions > 0 && p.mentions !== seenMentions) {
     setLocal("cat-mentions-told", p.mentions);
     toast({ title: "Someone mentioned you in the chat", actions: [{ label: "Open chat", primary: true, onClick: () => { location.href = "chat.html"; } }], autoHideMs: 30000 });
   }
   const nudgeKey = `cat-nudges-${istToday()}`;
-  if (p.nudges > (local(nudgeKey, 0) || 0)) {
+  if (!quiet && p.nudges > (local(nudgeKey, 0) || 0)) {
     setLocal(nudgeKey, p.nudges);
     toast({ kind: "break", title: "You've been nudged", body: "Someone in the group wants to see you at the desk. Start a focus block.", autoHideMs: 60000,
       actions: page === "index.html" ? [] : [{ label: "Go to Today", primary: true, onClick: () => { location.href = "index.html"; } }] });

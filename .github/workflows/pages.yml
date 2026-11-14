@@ -15,7 +15,29 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  # Nothing is published unless the database tests, the colour contrast check,
+  # a syntax check of every script and the browser smoke test all pass.
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Syntax check
+        run: for f in web/js/*.js dev/*.mjs tools/*.mjs; do node --check "$f"; done
+      - name: Database tests
+        run: npm test
+      - name: Colour contrast
+        run: npm run contrast
+      - name: Browser smoke test (uses the runner's Chrome)
+        run: npm run smoke
+
   deploy:
+    needs: check
     runs-on: ubuntu-latest
     environment:
       name: github-pages

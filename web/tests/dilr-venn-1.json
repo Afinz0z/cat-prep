@@ -1,0 +1,67 @@
+{
+  "id": "dilr-venn-1",
+  "title": "Venn diagrams: set 1",
+  "topic": "dilr-venn",
+  "kind": "practice",
+  "difficulty": "easy",
+  "source": "original",
+  "sourceNote": "An original set written for this group. It is not a CAT previous-year set.",
+  "strict": false,
+  "calculator": true,
+  "instructions": [
+    "4 questions, 12 minutes.",
+    "CAT marking: +3 right, -1 wrong multiple choice, 0 for a wrong type-in answer.",
+    "Type-in answers take a number only: no %, ₹ or units. Use a decimal, not a fraction."
+  ],
+  "sections": [
+    {
+      "name": "DILR",
+      "minutes": 12,
+      "groups": [
+        {
+          "id": "g1",
+          "title": "Newspaper survey",
+          "text": "A survey covered 120 residents of a housing society in Pune. Each was asked which of three newspapers they read: an English paper, a Marathi paper and a Hindi paper.\n\n60 read the English paper, 50 read the Marathi paper and 45 read the Hindi paper.\n\n15 read all three papers, and 25 read none of them.\n\n8 read the English and Marathi papers but not the Hindi one.\n\n12 read the Marathi and Hindi papers but not the English one."
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "type": "tita",
+          "text": "How many residents read exactly two of the three papers?",
+          "group": "g1"
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "text": "How many residents read only the English paper?",
+          "options": [
+            "27",
+            "30",
+            "35",
+            "23"
+          ],
+          "group": "g1"
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "text": "How many residents read the Hindi paper but not the English paper?",
+          "options": [
+            "12",
+            "35",
+            "30",
+            "20"
+          ],
+          "group": "g1"
+        },
+        {
+          "id": "q4",
+          "type": "tita",
+          "text": "How many residents read at most one of the three papers?",
+          "group": "g1"
+        }
+      ]
+    }
+  ]
+}

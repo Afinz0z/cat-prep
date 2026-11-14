@@ -1,108 +1,118 @@
 {
- "id": "practice-qa-tsd",
- "title": "Speed, time and distance: practice set",
- "topic": "qa-tsd",
- "kind": "practice",
- "source": "original",
- "sourceNote": "Original practice questions written for this group. None of them is a CAT previous-year question.",
- "strict": false,
- "calculator": true,
- "instructions": [
-  "10 questions, 20 minutes, CAT marking: +3 right, -1 wrong multiple choice, 0 for a wrong type-in answer.",
-  "Type-in answers take a number only: no %, ₹ or units. Use a decimal, not a fraction."
- ],
- "sections": [
-  {
-   "name": "Speed, time, distance",
-   "minutes": 20,
-   "questions": [
+  "id": "practice-qa-tsd",
+  "title": "Speed, time and distance: practice set",
+  "topic": "qa-tsd",
+  "kind": "practice",
+  "source": "original",
+  "sourceNote": "Original practice questions written for this group. None of them is a CAT previous-year question.",
+  "strict": false,
+  "calculator": true,
+  "instructions": [
+    "10 questions, 20 minutes, CAT marking: +3 right, -1 wrong multiple choice, 0 for a wrong type-in answer.",
+    "Type-in answers take a number only: no %, ₹ or units. Use a decimal, not a fraction."
+  ],
+  "sections": [
     {
-     "id": "q1",
-     "type": "mcq",
-     "text": "Convert 72 km/h into metres per second.",
-     "options": [
-      "18 m/s",
-      "20 m/s",
-      "25 m/s",
-      "259.2 m/s"
-     ]
-    },
-    {
-     "id": "q2",
-     "type": "mcq",
-     "text": "A car travels 60 km at 40 km/h and then returns the same 60 km at 60 km/h. Both speeds are constant. What is its average speed for the whole round trip?",
-     "options": [
-      "45 km/h",
-      "50 km/h",
-      "48 km/h",
-      "52 km/h"
-     ]
-    },
-    {
-     "id": "q3",
-     "type": "tita",
-     "text": "A train 150 m long passes a pole in exactly 10 seconds at a constant speed. What is its speed in km/h?"
-    },
-    {
-     "id": "q4",
-     "type": "mcq",
-     "text": "Two cyclists start together from the same point and ride in opposite directions along a straight road at constant speeds of 14 km/h and 16 km/h. After how many hours will they be 90 km apart?",
-     "options": [
-      "4.5 hours",
-      "5.625 hours",
-      "45 hours",
-      "3 hours"
-     ]
-    },
-    {
-     "id": "q5",
-     "type": "tita",
-     "text": "A boat goes 12 km/h in still water and the stream flows at 3 km/h. It travels 45 km downstream and then returns the same 45 km upstream. How many hours does the whole trip take?"
-    },
-    {
-     "id": "q6",
-     "type": "mcq",
-     "text": "Two trains, 200 m and 300 m long, run on parallel tracks in opposite directions at constant speeds of 54 km/h and 36 km/h. How many seconds do they take to cross each other completely, from the moment their fronts meet to the moment their rears clear?",
-     "options": [
-      "50 s",
-      "100 s",
-      "20 s",
-      "8 s"
-     ]
-    },
-    {
-     "id": "q7",
-     "type": "tita",
-     "text": "In a 1000 m race run at constant speeds, A beats B by 100 m and beats C by 190 m. If B and C ran a 1000 m race against each other, by how many metres would B beat C?"
-    },
-    {
-     "id": "q8",
-     "type": "mcq",
-     "text": "A rower covers 12 km upstream in 3 hours and the same 12 km downstream in 2 hours. His rowing speed and the stream speed are constant. What is the speed of the stream in km/h?",
-     "options": [
-      "0.5 km/h",
-      "1 km/h",
-      "2 km/h",
-      "5 km/h"
-     ]
-    },
-    {
-     "id": "q9",
-     "type": "tita",
-     "text": "Stations P and Q are 400 km apart. A train leaves P for Q at 60 km/h. Two hours later, another train leaves Q for P at 40 km/h. Both speeds are constant. How far from P, in km, do the trains meet?"
-    },
-    {
-     "id": "q10",
-     "type": "mcq",
-     "text": "Train X is 180 m long and runs at 72 km/h. Train Y is 120 m long and runs at 36 km/h on a parallel track in the same direction. Both speeds are constant. How many seconds does X take to overtake Y completely, from its front reaching Y's rear to its rear clearing Y's front?",
-     "options": [
-      "10 s",
-      "15 s",
-      "30 s",
-      "60 s"
-     ]
+      "name": "Speed, time, distance",
+      "minutes": 20,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "qtype": "speed-basics",
+          "text": "Convert 72 km/h into metres per second.",
+          "options": [
+            "18 m/s",
+            "20 m/s",
+            "25 m/s",
+            "259.2 m/s"
+          ]
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "qtype": "average-speed",
+          "text": "A car travels 60 km at 40 km/h and then returns the same 60 km at 60 km/h. Both speeds are constant. What is its average speed for the whole round trip?",
+          "options": [
+            "45 km/h",
+            "50 km/h",
+            "48 km/h",
+            "52 km/h"
+          ]
+        },
+        {
+          "id": "q3",
+          "type": "tita",
+          "qtype": "trains-and-platforms",
+          "text": "A train 150 m long passes a pole in exactly 10 seconds at a constant speed. What is its speed in km/h?"
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "qtype": "relative-speed",
+          "text": "Two cyclists start together from the same point and ride in opposite directions along a straight road at constant speeds of 14 km/h and 16 km/h. After how many hours will they be 90 km apart?",
+          "options": [
+            "4.5 hours",
+            "5.625 hours",
+            "45 hours",
+            "3 hours"
+          ]
+        },
+        {
+          "id": "q5",
+          "type": "tita",
+          "qtype": "boats-and-streams",
+          "text": "A boat goes 12 km/h in still water and the stream flows at 3 km/h. It travels 45 km downstream and then returns the same 45 km upstream. How many hours does the whole trip take?"
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "qtype": "trains-and-platforms",
+          "text": "Two trains, 200 m and 300 m long, run on parallel tracks in opposite directions at constant speeds of 54 km/h and 36 km/h. How many seconds do they take to cross each other completely, from the moment their fronts meet to the moment their rears clear?",
+          "options": [
+            "50 s",
+            "100 s",
+            "20 s",
+            "8 s"
+          ]
+        },
+        {
+          "id": "q7",
+          "type": "tita",
+          "qtype": "speed-basics",
+          "text": "In a 1000 m race run at constant speeds, A beats B by 100 m and beats C by 190 m. If B and C ran a 1000 m race against each other, by how many metres would B beat C?"
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "qtype": "boats-and-streams",
+          "text": "A rower covers 12 km upstream in 3 hours and the same 12 km downstream in 2 hours. His rowing speed and the stream speed are constant. What is the speed of the stream in km/h?",
+          "options": [
+            "0.5 km/h",
+            "1 km/h",
+            "2 km/h",
+            "5 km/h"
+          ]
+        },
+        {
+          "id": "q9",
+          "type": "tita",
+          "qtype": "relative-speed",
+          "text": "Stations P and Q are 400 km apart. A train leaves P for Q at 60 km/h. Two hours later, another train leaves Q for P at 40 km/h. Both speeds are constant. How far from P, in km, do the trains meet?"
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "qtype": "trains-and-platforms",
+          "text": "Train X is 180 m long and runs at 72 km/h. Train Y is 120 m long and runs at 36 km/h on a parallel track in the same direction. Both speeds are constant. How many seconds does X take to overtake Y completely, from its front reaching Y's rear to its rear clearing Y's front?",
+          "options": [
+            "10 s",
+            "15 s",
+            "30 s",
+            "60 s"
+          ]
+        }
+      ]
     }
-   ]
-  }
- ]
+  ]
 }

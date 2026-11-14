@@ -13,13 +13,15 @@ const RULES = [
   ["Promise of 2 hours or more, kept", "10", ""],
   ["Sleep of 7 hours or more, logged", "5", ""],
   ["Task ticked off", "3", "5 tasks a day"],
-  ["Site test, first finish", "20 (Daily 5: 10)", "once per test"],
+  ["Site test, first finish", "20 (Daily 5, mixed set or retest: 10)", "once per test"],
   ["Full mock logged", "30, plus 10 at your slot time", "1 a day"],
+  ["Mock analysis saved", "10", "2 a day"],
   ["Video marked watched", "5", "6 a day"],
   ["Topic reaches 'solves basic' / 'solves CAT level'", "10 / 15 more", "50 a day"],
   ["Approach posted (40 characters or more)", "3", "5 a day"],
   ["Helpful vote on your approach", "2", "5 a day"],
   ["Review question answered right", "2", "5 a day"],
+  ["Review question cleared for good", "3", "5 a day"],
   ["Speed drill round", "2", "5 a day"],
 ];
 
@@ -36,6 +38,7 @@ const BADGES = {
   helpful: "Voted helpful",
   "topics-5": "5 topics at CAT level",
   reviewer: "10 reviews cleared",
+  "plan-day": "Full plan day",
 };
 
 function breakdown(r) {
@@ -43,7 +46,8 @@ function breakdown(r) {
     ["Focus", fmtMin(r.focusMin)], ["Study days", r.studyDays], ["Promises kept", r.kept], ["Sleep 7 h+", r.slept],
     ["Tasks", r.tasks], ["Site tests", r.tests], ["Mocks", r.mocks],
     ["Videos", r.videos], ["Topic points", r.topicPoints], ["Approaches", r.posts], ["Helpful votes", r.votes],
-    ["Reviews right", r.reviews], ["Drill rounds", r.drills], ["Streak now", `${r.streak} days`],
+    ["Reviews right", r.reviews], ["Reviews cleared", r.cleared ?? 0], ["Analyses", r.analyses ?? 0],
+    ["Drill rounds", r.drills], ["Streak now", `${r.streak} days`],
   ];
   return el("div", { class: "breakdown" }, items.map(([k, v]) => el("span", {}, `${k}: `, el("strong", {}, String(v)))));
 }
@@ -100,6 +104,7 @@ async function copySummary(b, button) {
 function rulesPanel() {
   return el("details", { class: "panel" }, el("summary", {}, el("strong", {}, "How points work")),
     el("p", { class: "muted" }, "Days run on Indian time. Weeks start on Monday. Caps stop anyone farming one thing."),
+    el("p", { class: "muted" }, "A day under an hour doesn't break your streak if you logged sleep that day and study 2 hours or more the next day."),
     el("table", { class: "plain" },
       el("thead", {}, el("tr", {}, el("th", {}, "For"), el("th", {}, "Points"), el("th", {}, "Cap"))),
       el("tbody", {}, RULES.map(([a, b, c]) => el("tr", {}, el("td", {}, a), el("td", {}, b), el("td", {}, c))))));
@@ -213,6 +218,52 @@ async function showBadges(host) {
           el("span", { class: `badge${b.badges.includes(code) ? " got" : ""}` }, b.badges.includes(code) ? label : el("span", { class: "muted" }, label)))))))))));
 }
 
+// Your own points, day by day.
+async function showHistory(host) {
+  fill(host, el("p", { class: "muted" }, "Loading..."));
+  const rows = await rpc("cat_points_history");
+  const top = Math.max(1, ...rows.map((r) => r.points));
+  const total = rows.reduce((n, r) => n + r.points, 0);
+  fill(host, el("section", { class: "panel" },
+    el("h2", {}, "Your points by day"),
+    el("p", { class: "muted" }, `${total} points since 1 November across ${rows.length} day${rows.length === 1 ? "" : "s"} with points.`),
+    rows.length ? el("table", { class: "plain history" },
+      el("thead", {}, el("tr", {}, el("th", {}, "Day"), el("th", { class: "n" }, "Points"), el("th", {}, ""), el("th", { class: "n" }, "Focus"))),
+      el("tbody", {}, rows.map((r) => el("tr", {},
+        el("td", {}, fmtDate(r.day)),
+        el("td", { class: "n" }, String(r.points)),
+        el("td", { class: "bar-cell" }, el("span", { class: "hbar", style: `width:${Math.round((r.points / top) * 100)}%` }),
+          el("details", {}, el("summary", { class: "small" }, "Where from"), breakdown(r))),
+        el("td", { class: "n" }, fmtMin(r.focusMin)))))) : el("p", { class: "empty" }, "No points yet. Start the study timer on the Today page.")));
+}
+
+// Who has improved most from their first previous paper to their latest.
+async function showImprovement(host) {
+  fill(host, el("p", { class: "muted" }, "Loading..."));
+  const papers = (await loadJson("data/papers.json")).papers;
+  const all = await Promise.all(papers.map((p) => rpc("cat_paper", { p_paper_id: p.id }).then((rows) => rows.map((r) => ({ ...r, paper: p.title }))).catch(() => [])));
+  const by = {};
+  for (const r of all.flat()) (by[r.name] = by[r.name] || []).push(r);
+  const rows = Object.entries(by).map(([name, list]) => {
+    list.sort((a, b) => a.takenOn.localeCompare(b.takenOn));
+    const first = list[0];
+    const last = list.at(-1);
+    return { name, me: list[0].me, n: list.length, first, last, gain: last.total - first.total };
+  }).sort((a, b) => (b.n > 1) - (a.n > 1) || b.gain - a.gain);
+  fill(host, el("section", { class: "panel" },
+    el("h2", {}, "Most improved"),
+    el("p", { class: "muted" }, "First previous CAT paper against the latest, so everyone is measured on papers of the same standard. It needs two papers logged."),
+    rows.length ? el("div", { class: "table-wrap" }, el("table", { class: "plain" },
+      el("thead", {}, el("tr", {}, ["Name", "First", "Latest", "Change", "Papers"].map((h, i) => el("th", { class: i ? "n" : null }, h)))),
+      el("tbody", {}, rows.map((r) => el("tr", { class: r.me ? "me" : "" },
+        el("td", {}, r.name),
+        el("td", { class: "n", title: `${r.first.paper}, ${fmtDate(r.first.takenOn)}` }, String(r.first.total)),
+        el("td", { class: "n", title: `${r.last.paper}, ${fmtDate(r.last.takenOn)}` }, r.n > 1 ? String(r.last.total) : ""),
+        el("td", { class: `n ${r.n < 2 ? "" : r.gain >= 0 ? "good" : "bad"}` }, r.n < 2 ? "" : r.gain >= 0 ? `+${r.gain}` : String(r.gain)),
+        el("td", { class: "n" }, String(r.n)))))))
+      : el("p", { class: "empty" }, "Nobody has logged a previous paper yet.")));
+}
+
 async function init() {
   me = await boot("board.html");
   if (!me) return;
@@ -224,13 +275,16 @@ async function init() {
     testTitles = {};
   }
   const host = el("div", { class: "stack" });
-  const views = [["week", "This week"], ["last", "Last week"], ["all", "All of November"], ["scores", "Scores"], ["badges", "Badges and hours"]];
+  const views = [["week", "This week"], ["last", "Last week"], ["all", "All of November"], ["history", "My days"],
+    ["scores", "Scores"], ["improve", "Most improved"], ["badges", "Badges and hours"]];
   const tabs = el("div", { class: "tabs", role: "tablist" });
   const show = async (key) => {
     for (const b of tabs.children) b.setAttribute("aria-selected", String(b.dataset.key === key));
     try {
       if (key === "scores") await showScores(host);
       else if (key === "badges") await showBadges(host);
+      else if (key === "history") await showHistory(host);
+      else if (key === "improve") await showImprovement(host);
       else await showEffort(key, host);
     } catch (err) {
       fill(host, el("p", { class: "notice error" }, err.message));

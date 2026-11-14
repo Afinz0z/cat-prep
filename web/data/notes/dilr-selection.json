@@ -1,0 +1,42 @@
+{
+  "topic": "dilr-selection",
+  "title": "Set selection: the first 5 minutes",
+  "blocks": [
+    {
+      "heading": "The first 5 minutes",
+      "lines": [
+        "Give each set about 40 seconds before you commit to any.",
+        "Read the setup and the first two questions. Do not start solving.",
+        "Mark each set: do now, maybe later, or skip.",
+        "By minute 5, pick two sets and start the easier one."
+      ]
+    },
+    {
+      "heading": "Signs a set is doable",
+      "lines": [
+        "A fixed number of people, seats or slots, with clear conditions.",
+        "Questions that each ask for one fact from the finished grid.",
+        "Data that fits one table without guessing its shape.",
+        "Friendly numbers: round totals and small counts."
+      ]
+    },
+    {
+      "heading": "Signs to skip or leave for later",
+      "lines": [
+        "Long text full of 'at least', 'at most' and 'either or' conditions.",
+        "Every question adds a new condition, so one grid answers none of them.",
+        "Heavy arithmetic on awkward numbers with options close together.",
+        "After two readings you still cannot see where to start."
+      ]
+    },
+    {
+      "heading": "Picking 2 sets of 4",
+      "lines": [
+        "Two sets solved fully usually score more than four sets half done.",
+        "Prefer the set whose grid you can start within a minute, even if it looks longer.",
+        "If a set has no grid after 4 minutes, move to your third choice.",
+        "Type-in questions carry no negative mark, so enter an answer for each one in a set you have worked on."
+      ]
+    }
+  ]
+}

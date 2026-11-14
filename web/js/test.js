@@ -3,10 +3,12 @@
 import { rpc } from "./db.js";
 import {
   el, richText, fmtClock, fmtDuration, fmtDateTime, boot, loadJson, confirmBox, busy, showError, markPostsSeen, fill,
-  setTheme,
+  setTheme, local, setLocal, toast,
 } from "./ui.js";
 import { startReminders, cacheSettings, markTestRunning, getFocus, startFocus } from "./reminders.js";
 import { createCalculator } from "./calculator.js";
+import { openBoard } from "./whiteboard.js";
+import { voiceBox } from "./voice.js";
 
 const params = new URLSearchParams(location.search);
 const screen = document.getElementById("main");
@@ -31,6 +33,12 @@ const STATUS_LABEL = {
 const RESULT_LABEL = { correct: "Correct", wrong: "Wrong", skipped: "Blank" };
 const RESULT_SHORT = { correct: "got it right", wrong: "got it wrong", skipped: "left it blank" };
 const LETTERS = ["A", "B", "C", "D", "E"];
+const CONF = [["sure", "Sure"], ["unsure", "Unsure"], ["guess", "Guess"]];
+const CAUSES = [
+  ["c1", "Conceptual gap"], ["c2", "Calculation slip"], ["c3", "Misreading"], ["c4", "Poor selection"],
+  ["c5", "Time management"], ["c6", "Guess or over-attempt"], ["c7", "Missed an easier one"],
+];
+const COMPOSED = /^(mix|retest)-/;
 
 let test = null;
 let member = null;
@@ -51,7 +59,56 @@ const save = () => {
 };
 const section = () => test.sections[state.sectionIndex];
 const question = () => section().questions[state.current];
-const loadTest = (id) => loadJson(`tests/${encodeURIComponent(id)}.json`);
+const confOn = () => local("cat-conf-tags", true) !== false;
+
+// Mixed sets and Sunday retests are made for one person from questions in
+// the site's sets, so the page builds them from those sets.
+async function loadTest(id) {
+  if (!COMPOSED.test(id)) return loadJson(`tests/${encodeURIComponent(id)}.json`);
+  const c = await rpc("cat_composed", { p_test_id: id });
+  const srcIds = [...new Set(c.questions.map((q) => q.src))];
+  const srcs = Object.fromEntries(await Promise.all(srcIds.map(async (sid) =>
+    [sid, await loadJson(`tests/${encodeURIComponent(sid)}.json`).catch(() => null)])));
+  const groups = [];
+  const seen = new Set();
+  const questions = c.questions.map((q) => {
+    const src = srcs[q.src];
+    let def = null;
+    let sec = null;
+    for (const x of src?.sections || []) {
+      const hit = x.questions.find((y) => y.id === q.qid);
+      if (hit) { def = hit; sec = x; break; }
+    }
+    const out = { ...(def || { type: q.type, text: "This question has been taken out of its set.", options: q.type === "mcq" ? ["", "", "", ""] : undefined }),
+      id: q.id, topic: q.topic, src: q.src, srcTitle: src?.title || q.src };
+    delete out.group;
+    if (def?.group) {
+      const gid = `${q.src}~${def.group}`;
+      out.group = gid;
+      const g = (sec.groups || []).find((x) => x.id === def.group);
+      if (g && !seen.has(gid)) { seen.add(gid); groups.push({ ...g, id: gid }); }
+    }
+    return out;
+  });
+  const retest = id.startsWith("retest-");
+  return {
+    id: c.id,
+    title: c.title,
+    kind: "mixed",
+    composed: true,
+    source: "original",
+    sourceNote: "Made for you from the site's own sets. Every question is original, written for this group.",
+    strict: false,
+    calculator: true,
+    instructions: [
+      `${questions.length} questions, ${c.minutes} minutes, CAT marking: +3 right, -1 wrong multiple choice, 0 for a wrong type-in answer.`,
+      retest ? "These are the questions you missed this week. Solve them without looking at your old working."
+        : "The topics are mixed on purpose, so each question makes you pick the method first.",
+      "Anything you get wrong goes to the review queue under the set it came from.",
+    ],
+    sections: [{ name: retest ? "Retest" : "Mixed QA", minutes: c.minutes, questions, groups }],
+  };
+}
 
 function statusOf(s) {
   if (!s.visited) return "notVisited";
@@ -66,7 +123,7 @@ function showMessage(...nodes) {
 }
 
 // ---- instructions ----------------------------------------------------------------
-function instructionsContent() {
+function instructionsContent({ general = false } = {}) {
   const rows = test.sections.map((s) =>
     el("tr", {}, el("td", {}, s.name), el("td", {}, `${s.questions.length}`), el("td", {}, `${s.minutes} min`)));
   return [
@@ -74,8 +131,8 @@ function instructionsContent() {
     el("table", { class: "plain" },
       el("thead", {}, el("tr", {}, el("th", {}, "Section"), el("th", {}, "Questions"), el("th", {}, "Time"))),
       el("tbody", {}, rows)),
-    el("h3", {}, "For this test"),
-    el("ul", {}, (test.instructions || []).map((line) => el("li", {}, line))),
+    general ? null : el("h3", {}, "For this test"),
+    general ? null : el("ul", {}, (test.instructions || []).map((line) => el("li", {}, line))),
     el("h3", {}, "How the screen works (same as CAT)"),
     el("ul", {},
       el("li", {}, "Save & Next saves your answer and moves on. Mark for Review & Next saves it and flags it for a second look. A flagged answer still counts."),
@@ -148,23 +205,85 @@ function paintThemeBtn() {
   themeBtn.setAttribute("aria-pressed", String(isDark()));
 }
 
-function showInstructions() {
+// Two pages, as in CAT: the general instructions, then the test's own
+// instructions with the declaration to tick before the start button works.
+let cosolve = null;
+let waitTimer = null;
+function showInstructions(page = 1) {
   tabsEl.replaceChildren();
   timeLeftEl.textContent = "--:--";
+  clearInterval(waitTimer);
+  if (page === 1) {
+    fill(screen, el("div", { class: "instructions" },
+      el("h1", {}, "General Instructions"),
+      el("p", { class: "muted" }, `${test.title}. Please read the instructions carefully.`),
+      ...instructionsContent({ general: true }),
+      el("div", { class: "row instr-nav" },
+        el("a", { href: "practice.html", class: "btn quiet" }, "Back to Practice"),
+        el("button", { type: "button", class: "btn primary", onclick: () => showInstructions(2) }, "Next"))));
+    return;
+  }
+  const long = test.sections.some((x) => x.minutes >= 20);
   const agree = el("input", { type: "checkbox", id: "agree" });
   const start = el("button", { type: "button", class: "btn primary", disabled: true, onclick: beginTest }, "I am ready to begin");
-  agree.addEventListener("change", () => { start.disabled = !agree.checked; });
+  const conf = el("input", { type: "checkbox", id: "conf-tags", checked: confOn() });
+  conf.addEventListener("change", () => setLocal("cat-conf-tags", conf.checked));
+  const wait = el("p", { class: "notice", hidden: !cosolve });
+  const workedHost = el("div");
+  if (test.kind === "practice" && String(test.topic || "").startsWith("qa-")) loadWorked(workedHost).catch(() => {});
+  const canStart = () => agree.checked && (!cosolve || Date.now() >= cosolve.startsAtLocal);
+  agree.addEventListener("change", () => { start.disabled = !canStart(); });
+  if (cosolve) {
+    const tickWait = () => {
+      const left = cosolve.startsAtLocal - Date.now();
+      wait.textContent = left > 0
+        ? `Co-solve with ${cosolve.other}: the shared clock starts in ${fmtClock(left)}. Start together when it reaches zero.`
+        : `Co-solve with ${cosolve.other}: time to start.`;
+      start.disabled = !canStart();
+      if (left <= 0) clearInterval(waitTimer);
+    };
+    waitTimer = setInterval(tickWait, 500);
+    tickWait();
+  }
   fill(screen, el("div", { class: "instructions" },
-    el("h1", {}, test.title),
-    ...instructionsContent(),
-    el("p", { class: "agree" }, agree, el("label", { for: "agree" }, " I have read the instructions.")),
-    el("div", { class: "row" }, start, el("a", { href: "practice.html", class: "btn quiet" }, "Back to Practice"))));
+    el("h1", {}, "Other Important Instructions"),
+    el("h3", {}, test.title),
+    el("ul", {}, (test.instructions || []).map((line) => el("li", {}, line))),
+    long ? el("p", { class: "notice" }, "Put a rough sheet and a pen on the desk now, as in the exam hall. Phone in another room.") : null,
+    test.strict ? null : el("p", { class: "agree" }, conf,
+      el("label", { for: "conf-tags" }, " After each answer, ask me how sure I am (Sure, Unsure or Guess). It isn't on the real screen; it shows where your confidence is off.")),
+    wait,
+    cosolve ? el("p", {}, el("button", { type: "button", class: "btn small", onclick: () => openBoard(`cs-${cosolve.id}`, "Co-solve whiteboard") }, "Open the shared whiteboard")) : null,
+    workedHost,
+    el("p", { class: "agree declaration" }, agree, el("label", { for: "agree" },
+      " I have read and understood the instructions. I have no phone or other device or material with me that the exam wouldn't allow, and I'll treat this test as I would the real one.")),
+    el("div", { class: "row instr-nav" },
+      el("button", { type: "button", class: "btn", onclick: () => showInstructions(1) }, "Previous"),
+      start)));
+}
+
+// A solved example of each question type, folded once you've got that type right twice.
+async function loadWorked(host) {
+  const [w, counts] = await Promise.all([loadJson(`data/worked/${test.topic}.json`), rpc("cat_qtype_counts").catch(() => ({}))]);
+  const fresh = w.examples.filter((x) => (counts[x.qtype] || 0) < 2);
+  const folded = w.examples.length - fresh.length;
+  if (!fresh.length) {
+    fill(host, el("p", { class: "muted small" }, "You've got every question type here right at least twice, so the worked examples are folded. They're on the Topics page if you want them."));
+    return;
+  }
+  fill(host, el("details", { class: "worked-here" },
+    el("summary", {}, `Worked examples for this topic (${fresh.length})`),
+    fresh.map((x) => el("section", {}, el("h4", {}, x.title), el("p", {}, x.problem),
+      el("ol", {}, x.steps.map((st) => el("li", {}, st))), el("p", {}, el("strong", {}, `Answer: ${x.answer}`)))),
+    folded ? el("p", { class: "muted small" }, `${folded} more folded: you've got those types right twice.`) : null));
 }
 
 // ---- running the test ----------------------------------------------------------
 function beginTest() {
   const now = Date.now();
+  clearInterval(waitTimer);
   state = {
+    conf: !test.strict && confOn(),
     testId: test.id,
     clientAttemptId: crypto.randomUUID ? crypto.randomUUID() : `${now}-${Math.random().toString(36).slice(2)}`,
     startedAt: new Date(now).toISOString(),
@@ -177,7 +296,7 @@ function beginTest() {
     q: {},
   };
   for (const s of test.sections) {
-    for (const q of s.questions) state.q[q.id] = { answer: null, marked: false, visited: false, visits: 0, timeSpentSec: 0 };
+    for (const q of s.questions) state.q[q.id] = { answer: null, marked: false, visited: false, visits: 0, timeSpentSec: 0, conf: null, atSec: null };
   }
   if (getFocus().mode !== "focus") startFocus({ prompt: false }); // test time counts as focus time
   save();
@@ -223,6 +342,7 @@ function commit(marked) {
   const value = draft === null || draft === undefined ? "" : String(draft).trim();
   s.answer = value === "" || value === "-" || value === "." ? null : value;
   s.marked = marked;
+  s.atSec = s.answer === null ? null : Math.round((Date.now() - state.sectionStartedAt) / 1000);
   visit((state.current + 1) % section().questions.length);
 }
 
@@ -305,6 +425,8 @@ function buildPayload() {
         status: statusOf(st),
         timeSpentSec: Math.round(st.timeSpentSec * 10) / 10,
         visits: st.visits,
+        conf: st.answer !== null ? st.conf ?? null : null,
+        atSec: st.answer !== null ? st.atSec ?? null : null,
       });
     }
   }
@@ -395,6 +517,17 @@ function answerArea(q) {
     }));
 }
 
+function confChips(q) {
+  const s = state.q[q.id];
+  return el("fieldset", { class: "conf-chips" },
+    el("legend", {}, "How sure are you?"),
+    CONF.map(([v, label]) => {
+      const r = el("input", { type: "radio", name: `conf-${q.id}`, value: v, checked: s.conf === v });
+      r.addEventListener("change", () => { s.conf = v; save(); });
+      return el("label", {}, r, ` ${label}`);
+    }));
+}
+
 function renderExam() {
   renderTabs();
   const sec = section();
@@ -406,7 +539,8 @@ function renderExam() {
   const qPane = el("div", { class: "q-pane" },
     el("div", { class: "q-text" }, richText(q.text)),
     q.hint ? el("p", { class: "q-hint" }, q.hint) : null,
-    answerArea(q));
+    answerArea(q),
+    state.conf ? confChips(q) : null);
   const groupPane = group
     ? el("article", { class: "group-pane" }, el("h2", {}, group.title || ""), richText(group.text))
     : null;
@@ -419,7 +553,8 @@ function renderExam() {
       type: "button",
       class: `pal st-${st}${i === state.current ? " current" : ""}`,
       title: STATUS_LABEL[st],
-      "aria-label": `Question ${i + 1}, ${STATUS_LABEL[st]}`,
+      "aria-label": `Question ${i + 1}, ${STATUS_LABEL[st]}${i === state.current ? ", on screen now" : ""}`,
+      "aria-current": i === state.current ? "true" : null,
       onclick: () => visit(i),
     }, String(i + 1));
   });
@@ -429,7 +564,7 @@ function renderExam() {
     legend(counts),
     el("h2", { class: "palette-title" }, sec.name),
     el("p", { class: "palette-choose" }, "Choose a Question"),
-    el("div", { class: "palette" }, palette),
+    el("div", { class: "palette", role: "group", "aria-label": `Questions in ${sec.name}` }, palette),
     test.strict ? null : el("button", { type: "button", class: "btn submit-section", onclick: askSubmitSection },
       state.sectionIndex < test.sections.length - 1 ? "Submit section" : "Submit test"));
 
@@ -480,6 +615,7 @@ function timeAnalysis(rec, qdefs) {
   const slow = qs.slice().sort((a, b) => b.timeSpentSec - a.timeSpentSec).slice(0, 3).filter((q) => q.timeSpentSec > 0);
   const wrongMcq = qs.filter((q) => q.result === "wrong" && qdefs[q.id]?.type === "mcq").length;
   const wrongTita = qs.filter((q) => q.result === "wrong" && qdefs[q.id]?.type === "tita").length;
+  const blankTita = qs.filter((q) => q.result === "skipped" && qdefs[q.id]?.type === "tita").length;
   return el("section", { class: "panel" },
     el("h2", {}, "Where the time and marks went"),
     el("ul", {},
@@ -491,7 +627,130 @@ function timeAnalysis(rec, qdefs) {
       el("li", { class: wrongMcq ? "bad" : null }, wrongMcq
         ? `Negative marking cost you ${wrongMcq} mark${wrongMcq === 1 ? "" : "s"} (${wrongMcq} wrong multiple-choice). Without those guesses you'd have ${rec.totals.marks + wrongMcq}.`
         : "No marks lost to negative marking."),
-      wrongTita ? el("li", {}, `${wrongTita} wrong type-in answer${wrongTita === 1 ? "" : "s"} cost nothing. Always answer type-in questions.`) : null));
+      wrongTita ? el("li", {}, `${wrongTita} wrong type-in answer${wrongTita === 1 ? "" : "s"} cost nothing. Always answer type-in questions.`) : null,
+      blankTita ? el("li", { class: "bad" }, `${blankTita} type-in question${blankTita === 1 ? "" : "s"} left blank. A wrong type-in answer costs nothing, so put down your best number every time.`) : null,
+      markedLine(qs),
+      staminaLine(rec),
+      confidenceLine(qs)));
+}
+
+// Marked for review: how many, and how the marked answers turned out.
+function markedLine(qs) {
+  const answered = qs.filter((q) => q.status === "answeredMarked");
+  const empty = qs.filter((q) => q.status === "marked");
+  if (!answered.length && !empty.length) return null;
+  const right = answered.filter((q) => q.result === "correct").length;
+  return el("li", {}, `Marked for review: ${answered.length + empty.length}. `,
+    answered.length ? `${right} of the ${answered.length} you answered and marked were right. ` : "",
+    empty.length ? `${empty.length} marked but never answered${empty.length ? ": go back to them before the clock ends next time" : ""}.` : "");
+}
+
+// Accuracy in the last 10 minutes of each long section against the time before.
+function staminaLine(rec) {
+  if (!test) return null;
+  const early = { n: 0, ok: 0 };
+  const late = { n: 0, ok: 0 };
+  const byId = Object.fromEntries(rec.questions.map((q) => [q.id, q]));
+  for (const sec of test.sections) {
+    if (sec.minutes < 20) continue;
+    const cut = (sec.minutes - 10) * 60;
+    for (const def of sec.questions) {
+      const q = byId[def.id];
+      if (!q || q.result === "skipped" || q.atSec === null || q.atSec === undefined) continue;
+      const bucket = q.atSec > cut ? late : early;
+      bucket.n += 1;
+      if (q.result === "correct") bucket.ok += 1;
+    }
+  }
+  if (!early.n || !late.n) return null;
+  const a = Math.round((early.ok / early.n) * 100);
+  const b = Math.round((late.ok / late.n) * 100);
+  return el("li", { class: b + 15 < a ? "bad" : null },
+    `Stamina: ${a}% right on answers saved before the last 10 minutes of a section (${early.ok} of ${early.n}), ${b}% in the last 10 (${late.ok} of ${late.n}).`,
+    b + 15 < a ? " Accuracy drops near the end: in the last 10 minutes, only take questions you can finish cleanly." : "");
+}
+
+function confidenceLine(qs) {
+  const tally = {};
+  for (const q of qs) {
+    if (!q.conf || q.result === "skipped") continue;
+    tally[q.conf] = tally[q.conf] || { n: 0, ok: 0 };
+    tally[q.conf].n += 1;
+    if (q.result === "correct") tally[q.conf].ok += 1;
+  }
+  const parts = CONF.filter(([v]) => tally[v]).map(([v, label]) => `${label}: ${tally[v].ok} of ${tally[v].n} right`);
+  return parts.length ? el("li", {}, `How sure you were: ${parts.join(", ")}.`) : null;
+}
+
+function targetFor(t) {
+  if (!t.kind || t.kind === "check" || t.kind === "daily") return 80;
+  if (String(t.topic || "").startsWith("varc-")) return 70;
+  return 60;
+}
+
+// A picture of the score to send in a chat. It shows totals only, never answers.
+async function shareCard(rec) {
+  const W = 1200;
+  const H = 630;
+  const c = el("canvas", { width: W, height: H });
+  const g = c.getContext("2d");
+  await document.fonts?.ready;
+  g.fillStyle = "#ffffff";
+  g.fillRect(0, 0, W, H);
+  g.fillStyle = "#1b4b87";
+  g.fillRect(0, 0, W, 120);
+  g.fillStyle = "#e0960a";
+  g.fillRect(0, 120, W, 8);
+  g.fillStyle = "#ffffff";
+  g.font = "700 40px Archivo, Arial, sans-serif";
+  g.fillText("CAT prep group", 60, 76);
+  g.fillStyle = "#15212e";
+  g.font = "700 44px Archivo, Arial, sans-serif";
+  g.fillText(rec.testTitle.slice(0, 48), 60, 210);
+  g.font = "400 30px 'Atkinson Hyperlegible Next', Arial, sans-serif";
+  g.fillStyle = "#566273";
+  g.fillText(`${member?.name || ""}, ${fmtDateTime(rec.submittedAt)}`, 60, 260);
+  g.fillStyle = "#15212e";
+  g.font = "800 180px Archivo, Arial, sans-serif";
+  g.fillText(String(rec.totals.marks), 60, 470);
+  const w = g.measureText(String(rec.totals.marks)).width;
+  g.font = "700 40px Archivo, Arial, sans-serif";
+  g.fillText("marks", 80 + w, 470);
+  g.font = "400 34px 'Atkinson Hyperlegible Next', Arial, sans-serif";
+  g.fillStyle = "#566273";
+  const acc = rec.totals.accuracy === null || rec.totals.accuracy === undefined ? "" : `, ${Math.round(rec.totals.accuracy * 100)}% accuracy`;
+  g.fillText(`${rec.totals.correct} right, ${rec.totals.wrong} wrong, ${rec.totals.skipped} blank${acc}`, 60, 550);
+  const blob = await new Promise((r) => c.toBlob(r, "image/png"));
+  const file = new File([blob], `${rec.testId}-score.png`, { type: "image/png" });
+  if (navigator.canShare?.({ files: [file] })) {
+    try {
+      await navigator.share({ files: [file], title: rec.testTitle });
+      return;
+    } catch {
+      /* share sheet closed: fall back to saving */
+    }
+  }
+  const a = el("a", { href: URL.createObjectURL(blob), download: file.name });
+  document.body.append(a);
+  a.click();
+  a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 5000);
+}
+
+function reportQuestion(testId, qid, number) {
+  const text = el("textarea", { maxlength: 600, placeholder: "What's wrong: a typo, two right answers, a wrong key, an unclear line..." });
+  const status = el("p", { class: "status-line", role: "status" });
+  const send = el("button", { type: "button", class: "btn primary" }, "Send to the admin");
+  send.addEventListener("click", () => busy(send, async () => {
+    if (text.value.trim().length < 5) { status.textContent = "Say a little more first."; return; }
+    await rpc("cat_report", { p_test_id: testId, p_question_id: qid, p_text: text.value });
+    dialog.close();
+    toast({ title: "Report sent", body: "The admin sees it on the You page.", autoHideMs: 6000 });
+  }));
+  fill(dialog, el("h2", {}, `Report a problem with question ${number}`), text, status,
+    el("div", { class: "dialog-actions" }, el("button", { type: "button", class: "btn", onclick: () => dialog.close() }, "Cancel"), send));
+  dialog.showModal();
+  text.focus();
 }
 
 function download(rec) {
@@ -529,46 +788,64 @@ async function renderResults(rec) {
   tabsEl.replaceChildren();
   timeLeftEl.textContent = "--:--";
   if (!test || test.id !== rec.testId) test = await loadTest(rec.testId);
+  const composed = Boolean(test.composed);
   const qdefs = Object.fromEntries(test.sections.flatMap((s) => s.questions.map((q) => [q.id, q])));
   const t = rec.totals;
   const timeUsed = rec.sections.reduce((sum, s) => sum + (s.timeUsedSec || 0), 0);
   const lastRetry = {};
   for (const r of rec.retries || []) Object.assign(lastRetry, r.results);
   const revealed = Boolean(rec.revealedAt);
-  const all = await rpc("cat_attempts").catch(() => []);
+  const [all, summaryInfo, causes] = await Promise.all([
+    rpc("cat_attempts").catch(() => []),
+    composed ? Promise.resolve({ open: false }) : rpc("cat_thread_summary", { p_test_id: rec.testId }).catch(() => ({ open: false })),
+    rpc("cat_causes", { p_test_id: rec.testId }).catch(() => ({})),
+  ]);
   const firstId = all.filter((a) => a.testId === rec.testId).sort((a, b) => Date.parse(a.submittedAt) - Date.parse(b.submittedAt))[0]?.attemptId;
   const isFirst = firstId === undefined || firstId === rec.attemptId;
-  const summaryInfo = await rpc("cat_thread_summary", { p_test_id: rec.testId }).catch(() => ({ open: false }));
   rpc("cat_pulse", { p_chat_after: 0, p_posts_after: 0 }).then((p) => markPostsSeen(p.postsLatest)).catch(() => {});
 
+  const target = targetFor(test);
+  const accPct = t.accuracy === null || t.accuracy === undefined ? null : Math.round(t.accuracy * 100);
   const summary = el("table", { class: "plain summary" }, el("tbody", {},
     el("tr", {}, el("th", {}, "Marks"), el("td", {}, `${t.marks}`)),
     el("tr", {}, el("th", {}, "Correct"), el("td", {}, `${t.correct}`)),
     el("tr", {}, el("th", {}, "Wrong"), el("td", {}, `${t.wrong}`)),
     el("tr", {}, el("th", {}, "Left blank"), el("td", {}, `${t.skipped}`)),
     el("tr", {}, el("th", {}, "Accuracy"), el("td", {}, pct(t.accuracy))),
+    el("tr", {}, el("th", {}, `Target: ${target}%`), el("td", { class: accPct === null ? "" : accPct >= target ? "good" : "bad" },
+      accPct === null ? "nothing answered" : accPct >= target ? "met" : `${target - accPct} points short`)),
     el("tr", {}, el("th", {}, "Time used"), el("td", {}, fmtDuration(timeUsed)))));
 
   const head = ["No.", "Your answer", "Result", "Time", "Visits"];
   if (Object.keys(lastRetry).length) head.push("Retry");
   if (revealed) head.push("Correct answer");
-  head.push("Group");
+  head.push("Cause of the loss");
+  head.push(composed ? "From" : "Group");
   const rows = [];
   for (const q of rec.questions) {
     const info = summaryInfo.questions?.[q.id];
     const threadRow = el("tr", { class: "thread-row", hidden: true }, el("td", { colspan: String(head.length) }));
-    const discuss = el("button", { type: "button", class: "btn small" },
-      info ? `${info.posts} approach${info.posts === 1 ? "" : "es"}` : "Discuss");
-    discuss.addEventListener("click", () => toggleThread(rec, q, qdefs[q.id], threadRow, discuss));
+    let groupCell;
+    if (composed) {
+      groupCell = el("td", { class: "small" }, qdefs[q.id]?.srcTitle || "");
+    } else {
+      const discuss = el("button", { type: "button", class: "btn small" },
+        info ? `${info.posts} approach${info.posts === 1 ? "" : "es"}` : "Discuss");
+      discuss.addEventListener("click", () => toggleThread(rec, q, qdefs[q.id], threadRow, discuss));
+      groupCell = el("td", {}, info ? el("span", { class: "muted small" },
+        `${info.right} of ${info.done} right${info.medianSec !== null && info.medianSec !== undefined ? `, median ${fmtDuration(info.medianSec)}` : ""} `) : null, discuss);
+    }
     rows.push(el("tr", { class: `res-${q.result}`, id: `q-${q.id}` },
       el("td", {}, String(q.number)),
       el("td", {}, q.answer ?? ""),
-      el("td", { class: "res-cell" }, RESULT_LABEL[q.result] + (q.status === "answeredMarked" ? ", marked" : "")),
+      el("td", { class: "res-cell" }, RESULT_LABEL[q.result] + (q.status === "answeredMarked" ? ", marked" : ""),
+        q.conf ? el("span", { class: "muted small" }, ` (${CONF.find(([v]) => v === q.conf)?.[1].toLowerCase()})`) : null),
       el("td", {}, fmtDuration(q.timeSpentSec)),
       el("td", {}, String(q.visits)),
       Object.keys(lastRetry).length ? el("td", {}, lastRetry[q.id] ? RESULT_LABEL[lastRetry[q.id]] : "") : null,
       revealed ? el("td", {}, String(rec.reveal?.[q.id]?.answer ?? "")) : null,
-      el("td", {}, info ? el("span", { class: "muted small" }, `${info.right} of ${info.done} right `) : null, discuss)));
+      el("td", {}, q.result === "correct" ? "" : causeSelect(rec.testId, q, causes)),
+      groupCell));
     rows.push(threadRow);
   }
   const table = el("div", { class: "table-wrap" }, el("table", { class: "plain results" },
@@ -576,34 +853,50 @@ async function renderResults(rec) {
 
   const toRetry = rec.questions.filter((q) => q.result !== "correct" && lastRetry[q.id] !== "correct");
   const retryBlock = revealed || !toRetry.length ? null : retryPanel(rec, toRetry, qdefs);
-  const revealBlock = revealed ? solutionsPanel(rec, qdefs) : el("section", { class: "panel" },
+  const revealBlock = revealed ? await solutionsPanel(rec, qdefs) : el("section", { class: "panel" },
     el("h2", {}, "Correct answers"),
     el("p", {}, "They stay hidden so you can retry first. Once you show them, retries close for this attempt."),
     el("button", { type: "button", class: "btn", onclick: () => askReveal(rec) }, "Show correct answers and solutions"));
   const dl = el("button", { type: "button", class: "btn" }, "Download my results");
   dl.addEventListener("click", () => download(rec));
+  const share = el("button", { type: "button", class: "btn" }, "Share a score card");
+  share.addEventListener("click", () => busy(share, () => shareCard(rec)));
+  const hasSets = test.sections.some((x) => (x.groups || []).length);
+  const board = hasSets && !composed
+    ? el("button", { type: "button", class: "btn", onclick: () => openBoard(`set-${test.id}`, `${test.title}: whiteboard`) }, "Group whiteboard") : null;
 
   fill(screen, el("div", { class: "results-page" },
     el("h1", {}, `${rec.testTitle}: results`),
     el("p", { class: "source-note" }, `Submitted ${fmtDateTime(rec.submittedAt)}.`,
-      isFirst ? " This is your first attempt, so it counts for the board." : " A later attempt: the board keeps your first."),
+      composed ? " Made for you, so it counts once for the board and stays off the scores table."
+        : isFirst ? " This is your first attempt, so it counts for the board." : " A later attempt: the board keeps your first."),
     el("div", { class: "results-top" }, summary,
       el("div", { class: "panel" },
         el("h2", {}, "Next step"),
-        el("p", {}, "Retry the wrong ones first. Then open the group column on each question to compare approaches; the quickest method is often not the one you used."),
-        el("div", { class: "row" }, el("a", { class: "btn", href: "practice.html" }, "Back to Practice"), dl))),
+        el("p", {}, composed
+          ? "Retry the wrong ones first, then tag the cause of each loss in the table below. Misses are already in your review queue."
+          : "Retry the wrong ones first. Tag the cause of each loss in the table, then open the group column to compare approaches; the quickest method is often not the one you used."),
+        el("div", { class: "row" }, el("a", { class: "btn", href: "practice.html" }, "Back to Practice"), board, share, dl))),
     await dailyRanking(rec),
     timeAnalysis(rec, qdefs),
     retryBlock,
     el("h2", {}, "Question by question"),
     table,
     revealBlock));
-  const target = location.hash.match(/^#q-(.+)$/)?.[1];
-  if (target) {
-    const row = document.getElementById(`q-${target}`);
+  const hit = location.hash.match(/^#q-(.+)$/)?.[1];
+  if (hit) {
+    const row = document.getElementById(`q-${hit}`);
     row?.scrollIntoView({ block: "center" });
     row?.querySelector("td:last-child button")?.click();
   }
+}
+
+function causeSelect(testId, q, causes) {
+  const sel = el("select", { "aria-label": `Cause of the loss on question ${q.number}`, class: "cause-select" },
+    el("option", { value: "" }, "Not tagged"),
+    CAUSES.map(([v, label]) => el("option", { value: v, selected: causes[q.id] === v }, label)));
+  sel.addEventListener("change", () => busy(sel, () => rpc("cat_cause_set", { p_test_id: testId, p_question_id: q.id, p_cause: sel.value || null })));
+  return sel;
 }
 
 // ---- discussion threads --------------------------------------------------------------
@@ -643,13 +936,16 @@ function paintThread(rec, q, def, cell, th, button) {
     th.bookmark = null;
     paintThread(rec, q, def, cell, th, button);
   }));
+  const report = el("button", { type: "button", class: "btn quiet small", onclick: () => reportQuestion(rec.testId, q.id, q.number) }, "Report a problem with this question");
   fill(cell, el("div", { class: "thread" },
     el("p", {}, el("strong", {}, `Q${q.number}. `), def?.text || ""),
     def?.type === "mcq" ? el("p", { class: "muted small" }, def.options.map((o, i) => `${LETTERS[i]}. ${o}`).join("   ")) : null,
     el("p", { class: "muted small" }, `You ${RESULT_SHORT[th.mine] || "didn't attempt it"} first time. ${th.right} of ${th.done} in the group got it right first time. Approaches can give the answer away, so retry first if you want to.`),
     th.posts.length ? th.posts.map((p) => postItem(rec, q, def, cell, p, button)) : el("p", { class: "empty" }, "No approaches yet. Be the first; 40 characters or more earns 3 points."),
     el("div", { class: "stack" }, text, el("div", { class: "row" }, post)),
-    el("div", { class: "row" }, note, mark, unmark)));
+    voiceBox(rec.testId, q.id),
+    el("div", { class: "row" }, note, mark, unmark),
+    el("div", { class: "row" }, report)));
 }
 
 function postItem(rec, q, def, cell, p, button) {
@@ -669,6 +965,16 @@ function postItem(rec, q, def, cell, p, button) {
     el("div", { class: "row" }, vote, del));
 }
 
+let boardP = null;
+async function bestAt(topic) {
+  if (!topic) return null;
+  boardP = boardP || rpc("cat_topic_board").catch(() => []);
+  const rows = (await boardP).filter((m) => !m.me && m.topics?.[topic]?.total >= 4)
+    .map((m) => ({ name: m.name, pct: m.topics[topic].solved / m.topics[topic].total }))
+    .filter((m) => m.pct >= 0.6).sort((a, b) => b.pct - a.pct);
+  return rows[0]?.name || null;
+}
+
 function retryPanel(rec, list, qdefs) {
   const inputs = {};
   const items = list.map((q) => {
@@ -683,10 +989,22 @@ function retryPanel(rec, list, qdefs) {
         el("label", { class: "option" }, el("input", { type: "radio", name, value: LETTERS[i] }), el("span", { class: "opt-letter" }, `${LETTERS[i]}.`), el("span", {}, text))));
       inputs[q.id] = () => field.querySelector("input:checked")?.value || "";
     }
+    const hintBox = el("p", { class: "q-hint", hidden: true });
+    const hintBtn = el("button", { type: "button", class: "btn small quiet" }, "Show a hint");
+    hintBtn.addEventListener("click", () => busy(hintBtn, async () => {
+      const h = await rpc("cat_hint", { p_test_id: rec.testId, p_question_id: q.id });
+      hintBox.textContent = h.hint || "No hint for this one. Try it once more before you look at the answer.";
+      hintBox.hidden = false;
+      hintBtn.hidden = true;
+    }));
+    const ask = el("span");
+    bestAt(def.topic || test?.topic).then((name) => {
+      if (name) ask.append(el("a", { class: "btn small quiet", href: `chat.html?ask=${encodeURIComponent(name)}&topic=${encodeURIComponent(`question ${q.number} of ${rec.testTitle}`)}` }, `Ask ${name}`));
+    });
     return el("li", { class: "retry-item" },
       el("p", {}, el("strong", {}, `Q${q.number}. `), def.text || ""),
       el("p", { class: "muted" }, q.answer ? `You answered ${q.answer}.` : "You left it blank."),
-      field);
+      field, el("div", { class: "row" }, hintBtn, ask), hintBox);
   });
   const status = el("p", { class: "status-line", role: "status" });
   const check = el("button", { type: "button", class: "btn primary" }, "Check my retries");
@@ -706,20 +1024,41 @@ function retryPanel(rec, list, qdefs) {
   });
   return el("section", { class: "panel" },
     el("h2", {}, `Try again, untimed (${list.length})`),
-    el("p", {}, "These are the questions you got wrong or left blank. The keyboard works here. You'll only see right or wrong, not the answer."),
+    el("p", {}, "These are the questions you got wrong or left blank. The keyboard works here. You'll only see right or wrong, not the answer. Stuck? Take the hint before you show the answers."),
     el("ol", { class: "retry-list" }, items),
     check,
     status);
 }
 
-function solutionsPanel(rec, qdefs) {
+// Each solution waits until you've written why the right answer is right,
+// in a line or two. Explaining it fixes the method better than reading it.
+async function solutionsPanel(rec, qdefs) {
+  const mine = await rpc("cat_explanations", { p_test_id: rec.testId }).catch(() => ({}));
   return el("section", { class: "panel" },
     el("h2", {}, "Solutions"),
+    el("p", { class: "muted" }, "For each one, write first why the right answer is right, then read the solution. You can skip the writing, but it's the part that sticks."),
     el("ol", { class: "solutions" }, rec.questions.map((q) => {
       const rv = rec.reveal?.[q.id] || {};
+      const sol = el("p", { hidden: !mine[q.id] }, el("strong", {}, "Solution: "), rv.solution || "");
+      const why = el("textarea", { maxlength: 300, placeholder: "Why is it right? One or two lines.", "aria-label": `Why the answer to question ${q.number} is right` });
+      const saved = el("p", { class: "muted small", hidden: !mine[q.id] }, mine[q.id] ? `Your reason: ${mine[q.id]}` : "");
+      const save = el("button", { type: "button", class: "btn small" }, "Save and show the solution");
+      const skip = el("button", { type: "button", class: "btn quiet small" }, "Show it without writing");
+      const ask = el("div", { class: "stack", hidden: Boolean(mine[q.id]) }, why, el("div", { class: "row" }, save, skip));
+      save.addEventListener("click", () => busy(save, async () => {
+        if (why.value.trim().length < 8) { why.focus(); return; }
+        const all = await rpc("cat_explain", { p_test_id: rec.testId, p_question_id: q.id, p_text: why.value });
+        saved.textContent = `Your reason: ${all[q.id]}`;
+        saved.hidden = false;
+        ask.hidden = true;
+        sol.hidden = false;
+      }));
+      skip.addEventListener("click", () => { ask.hidden = true; sol.hidden = false; });
       return el("li", { value: String(q.number) },
         el("p", {}, qdefs[q.id]?.text || ""),
-        el("p", {}, el("strong", {}, `Answer: ${rv.answer ?? ""}. `), rv.solution || ""));
+        el("p", {}, el("strong", {}, `Answer: ${rv.answer ?? ""}.`), q.result === "correct" ? el("span", { class: "good" }, " You got it right.") : ""),
+        ask, saved, sol,
+        el("button", { type: "button", class: "btn quiet small", onclick: () => reportQuestion(rec.testId, q.id, q.number) }, "Report a problem"));
     })));
 }
 
@@ -766,6 +1105,13 @@ async function init() {
     const id = params.get("id");
     if (!id) return showMessage(el("p", {}, "No test chosen."), el("a", { href: "practice.html" }, "Pick one on the Practice page"));
     test = await loadTest(id);
+    if (params.get("cosolve")) {
+      const c = await rpc("cat_cosolve", { p_id: Number(params.get("cosolve")) });
+      if (c && c.testId === test.id) {
+        const skew = Date.parse(c.now) - Date.now();
+        cosolve = { id: c.id, other: c.host === me.name ? c.partner : c.host, startsAtLocal: Date.parse(c.startsAt) - skew };
+      }
+    }
   } catch (err) {
     return showMessage(el("p", {}, err.message), el("a", { href: "practice.html" }, "Back to Practice"));
   }

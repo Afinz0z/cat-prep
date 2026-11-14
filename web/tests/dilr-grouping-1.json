@@ -1,0 +1,67 @@
+{
+  "id": "dilr-grouping-1",
+  "title": "Grouping and selection: set 1",
+  "topic": "dilr-grouping",
+  "kind": "practice",
+  "difficulty": "easy",
+  "source": "original",
+  "sourceNote": "An original set written for this group. It is not a CAT previous-year set.",
+  "strict": false,
+  "calculator": true,
+  "instructions": [
+    "4 questions, 12 minutes.",
+    "CAT marking: +3 right, -1 wrong multiple choice, 0 for a wrong type-in answer.",
+    "Type-in answers take a number only: no %, ₹ or units. Use a decimal, not a fraction."
+  ],
+  "sections": [
+    {
+      "name": "DILR",
+      "minutes": 12,
+      "groups": [
+        {
+          "id": "g1",
+          "title": "School quiz team",
+          "text": "A school must send a team of five to a state quiz. It picks from four seniors, Aman, Bela, Charu and Dinesh, and four juniors, Ekta, Firoz, Gita and Hari. The team must follow these rules.\n\n1. The team has at least two and at most three seniors.\n\n2. Aman and Dinesh cannot both be in the team.\n\n3. If Bela is in the team, Ekta must be in it too.\n\n4. Firoz and Gita are picked together or not at all.\n\n5. Hari can be picked only if Dinesh is picked."
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "type": "tita",
+          "text": "How many different teams can the school send?",
+          "group": "g1"
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "text": "Which of these pairs can never be in the team together?",
+          "options": [
+            "Bela and Dinesh",
+            "Charu and Hari",
+            "Aman and Hari",
+            "Dinesh and Ekta"
+          ],
+          "group": "g1"
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "text": "If Hari is in the team, which of the following must also be in it?",
+          "options": [
+            "Charu",
+            "Bela",
+            "Ekta",
+            "Firoz"
+          ],
+          "group": "g1"
+        },
+        {
+          "id": "q4",
+          "type": "tita",
+          "text": "If Dinesh is in the team, how many different teams are possible?",
+          "group": "g1"
+        }
+      ]
+    }
+  ]
+}

@@ -1,12 +1,15 @@
-// Break, eye and wind-down reminders, plus the study timer.
+// Break, eye, walk, lunch, caffeine, wind-down and exam-week reminders, plus
+// the study timer.
 // Due times live in localStorage so a reminder fires once even with two tabs
 // open. Focus minutes go to the database a minute at a time for the board.
 import { rpc } from "./db.js";
 import { toast, local, setLocal, istToday } from "./ui.js";
+import { loadPlan } from "./plan.js";
 
 export const DEFAULTS = {
   breakAfterMin: 40, breakLengthMin: 10,
   eyeEveryMin: 20, sound: true, windDown: true, textSize: 100,
+  autoBreak: true, walk: true, caffeine: true, lunch: true, examReminders: true, quiet: true,
 };
 
 const K = {
@@ -15,6 +18,7 @@ const K = {
   focus: "cat-focus",
   testRunning: "cat-test-running",
   windDown: "cat-wind-down-day",
+  once: "cat-once-",
   claim: "cat-claim-",
 };
 const tabId = Math.random().toString(36).slice(2);
@@ -103,6 +107,18 @@ export function startBreak() {
   closeFocusSpan(f, now);
   saveFocus({ ...f, mode: "break", since: now, dueAt: now + getSettings().breakLengthMin * 60000, prompted: false });
   syncFocus();
+  sendPresence();
+  rpc("cat_break_log", { p_skipped: false }).catch(() => {});
+}
+
+// Skipping a break goes back to focus and is counted on the Today page.
+function skipBreak() {
+  const now = Date.now();
+  const f = getFocus();
+  closeFocusSpan(f, now);
+  const s = getSettings();
+  saveFocus({ ...f, mode: "focus", since: now, dueAt: now + s.breakAfterMin * 60000, prompted: false });
+  rpc("cat_break_log", { p_skipped: true }).catch(() => {});
   sendPresence();
 }
 
@@ -202,8 +218,16 @@ function unlockAudio() {
   window.addEventListener("keydown", unlock);
 }
 
+// 22:30 to 06:00 Indian time.
+function quietHours() {
+  const t = new Date(Date.now() + 330 * 60000);
+  const m = t.getUTCHours() * 60 + t.getUTCMinutes();
+  return m >= 22 * 60 + 30 || m < 6 * 60;
+}
+
 function chime(kind) {
   if (!getSettings().sound || !audio) return;
+  if (getSettings().quiet && quietHours()) return;
   const notes = kind === "break" ? [523, 659, 784] : kind === "eye" ? [660] : [880, 1175];
   let t = audio.currentTime + 0.02;
   for (const freq of notes) {
@@ -244,6 +268,17 @@ function breakReminder() {
   const s = getSettings();
   chime("break");
   notify("Time for a break", `You've focused for ${s.breakAfterMin} minutes. Take ${s.breakLengthMin}.`);
+  if (s.autoBreak) {
+    startBreak();
+    toast({
+      kind: "break",
+      title: `Break started: ${s.breakLengthMin} minutes`,
+      body: `${s.breakAfterMin} minutes of focus done. ${STRETCHES[Math.floor(Math.random() * STRETCHES.length)]}`,
+      actions: [{ label: "Skip this break", onClick: skipBreak }],
+      autoHideMs: 120000,
+    });
+    return;
+  }
   toast({
     kind: "break",
     title: `Time for a ${s.breakLengthMin}-minute break`,
@@ -281,11 +316,58 @@ function windDownReminder() {
   });
 }
 
+// Reminders that fire once a day at a set time, within half an hour of it.
+const DAY_REMINDERS = [
+  { key: "walk", setting: "walk", at: (d) => (d?.timetable === "paper" ? 630 : d?.timetable ? 620 : null),
+    show: () => toast({ kind: "break", title: "Walk", body: "Twenty minutes outside, without the phone. A walk after the morning block helps the afternoon one.", autoHideMs: 60000 }) },
+  { key: "lunch", setting: "lunch", at: (d) => (d?.timetable === "paper" ? 690 : null),
+    show: () => toast({ kind: "break", title: "Lunch now", body: "Eat at 11:30, the time you'll eat on exam day, so 12:30 feels normal.", autoHideMs: 60000 }) },
+  { key: "caffeine", setting: "caffeine", at: (d) => (d ? 840 : null),
+    show: () => toast({ title: "Last coffee or tea for today", body: "Nothing with caffeine after 14:00, so it's out of the way by lights out at 23:00.", autoHideMs: 30000 }) },
+  { key: "admit", setting: "examReminders", at: (d, day) => (day === "2026-11-28" ? 1140 : null),
+    show: () => toast({ kind: "break", title: "Admit card and bag", body: "Print the admit card, put the photo ID with it, and pack the bag tonight. The list is on the Exam-day page.",
+      actions: [{ label: "Open the list", primary: true, onClick: () => { location.href = "exam-day.html"; } }] }) },
+  { key: "route", setting: "examReminders", at: (d, day, s) => (day === "2026-11-28" && s.travelAt ? toMin(s.travelAt) : null),
+    show: () => toast({ kind: "break", title: "Check the route now", body: "This is the time you'll travel tomorrow. Check how long the trip to the centre takes at this hour, and save the directions offline." }) },
+];
+
+function toMin(hhmm) {
+  const [h, m] = String(hhmm || "").split(":").map(Number);
+  return Number.isFinite(h) && Number.isFinite(m) ? h * 60 + m : null;
+}
+
+let planDays = null;
+async function dayReminders(inTest) {
+  if (inTest || testRunning()) return;
+  const s = getSettings();
+  const day = istToday();
+  if (!planDays) {
+    try {
+      planDays = (await loadPlan()).days;
+    } catch {
+      planDays = {};
+    }
+  }
+  const t = new Date(Date.now() + 330 * 60000);
+  const m = t.getUTCHours() * 60 + t.getUTCMinutes();
+  for (const r of DAY_REMINDERS) {
+    if (!s[r.setting]) continue;
+    const at = r.at(planDays[day], day, s);
+    if (at === null || m < at || m >= at + 30) continue;
+    const key = `${K.once}${r.key}`;
+    if (local(key, "") === day || !(await claim(`once-${r.key}-${day}`))) continue;
+    setLocal(key, day);
+    chime("soft");
+    r.show();
+  }
+}
+
 async function check(inTest) {
   const now = Date.now();
   const s = getSettings();
   const f = getFocus();
-  if (f.mode === "focus" && !inTest && !testRunning() && s.eyeEveryMin > 0) {
+  dayReminders(inTest).catch(() => {});
+  if (f.mode === "focus" && !inTest && !testRunning() && s.eyeEveryMin > 0 && !(s.quiet && quietHours())) {
     const eye = num(K.nextEye);
     if (!eye) setNum(K.nextEye, now + s.eyeEveryMin * 60000);
     else if (now >= eye && (await claim("eye")) && num(K.nextEye) === eye) {
@@ -321,6 +403,13 @@ export function startReminders({ inTest = false } = {}) {
   setInterval(syncFocus, 60000);
   window.addEventListener("pagehide", () => { syncFocus(); });
   if ("serviceWorker" in navigator && location.protocol !== "file:") {
+    const hadController = Boolean(navigator.serviceWorker.controller);
     navigator.serviceWorker.register("sw.js").catch(() => {});
+    // A new version took over this page: say so once, so nobody runs old code for days.
+    navigator.serviceWorker.addEventListener("controllerchange", () => {
+      if (!hadController || inTest) return;
+      toast({ title: "The site has been updated", body: "Reload to use the new version.",
+        actions: [{ label: "Reload", primary: true, onClick: () => location.reload() }] });
+    });
   }
 }

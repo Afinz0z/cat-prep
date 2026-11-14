@@ -1,0 +1,60 @@
+{
+  "topic": "qa-work",
+  "examples": [
+    {
+      "qtype": "working-together",
+      "title": "Working together",
+      "problem": "A and B together can do a job in 10 days, B and C in 12 days, and C and A in 15 days. How long will A, B and C take working together?",
+      "steps": [
+        "Add the three pair rates: 1/10 + 1/12 + 1/15 = (6 + 5 + 4)/60 = 1/4.",
+        "Each person is counted twice in that sum, so the three together do half of it: 1/8 of the job a day.",
+        "So A, B and C together take 8 days."
+      ],
+      "answer": "8 days"
+    },
+    {
+      "qtype": "pipes-and-cisterns",
+      "title": "Pipes and cisterns",
+      "problem": "A pipe can fill a tank in 9 hours. Because of a leak at the bottom, it actually takes 12 hours to fill. How long would the leak take to empty the full tank?",
+      "steps": [
+        "With the leak, the net rate is 1/12 of the tank an hour.",
+        "Leak rate = 1/9 − 1/12 = (4 − 3)/36 = 1/36 of the tank an hour.",
+        "So the leak empties the full tank in 36 hours."
+      ],
+      "answer": "36 hours"
+    },
+    {
+      "qtype": "man-days",
+      "title": "Men, days and hours",
+      "problem": "Twenty workers, working 8 hours a day, finish a job in 15 days. How many days will 25 workers take if they work 6 hours a day?",
+      "steps": [
+        "Total work = 20 × 8 × 15 = 2400 worker-hours.",
+        "25 workers at 6 hours a day give 25 × 6 = 150 worker-hours a day.",
+        "Days needed = 2400/150 = 16."
+      ],
+      "answer": "16 days"
+    },
+    {
+      "qtype": "efficiency-and-wages",
+      "title": "Efficiency and wages",
+      "problem": "A is 25% more efficient than B. They do a job together and are paid ₹7,200, shared in proportion to the work each does. How much does A get?",
+      "steps": [
+        "A's efficiency is 1.25 times B's, so the ratio of their efficiencies is 5 : 4.",
+        "Both work for the same number of days, so the work they do is also in the ratio 5 : 4.",
+        "A gets 5/9 × 7200 = ₹4,000."
+      ],
+      "answer": "₹4,000"
+    },
+    {
+      "qtype": "alternate-days",
+      "title": "Alternate days",
+      "problem": "A can do a job in 6 days and B in 9 days. They work on alternate days, starting with A. In how many days is the job done?",
+      "steps": [
+        "Take the job as 18 units: A does 3 a day and B does 2.",
+        "Each 2-day cycle finishes 5 units, so 3 cycles (6 days) finish 15 units.",
+        "On day 7 A does 3 more units, which completes the 18."
+      ],
+      "answer": "7 days"
+    }
+  ]
+}

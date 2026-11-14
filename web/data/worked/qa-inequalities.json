@@ -1,0 +1,59 @@
+{
+  "topic": "qa-inequalities",
+  "examples": [
+    {
+      "qtype": "linear-inequalities",
+      "title": "Linear inequalities",
+      "problem": "Solve 2 < (5 − x)/3 ≤ 4.",
+      "steps": [
+        "Multiply all three parts by 3: 6 < 5 − x ≤ 12.",
+        "Subtract 5: 1 < −x ≤ 7.",
+        "Multiply by −1 and flip both signs: −7 ≤ x < −1."
+      ],
+      "answer": "−7 ≤ x < −1"
+    },
+    {
+      "qtype": "quadratic-inequalities",
+      "title": "Quadratic inequalities",
+      "problem": "Solve x² − 9x + 14 ≥ 0.",
+      "steps": [
+        "Factor: (x − 2)(x − 7) ≥ 0, with roots 2 and 7.",
+        "The x² term is positive, so the expression is positive outside the roots and zero at them.",
+        "So x ≤ 2 or x ≥ 7."
+      ],
+      "answer": "x ≤ 2 or x ≥ 7"
+    },
+    {
+      "qtype": "modulus-inequalities",
+      "title": "Modulus inequalities",
+      "problem": "Solve |2x + 1| > 7.",
+      "steps": [
+        "2x + 1 is more than 7 away from 0, so 2x + 1 > 7 or 2x + 1 < −7.",
+        "The first gives x > 3. The second gives 2x < −8, so x < −4."
+      ],
+      "answer": "x < −4 or x > 3"
+    },
+    {
+      "qtype": "sum-of-moduli",
+      "title": "Sum of moduli",
+      "problem": "Find the least value of |x + 2| + |x − 3| + |x − 7| + |x − 10|.",
+      "steps": [
+        "Pair the outer points: |x + 2| + |x − 10| is at least 12, the distance from −2 to 10.",
+        "Pair the inner points: |x − 3| + |x − 7| is at least 4, the distance from 3 to 7.",
+        "Both least values hold together for any x from 3 to 7, so the least total is 12 + 4 = 16."
+      ],
+      "answer": "16, for any x from 3 to 7"
+    },
+    {
+      "qtype": "am-gm",
+      "title": "AM-GM",
+      "problem": "a, b and c are positive numbers with a + b + c = 15. What is the largest possible value of abc?",
+      "steps": [
+        "By AM-GM, (a + b + c)/3 ≥ ∛(abc), so ∛(abc) ≤ 5.",
+        "Cubing gives abc ≤ 125.",
+        "The value 125 is reached when a = b = c = 5."
+      ],
+      "answer": "125"
+    }
+  ]
+}

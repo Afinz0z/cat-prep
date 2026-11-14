@@ -1,0 +1,59 @@
+{
+  "id": "daily-2026-11-25",
+  "title": "Daily 5, Wed 25 Nov",
+  "kind": "daily",
+  "day": "2026-11-25",
+  "source": "original",
+  "sourceNote": "Original questions written for this group. None of them is a CAT previous-year question.",
+  "strict": false,
+  "calculator": true,
+  "instructions": [
+    "5 questions, 10 minutes, CAT marking: +3 right, -1 wrong multiple choice, 0 for a wrong type-in answer.",
+    "Everyone gets the same five. The ranking is by marks, then by time.",
+    "Type-in answers take a number only: no %, rupee sign or units."
+  ],
+  "sections": [
+    {
+      "name": "Daily 5",
+      "minutes": 10,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "text": "If x : y = 3 : 5, what is (2x + y) : (x + 2y)?",
+          "topic": "qa-ratio",
+          "options": [
+            "11 : 13",
+            "13 : 11",
+            "8 : 13",
+            "11 : 10"
+          ]
+        },
+        {
+          "id": "q2",
+          "type": "tita",
+          "text": "A shop runs a \"buy 3, get 1 free\" offer on soap. What discount does a customer get on the 4 bars, as a percentage?",
+          "topic": "qa-profit-loss"
+        },
+        {
+          "id": "q3",
+          "type": "tita",
+          "text": "A train 240 m long passes completely through a platform 360 m long in 30 seconds. What is its speed in km/h?",
+          "topic": "qa-tsd"
+        },
+        {
+          "id": "q4",
+          "type": "tita",
+          "text": "4 chairs and 3 tables cost ₹9,600. 2 chairs and 5 tables cost ₹11,800. What does one table cost, in rupees?",
+          "topic": "qa-linear"
+        },
+        {
+          "id": "q5",
+          "type": "tita",
+          "text": "How many positive integers n satisfy both 2n + 5 ≤ 31 and 3n − 4 > 20?",
+          "topic": "qa-inequalities"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "id": "practice2-qa-tsd",
+  "title": "Speed, time and distance: practice set 2",
+  "topic": "qa-tsd",
+  "kind": "practice",
+  "source": "original",
+  "sourceNote": "Original practice questions written for this group. None of them is a CAT previous-year question.",
+  "strict": false,
+  "calculator": true,
+  "instructions": [
+    "10 questions, 20 minutes, CAT marking: +3 right, -1 wrong multiple choice, 0 for a wrong type-in answer.",
+    "Type-in answers take a number only: no %, ₹ or units. Use a decimal, not a fraction."
+  ],
+  "sections": [
+    {
+      "name": "Speed, time, distance",
+      "minutes": 20,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "qtype": "speed-basics",
+          "text": "A scooter covers 9 km in 15 minutes at a constant speed. What is its speed in km/h?",
+          "options": [
+            "0.6 km/h",
+            "10 km/h",
+            "36 km/h",
+            "135 km/h"
+          ]
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "qtype": "average-speed",
+          "text": "A bus runs for 2 hours at 50 km/h and then for 3 hours at 70 km/h. What is its average speed for the whole journey?",
+          "options": [
+            "58 km/h",
+            "58.33 km/h",
+            "60 km/h",
+            "62 km/h"
+          ]
+        },
+        {
+          "id": "q3",
+          "type": "tita",
+          "qtype": "trains-and-platforms",
+          "text": "A train 240 m long runs at a constant 54 km/h. How many seconds does it take to cross a platform 360 m long completely?"
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "qtype": "relative-speed",
+          "text": "A thief runs off at 8 km/h. A constable sets off after him from the same spot 15 minutes later, at 10 km/h. Both keep a constant speed. How long after the constable starts does he catch the thief?",
+          "options": [
+            "60 minutes",
+            "75 minutes",
+            "12 minutes",
+            "6 minutes 40 seconds"
+          ]
+        },
+        {
+          "id": "q5",
+          "type": "tita",
+          "qtype": "boats-and-streams",
+          "text": "A boat covers 36 km downstream in 3 hours. The stream flows at 2 km/h. How many hours will the boat take to cover 36 km upstream? Type the answer as a decimal, to one decimal place."
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "qtype": "trains-and-platforms",
+          "text": "A train passes a man standing on a platform in 9 seconds, and passes the whole platform, which is 300 m long, in 21 seconds. Its speed is constant. How long is the train?",
+          "options": [
+            "128.6 m",
+            "225 m",
+            "300 m",
+            "525 m"
+          ]
+        },
+        {
+          "id": "q7",
+          "type": "tita",
+          "qtype": "average-speed",
+          "text": "A cyclist rides three stretches of equal length: the first at 10 km/h, the second at 15 km/h and the third at 30 km/h. What is her average speed for the whole ride, in km/h?"
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "qtype": "relative-speed",
+          "text": "Two cars leave towns M and N at the same time and drive towards each other at constant speeds. After they pass each other, the car from M takes 4 more hours to reach N, and the car from N takes 9 more hours to reach M. What is the ratio of the speed of the car from M to the speed of the car from N?",
+          "options": [
+            "2 : 3",
+            "4 : 9",
+            "3 : 2",
+            "9 : 4"
+          ]
+        },
+        {
+          "id": "q9",
+          "type": "tita",
+          "qtype": "speed-basics",
+          "text": "In a 1000 m race, Arjun beats Bilal by 50 m, or by 10 seconds. Both run at constant speeds. How many seconds does Arjun take to finish the race?"
+        },
+        {
+          "id": "q10",
+          "type": "mcq",
+          "qtype": "boats-and-streams",
+          "text": "A boat takes 6 hours to go 24 km upstream and 36 km downstream. It takes 9 hours to go 40 km upstream and 48 km downstream. The boat's speed in still water and the stream's speed stay the same throughout. What is the speed of the stream?",
+          "options": [
+            "1 km/h",
+            "2 km/h",
+            "4 km/h",
+            "10 km/h"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "id": "varc-rc-3",
+  "title": "Reading comprehension: passage 3",
+  "topic": "varc-rc",
+  "kind": "practice",
+  "source": "public-domain",
+  "sourceNote": "Passage adapted from a public-domain work: John Ruskin, Unto This Last (1860), essay 1, \"The Roots of Honour\".",
+  "strict": false,
+  "calculator": false,
+  "instructions": [
+    "One passage, 4 questions, 10 minutes. CAT marking: +3 right, -1 wrong multiple choice, 0 for a wrong type-in answer.",
+    "Spend about four minutes reading, then a minute or so on each question. The passage stays on screen while you answer."
+  ],
+  "sections": [
+    {
+      "name": "VARC",
+      "minutes": 10,
+      "groups": [
+        {
+          "id": "g1",
+          "title": "Passage",
+          "text": "Among the delusions which at different periods have possessed themselves of the minds of large masses of the human race, perhaps the most curious, certainly the least creditable, is the modern so-called science of political economy, based on the idea that an advantageous code of social action may be determined irrespectively of the influence of social affection.\n\nOf course, as in the instances of alchemy, astrology, witchcraft, and other such popular creeds, political economy has a plausible idea at the root of it. \"The social affections,\" says the economist, \"are accidental and disturbing elements in human nature; but avarice and the desire of progress are constant elements. Let us eliminate the inconstants, and, considering the human being merely as a covetous machine, examine by what laws of labour, purchase, and sale, the greatest accumulative result in wealth is obtainable. Those laws once determined, it will be for each individual afterwards to introduce as much of the disturbing affectionate element as he chooses, and to determine for himself the result on the new conditions supposed.\"\n\nThis would be a perfectly logical and successful method of analysis, if the accidentals afterwards to be introduced were of the same nature as the powers first examined. Supposing a body in motion to be influenced by constant and inconstant forces, it is usually the simplest way of examining its course to trace it first under the persistent conditions, and afterwards introduce the causes of variation. But the disturbing elements in the social problem are not of the same nature as the constant ones; they alter the essence of the creature under examination the moment they are added; they operate, not mathematically, but chemically, introducing conditions which render all our previous knowledge unavailable. We made learned experiments upon pure nitrogen, and have convinced ourselves that it is a very manageable gas: but behold! the thing which we have practically to deal with is its chloride; and this, the moment we touch it on our established principles, sends us and our apparatus through the ceiling.\n\nObserve, I neither impugn nor doubt the conclusions of the science, if its terms are accepted. I am simply uninterested in them, as I should be in those of a science of gymnastics which assumed that men had no skeletons. It might be shown, on that supposition, that it would be advantageous to roll the students up into pellets, flatten them into cakes, or stretch them into cables; and that when these results were effected, the re-insertion of the skeleton would be attended with various inconveniences to their constitution. The reasoning might be admirable, the conclusions true, and the science deficient only in applicability. Modern political economy stands on a precisely similar basis. I do not deny the truth of this theory: I simply deny its applicability to the present phase of the world.",
+          "words": 472
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "group": "g1",
+          "text": "Which of the following best captures the author's main criticism of political economy?",
+          "options": [
+            "Its conclusions are false because economists reason badly.",
+            "It is a superstition of the same kind as alchemy and astrology.",
+            "It leaves out avarice, the strongest force in human nature.",
+            "Its reasoning may be sound, but by setting aside human affection it studies a creature that does not exist, so its conclusions do not apply to real life."
+          ]
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "group": "g1",
+          "text": "In the author's comparison, \"pure nitrogen\" and \"its chloride\" most likely stand for",
+          "options": [
+            "the employer and the employed",
+            "man imagined as a purely covetous machine, and real man, whose affections change how he acts",
+            "wealth produced by labour, and wealth produced by trade",
+            "political economy and the older creeds such as alchemy"
+          ]
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "group": "g1",
+          "text": "The author refers to a \"science of gymnastics which assumed that men had no skeletons\" in order to",
+          "options": [
+            "show that an argument can be logically correct and still useless if its starting assumption leaves out something essential",
+            "mock teachers of gymnastics who neglect the health of their students",
+            "prove that the conclusions of political economy are false",
+            "suggest that economists should study the human body"
+          ]
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "group": "g1",
+          "text": "Which of the following, if true, would most weaken the author's argument?",
+          "options": [
+            "Avarice and the desire for gain are found in every society that has been studied.",
+            "Many people give money to strangers with no hope of any return.",
+            "When people trade with friends instead of strangers, their choices change only slightly and in predictable ways, so a simple correction to the economist's results gives accurate predictions.",
+            "Economists have often disagreed among themselves about the laws of labour, purchase and sale."
+          ]
+        }
+      ]
+    }
+  ]
+}

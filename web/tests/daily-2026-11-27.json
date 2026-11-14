@@ -1,0 +1,77 @@
+{
+  "id": "daily-2026-11-27",
+  "title": "Daily 5, Fri 27 Nov",
+  "kind": "daily",
+  "day": "2026-11-27",
+  "source": "original",
+  "sourceNote": "Original questions written for this group. None of them is a CAT previous-year question.",
+  "strict": false,
+  "calculator": true,
+  "instructions": [
+    "5 questions, 10 minutes, CAT marking: +3 right, -1 wrong multiple choice, 0 for a wrong type-in answer.",
+    "Everyone gets the same five. The ranking is by marks, then by time.",
+    "Type-in answers take a number only: no %, rupee sign or units."
+  ],
+  "sections": [
+    {
+      "name": "Daily 5",
+      "minutes": 10,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "text": "An article costs ₹500. It is sold at a 20% discount on its marked price and still makes a profit of 12%. What is the marked price?",
+          "topic": "qa-profit-loss",
+          "options": [
+            "₹700",
+            "₹672",
+            "₹720",
+            "₹640"
+          ]
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "text": "Walking at 3/4 of his usual speed, Arjun reaches his office 20 minutes late. How long does the walk usually take him?",
+          "topic": "qa-tsd",
+          "options": [
+            "40 minutes",
+            "60 minutes",
+            "80 minutes",
+            "45 minutes"
+          ]
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "text": "A two-digit number is 4 times the sum of its digits. When 27 is added to it, its digits swap places. What is the number?",
+          "topic": "qa-linear",
+          "options": [
+            "63",
+            "36",
+            "24",
+            "48"
+          ]
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "text": "If −3 ≤ x ≤ 2 and −1 ≤ y ≤ 4, what is the largest possible value of x − y?",
+          "topic": "qa-inequalities",
+          "options": [
+            "3",
+            "−2",
+            "6",
+            "1"
+          ]
+        },
+        {
+          "id": "q5",
+          "type": "tita",
+          "text": "A sum of money is divided among A, B and C in the ratio 2 : 3 : 4. C gets ₹1,500 more than A. What is the whole sum, in rupees?",
+          "topic": "qa-ratio"
+        }
+      ]
+    }
+  ]
+}

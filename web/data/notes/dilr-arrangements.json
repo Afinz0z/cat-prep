@@ -1,0 +1,41 @@
+{
+  "topic": "dilr-arrangements",
+  "title": "Seating arrangements",
+  "blocks": [
+    {
+      "heading": "Entry points",
+      "lines": [
+        "Start with fixed positions: an end, the middle seat, a seat number.",
+        "Next use 'immediately next to' and 'opposite' clues.",
+        "Keep 'not next to' and 'somewhere to the left' clues for last."
+      ]
+    },
+    {
+      "heading": "Draw it",
+      "lines": [
+        "Row: write seat numbers 1 to n from the left and fill them in.",
+        "Circle: draw n dots, fix one person to remove rotations, number the seats clockwise.",
+        "When a clue allows two places, draw one row or circle for each case.",
+        "Keep a second detail, such as a job or city, in a small table under the diagram."
+      ]
+    },
+    {
+      "heading": "Left and right",
+      "lines": [
+        "In a row facing the same way, left and right are the same for everyone.",
+        "Facing the centre of a round table: left is clockwise, right is anticlockwise, seen from above.",
+        "Facing outward, it is the other way round.",
+        "'Second to the left' means two seats along, with one seat skipped."
+      ]
+    },
+    {
+      "heading": "Common traps",
+      "lines": [
+        "Three seats apart means two people between.",
+        "A circle wraps around: the last seat is next to the first.",
+        "Dropping a case too early. Test every clue on each case.",
+        "A condition inside a question ('If X sits at an end') holds for that question only."
+      ]
+    }
+  ]
+}

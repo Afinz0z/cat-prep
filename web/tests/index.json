@@ -13,8 +13,36 @@
     ]
   },
   {
+    "id": "qa-basics-retake",
+    "title": "QA basics retake",
+    "kind": "check",
+    "source": "original",
+    "sections": [
+      {
+        "name": "QA basics",
+        "minutes": 40,
+        "count": 30
+      }
+    ],
+    "opensOn": "2026-11-23"
+  },
+  {
     "id": "practice-qa-percentages",
     "title": "Percentages and fraction conversions: practice set",
+    "kind": "practice",
+    "source": "original",
+    "sections": [
+      {
+        "name": "Percentages",
+        "minutes": 20,
+        "count": 10
+      }
+    ],
+    "topic": "qa-percentages"
+  },
+  {
+    "id": "practice2-qa-percentages",
+    "title": "Percentages and fraction conversions: practice set 2",
     "kind": "practice",
     "source": "original",
     "sections": [
@@ -41,8 +69,36 @@
     "topic": "qa-ratio"
   },
   {
+    "id": "practice2-qa-ratio",
+    "title": "Ratio and proportion: practice set 2",
+    "kind": "practice",
+    "source": "original",
+    "sections": [
+      {
+        "name": "Ratio",
+        "minutes": 20,
+        "count": 10
+      }
+    ],
+    "topic": "qa-ratio"
+  },
+  {
     "id": "practice-qa-averages",
     "title": "Averages, mixtures and alligation: practice set",
+    "kind": "practice",
+    "source": "original",
+    "sections": [
+      {
+        "name": "Averages",
+        "minutes": 20,
+        "count": 10
+      }
+    ],
+    "topic": "qa-averages"
+  },
+  {
+    "id": "practice2-qa-averages",
+    "title": "Averages, mixtures and alligation: practice set 2",
     "kind": "practice",
     "source": "original",
     "sections": [
@@ -69,8 +125,36 @@
     "topic": "qa-profit-loss"
   },
   {
+    "id": "practice2-qa-profit-loss",
+    "title": "Profit, loss and discount: practice set 2",
+    "kind": "practice",
+    "source": "original",
+    "sections": [
+      {
+        "name": "Profit and loss",
+        "minutes": 20,
+        "count": 10
+      }
+    ],
+    "topic": "qa-profit-loss"
+  },
+  {
     "id": "practice-qa-interest",
     "title": "Simple and compound interest: practice set",
+    "kind": "practice",
+    "source": "original",
+    "sections": [
+      {
+        "name": "Interest",
+        "minutes": 20,
+        "count": 10
+      }
+    ],
+    "topic": "qa-interest"
+  },
+  {
+    "id": "practice2-qa-interest",
+    "title": "Simple and compound interest: practice set 2",
     "kind": "practice",
     "source": "original",
     "sections": [
@@ -97,8 +181,36 @@
     "topic": "qa-tsd"
   },
   {
+    "id": "practice2-qa-tsd",
+    "title": "Speed, time and distance: practice set 2",
+    "kind": "practice",
+    "source": "original",
+    "sections": [
+      {
+        "name": "Speed, time, distance",
+        "minutes": 20,
+        "count": 10
+      }
+    ],
+    "topic": "qa-tsd"
+  },
+  {
     "id": "practice-qa-work",
     "title": "Time and work: practice set",
+    "kind": "practice",
+    "source": "original",
+    "sections": [
+      {
+        "name": "Time and work",
+        "minutes": 20,
+        "count": 10
+      }
+    ],
+    "topic": "qa-work"
+  },
+  {
+    "id": "practice2-qa-work",
+    "title": "Time and work: practice set 2",
     "kind": "practice",
     "source": "original",
     "sections": [
@@ -125,8 +237,36 @@
     "topic": "qa-linear"
   },
   {
+    "id": "practice2-qa-linear",
+    "title": "Linear equations and word problems: practice set 2",
+    "kind": "practice",
+    "source": "original",
+    "sections": [
+      {
+        "name": "Linear equations",
+        "minutes": 20,
+        "count": 10
+      }
+    ],
+    "topic": "qa-linear"
+  },
+  {
     "id": "practice-qa-quadratic",
     "title": "Quadratic equations: practice set",
+    "kind": "practice",
+    "source": "original",
+    "sections": [
+      {
+        "name": "Quadratic equations",
+        "minutes": 20,
+        "count": 10
+      }
+    ],
+    "topic": "qa-quadratic"
+  },
+  {
+    "id": "practice2-qa-quadratic",
+    "title": "Quadratic equations: practice set 2",
     "kind": "practice",
     "source": "original",
     "sections": [
@@ -151,6 +291,238 @@
       }
     ],
     "topic": "qa-inequalities"
+  },
+  {
+    "id": "practice2-qa-inequalities",
+    "title": "Inequalities and modulus: practice set 2",
+    "kind": "practice",
+    "source": "original",
+    "sections": [
+      {
+        "name": "Inequalities and modulus",
+        "minutes": 20,
+        "count": 10
+      }
+    ],
+    "topic": "qa-inequalities"
+  },
+  {
+    "id": "dilr-tables-1",
+    "title": "Tables and charts: set 1",
+    "kind": "practice",
+    "source": "original",
+    "sections": [
+      {
+        "name": "DILR",
+        "minutes": 12,
+        "count": 4
+      }
+    ],
+    "topic": "dilr-tables",
+    "difficulty": "easy"
+  },
+  {
+    "id": "dilr-tables-2",
+    "title": "Tables and charts: set 2",
+    "kind": "practice",
+    "source": "original",
+    "sections": [
+      {
+        "name": "DILR",
+        "minutes": 12,
+        "count": 4
+      }
+    ],
+    "topic": "dilr-tables",
+    "difficulty": "medium"
+  },
+  {
+    "id": "dilr-arrangements-1",
+    "title": "Seating arrangements: set 1",
+    "kind": "practice",
+    "source": "original",
+    "sections": [
+      {
+        "name": "DILR",
+        "minutes": 12,
+        "count": 4
+      }
+    ],
+    "topic": "dilr-arrangements",
+    "difficulty": "easy"
+  },
+  {
+    "id": "dilr-arrangements-2",
+    "title": "Seating arrangements: set 2",
+    "kind": "practice",
+    "source": "original",
+    "sections": [
+      {
+        "name": "DILR",
+        "minutes": 12,
+        "count": 4
+      }
+    ],
+    "topic": "dilr-arrangements",
+    "difficulty": "hard"
+  },
+  {
+    "id": "dilr-grouping-1",
+    "title": "Grouping and selection: set 1",
+    "kind": "practice",
+    "source": "original",
+    "sections": [
+      {
+        "name": "DILR",
+        "minutes": 12,
+        "count": 4
+      }
+    ],
+    "topic": "dilr-grouping",
+    "difficulty": "easy"
+  },
+  {
+    "id": "dilr-grouping-2",
+    "title": "Grouping and selection: set 2",
+    "kind": "practice",
+    "source": "original",
+    "sections": [
+      {
+        "name": "DILR",
+        "minutes": 12,
+        "count": 4
+      }
+    ],
+    "topic": "dilr-grouping",
+    "difficulty": "hard"
+  },
+  {
+    "id": "dilr-venn-1",
+    "title": "Venn diagrams: set 1",
+    "kind": "practice",
+    "source": "original",
+    "sections": [
+      {
+        "name": "DILR",
+        "minutes": 12,
+        "count": 4
+      }
+    ],
+    "topic": "dilr-venn",
+    "difficulty": "easy"
+  },
+  {
+    "id": "dilr-venn-2",
+    "title": "Venn diagrams: set 2",
+    "kind": "practice",
+    "source": "original",
+    "sections": [
+      {
+        "name": "DILR",
+        "minutes": 12,
+        "count": 4
+      }
+    ],
+    "topic": "dilr-venn",
+    "difficulty": "medium"
+  },
+  {
+    "id": "varc-rc-1",
+    "title": "Reading comprehension: passage 1",
+    "kind": "practice",
+    "source": "public-domain",
+    "sections": [
+      {
+        "name": "VARC",
+        "minutes": 10,
+        "count": 4
+      }
+    ],
+    "topic": "varc-rc"
+  },
+  {
+    "id": "varc-rc-2",
+    "title": "Reading comprehension: passage 2",
+    "kind": "practice",
+    "source": "public-domain",
+    "sections": [
+      {
+        "name": "VARC",
+        "minutes": 10,
+        "count": 4
+      }
+    ],
+    "topic": "varc-rc"
+  },
+  {
+    "id": "varc-rc-3",
+    "title": "Reading comprehension: passage 3",
+    "kind": "practice",
+    "source": "public-domain",
+    "sections": [
+      {
+        "name": "VARC",
+        "minutes": 10,
+        "count": 4
+      }
+    ],
+    "topic": "varc-rc"
+  },
+  {
+    "id": "varc-odd-one-1",
+    "title": "Odd sentence out: set 1",
+    "kind": "practice",
+    "source": "public-domain",
+    "sections": [
+      {
+        "name": "VARC",
+        "minutes": 12,
+        "count": 5
+      }
+    ],
+    "topic": "varc-odd-one"
+  },
+  {
+    "id": "varc-odd-one-2",
+    "title": "Odd sentence out: set 2",
+    "kind": "practice",
+    "source": "public-domain",
+    "sections": [
+      {
+        "name": "VARC",
+        "minutes": 12,
+        "count": 5
+      }
+    ],
+    "topic": "varc-odd-one"
+  },
+  {
+    "id": "varc-summary-1",
+    "title": "Para summary: set 1",
+    "kind": "practice",
+    "source": "public-domain",
+    "sections": [
+      {
+        "name": "VARC",
+        "minutes": 12,
+        "count": 5
+      }
+    ],
+    "topic": "varc-summary"
+  },
+  {
+    "id": "varc-summary-2",
+    "title": "Para summary: set 2",
+    "kind": "practice",
+    "source": "public-domain",
+    "sections": [
+      {
+        "name": "VARC",
+        "minutes": 12,
+        "count": 5
+      }
+    ],
+    "topic": "varc-summary"
   },
   {
     "id": "daily-2026-11-14",
@@ -291,5 +663,75 @@
       }
     ],
     "day": "2026-11-23"
+  },
+  {
+    "id": "daily-2026-11-24",
+    "title": "Daily 5, Tue 24 Nov",
+    "kind": "daily",
+    "source": "original",
+    "sections": [
+      {
+        "name": "Daily 5",
+        "minutes": 10,
+        "count": 5
+      }
+    ],
+    "day": "2026-11-24"
+  },
+  {
+    "id": "daily-2026-11-25",
+    "title": "Daily 5, Wed 25 Nov",
+    "kind": "daily",
+    "source": "original",
+    "sections": [
+      {
+        "name": "Daily 5",
+        "minutes": 10,
+        "count": 5
+      }
+    ],
+    "day": "2026-11-25"
+  },
+  {
+    "id": "daily-2026-11-26",
+    "title": "Daily 5, Thu 26 Nov",
+    "kind": "daily",
+    "source": "original",
+    "sections": [
+      {
+        "name": "Daily 5",
+        "minutes": 10,
+        "count": 5
+      }
+    ],
+    "day": "2026-11-26"
+  },
+  {
+    "id": "daily-2026-11-27",
+    "title": "Daily 5, Fri 27 Nov",
+    "kind": "daily",
+    "source": "original",
+    "sections": [
+      {
+        "name": "Daily 5",
+        "minutes": 10,
+        "count": 5
+      }
+    ],
+    "day": "2026-11-27"
+  },
+  {
+    "id": "daily-2026-11-28",
+    "title": "Daily 5, Sat 28 Nov",
+    "kind": "daily",
+    "source": "original",
+    "sections": [
+      {
+        "name": "Daily 5",
+        "minutes": 10,
+        "count": 5
+      }
+    ],
+    "day": "2026-11-28"
   }
 ]

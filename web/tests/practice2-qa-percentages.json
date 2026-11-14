@@ -1,0 +1,118 @@
+{
+  "id": "practice2-qa-percentages",
+  "title": "Percentages and fraction conversions: practice set 2",
+  "topic": "qa-percentages",
+  "kind": "practice",
+  "source": "original",
+  "sourceNote": "Original practice questions written for this group. None of them is a CAT previous-year question.",
+  "strict": false,
+  "calculator": true,
+  "instructions": [
+    "10 questions, 20 minutes, CAT marking: +3 right, -1 wrong multiple choice, 0 for a wrong type-in answer.",
+    "Type-in answers take a number only: no %, ₹ or units. Use a decimal, not a fraction."
+  ],
+  "sections": [
+    {
+      "name": "Percentages",
+      "minutes": 20,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "qtype": "fraction-to-percent",
+          "text": "What is 7/12 expressed as a percentage, correct to two decimal places?",
+          "options": [
+            "41.67%",
+            "58.33%",
+            "5.83%",
+            "171.43%"
+          ]
+        },
+        {
+          "id": "q2",
+          "type": "tita",
+          "qtype": "percent-of-quantity",
+          "text": "Find the value of 15% of 360 minus 7.5% of 480."
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "qtype": "percent-change",
+          "text": "The price of a phone falls from ₹12,500 to ₹10,500. What is the percentage decrease?",
+          "options": [
+            "19.05%",
+            "84%",
+            "1.6%",
+            "16%"
+          ]
+        },
+        {
+          "id": "q4",
+          "type": "tita",
+          "qtype": "percent-of-quantity",
+          "text": "Kavya spends 65% of her monthly salary and has ₹14,700 left. What is her monthly salary (in ₹)?"
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "qtype": "percent-change",
+          "text": "Rahul's salary is 37.5% less than Sameer's. By what percent is Sameer's salary more than Rahul's?",
+          "options": [
+            "60%",
+            "37.5%",
+            "27.27%",
+            "62.5%"
+          ]
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "qtype": "successive-change",
+          "text": "The length of a rectangle is increased by 20% and its breadth is reduced by 10%. What is the percentage change in its area?",
+          "options": [
+            "10% increase",
+            "12% increase",
+            "8% increase",
+            "2% increase"
+          ]
+        },
+        {
+          "id": "q7",
+          "type": "tita",
+          "qtype": "percent-overlap",
+          "text": "In a survey of 800 households, 62% own a two-wheeler, 45% own a car and 18% own both. How many households own neither?"
+        },
+        {
+          "id": "q8",
+          "type": "mcq",
+          "qtype": "fraction-to-percent",
+          "text": "Ravi spends 3/8 of his income on rent and 2/5 of what remains on food. What percentage of his income is left?",
+          "options": [
+            "37.5%",
+            "22.5%",
+            "25%",
+            "62.5%"
+          ]
+        },
+        {
+          "id": "q9",
+          "type": "mcq",
+          "qtype": "successive-change",
+          "text": "The price of sugar rises by 25%. By what percent must a family cut its consumption so that its spending on sugar rises by only 10%?",
+          "options": [
+            "15%",
+            "12%",
+            "20%",
+            "13.64%"
+          ]
+        },
+        {
+          "id": "q10",
+          "type": "tita",
+          "qtype": "percent-of-quantity",
+          "text": "In an election between two candidates, 8% of the voters on the list did not vote and 4% of the votes cast were invalid. The winner got 55% of the valid votes and won by 4,416 votes. How many voters were on the list?"
+        }
+      ]
+    }
+  ]
+}

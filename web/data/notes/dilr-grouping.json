@@ -1,0 +1,47 @@
+{
+  "topic": "dilr-grouping",
+  "title": "Grouping and selection",
+  "blocks": [
+    {
+      "heading": "Entry points",
+      "lines": [
+        "Start with fixed placements: 'X is in team 1', 'X and Y are together'.",
+        "Then use sizes: a team of three with two people fixed has one place left.",
+        "Treat 'together or not at all' as one block of two people."
+      ]
+    },
+    {
+      "heading": "Reading the rules",
+      "lines": [
+        "'If A, then B': A forces B. Read it backwards too: no B means no A.",
+        "'A only if B' means the same as 'if A, then B'.",
+        "'A and B cannot both be in': each one keeps the other out.",
+        "Chain rules: A forces B, and B keeps C out, so A keeps C out."
+      ]
+    },
+    {
+      "heading": "Draw it",
+      "lines": [
+        "Committees: names across the top, one line per case, a tick or cross under each name.",
+        "Teams: one column per team with empty slots to fill.",
+        "Split into cases on the person with the most rules attached."
+      ]
+    },
+    {
+      "heading": "Counting cases",
+      "lines": [
+        "Count cases that do not overlap, then add.",
+        "When teams have names, swapping two teams gives a different arrangement.",
+        "Check each case against every rule before you count it."
+      ]
+    },
+    {
+      "heading": "Common traps",
+      "lines": [
+        "Reading 'A only if B' as 'B only if A'.",
+        "Forgetting the size limits once a question adds a condition.",
+        "Treating 'at least one' as 'exactly one'."
+      ]
+    }
+  ]
+}

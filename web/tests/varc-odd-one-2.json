@@ -1,0 +1,48 @@
+{
+  "id": "varc-odd-one-2",
+  "title": "Odd sentence out: set 2",
+  "topic": "varc-odd-one",
+  "kind": "practice",
+  "source": "public-domain",
+  "sourceNote": "Passages adapted from public-domain works: Henry David Thoreau, Walden (1854); William James, Talks to Teachers on Psychology (1899); John Ruskin, Unto This Last (1860); Robert Louis Stevenson, \"An Apology for Idlers\" in Virginibus Puerisque (1881); M. K. Gandhi, Hind Swaraj or Indian Home Rule (1909). Each question also has one sentence written for this group.",
+  "strict": false,
+  "calculator": false,
+  "instructions": [
+    "5 questions, 12 minutes. CAT marking: +3 right, -1 wrong multiple choice, 0 for a wrong type-in answer.",
+    "Every question here is type-in, so a wrong answer costs nothing. Type one number from 1 to 5.",
+    "Read all five sentences before you decide. Pronouns, repeated ideas and a claim followed by its support show which sentences link up."
+  ],
+  "sections": [
+    {
+      "name": "VARC",
+      "minutes": 12,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "tita",
+          "text": "Five sentences are given below. Four of them form a coherent paragraph. Type the number of the sentence that does not belong.\n\n1. What old people say you cannot do, you try and find that you can.\n\n2. Customs that have lasted for centuries usually do so because they meet some real need of the people who keep them.\n\n3. It is never too late to give up our prejudices.\n\n4. What everybody echoes or in silence passes by as true today may turn out to be falsehood tomorrow, mere smoke of opinion.\n\n5. No way of thinking or doing, however ancient, can be trusted without proof."
+        },
+        {
+          "id": "q2",
+          "type": "tita",
+          "text": "Five sentences are given below. Four of them form a coherent paragraph. Type the number of the sentence that does not belong.\n\n1. Every smallest stroke of virtue or of vice leaves its never-so-little scar.\n\n2. We are spinning our own fates, good or evil, and never to be undone.\n\n3. Could the young but realize how soon they will become mere walking bundles of habits, they would give more heed to their conduct while in the plastic state.\n\n4. Habits of the hand, such as writing or tying a knot, are learned faster than habits of thought.\n\n5. Nothing we ever do is, in strict scientific literalness, wiped out."
+        },
+        {
+          "id": "q3",
+          "type": "tita",
+          "text": "Five sentences are given below. Four of them form a coherent paragraph. Type the number of the sentence that does not belong.\n\n1. It is no more his function to get profit for himself out of that provision than it is a clergyman's function to get his stipend.\n\n2. All three, if true men, have a work to be done irrespective of fee, to be done even at any cost; the pastor's function being to teach, the physician's to heal, and the merchant's to provide.\n\n3. The merchant's function is to provide for the nation.\n\n4. The stipend is a due and necessary adjunct, but not the object, of his life, if he be a true clergyman, any more than his fee is the object of life to a true physician.\n\n5. A merchant who sells below cost will soon be unable to pay the men he employs."
+        },
+        {
+          "id": "q4",
+          "type": "tita",
+          "text": "Five sentences are given below. Four of them form a coherent paragraph. Type the number of the sentence that does not belong.\n\n1. Happiness, the moralists tell us, comes most surely to those who stop searching for it.\n\n2. There is no duty we so much underrate as the duty of being happy.\n\n3. He or she is a radiating focus of goodwill; and their entrance into a room is as though another candle had been lighted.\n\n4. By being happy, we sow anonymous benefits upon the world, which remain unknown even to ourselves, or when they are disclosed, surprise nobody so much as the benefactor.\n\n5. A happy man or woman is a better thing to find than a five-pound note."
+        },
+        {
+          "id": "q5",
+          "type": "tita",
+          "text": "Five sentences are given below. Four of them form a coherent paragraph. Type the number of the sentence that does not belong.\n\n1. If, by using violence, I force the government to repeal a law I do not like, I am employing what may be termed body-force.\n\n2. When I refuse to do a thing that is repugnant to my conscience, I use soul-force.\n\n3. Laws made by a foreign government are seldom suited to the customs of the people they govern.\n\n4. Passive resistance is a method of securing rights by personal suffering; it is the reverse of resistance by arms.\n\n5. If I do not obey the law and accept the penalty for its breach, I use soul-force; it involves sacrifice of self."
+        }
+      ]
+    }
+  ]
+}

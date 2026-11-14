@@ -1,0 +1,67 @@
+{
+  "id": "dilr-arrangements-1",
+  "title": "Seating arrangements: set 1",
+  "topic": "dilr-arrangements",
+  "kind": "practice",
+  "difficulty": "easy",
+  "source": "original",
+  "sourceNote": "An original set written for this group. It is not a CAT previous-year set.",
+  "strict": false,
+  "calculator": true,
+  "instructions": [
+    "4 questions, 12 minutes.",
+    "CAT marking: +3 right, -1 wrong multiple choice, 0 for a wrong type-in answer.",
+    "Type-in answers take a number only: no %, ₹ or units. Use a decimal, not a fraction."
+  ],
+  "sections": [
+    {
+      "name": "DILR",
+      "minutes": 12,
+      "groups": [
+        {
+          "id": "g1",
+          "title": "Seven friends in a row",
+          "text": "Seven friends, Aditi, Bharat, Chitra, Dev, Esha, Farid and Gauri, sit in a row of seven seats at a cinema. All of them face the screen, so left and right mean the same for everyone. The seats are numbered 1 to 7 from the left.\n\n1. Dev sits in the middle seat.\n\n2. Chitra sits at one end of the row.\n\n3. Exactly one person sits between Esha and Dev.\n\n4. Bharat sits next to Dev, and Aditi sits next to Bharat.\n\n5. Gauri does not sit next to Dev.\n\n6. Farid sits somewhere to the right of Gauri."
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "text": "Who sits at the left end of the row?",
+          "options": [
+            "Chitra",
+            "Gauri",
+            "Esha",
+            "Aditi"
+          ],
+          "group": "g1"
+        },
+        {
+          "id": "q2",
+          "type": "tita",
+          "text": "How many people sit between Aditi and Farid?",
+          "group": "g1"
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "text": "If Esha sits somewhere to the right of Farid, who sits second from the left?",
+          "options": [
+            "Bharat",
+            "Esha",
+            "Farid",
+            "Aditi"
+          ],
+          "group": "g1"
+        },
+        {
+          "id": "q4",
+          "type": "tita",
+          "text": "If Farid sits third from the left, in which seat does Aditi sit? Seats are numbered 1 to 7 from the left.",
+          "group": "g1"
+        }
+      ]
+    }
+  ]
+}
