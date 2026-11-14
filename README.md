@@ -46,6 +46,8 @@ npm run dev -- --demo
 
 `npm test` runs the database functions on an in-memory Postgres. `npm run dev` serves the site at http://127.0.0.1:8790 with a stand-in for Supabase. Both need the private keys folder at `../private/keys` (or set `CAT_KEYS_DIR`). With `--demo`, the dev server adds three made-up members, the group code `DEV-CODE` and a four-question sample test that exists only there. Nothing is saved when it stops.
 
+Run `npm run check` before each push. It runs the database tests, the colour contrast check and a browser smoke test of every page. GitHub only runs the syntax and contrast checks before publishing, because the other two need the keys and the keys stay off GitHub.
+
 ## Content
 
 - The practice sets, the Daily 5 questions and the QA basics check were written for this group. No CAT paper is copied here. The Mocks page links to the free previous papers on Cracku instead.

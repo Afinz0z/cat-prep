@@ -6,7 +6,8 @@
     "dev": "node dev/server.mjs",
     "test": "node --test dev/db.test.mjs",
     "smoke": "node dev/smoke.mjs",
-    "contrast": "node tools/contrast.mjs"
+    "contrast": "node tools/contrast.mjs",
+    "check": "npm test && npm run contrast && npm run smoke"
   },
   "devDependencies": {
     "@electric-sql/pglite": "^0.5.16",

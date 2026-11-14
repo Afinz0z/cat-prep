@@ -15,8 +15,10 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  # Nothing is published unless the database tests, the colour contrast check,
-  # a syntax check of every script and the browser smoke test all pass.
+  # Nothing is published unless every script parses and the colours pass the
+  # contrast check. The database tests and the browser smoke test need the
+  # answer keys, which never leave the private folder, so they run locally
+  # with `npm run check` before each push.
   check:
     runs-on: ubuntu-latest
     timeout-minutes: 15
@@ -29,12 +31,8 @@ jobs:
       - run: npm ci
       - name: Syntax check
         run: for f in web/js/*.js dev/*.mjs tools/*.mjs; do node --check "$f"; done
-      - name: Database tests
-        run: npm test
       - name: Colour contrast
         run: npm run contrast
-      - name: Browser smoke test (uses the runner's Chrome)
-        run: npm run smoke
 
   deploy:
     needs: check
