@@ -17,7 +17,7 @@ create table if not exists private.config (
 );
 
 create table if not exists private.members (
-  user_id uuid primary key references auth.users (id) on delete cascade,
+  user_id uuid primary key,
   name text not null,
   slot smallint not null default 2 check (slot between 1 and 3),
   joined_at timestamptz not null default now(),
@@ -234,6 +234,19 @@ alter table private.members add column if not exists rules text not null default
 alter table private.members add column if not exists iims text not null default '';
 alter table private.members add column if not exists buddy uuid references private.members (user_id) on delete set null;
 
+-- Profiles and PINs. Each phone or iPad signs in with its own Supabase
+-- anonymous account (no email) and is linked to one profile at a time by the
+-- profile's PIN. Profiles don't point at Supabase's account table, so deleting
+-- a device account never deletes a profile or its results.
+alter table private.members add column if not exists pin_hash text;
+alter table private.members drop constraint if exists members_user_id_fkey;
+create table if not exists private.devices (
+  auth_uid uuid primary key,
+  user_id uuid not null references private.members (user_id) on delete cascade,
+  linked_at timestamptz not null default now()
+);
+create index if not exists devices_user on private.devices (user_id);
+
 alter table private.days add column if not exists bed_time text;
 alter table private.days add column if not exists wake_time text;
 alter table private.days add column if not exists plan_total smallint;
@@ -425,27 +438,58 @@ language sql immutable set search_path = '' as $$
   select d - (extract(isodow from d)::int - 1)
 $$;
 
-create or replace function private.uid() returns uuid
+-- The signed-in device. This is the only place that reads auth.uid().
+create or replace function private.device() returns uuid
 language plpgsql stable security definer set search_path = '' as $$
 declare
-  u uuid := auth.uid();
+  d uuid := auth.uid();
 begin
-  if u is null then
+  if d is null then
     raise exception 'Sign in first.';
   end if;
-  return u;
+  return d;
 end $$;
+
+-- The profile this device is on, or null before someone picks one.
+create or replace function private.uid() returns uuid
+language sql stable security definer set search_path = '' as $$
+  select user_id from private.devices where auth_uid = private.device()
+$$;
 
 create or replace function private.member() returns uuid
 language plpgsql stable security definer set search_path = '' as $$
 declare
   u uuid := private.uid();
 begin
-  if not exists (select 1 from private.members where user_id = u) then
-    raise exception 'Join the group first.';
+  if u is null or not exists (select 1 from private.members where user_id = u) then
+    raise exception 'Pick your profile first.';
   end if;
   return u;
 end $$;
+
+create or replace function private.check_code(p_code text) returns void
+language plpgsql stable security definer set search_path = '' as $$
+declare
+  code text;
+begin
+  select value into code from private.config where key = 'join_code';
+  if code is null or upper(btrim(coalesce(p_code, ''))) <> upper(btrim(code)) then
+    raise exception 'That group code is wrong. Ask whoever runs the group for it.';
+  end if;
+end $$;
+
+create or replace function private.check_pin(p_pin text) returns void
+language plpgsql immutable set search_path = '' as $$
+begin
+  if coalesce(p_pin, '') !~ '^[0-9]{4}$' then
+    raise exception 'Use 4 digits for the PIN.';
+  end if;
+end $$;
+
+create or replace function private.hash_pin(p_user uuid, p_pin text) returns text
+language sql immutable set search_path = '' as $$
+  select encode(pg_catalog.sha256(convert_to(p_user::text || ':' || coalesce(p_pin, ''), 'UTF8')), 'hex')
+$$;
 
 create or replace function private.num(v jsonb) returns numeric
 language sql immutable set search_path = '' as $$
@@ -672,18 +716,19 @@ begin
   return public.cat_me();
 end $$;
 
-create or replace function public.cat_join(p_code text, p_name text, p_slot int) returns jsonb
+drop function if exists public.cat_join(text, text, int);
+
+-- Make a profile and put this device on it.
+create or replace function public.cat_join(p_code text, p_name text, p_slot int, p_pin text) returns jsonb
 language plpgsql security definer set search_path = '' as $$
 declare
-  u uuid := private.uid();
+  d uuid := private.device();
+  u uuid;
   n text := btrim(coalesce(p_name, ''));
-  code text;
 begin
-  select value into code from private.config where key = 'join_code';
-  if code is null or upper(btrim(coalesce(p_code, ''))) <> upper(btrim(code)) then
-    raise exception 'That group code is wrong. Ask whoever runs the group for it.';
-  end if;
-  if exists (select 1 from private.members where user_id = u) then
+  perform private.check_code(p_code);
+  -- A second tap on the button, or a device already on a profile.
+  if private.uid() is not null then
     return public.cat_me();
   end if;
   if n !~ '^[[:alnum:] ._-]{2,20}$' then
@@ -692,13 +737,69 @@ begin
   if p_slot is null or p_slot not between 1 and 3 then
     raise exception 'Pick slot 1, 2 or 3.';
   end if;
+  perform private.check_pin(p_pin);
   if exists (select 1 from private.members where lower(name) = lower(n)) then
     raise exception 'Someone in the group already uses that name.';
   end if;
+  -- A device's first profile takes the device's id; a further one gets a new id.
+  u := case when exists (select 1 from private.members where user_id = d) then gen_random_uuid() else d end;
   -- The first person to join runs the group.
-  insert into private.members (user_id, name, slot, is_admin)
-  values (u, n, p_slot, not exists (select 1 from private.members));
+  insert into private.members (user_id, name, slot, is_admin, pin_hash)
+  values (u, n, p_slot, not exists (select 1 from private.members), private.hash_pin(u, p_pin));
+  insert into private.devices (auth_uid, user_id) values (d, u)
+  on conflict (auth_uid) do update set user_id = excluded.user_id, linked_at = now();
   return public.cat_me();
+end $$;
+
+-- The profiles to pick from on this device, once it has the group code.
+create or replace function public.cat_profile_list(p_code text) returns jsonb
+language plpgsql stable security definer set search_path = '' as $$
+begin
+  perform private.device();
+  perform private.check_code(p_code);
+  return (select coalesce(jsonb_agg(jsonb_build_object('id', user_id, 'name', name, 'isAdmin', is_admin) order by joined_at), '[]')
+    from private.members);
+end $$;
+
+-- Put this device on a profile, with the profile's PIN.
+create or replace function public.cat_unlock(p_code text, p_id uuid, p_pin text) returns jsonb
+language plpgsql security definer set search_path = '' as $$
+declare
+  d uuid := private.device();
+  h text;
+begin
+  perform private.check_code(p_code);
+  select pin_hash into h from private.members where user_id = p_id;
+  if not found then
+    raise exception 'That profile is no longer in the group.';
+  end if;
+  if h is null or h <> private.hash_pin(p_id, p_pin) then
+    raise exception 'That PIN is wrong. Try again.';
+  end if;
+  insert into private.devices (auth_uid, user_id) values (d, p_id)
+  on conflict (auth_uid) do update set user_id = excluded.user_id, linked_at = now();
+  return public.cat_me();
+end $$;
+
+-- Take this device off its profile. Other devices stay where they are.
+create or replace function public.cat_lock() returns jsonb
+language plpgsql security definer set search_path = '' as $$
+begin
+  delete from private.devices where auth_uid = private.device();
+  return jsonb_build_object('member', null);
+end $$;
+
+create or replace function public.cat_change_pin(p_old text, p_new text) returns jsonb
+language plpgsql security definer set search_path = '' as $$
+declare
+  u uuid := private.member();
+begin
+  if not exists (select 1 from private.members where user_id = u and pin_hash = private.hash_pin(u, p_old)) then
+    raise exception 'That PIN is wrong. Type the PIN you use now.';
+  end if;
+  perform private.check_pin(p_new);
+  update private.members set pin_hash = private.hash_pin(u, p_new) where user_id = u;
+  return jsonb_build_object('ok', true);
 end $$;
 
 -- ---------------------------------------------------------------- tests
@@ -2003,7 +2104,8 @@ begin
   return jsonb_build_object(
     'code', (select value from private.config where key = 'join_code'),
     'members', (select coalesce(jsonb_agg(jsonb_build_object(
-      'name', name, 'slot', slot, 'team', team, 'isAdmin', is_admin, 'joinedAt', joined_at, 'me', user_id = u)
+      'name', name, 'slot', slot, 'team', team, 'isAdmin', is_admin, 'joinedAt', joined_at, 'me', user_id = u,
+      'hasPin', pin_hash is not null)
       order by joined_at), '[]') from private.members));
 end $$;
 
@@ -2027,6 +2129,19 @@ begin
     raise exception 'Teams are A or B.';
   end if;
   update private.members set team = p_team where lower(name) = lower(btrim(coalesce(p_name, '')));
+  if not found then
+    raise exception 'Nobody in the group has that name.';
+  end if;
+  return public.cat_admin_members();
+end $$;
+
+create or replace function public.cat_admin_reset_pin(p_name text, p_pin text) returns jsonb
+language plpgsql security definer set search_path = '' as $$
+begin
+  perform private.admin();
+  perform private.check_pin(p_pin);
+  update private.members set pin_hash = private.hash_pin(user_id, p_pin)
+  where lower(name) = lower(btrim(coalesce(p_name, '')));
   if not found then
     raise exception 'Nobody in the group has that name.';
   end if;
@@ -2982,7 +3097,7 @@ begin
   perform private.admin();
   return jsonb_build_object(
     'exportedAt', now(),
-    'members', (select coalesce(jsonb_agg(to_jsonb(m) - 'user_id' || jsonb_build_object('id', m.user_id)), '[]') from private.members m),
+    'members', (select coalesce(jsonb_agg(to_jsonb(m) - 'user_id' - 'pin_hash' || jsonb_build_object('id', m.user_id)), '[]') from private.members m),
     'days', (select coalesce(jsonb_agg(to_jsonb(x)), '[]') from private.days x),
     'tasks', (select coalesce(jsonb_agg(to_jsonb(x)), '[]') from private.tasks x),
     'attempts', (select coalesce(jsonb_agg(to_jsonb(x)), '[]') from private.attempts x),

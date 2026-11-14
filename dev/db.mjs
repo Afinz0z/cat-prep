@@ -17,8 +17,9 @@ create role authenticated nologin;
 create schema auth;
 create table auth.users (
   id uuid primary key default gen_random_uuid(),
-  email text unique not null,
-  password text not null,
+  email text unique,
+  password text,
+  is_anonymous boolean not null default true,
   created_at timestamptz not null default now()
 );
 create function auth.uid() returns uuid language sql stable as $$
@@ -44,8 +45,10 @@ export async function createDb({ joinCode = "DEV-CODE" } = {}) {
   return db;
 }
 
-export async function createUser(db, email, password = "secret-pass") {
-  const r = await db.query("insert into auth.users (email, password) values ($1, $2) returning id", [email.toLowerCase(), password]);
+// A device account, like Supabase's anonymous sign-in. The old tests still
+// pass an email to tell their accounts apart; the site itself never does.
+export async function createUser(db, email = null) {
+  const r = await db.query("insert into auth.users (email, is_anonymous) values ($1, $2) returning id", [email ? email.toLowerCase() : null, !email]);
   return r.rows[0].id;
 }
 

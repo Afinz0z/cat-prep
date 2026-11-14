@@ -1,5 +1,4 @@
-// You: profile, reminder settings, theme, account on this device, and the admin tools.
-import * as db from "./db.js";
+// You: profile, reminder settings, theme, PIN and profile switching, and the admin tools.
 import { rpc } from "./db.js";
 import { el, boot, busy, currentTheme, setTheme, applyTextSize, confirmBox, fmtDate, fmtDateTime, showError, fill, local, setLocal, applyWarm, loadJson } from "./ui.js";
 import { startReminders, cacheSettings, getSettings, DEFAULTS } from "./reminders.js";
@@ -158,29 +157,32 @@ async function buddyPanel() {
 }
 
 function accountPanel() {
-  const pw = el("input", { type: "password", autocomplete: "new-password", minlength: 8, placeholder: "New password" });
-  const change = el("button", { type: "button", class: "btn" }, "Change password");
+  const pinField = (label, hint) => el("input", { type: "password", inputmode: "numeric", pattern: "[0-9]{4}", maxlength: 4, autocomplete: "off", "aria-label": label, placeholder: hint, style: "width:7em" });
+  const oldPin = pinField("Your PIN now", "PIN now");
+  const newPin = pinField("Your new PIN", "New PIN");
+  const change = el("button", { type: "button", class: "btn" }, "Change PIN");
   const status = el("p", { class: "status-line", role: "status" });
   change.addEventListener("click", () => busy(change, async () => {
-    if (pw.value.length < 8) {
-      status.textContent = "Use 8 characters or more.";
+    if (!/^\d{4}$/.test(newPin.value)) {
+      status.textContent = "Use 4 digits for the new PIN.";
       return;
     }
-    await db.setPassword(pw.value);
-    pw.value = "";
-    status.textContent = "Password changed.";
+    await rpc("cat_change_pin", { p_old: oldPin.value, p_new: newPin.value });
+    oldPin.value = "";
+    newPin.value = "";
+    status.textContent = "PIN changed. Use the new one next time you pick your profile.";
   }));
-  const out = el("button", { type: "button", class: "btn" }, "Sign out of this device");
-  out.addEventListener("click", async () => {
-    setLocal("cat-had-session", false);
-    await db.signOut();
+  const swap = el("button", { type: "button", class: "btn" }, "Switch profile");
+  swap.addEventListener("click", () => busy(swap, async () => {
+    await rpc("cat_lock");
     location.href = "index.html";
-  });
-  return el("section", { class: "panel span-6" }, el("h2", {}, "Account"),
-    el("p", {}, `Signed in as ${db.signedInEmail() || "you"}.`),
-    el("p", { class: "muted small" }, "Your sign-in stays on this device only. Signing out here leaves your other devices signed in, and nothing about the sign-in is shared between devices."),
-    el("div", { class: "row" }, pw, change), status,
-    el("div", { class: "row" }, out),
+  }));
+  return el("section", { class: "panel span-6" }, el("h2", {}, "Profile on this device"),
+    el("p", {}, `This device is on ${me.name}'s profile.`),
+    el("p", { class: "muted small" }, "It stays on your profile until you switch. Switching here leaves your other devices as they are."),
+    el("div", { class: "row" }, swap),
+    el("h3", {}, "PIN"),
+    el("div", { class: "row" }, oldPin, newPin, change), status,
     el("div", { class: "kbd-hint" }, el("h3", {}, "Keyboard shortcuts on the Today page"),
       el("p", {}, el("kbd", {}, "F"), " start or stop focus, ", el("kbd", {}, "B"), " take a break.")),
     el("p", {}, el("a", { href: "exam-day.html" }, "Exam-day checklist and the last four days")));
@@ -200,11 +202,25 @@ async function adminPanel() {
     team.addEventListener("change", () => busy(team, () => rpc("cat_admin_set_team", { p_name: m.name, p_team: team.value || null })));
     const remove = m.me ? null : el("button", { type: "button", class: "btn quiet small" }, "Remove");
     remove?.addEventListener("click", async () => {
-      if (!(await confirmBox(`Remove ${m.name}?`, ["They lose access to the group straight away. Their account stays, so they can rejoin with the code."], "Remove"))) return;
+      if (!(await confirmBox(`Remove ${m.name}?`, ["Their profile and everything saved on it are deleted, and any device on it goes back to the profile list. This can't be undone."], "Remove"))) return;
       busy(remove, async () => { await rpc("cat_admin_remove", { p_name: m.name }); render(); });
     });
-    return el("tr", {}, el("td", {}, m.name, m.isAdmin ? " (admin)" : ""), el("td", {}, `Slot ${m.slot}`), el("td", {}, fmtDate(m.joinedAt)), el("td", {}, team), el("td", {}, remove));
+    return el("tr", {}, el("td", {}, m.name, m.isAdmin ? " (admin)" : "", m.hasPin ? "" : " (no PIN)"), el("td", {}, `Slot ${m.slot}`), el("td", {}, fmtDate(m.joinedAt)), el("td", {}, team), el("td", {}, remove));
   });
+  // A forgotten PIN.
+  const resetWho = el("select", { "aria-label": "Whose PIN" }, a.members.map((m) => el("option", { value: m.name }, m.name)));
+  const resetPin = el("input", { type: "text", inputmode: "numeric", pattern: "[0-9]{4}", maxlength: 4, autocomplete: "off", "aria-label": "Their new PIN", placeholder: "New PIN", style: "width:7em" });
+  const resetBtn = el("button", { type: "button", class: "btn" }, "Reset the PIN");
+  const resetStatus = el("p", { class: "status-line", role: "status" });
+  resetBtn.addEventListener("click", () => busy(resetBtn, async () => {
+    if (!/^\d{4}$/.test(resetPin.value)) {
+      resetStatus.textContent = "Use 4 digits.";
+      return;
+    }
+    await rpc("cat_admin_reset_pin", { p_name: resetWho.value, p_pin: resetPin.value });
+    resetStatus.textContent = `${resetWho.value}'s PIN is now ${resetPin.value}. Tell them privately; they can change it on their You page.`;
+    resetPin.value = "";
+  }));
   // Notice at the top of everyone's Today page.
   const today = await rpc("cat_today");
   const notice = el("textarea", { maxlength: 600, rows: 2, placeholder: "e.g. Paper moved to 13:00 on Saturday" }, today.notice?.text || "");
@@ -246,6 +262,8 @@ async function adminPanel() {
     el("div", { class: "row" }, el("label", {}, "Group code ", code), saveCode),
     el("div", { class: "table-wrap" }, el("table", { class: "plain" }, el("thead", {}, el("tr", {}, ["Name", "Slot", "Joined", "Team", ""].map((h) => el("th", {}, h)))), el("tbody", {}, rows))),
     el("p", { class: "muted small" }, "Teams add a team total to the board. Leave everyone without a team to switch it off."),
+    el("h3", {}, "Reset a PIN"),
+    el("div", { class: "row" }, resetWho, resetPin, resetBtn), resetStatus,
     el("h3", {}, "Notice for everyone"), notice, el("div", { class: "row" }, postNotice), noticeStatus,
     el("h3", {}, "Group hours this week"),
     el("p", { class: "muted small" }, goal?.goalHours ? `${Math.round((goal.doneMin || 0) / 60)} of ${goal.goalHours} hours done so far this week.` : "No goal set for this week."),

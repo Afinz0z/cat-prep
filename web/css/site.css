@@ -45,6 +45,13 @@
   --heat-3: #4c7cba;
   --heat-4: #1b4b87;
   --backdrop: rgba(21, 33, 46, 0.5);
+  /* Profile tiles: the same six in both themes, each dark enough for a white initial. */
+  --tile-1: #1b4b87;
+  --tile-2: #1e7a3c;
+  --tile-3: #6a3fa0;
+  --tile-4: #b2391e;
+  --tile-5: #8a5a00;
+  --tile-6: #2f6f7e;
   --font: "Atkinson Hyperlegible Next", "Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   --display: "Archivo", "Arial Narrow", "Segoe UI", system-ui, sans-serif;
   --r-panel: 6px;
@@ -355,6 +362,17 @@ table.plain tr.me td:first-child { box-shadow: inset 3px 0 0 var(--marigold); }
 .gate label.field { margin-bottom: 10px; }
 .gate input { width: 100%; }
 
+/* Who's studying? */
+.who { max-width: 640px; margin: 56px auto 40px; text-align: center; }
+.who h1 { font-size: 2.6rem; margin-bottom: 28px; }
+.tiles { list-style: none; margin: 0 0 28px; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 22px 18px; }
+.tile { display: flex; flex-direction: column; align-items: center; gap: 10px; width: 116px; padding: 4px; background: none; border: 0; color: var(--ink); font: inherit; cursor: pointer; }
+.tile-face { display: grid; place-items: center; width: 100px; height: 100px; border-radius: var(--r-panel); color: #ffffff; font-family: var(--display); font-weight: 800; font-size: 2.8rem; line-height: 1; }
+.tile.add .tile-face { color: var(--ink-soft); border: 2px dashed var(--btn-line); }
+.tile:hover .tile-face { outline: 2px solid var(--ink-soft); outline-offset: 3px; }
+.tile-name { font-weight: 600; overflow-wrap: anywhere; }
+.tile-face.big { width: 64px; height: 64px; font-size: 2rem; margin-bottom: 12px; }
+
 /* promise and progress */
 .meter { height: 10px; background: var(--unseen); border-radius: 5px; overflow: hidden; margin: 8px 0; position: relative; }
 .meter > span { display: block; height: 100%; background: var(--bar); }
@@ -599,6 +617,11 @@ kbd { border: 1px solid var(--btn-line); border-bottom-width: 2px; border-radius
   .focus-view .btn { min-width: 60%; }
 }
 @media (max-width: 560px) {
+  .who { margin-top: 32px; }
+  .who h1 { font-size: 2.1rem; }
+  .tiles { gap: 18px 10px; }
+  .tile { width: 96px; }
+  .tile-face { width: 84px; height: 84px; font-size: 2.3rem; }
   .race > li { grid-template-columns: 1.8em 1fr 3.6em; }
   .race .track { grid-column: 2 / -1; grid-row: 2; }
   .race details { grid-column: 1 / -1; }

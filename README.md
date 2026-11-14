@@ -5,15 +5,16 @@ A study site for a small group sitting CAT 2026 on 29 November 2026. It has a st
 ## How it fits together
 
 - `web/` is the site. GitHub Pages serves it as plain files.
-- Supabase holds the accounts and the data. The tables sit in a `private` schema the site can't read. The site only calls the `public.cat_*` functions in `supabase/schema.sql`, and only when signed in.
+- Supabase holds the device sign-ins and the data. The tables sit in a `private` schema the site can't read. The site only calls the `public.cat_*` functions in `supabase/schema.sql`, and only when signed in.
 - Answer keys and the group code are not in this repository. They go into the database from a private folder next to it, through `tools/build_private_sql.py`.
-- A sign-in stays on the device that made it. The session lives in that browser's local storage, and "Sign out of this device" ends that one session only.
+- Nobody signs in with an email or a password. Each phone, iPad or laptop signs itself in with its own anonymous Supabase account, which never leaves that device. The person then taps their profile and types its 4-digit PIN. "Switch profile" on the You page takes that device off the profile and leaves other devices as they are.
+- Profiles don't depend on the device accounts. Deleting a device account in Supabase only signs that device out; the profile and its results stay.
 
 ## Setting it up
 
 Whoever runs the group does this once.
 
-1. Create a Supabase project. Under Authentication, turn off email confirmation and set the site URL to the GitHub Pages address.
+1. Create a Supabase project. Under Authentication, Sign In / Providers, turn on "Allow anonymous sign-ins".
 2. In the SQL editor, run `supabase/schema.sql`.
 3. Build the seed from the private folder, then run `seed.sql` in the SQL editor:
 
@@ -24,7 +25,7 @@ Whoever runs the group does this once.
 4. Put the project URL and the publishable key in `web/js/config.js`. The publishable key is made to be public. The secret key never goes in this repository.
 5. Push to `main`. The Pages workflow publishes `web/`.
 
-Then send the site address and the group code to the group privately. The first person to join becomes the admin and can change the code, set teams and remove members on the You page.
+Then send the site address and the group code to the group privately. The first person to make a profile becomes the admin and can change the code, set teams, reset PINs and remove members on the You page.
 
 ## Daily 5 sets
 
@@ -44,7 +45,7 @@ npm test
 npm run dev -- --demo
 ```
 
-`npm test` runs the database functions on an in-memory Postgres. `npm run dev` serves the site at http://127.0.0.1:8790 with a stand-in for Supabase. Both need the private keys folder at `../private/keys` (or set `CAT_KEYS_DIR`). With `--demo`, the dev server adds three made-up members, the group code `DEV-CODE` and a four-question sample test that exists only there. Nothing is saved when it stops.
+`npm test` runs the database functions on an in-memory Postgres. `npm run dev` serves the site at http://127.0.0.1:8790 with a stand-in for Supabase. Both need the private keys folder at `../private/keys` (or set `CAT_KEYS_DIR`). With `--demo`, the dev server adds three made-up profiles (Asha with PIN 1111, Bilal 2222 and Chitra 3333), the group code `DEV-CODE` and a four-question sample test that exists only there. With `--no-anon`, it refuses device sign-ins the way Supabase does until anonymous sign-ins are turned on. Nothing is saved when it stops.
 
 Run `npm run check` before each push. It runs the database tests, the colour contrast check and a browser smoke test of every page. GitHub only runs the syntax and contrast checks before publishing, because the other two need the keys and the keys stay off GitHub.
 

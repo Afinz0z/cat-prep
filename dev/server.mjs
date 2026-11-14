@@ -1,7 +1,8 @@
 // Local dev server: serves web/ and stands in for Supabase (sign-in and the
 // database functions) on a throwaway in-memory Postgres. Nothing here is saved.
-//   npm run dev             http://127.0.0.1:8790
-//   npm run dev -- --demo   adds three made-up members with some activity
+//   npm run dev                http://127.0.0.1:8790
+//   npm run dev -- --demo      adds three made-up profiles with some activity
+//   npm run dev -- --no-anon   acts as if anonymous sign-ins were off in Supabase
 import http from "node:http";
 import { readFile } from "node:fs/promises";
 import { randomBytes } from "node:crypto";
@@ -26,13 +27,13 @@ const serial = (fn) => {
   return run;
 };
 
-function session(userId, email) {
+function session(userId) {
   const access = randomBytes(16).toString("hex");
   const refresh = randomBytes(16).toString("hex");
   const exp = Math.floor(Date.now() / 1000) + 3600;
   tokens.set(access, { userId, exp });
   refreshTokens.set(refresh, userId);
-  return { access_token: access, token_type: "bearer", expires_in: 3600, expires_at: exp, refresh_token: refresh, user: { id: userId, email } };
+  return { access_token: access, token_type: "bearer", expires_in: 3600, expires_at: exp, refresh_token: refresh, user: { id: userId, is_anonymous: true } };
 }
 
 function send(res, status, body, type = "application/json; charset=utf-8") {
@@ -55,44 +56,22 @@ function caller(req) {
   return t.userId;
 }
 
+// Only what the site uses: an anonymous sign-up (one per device) and token refresh.
+const NO_ANON = process.argv.includes("--no-anon");
+
 async function auth(req, res, url) {
   const body = req.method === "GET" ? {} : await readBody(req);
   const route = url.pathname.slice("/auth/v1/".length);
   if (route === "signup") {
-    const email = String(body.email || "").trim().toLowerCase();
-    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) return send(res, 400, { msg: "Unable to validate email address: invalid format" });
-    if (String(body.password || "").length < 6) return send(res, 422, { msg: "Password should be at least 6 characters." });
-    const exists = await db.query("select 1 from auth.users where email = $1", [email]);
-    if (exists.rows.length) return send(res, 422, { code: 422, error_code: "user_already_exists", msg: "User already registered" });
-    return send(res, 200, session(await createUser(db, email, body.password), email));
+    if (body.email || body.phone || body.password) return send(res, 422, { msg: "This dev server only makes anonymous device accounts." });
+    if (NO_ANON) return send(res, 422, { code: 422, error_code: "anonymous_provider_disabled", msg: "Anonymous sign-ins are disabled" });
+    return send(res, 200, session(await createUser(db)));
   }
-  if (route === "token") {
-    const grant = url.searchParams.get("grant_type");
-    if (grant === "password") {
-      const email = String(body.email || "").trim().toLowerCase();
-      const r = await db.query("select id from auth.users where email = $1 and password = $2", [email, String(body.password || "")]);
-      if (!r.rows.length) return send(res, 400, { error: "invalid_grant", error_description: "Invalid login credentials" });
-      return send(res, 200, session(r.rows[0].id, email));
-    }
-    if (grant === "refresh_token") {
-      const userId = refreshTokens.get(body.refresh_token);
-      if (!userId) return send(res, 400, { error: "invalid_grant", error_description: "Invalid Refresh Token: Refresh Token Not Found" });
-      refreshTokens.delete(body.refresh_token);
-      const r = await db.query("select email from auth.users where id = $1", [userId]);
-      return send(res, 200, session(userId, r.rows[0]?.email));
-    }
-  }
-  if (route === "logout") {
-    const m = /^Bearer (.+)$/.exec(req.headers.authorization || "");
-    if (m) tokens.delete(m[1]);
-    return send(res, 204);
-  }
-  if (route === "recover") return send(res, 200, {});
-  if (route === "user" && req.method === "PUT") {
-    const userId = caller(req);
-    if (!userId) return send(res, 401, { msg: "invalid JWT" });
-    await db.query("update auth.users set password = $1 where id = $2", [String(body.password || ""), userId]);
-    return send(res, 200, { id: userId });
+  if (route === "token" && url.searchParams.get("grant_type") === "refresh_token") {
+    const userId = refreshTokens.get(body.refresh_token);
+    if (!userId) return send(res, 400, { error: "invalid_grant", error_description: "Invalid Refresh Token: Refresh Token Not Found" });
+    refreshTokens.delete(body.refresh_token);
+    return send(res, 200, session(userId));
   }
   return send(res, 404, { msg: "Not found" });
 }
@@ -137,17 +116,17 @@ async function handle(req, res) {
 }
 
 async function demo() {
-  const people = [["asha@example.com", "Asha", 2], ["bilal@example.com", "Bilal", 1], ["chitra@example.com", "Chitra", 3]];
-  for (const [email, name, slot] of people) {
-    const id = await createUser(db, email, "demo-pass");
-    await rpc(db, id, "cat_join", { p_code: JOIN_CODE, p_name: name, p_slot: slot });
+  const people = [["Asha", 2, "1111"], ["Bilal", 1, "2222"], ["Chitra", 3, "3333"]];
+  for (const [name, slot, pin] of people) {
+    const id = await createUser(db);
+    await rpc(db, id, "cat_join", { p_code: JOIN_CODE, p_name: name, p_slot: slot, p_pin: pin });
     await rpc(db, id, "cat_set_target", { p_minutes: 240 + slot * 60 });
     for (let i = 0; i < slot; i += 1) await rpc(db, id, "cat_add_focus", { p_minutes: 50 });
     await rpc(db, id, "cat_sleep", { p_hours: 6 + slot / 2, p_bed: "23:00", p_wake: slot === 2 ? "06:30" : "07:00" });
     await rpc(db, id, "cat_chat_send", { p_text: `${name} here, starting with percentages.`, p_paper_id: null });
     if (slot === 2) await rpc(db, id, "cat_presence", { p_mode: "focus", p_minutes: 40 });
   }
-  console.log("Demo members: asha@example.com, bilal@example.com, chitra@example.com (password demo-pass)");
+  console.log("Demo profiles: Asha (PIN 1111), Bilal (2222) and Chitra (3333). Asha runs the group.");
 }
 
 // A throwaway test for clicking through the exam and results screens without

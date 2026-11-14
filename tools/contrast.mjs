@@ -84,5 +84,12 @@ for (const [name, t] of [["light", tokens(site, ":root")], ["dark", tokens(site,
   if (r < 4.5) fails += 1;
   console.log(`${r >= 4.5 ? "pass" : "FAIL"}  ${name.padEnd(10)} ${r.toFixed(2).padStart(5)} (needs 4.5)  badge ink on marigold`);
 }
+// Profile tiles: a white initial on each tile colour, the same in both themes.
+const root = tokens(site, ":root");
+for (let i = 1; i <= 6; i += 1) {
+  const r = ratio("#ffffff", root[`tile-${i}`]);
+  if (r < 4.5) fails += 1;
+  console.log(`${r >= 4.5 ? "pass" : "FAIL"}  ${"tiles".padEnd(10)} ${r.toFixed(2).padStart(5)} (needs 4.5)  white initial on tile ${i}`);
+}
 console.log(fails ? `\n${fails} pair(s) below WCAG AA.` : "\nEvery pair meets WCAG AA.");
 process.exit(fails ? 1 : 0);

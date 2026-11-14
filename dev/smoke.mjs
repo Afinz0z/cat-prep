@@ -1,4 +1,4 @@
-// Browser smoke test: starts the dev server with the demo members, signs in,
+// Browser smoke test: starts the dev server with the demo profiles, signs in,
 // opens every page on a phone and a laptop screen, then sits and submits the
 // sample test. Fails on any page error, console error, error notice, or a page
 // wider than the screen. Uses the Chrome already installed (no download).
@@ -34,24 +34,65 @@ async function signedInPage(width, height) {
   const page = await ctx.newPage();
   page.setDefaultTimeout(15000);
   await page.goto(`${BASE}/index.html`);
-  await page.fill('input[type="email"]', "asha@example.com");
-  await page.fill('input[type="password"]', "demo-pass");
-  await Promise.all([page.waitForLoadState("load"), page.click('form button[type="submit"]')]);
+  await page.fill(".gate input", "DEV-CODE");
+  await page.click('.gate button[type="submit"]');
+  await page.getByRole("button", { name: "Asha", exact: true }).click();
+  // The PIN goes in as soon as the fourth digit is typed.
+  await Promise.all([page.waitForLoadState("load"), page.fill(".pin-form input", "1111")]);
   await page.waitForSelector(".nav a", { timeout: 20000 });
   return { ctx, page };
 }
 
-function watch(page, where) {
+// A device holding an old group code, and a wrong PIN.
+async function profileScreens() {
+  const where = "profile screens";
+  console.log(`\n${where}`);
+  const ctx = await browser.newContext({ viewport: { width: 390, height: 844 }, serviceWorkers: "block" });
+  const page = await ctx.newPage();
+  page.setDefaultTimeout(15000);
+  // The old code and the wrong PIN are refused with a 400, which the browser logs.
+  const stop = watch(page, where, [/status of 400/]);
+  try {
+    await page.goto(`${BASE}/index.html`);
+    await page.waitForSelector(".gate input");
+    await page.evaluate(() => localStorage.setItem("cat-group-code", JSON.stringify("OLD-CODE")));
+    await page.reload();
+    await page.waitForSelector(".gate .notice");
+    const notice = await page.locator(".gate .notice").innerText();
+    if (!/group code has changed/.test(notice)) note(where, `old code notice says: ${notice}`);
+    await page.fill(".gate input", "DEV-CODE");
+    await page.click('.gate button[type="submit"]');
+    await page.waitForSelector(".tiles .tile");
+    const names = await page.locator(".tile-name").allInnerTexts();
+    if (names.join(",") !== "Asha,Bilal,Chitra,Add a profile") note(where, `tiles are ${names.join(", ")}`);
+    const wide = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
+    if (wide > 1) note(where, `profile screen is ${wide}px wider than the screen`);
+    await page.getByRole("button", { name: "Bilal", exact: true }).click();
+    await page.fill(".pin-form input", "9999");
+    await page.waitForSelector(".pin-form .status-line.error");
+    const err = await page.locator(".pin-form .status-line.error").innerText();
+    if (!/PIN is wrong/.test(err)) note(where, `wrong PIN says: ${err}`);
+    if (await page.locator(".pin-form input").inputValue()) note(where, "the wrong PIN stays in the field");
+  } catch (err) {
+    note(where, `couldn't finish: ${err.message.split("\n")[0]}`);
+  }
+  stop();
+  await ctx.close();
+}
+
+function watch(page, where, also = []) {
   const onConsole = (m) => {
     if (m.type() !== "error") return;
     const text = `${m.text()} ${m.location()?.url || ""}`;
-    if (!IGNORE.some((r) => r.test(text))) note(where, `console: ${m.text()}`);
+    if (![...IGNORE, ...also].some((r) => r.test(text))) note(where, `console: ${m.text()}`);
   };
   const onError = (e) => note(where, `page error: ${e.message}`);
   page.on("console", onConsole);
   page.on("pageerror", onError);
   return () => { page.off("console", onConsole); page.off("pageerror", onError); };
 }
+
+await profileScreens();
 
 for (const [label, w, h] of SIZES) {
   console.log(`\n${label} (${w}x${h})`);

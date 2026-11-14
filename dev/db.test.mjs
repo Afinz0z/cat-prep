@@ -40,13 +40,13 @@ const rejects = async (promise, pattern) => assert.rejects(promise, (err) => {
 test("access rules", async () => {
   await rejects(rpc(db, null, "cat_me", {}), /permission denied/);
   assert.deepEqual(await asC("cat_me", {}), { member: null });
-  await rejects(asC("cat_today", {}), /Join the group first/);
-  await rejects(asA("cat_join", { p_code: "nope", p_name: "Asha", p_slot: 2 }), /group code is wrong/);
-  const me = await asA("cat_join", { p_code: " test-code ", p_name: "Asha", p_slot: 2 });
+  await rejects(asC("cat_today", {}), /Pick your profile first/);
+  await rejects(asA("cat_join", { p_code: "nope", p_name: "Asha", p_slot: 2, p_pin: "1234" }), /group code is wrong/);
+  const me = await asA("cat_join", { p_code: " test-code ", p_name: "Asha", p_slot: 2, p_pin: "1234" });
   assert.equal(me.member.name, "Asha");
   assert.equal(me.member.isAdmin, true, "first member runs the group");
-  await rejects(asB("cat_join", { p_code: "TEST-CODE", p_name: "asha", p_slot: 1 }), /already uses that name/);
-  const b = await asB("cat_join", { p_code: "TEST-CODE", p_name: "Bilal", p_slot: 1 });
+  await rejects(asB("cat_join", { p_code: "TEST-CODE", p_name: "asha", p_slot: 1, p_pin: "1234" }), /already uses that name/);
+  const b = await asB("cat_join", { p_code: "TEST-CODE", p_name: "Bilal", p_slot: 1, p_pin: "1234" });
   assert.equal(b.member.isAdmin, false);
   await rejects(rpc(db, A, "cat_unknown", {}), /Could not find/);
   await rejects(rpc(db, A, "cat_today", { extra: 1 }), /Could not find/);
@@ -258,8 +258,8 @@ test("presence, nudges, rooms, drills, badges, admin", async () => {
   await rejects(asB("cat_admin_members", {}), /Only the group admin/);
   await asA("cat_admin_set_team", { p_name: "Bilal", p_team: "B" });
   await asA("cat_admin_set_code", { p_code: "NEW-CODE" });
-  await rejects(asC("cat_join", { p_code: "TEST-CODE", p_name: "Chitra", p_slot: 3 }), /code is wrong/);
-  await asC("cat_join", { p_code: "new-code", p_name: "Chitra", p_slot: 3 });
+  await rejects(asC("cat_join", { p_code: "TEST-CODE", p_name: "Chitra", p_slot: 3, p_pin: "1234" }), /code is wrong/);
+  await asC("cat_join", { p_code: "new-code", p_name: "Chitra", p_slot: 3, p_pin: "1234" });
   const settings = await asC("cat_settings_set", { p_settings: { breakAfterMin: 5, sound: false, evil: "x", textSize: 200, waterEveryMin: 30 } });
   assert.deepEqual(settings.member.settings, { breakAfterMin: 20, sound: false, textSize: 130 });
   await asA("cat_admin_remove", { p_name: "Chitra" });
@@ -475,11 +475,74 @@ test("streak saver, points history, export, nudge limit", async () => {
     const extra = [];
     for (const n of ["Dev", "Esha", "Farah"]) {
       const id = await createUser(db, `${n.toLowerCase()}@example.com`);
-      await rpc(db, id, "cat_join", { p_code: "NEW-CODE", p_name: n, p_slot: 2 });
+      await rpc(db, id, "cat_join", { p_code: "NEW-CODE", p_name: n, p_slot: 2, p_pin: "1234" });
       extra.push(n);
     }
     const sent = (await db.query("select count(*)::int n from private.nudges where from_user = $1 and day = private.today()", [A])).rows[0].n;
     for (const n of extra.slice(0, 3 - sent)) await asA("cat_nudge", { p_name: n });
     await rejects(asA("cat_nudge", { p_name: extra[2] }), /Three nudges a day|already/);
   }
+});
+
+test("profiles and PINs", async () => {
+  const code = (await db.query("select value from private.config where key = 'join_code'")).rows[0].value;
+  const D1 = await createUser(db); // a phone: a device account with no email
+  const D2 = await createUser(db); // an iPad
+  const on1 = (fn, args) => rpc(db, D1, fn, args);
+  const on2 = (fn, args) => rpc(db, D2, fn, args);
+  const focus = async (id) => (await db.query("select coalesce(sum(focus_min), 0)::int n from private.days where user_id = $1", [id])).rows[0].n;
+
+  await rejects(on1("cat_join", { p_code: code, p_name: "Gita", p_slot: 2, p_pin: "12a4" }), /4 digits/);
+  await rejects(on1("cat_join", { p_code: code, p_name: "Gita", p_slot: 2, p_pin: "12345" }), /4 digits/);
+  await rejects(on1("cat_join", { p_code: "wrong", p_name: "Gita", p_slot: 2, p_pin: "4321" }), /group code is wrong/);
+  await rejects(on1("cat_join", { p_code: code, p_name: "ASHA", p_slot: 2, p_pin: "4321" }), /already uses that name/);
+  assert.equal((await on1("cat_join", { p_code: code, p_name: "Gita", p_slot: 2, p_pin: "4321" })).member.name, "Gita");
+  const again = await on1("cat_join", { p_code: code, p_name: "Gita2", p_slot: 2, p_pin: "4321" });
+  assert.equal(again.member.name, "Gita", "a repeat join from a linked device makes no second profile");
+
+  await rejects(on2("cat_profile_list", { p_code: "wrong" }), /group code is wrong/);
+  const list = await on2("cat_profile_list", { p_code: code });
+  const g = list.find((p) => p.name === "Gita");
+  assert.ok(g?.id, "the new profile is listed");
+  assert.equal(list.find((p) => p.name === "Asha").isAdmin, true);
+  assert.ok(!/pin/i.test(JSON.stringify(list)), "no PIN data in the list");
+  assert.deepEqual(await on2("cat_me", {}), { member: null });
+  await rejects(on2("cat_today", {}), /Pick your profile first/);
+  await rejects(on2("cat_unlock", { p_code: code, p_id: g.id, p_pin: "0000" }), /PIN is wrong/);
+  await rejects(on2("cat_unlock", { p_code: "wrong", p_id: g.id, p_pin: "4321" }), /group code is wrong/);
+  assert.equal((await on2("cat_unlock", { p_code: code, p_id: g.id, p_pin: "4321" })).member.name, "Gita");
+
+  await on2("cat_add_focus", { p_minutes: 25 });
+  await on1("cat_add_focus", { p_minutes: 5 });
+  assert.equal(await focus(g.id), 30, "both devices save to the same profile");
+
+  assert.deepEqual(await on1("cat_lock", {}), { member: null });
+  assert.deepEqual(await on1("cat_me", {}), { member: null });
+  await rejects(on1("cat_today", {}), /Pick your profile first/);
+  assert.equal((await on2("cat_me", {})).member.name, "Gita", "switching on one device leaves the other on the profile");
+
+  // The same phone adds a second profile, then goes back to the first.
+  assert.equal((await on1("cat_join", { p_code: code, p_name: "Hari", p_slot: 1, p_pin: "8642" })).member.name, "Hari");
+  const hari = (await on1("cat_profile_list", { p_code: code })).find((p) => p.name === "Hari");
+  assert.notEqual(hari.id, g.id);
+  await on1("cat_lock", {});
+  assert.equal((await on1("cat_unlock", { p_code: code, p_id: g.id, p_pin: "4321" })).member.name, "Gita");
+
+  // A PIN change needs the old PIN. Only the admin resets someone else's.
+  await rejects(on1("cat_change_pin", { p_old: "0000", p_new: "5555" }), /PIN is wrong/);
+  await rejects(on1("cat_change_pin", { p_old: "4321", p_new: "55" }), /4 digits/);
+  await on1("cat_change_pin", { p_old: "4321", p_new: "5555" });
+  await on2("cat_lock", {});
+  await rejects(on2("cat_unlock", { p_code: code, p_id: g.id, p_pin: "4321" }), /PIN is wrong/);
+  await rejects(asB("cat_admin_reset_pin", { p_name: "Gita", p_pin: "9999" }), /Only the group admin/);
+  await rejects(asA("cat_admin_reset_pin", { p_name: "Gita", p_pin: "99" }), /4 digits/);
+  await asA("cat_admin_reset_pin", { p_name: "gita", p_pin: "9999" });
+  assert.equal((await on2("cat_unlock", { p_code: code, p_id: g.id, p_pin: "9999" })).member.name, "Gita");
+  assert.equal((await asA("cat_admin_members", {})).members.find((m) => m.name === "Gita").hasPin, true);
+  assert.ok(!JSON.stringify(await asA("cat_admin_export", {})).includes("pin_hash"), "the backup has no PIN data");
+
+  // Removing a profile takes every device off it.
+  await asA("cat_admin_remove", { p_name: "Gita" });
+  assert.deepEqual(await on1("cat_me", {}), { member: null });
+  assert.deepEqual(await on2("cat_me", {}), { member: null });
 });

@@ -1,4 +1,6 @@
-// Talks to Supabase: email sign-in and the cat_* database functions.
+// Talks to Supabase: this device's sign-in and the cat_* database functions.
+// Each device signs itself in with an anonymous Supabase account (no email or
+// password), then a profile's PIN puts the device on that profile.
 // Only the publishable key lives in the browser. Every table is private, and
 // each function checks who is calling, so the key alone can read nothing.
 import { SUPABASE_URL, SUPABASE_KEY } from "./config.js";
@@ -28,7 +30,6 @@ function saveSession(s) {
     access_token: s.access_token,
     refresh_token: s.refresh_token,
     expires_at: s.expires_at || Math.floor(Date.now() / 1000) + (s.expires_in || 3600),
-    email: s.user?.email || s.email || session?.email || "",
   } : null;
   try {
     if (session) localStorage.setItem(SESSION_KEY, JSON.stringify(session));
@@ -40,14 +41,10 @@ function saveSession(s) {
 
 export const configured = () => Boolean(SUPABASE_URL && SUPABASE_KEY);
 export const signedIn = () => Boolean(session?.access_token);
-export const signedInEmail = () => session?.email || "";
 
 const FRIENDLY = [
-  [/invalid login credentials/i, "That email and password don't match. Check both, or reset the password."],
-  [/user already registered|already been registered/i, "That email already has an account. Sign in instead."],
-  [/password should be at least/i, "Use a password of at least 8 characters."],
-  [/email not confirmed/i, "Confirm your email first: open the link Supabase sent you, then sign in."],
-  [/unable to validate email|invalid email/i, "That doesn't look like an email address."],
+  [/anonymous sign-?ins are disabled|anonymous_provider_disabled/i,
+    "The database doesn't let devices sign in yet. Whoever runs the group has to turn on \"Allow anonymous sign-ins\" in Supabase, under Authentication, Sign In / Providers."],
   [/rate limit|too many/i, "Too many tries in a short time. Wait a minute and try again."],
   [/permission denied for function|jwt|not authenticated/i, "Sign in first."],
   [/Could not find the function/i, "The site and the database are out of step. Tell whoever runs the group."],
@@ -86,54 +83,13 @@ async function request(path, { method = "POST", body, auth = false } = {}) {
   return data;
 }
 
-// ---- auth ------------------------------------------------------------------
-export async function signUp(email, password) {
-  const data = await request("/auth/v1/signup", { body: { email, password } });
-  if (data?.access_token) {
-    saveSession(data);
-    return { signedIn: true };
-  }
-  // Email confirmation is switched on in Supabase: no session until the link is opened.
-  return { signedIn: false };
-}
-
-export async function signIn(email, password) {
-  saveSession(await request("/auth/v1/token?grant_type=password", { body: { email, password } }));
-}
-
+// ---- this device's sign-in -------------------------------------------------------
 // Sign-ins stay on the device that made them: the session lives only in this
-// browser's storage, and signing out ends this device's session alone
-// (scope=local), never the ones on your other devices.
-export async function signOut() {
-  try {
-    if (session) await request("/auth/v1/logout?scope=local", { auth: true });
-  } catch {
-    /* signed out locally either way */
-  }
+// browser's storage and is never shared with another device. A sign-up with
+// no email or password is Supabase's anonymous sign-in.
+export async function startDevice() {
   saveSession(null);
-}
-
-export async function sendReset(email) {
-  const back = encodeURIComponent(location.origin + location.pathname.replace(/[^/]*$/, ""));
-  await request(`/auth/v1/recover?redirect_to=${back}`, { body: { email } });
-}
-
-export async function setPassword(password) {
-  await ensureFresh();
-  await request("/auth/v1/user", { method: "PUT", body: { password }, auth: true });
-}
-
-// A password-reset link lands with the session in the address bar's #fragment.
-export function takeRecoveryFromUrl() {
-  if (!location.hash.includes("access_token=")) return false;
-  const p = new URLSearchParams(location.hash.slice(1));
-  saveSession({
-    access_token: p.get("access_token"),
-    refresh_token: p.get("refresh_token"),
-    expires_in: Number(p.get("expires_in")) || 3600,
-  });
-  history.replaceState(null, "", location.pathname + location.search);
-  return p.get("type") === "recovery";
+  saveSession(await request("/auth/v1/signup", { body: {} }));
 }
 
 async function refresh() {
@@ -146,13 +102,13 @@ async function refresh() {
   const token = latest?.refresh_token || session?.refresh_token;
   if (!token) {
     saveSession(null);
-    throw new DbError("Sign in again.", 401);
+    throw new DbError("This device was signed out. Reload the page and pick your profile again.", 401);
   }
   try {
     saveSession(await request("/auth/v1/token?grant_type=refresh_token", { body: { refresh_token: token } }));
   } catch (err) {
     if (err.status === 400 || err.status === 401) saveSession(null);
-    throw err.status === 400 ? new DbError("Your sign-in expired. Sign in again.", 401) : err;
+    throw err.status === 400 ? new DbError("This device was signed out. Reload the page and pick your profile again.", 401) : err;
   }
 }
 
