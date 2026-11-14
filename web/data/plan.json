@@ -41,6 +41,9 @@
       { "id": "p-break", "from": "14:30", "to": "15:00", "title": "Break" },
       { "id": "analysis", "from": "15:00", "to": "17:00", "title": "Analysis: re-solve every wrong and skipped question untimed, tag each loss with one of the seven causes, list three questions to skip and three to try, and say why each right answer is right", "link": "mocks.html" },
       { "id": "p-log", "from": "17:15", "to": "18:00", "title": "Log the paper, update the error log, post the result in the chat", "link": "mocks.html" },
+      { "id": "dinner", "from": "18:00", "to": "18:45", "title": "Dinner and a walk" },
+      { "id": "road-e1", "from": "18:45", "to": "19:25", "title": "Roadmap: your next step. On 24 and 26 Nov, only a step you've already started", "link": "plan.html" },
+      { "id": "road-e2", "from": "19:35", "to": "20:15", "title": "Roadmap: carry on with the step, or its check", "target": "Step cleared", "link": "plan.html" },
       { "id": "lights", "from": "23:00", "title": "Lights out" }
     ],
     "taper27": [

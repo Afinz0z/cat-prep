@@ -211,7 +211,7 @@ PAPERS = [
     {"day": "2026-11-26", "paper": "cat-2025-s3", "title": "CAT 2025 Slot 3", "after": "equations"},
 ]
 LINE = {"after": "equations",
-        "text": "The roadmap likely reaches about here by 23 to 25 Nov, at about four and a half hours of new work on each learning day."}
+        "text": "The roadmap likely reaches about here by 23 to 25 Nov, at about four and a half hours of new work on each learning day and 80 minutes on the evenings of the 18 and 21 Nov papers."}
 
 ASSUMPTIONS = [
     "Questions per paper are averages over the six slots of CAT 2024 and 2025. For QA, where Career Launcher and Cracku disagree, the smaller count sets the low end and the larger sets the high end.",
