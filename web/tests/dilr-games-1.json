@@ -1,0 +1,67 @@
+{
+  "id": "dilr-games-1",
+  "title": "Games and tournaments: set 1",
+  "topic": "dilr-games",
+  "kind": "practice",
+  "difficulty": "easy",
+  "source": "original",
+  "sourceNote": "An original set written for this group. It is not a CAT previous-year set.",
+  "strict": false,
+  "calculator": true,
+  "instructions": [
+    "4 questions, 12 minutes.",
+    "CAT marking: +3 right, -1 wrong multiple choice, 0 for a wrong type-in answer.",
+    "Type-in answers take a number only: no %, ₹ or units. Use a decimal, not a fraction."
+  ],
+  "sections": [
+    {
+      "name": "DILR",
+      "minutes": 12,
+      "groups": [
+        {
+          "id": "g1",
+          "title": "A seeded knockout",
+          "text": "Sixteen players, seeded 1 to 16, play a knockout tournament: the loser of each match is out. Round 1 has these matches, in this order:\n\nM1: 1 v 16, M2: 8 v 9, M3: 5 v 12, M4: 4 v 13, M5: 3 v 14, M6: 6 v 11, M7: 7 v 10, M8: 2 v 15.\n\nIn round 2 the winner of M1 plays the winner of M2, M3's winner plays M4's, M5's plays M6's and M7's plays M8's. In the semi-finals, the two players left from M1 to M4 play each other, and so do the two left from M5 to M8. The two winners meet in the final.\n\nAn upset is a match won by the lower-seeded player, the one with the higher number."
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "type": "tita",
+          "text": "How many matches are played in the whole tournament?",
+          "group": "g1"
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "text": "If seed 4 and seed 9 meet, in which round is it?",
+          "group": "g1",
+          "options": [
+            "Round 1",
+            "Round 2",
+            "Semi-final",
+            "Final"
+          ]
+        },
+        {
+          "id": "q3",
+          "type": "tita",
+          "text": "Seed 6 won the tournament. What is the least number of upsets there could have been in the whole tournament?",
+          "group": "g1"
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "text": "There was exactly one upset in the whole tournament, and it happened in a semi-final. Which of these could have been the final?",
+          "group": "g1",
+          "options": [
+            "1 v 2",
+            "4 v 2",
+            "4 v 3",
+            "1 v 4"
+          ]
+        }
+      ]
+    }
+  ]
+}

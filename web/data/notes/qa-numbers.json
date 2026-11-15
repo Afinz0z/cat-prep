@@ -1,0 +1,54 @@
+{
+ "topic": "qa-numbers",
+ "title": "Number system",
+ "blocks": [
+  {
+   "heading": "Divisibility",
+   "lines": [
+    "By 3 or 9: the digit sum is. By 4: the last two digits. By 8: the last three.",
+    "By 11: (sum of digits in odd places) − (sum in even places) is 0 or a multiple of 11.",
+    "For a number like 72, check its co-prime parts: 8 and 9."
+   ]
+  },
+  {
+   "heading": "Factors",
+   "lines": [
+    "Write N = p^a × q^b × r^c. N has (a + 1)(b + 1)(c + 1) factors.",
+    "72 = 2³ × 3², so 4 × 3 = 12 factors.",
+    "Odd factors: leave out the power of 2. Even factors: total − odd."
+   ]
+  },
+  {
+   "heading": "HCF and LCM",
+   "lines": [
+    "HCF takes the lowest power of each prime, LCM the highest.",
+    "For two numbers: HCF × LCM = the product of the numbers.",
+    "\"Leaves remainder r when divided by a, b and c\": the number is a multiple of LCM(a, b, c), plus r."
+   ]
+  },
+  {
+   "heading": "Remainders and last digits",
+   "lines": [
+    "The remainder of a product is the product of the remainders, reduced again.",
+    "Look for a power that leaves remainder 1: 2³ = 8 leaves 1 on division by 7, so 2⁹⁹ does too.",
+    "Last digits repeat every 4 powers: 2, 4, 8, 6 for 2; 3, 9, 7, 1 for 3; 7, 9, 3, 1 for 7; 8, 4, 2, 6 for 8.",
+    "Last digit of 7⁴²: 42 leaves 2 on division by 4, so it's the 2nd in the cycle, 9."
+   ]
+  },
+  {
+   "heading": "Factorials and counting",
+   "lines": [
+    "Trailing zeros in n!: n ÷ 5 + n ÷ 25 + n ÷ 125 + ..., whole parts only. 100! has 20 + 4 = 24.",
+    "Numbers up to N divisible by a or b: N ÷ a + N ÷ b − N ÷ LCM(a, b), whole parts only."
+   ]
+  },
+  {
+   "heading": "Traps",
+   "lines": [
+    "1 is neither prime nor composite. 2 is the only even prime.",
+    "Natural numbers start at 1. Check whether 0 or negative numbers are allowed.",
+    "With digit questions, write the number as 10a + b and keep a from 1 to 9."
+   ]
+  }
+ ]
+}

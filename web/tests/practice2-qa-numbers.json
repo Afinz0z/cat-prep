@@ -1,0 +1,76 @@
+{
+  "id": "practice2-qa-numbers",
+  "title": "Number system: practice set 2",
+  "topic": "qa-numbers",
+  "kind": "practice",
+  "source": "original",
+  "sourceNote": "Original practice questions written for this group. None of them is a CAT previous-year question.",
+  "strict": false,
+  "calculator": true,
+  "instructions": [
+    "6 questions, 12 minutes, CAT marking: +3 right, -1 wrong multiple choice, 0 for a wrong type-in answer.",
+    "Type-in answers take a number only: no %, ₹ or units. Use a decimal, not a fraction."
+  ],
+  "sections": [
+    {
+      "name": "Numbers",
+      "minutes": 12,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "tita",
+          "qtype": "lcm-remainder",
+          "text": "What is the smallest three-digit number that leaves a remainder of 3 when divided by 4, by 6 and by 9?"
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "qtype": "odd-factors",
+          "text": "How many odd factors does 720 have?",
+          "options": [
+            "10",
+            "8",
+            "6",
+            "30"
+          ]
+        },
+        {
+          "id": "q3",
+          "type": "tita",
+          "qtype": "remainder-power",
+          "text": "What is the remainder when 2¹⁰⁰ is divided by 7?"
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "qtype": "digits",
+          "text": "A two-digit number is 4 times the sum of its digits. If 18 is added to it, its digits are reversed. What is the number?",
+          "options": [
+            "36",
+            "24",
+            "12",
+            "48"
+          ]
+        },
+        {
+          "id": "q5",
+          "type": "tita",
+          "qtype": "unit-digit",
+          "text": "What is the units digit of 7³⁵ × 3²²?"
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "qtype": "counting",
+          "text": "How many whole numbers from 1 to 100 are divisible by 3 or by 5?",
+          "options": [
+            "53",
+            "45",
+            "40",
+            "47"
+          ]
+        }
+      ]
+    }
+  ]
+}

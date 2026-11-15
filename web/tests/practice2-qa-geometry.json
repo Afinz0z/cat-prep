@@ -1,0 +1,76 @@
+{
+  "id": "practice2-qa-geometry",
+  "title": "Triangles, circles, polygons: practice set 2",
+  "topic": "qa-geometry",
+  "kind": "practice",
+  "source": "original",
+  "sourceNote": "Original practice questions written for this group. None of them is a CAT previous-year question.",
+  "strict": false,
+  "calculator": true,
+  "instructions": [
+    "6 questions, 12 minutes, CAT marking: +3 right, -1 wrong multiple choice, 0 for a wrong type-in answer.",
+    "Type-in answers take a number only: no %, ₹ or units. Use a decimal, not a fraction."
+  ],
+  "sections": [
+    {
+      "name": "Geometry",
+      "minutes": 12,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "tita",
+          "qtype": "triangle-area",
+          "text": "A triangle has sides 13 cm, 14 cm and 15 cm. What is its area, in cm²?"
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "qtype": "angle-bisector",
+          "text": "In triangle ABC, AB = 6, AC = 9 and BC = 10. The bisector of angle A meets BC at D. What is BD?",
+          "options": [
+            "5",
+            "6",
+            "3.6",
+            "4"
+          ]
+        },
+        {
+          "id": "q3",
+          "type": "tita",
+          "qtype": "circle-angles",
+          "text": "A, B and C lie on a circle with centre O, and C is on the major arc AB. If angle AOB = 110°, what is angle ACB in degrees?"
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "qtype": "tangent",
+          "text": "The tangent from a point P to a circle of radius 7 cm is 24 cm long. How far is P from the centre?",
+          "options": [
+            "31 cm",
+            "25 cm",
+            "24 cm",
+            "√527 cm"
+          ]
+        },
+        {
+          "id": "q5",
+          "type": "tita",
+          "qtype": "hexagon",
+          "text": "A regular hexagon has side 4 cm. Its area is k√3 cm². What is k?"
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "qtype": "similar-areas",
+          "text": "Two similar triangles have areas 36 cm² and 81 cm². A side of the smaller one is 8 cm. What is the matching side of the larger one?",
+          "options": [
+            "18 cm",
+            "10 cm",
+            "12 cm",
+            "16 cm"
+          ]
+        }
+      ]
+    }
+  ]
+}

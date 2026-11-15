@@ -459,10 +459,22 @@
     {
      "label": "Progressions",
      "href": "topics.html#qa-progressions"
+    },
+    {
+     "label": "Logs set 1",
+     "href": "test.html?id=practice-qa-logs"
+    },
+    {
+     "label": "Progressions set 1",
+     "href": "test.html?id=practice-qa-progressions"
     }
    ],
    "check": {
-    "self": "Ten log, index and progression questions from CAT 2021 to 2023 papers on Cracku, with 6 or more right. A site set for this step is on its way."
+    "tests": [
+     "practice2-qa-logs",
+     "practice2-qa-progressions"
+    ],
+    "target": 60
    }
   },
   {
@@ -573,10 +585,22 @@
     {
      "label": "Games and tournaments",
      "href": "topics.html#dilr-games"
+    },
+    {
+     "label": "Routes set 1",
+     "href": "test.html?id=dilr-routes-1"
+    },
+    {
+     "label": "Tournaments set 1",
+     "href": "test.html?id=dilr-games-1"
     }
    ],
    "check": {
-    "self": "One set of each type from a CAT 2021 to 2023 paper on Cracku, with 3 or more right in each."
+    "tests": [
+     "dilr-routes-2",
+     "dilr-games-2"
+    ],
+    "target": 60
    }
   },
   {
@@ -655,10 +679,22 @@
     {
      "label": "Mensuration",
      "href": "topics.html#qa-mensuration"
+    },
+    {
+     "label": "Geometry set 1",
+     "href": "test.html?id=practice-qa-geometry"
+    },
+    {
+     "label": "Mensuration set 1",
+     "href": "test.html?id=practice-qa-mensuration"
     }
    ],
    "check": {
-    "self": "Ten geometry questions from CAT 2021 to 2023 papers on Cracku, with 5 or more right."
+    "tests": [
+     "practice2-qa-geometry",
+     "practice2-qa-mensuration"
+    ],
+    "target": 50
    }
   },
   {
@@ -678,12 +714,19 @@
    "why": "Two or three questions a paper, but CAT's number questions are tricky, so a beginner gets fewer of them.",
    "learn": [
     {
-     "label": "Videos",
+     "label": "Videos and card",
      "href": "topics.html#qa-numbers"
+    },
+    {
+     "label": "Number system set 1",
+     "href": "test.html?id=practice-qa-numbers"
     }
    ],
    "check": {
-    "self": "Ten number system questions from CAT 2021 to 2023 papers on Cracku, with 5 or more right."
+    "tests": [
+     "practice2-qa-numbers"
+    ],
+    "target": 50
    }
   }
  ]

@@ -1,0 +1,67 @@
+{
+  "id": "dilr-games-2",
+  "title": "Games and tournaments: set 2",
+  "topic": "dilr-games",
+  "kind": "practice",
+  "difficulty": "medium",
+  "source": "original",
+  "sourceNote": "An original set written for this group. It is not a CAT previous-year set.",
+  "strict": false,
+  "calculator": true,
+  "instructions": [
+    "4 questions, 12 minutes.",
+    "CAT marking: +3 right, -1 wrong multiple choice, 0 for a wrong type-in answer.",
+    "Type-in answers take a number only: no %, ₹ or units. Use a decimal, not a fraction."
+  ],
+  "sections": [
+    {
+      "name": "DILR",
+      "minutes": 12,
+      "groups": [
+        {
+          "id": "g1",
+          "title": "A four-team league",
+          "text": "Four teams, P, Q, R and S, play a league in which each pair of teams meets once. A win earns 3 points, a draw 1 point to each team and a loss nothing. At the end:\n\n1. P has 7 points, more than any other team.\n2. Q has 5 points and did not lose a match.\n3. R won exactly one match.\n4. S has fewer points than R.\n5. S drew at least one match."
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "type": "tita",
+          "text": "How many points does R have?",
+          "group": "g1"
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "text": "What was the result of Q v S?",
+          "group": "g1",
+          "options": [
+            "Q won",
+            "S won",
+            "Draw",
+            "Cannot be determined"
+          ]
+        },
+        {
+          "id": "q3",
+          "type": "tita",
+          "text": "How many matches in the league ended in a draw?",
+          "group": "g1"
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "text": "If condition 5 were removed, which of these would still be certain?",
+          "group": "g1",
+          "options": [
+            "R beat S",
+            "Q beat R",
+            "S has 1 point",
+            "Q drew with S"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -20,8 +20,8 @@ import pathlib
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 TESTS = ROOT / "web" / "tests"
 TOPIC_ORDER = ["qa-percentages", "qa-ratio", "qa-averages", "qa-profit-loss", "qa-interest",
-               "qa-tsd", "qa-work", "qa-linear", "qa-quadratic", "qa-inequalities",
-               "dilr-tables", "dilr-arrangements", "dilr-grouping", "dilr-venn",
+               "qa-tsd", "qa-work", "qa-linear", "qa-quadratic", "qa-inequalities", "qa-logs", "qa-progressions", "qa-geometry", "qa-mensuration", "qa-numbers",
+               "dilr-tables", "dilr-arrangements", "dilr-grouping", "dilr-venn", "dilr-routes", "dilr-games",
                "varc-rc", "varc-odd-one", "varc-summary", "varc-parajumbles", "varc-completion"]
 DAILY_TOPICS = TOPIC_ORDER[:10]
 

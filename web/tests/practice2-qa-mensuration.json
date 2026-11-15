@@ -1,0 +1,76 @@
+{
+  "id": "practice2-qa-mensuration",
+  "title": "Mensuration: practice set 2",
+  "topic": "qa-mensuration",
+  "kind": "practice",
+  "source": "original",
+  "sourceNote": "Original practice questions written for this group. None of them is a CAT previous-year question.",
+  "strict": false,
+  "calculator": true,
+  "instructions": [
+    "6 questions, 12 minutes, CAT marking: +3 right, -1 wrong multiple choice, 0 for a wrong type-in answer.",
+    "Type-in answers take a number only: no %, ₹ or units. Use a decimal, not a fraction."
+  ],
+  "sections": [
+    {
+      "name": "Mensuration",
+      "minutes": 12,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "qtype": "sphere",
+          "text": "The surface area of a sphere is 616 cm². What is its radius? Take π = 22/7.",
+          "options": [
+            "14 cm",
+            "3.5 cm",
+            "7 cm",
+            "49 cm"
+          ]
+        },
+        {
+          "id": "q2",
+          "type": "tita",
+          "qtype": "cylinder-litres",
+          "text": "A cylindrical bucket has radius 14 cm and height 30 cm. How many litres does it hold? Take π = 22/7."
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "qtype": "path-area",
+          "text": "A rectangular field is 60 m by 40 m. A path 5 m wide runs around the outside of it. What is the area of the path?",
+          "options": [
+            "1,000 m²",
+            "1,100 m²",
+            "1,200 m²",
+            "500 m²"
+          ]
+        },
+        {
+          "id": "q4",
+          "type": "tita",
+          "qtype": "hemisphere",
+          "text": "A solid hemisphere has radius 7 cm. What is its total surface area, in cm²? Take π = 22/7."
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "qtype": "water-rise",
+          "text": "A cylindrical jar of radius 10 cm holds water. A solid metal ball of radius 6 cm is dropped in and sinks fully under the water. By how much does the water level rise?",
+          "options": [
+            "3.6 cm",
+            "2.16 cm",
+            "4.32 cm",
+            "2.88 cm"
+          ]
+        },
+        {
+          "id": "q6",
+          "type": "tita",
+          "qtype": "cone-cylinder",
+          "text": "A cone and a cylinder have the same base radius and the same height. The cylinder's volume is 540 cm³. What is the cone's volume, in cm³?"
+        }
+      ]
+    }
+  ]
+}

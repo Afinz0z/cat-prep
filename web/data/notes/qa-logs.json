@@ -1,0 +1,52 @@
+{
+ "topic": "qa-logs",
+ "title": "Indices and logarithms",
+ "blocks": [
+  {
+   "heading": "Index rules",
+   "lines": [
+    "a^m × a^n = a^(m+n), a^m ÷ a^n = a^(m-n), (a^m)^n = a^(mn).",
+    "a⁰ = 1, a^(-n) = 1 ÷ a^n, a^(1/n) is the nth root of a.",
+    "(ab)^n = a^n × b^n.",
+    "8^(2/3) = (2³)^(2/3) = 2² = 4."
+   ]
+  },
+  {
+   "heading": "Solving index equations",
+   "lines": [
+    "Write both sides with the same base, then set the powers equal.",
+    "4^(x+1) = 32^(x-1): 2^(2x+2) = 2^(5x-5), so 2x + 2 = 5x − 5 and x = 7/3.",
+    "A common factor helps: 4^x − 4^(x-1) = 4^(x-1) × (4 − 1).",
+    "If the bases can't be matched, take logs of both sides."
+   ]
+  },
+  {
+   "heading": "What a log is",
+   "lines": [
+    "logₐ(b) = c means a^c = b. The base a is positive and not 1; b is positive.",
+    "logₐ(1) = 0 and logₐ(a) = 1.",
+    "log 1000 = 3 (base 10), log₂(32) = 5."
+   ]
+  },
+  {
+   "heading": "Log rules",
+   "lines": [
+    "log(mn) = log m + log n, log(m/n) = log m − log n, log(m^k) = k log m.",
+    "Change of base: logₐ(b) = log b ÷ log a.",
+    "Swapping base and number turns the log upside down: log₂(8) = 3 and log₈(2) = 1/3.",
+    "A chain collapses: log₂(3) × log₃(4) = log₂(4) = 2.",
+    "A base that is a power: log₄(x) = ½ × log₂(x), because 4 = 2².",
+    "a^(logₐ x) = x."
+   ]
+  },
+  {
+   "heading": "Digits and traps",
+   "lines": [
+    "A number N above 1 has (whole part of log₁₀ N) + 1 digits. log₁₀ 2 is about 0.301 and log₁₀ 3 about 0.477.",
+    "2¹⁰ = 1024: log₁₀ is about 3.01, so 4 digits.",
+    "log(m + n) has no rule. Only products, quotients and powers split.",
+    "Put every answer back into the original equation: each log's argument must stay positive."
+   ]
+  }
+ ]
+}

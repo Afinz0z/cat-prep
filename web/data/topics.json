@@ -1722,7 +1722,12 @@
           "checked": "chapters",
           "embed": true
         }
-      ]
+      ],
+      "practice": [
+        "practice-qa-progressions",
+        "practice2-qa-progressions"
+      ],
+      "notes": true
     },
     {
       "id": "qa-logs",
@@ -1833,7 +1838,12 @@
           "checked": "chapters",
           "embed": true
         }
-      ]
+      ],
+      "practice": [
+        "practice-qa-logs",
+        "practice2-qa-logs"
+      ],
+      "notes": true
     },
     {
       "id": "qa-geometry",
@@ -1976,7 +1986,12 @@
           "checked": "chapters",
           "embed": true
         }
-      ]
+      ],
+      "practice": [
+        "practice-qa-geometry",
+        "practice2-qa-geometry"
+      ],
+      "notes": true
     },
     {
       "id": "qa-functions",
@@ -2158,7 +2173,12 @@
           "checked": "chapters",
           "embed": true
         }
-      ]
+      ],
+      "practice": [
+        "practice-qa-numbers",
+        "practice2-qa-numbers"
+      ],
+      "notes": true
     },
     {
       "id": "qa-mensuration",
@@ -2249,7 +2269,12 @@
           "checked": "chapters",
           "embed": true
         }
-      ]
+      ],
+      "practice": [
+        "practice-qa-mensuration",
+        "practice2-qa-mensuration"
+      ],
+      "notes": true
     },
     {
       "id": "qa-pnc",
@@ -2970,7 +2995,12 @@
           "checked": "chapters",
           "embed": true
         }
-      ]
+      ],
+      "practice": [
+        "dilr-games-1",
+        "dilr-games-2"
+      ],
+      "notes": true
     },
     {
       "id": "dilr-scheduling",
@@ -3160,7 +3190,12 @@
           "checked": "chapters",
           "embed": true
         }
-      ]
+      ],
+      "practice": [
+        "dilr-routes-1",
+        "dilr-routes-2"
+      ],
+      "notes": true
     },
     {
       "id": "dilr-puzzles",

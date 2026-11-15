@@ -1,0 +1,43 @@
+{
+ "topic": "dilr-routes",
+ "title": "Routes and networks",
+ "blocks": [
+  {
+   "heading": "Set it up",
+   "lines": [
+    "Draw the network: towns as dots, roads or pipes as lines, the distance, time, cost or flow written on each line.",
+    "Mark one-way links with arrows before you read the questions."
+   ]
+  },
+  {
+   "heading": "Shortest routes",
+   "lines": [
+    "Start from the origin and write the least distance to each town you reach.",
+    "When a longer-looking route turns out cheaper, cross out the old figure and write the new one.",
+    "Most CAT networks have under 10 towns, so checking the few short routes by hand is quick.",
+    "A closed road: rerun the labels from the town just before it."
+   ]
+  },
+  {
+   "heading": "Flows",
+   "lines": [
+    "At a junction that keeps nothing, what comes in equals what goes out. Write one equation for each junction.",
+    "Start at a town or junction with only one unknown pipe and work outward."
+   ]
+  },
+  {
+   "heading": "Counting routes",
+   "lines": [
+    "List routes in a fixed order, by the first road taken, so none is counted twice.",
+    "\"No town visited twice\" rules out loops. \"Exactly three roads\" and \"at most three\" are different counts."
+   ]
+  },
+  {
+   "heading": "Traps",
+   "lines": [
+    "One-way links, and a toll charged per entry rather than per trip.",
+    "A question that changes the network (a road closed, a pipe capped) applies only to that question unless it says otherwise."
+   ]
+  }
+ ]
+}

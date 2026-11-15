@@ -1,0 +1,48 @@
+{
+ "topic": "qa-mensuration",
+ "title": "Mensuration",
+ "blocks": [
+  {
+   "heading": "Flat shapes",
+   "lines": [
+    "Rectangle: area lb, perimeter 2(l + b). Square of side a: diagonal a√2.",
+    "Trapezium: ½ × (sum of parallel sides) × height. Rhombus: ½ × d1 × d2.",
+    "Sector of angle θ: (θ ÷ 360) × πr². Arc: (θ ÷ 360) × 2πr.",
+    "A path of width w around a field: (outer rectangle) − (field)."
+   ]
+  },
+  {
+   "heading": "Cuboid and cube",
+   "lines": [
+    "Cuboid: volume lbh, total surface 2(lb + bh + hl), longest diagonal √(l² + b² + h²).",
+    "Cube of side a: volume a³, surface 6a², diagonal a√3."
+   ]
+  },
+  {
+   "heading": "Cylinder, cone, sphere",
+   "lines": [
+    "Cylinder: volume πr²h, curved surface 2πrh, total 2πr(r + h).",
+    "Cone: volume ⅓πr²h, slant l = √(r² + h²), curved surface πrl.",
+    "A cone has one third of the volume of a cylinder with the same base and height.",
+    "Sphere: volume (4/3)πr³, surface 4πr².",
+    "Hemisphere: volume (2/3)πr³, curved 2πr², total 3πr²."
+   ]
+  },
+  {
+   "heading": "Scaling and recasting",
+   "lines": [
+    "Multiply every length by k: areas go up k² times, volumes k³ times.",
+    "Melting and recasting keeps the volume. A sphere of radius 6 makes (6 ÷ 2)³ = 27 spheres of radius 2.",
+    "A solid dropped into water raises the level by (solid's volume) ÷ (container's base area)."
+   ]
+  },
+  {
+   "heading": "Traps",
+   "lines": [
+    "1 litre = 1000 cm³, 1 m³ = 1000 litres.",
+    "Read whether the question asks for curved or total surface.",
+    "Use π = 22/7 when the numbers are multiples of 7."
+   ]
+  }
+ ]
+}

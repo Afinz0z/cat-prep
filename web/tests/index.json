@@ -307,6 +307,146 @@
     "topic": "qa-inequalities"
   },
   {
+    "id": "practice-qa-logs",
+    "title": "Indices and logarithms: practice set 1",
+    "kind": "practice",
+    "source": "original",
+    "sections": [
+      {
+        "name": "Logs",
+        "minutes": 12,
+        "count": 6
+      }
+    ],
+    "topic": "qa-logs"
+  },
+  {
+    "id": "practice2-qa-logs",
+    "title": "Indices and logarithms: practice set 2",
+    "kind": "practice",
+    "source": "original",
+    "sections": [
+      {
+        "name": "Logs",
+        "minutes": 12,
+        "count": 6
+      }
+    ],
+    "topic": "qa-logs"
+  },
+  {
+    "id": "practice-qa-progressions",
+    "title": "Progressions: practice set 1",
+    "kind": "practice",
+    "source": "original",
+    "sections": [
+      {
+        "name": "Progressions",
+        "minutes": 12,
+        "count": 6
+      }
+    ],
+    "topic": "qa-progressions"
+  },
+  {
+    "id": "practice2-qa-progressions",
+    "title": "Progressions: practice set 2",
+    "kind": "practice",
+    "source": "original",
+    "sections": [
+      {
+        "name": "Progressions",
+        "minutes": 12,
+        "count": 6
+      }
+    ],
+    "topic": "qa-progressions"
+  },
+  {
+    "id": "practice-qa-geometry",
+    "title": "Triangles, circles, polygons: practice set 1",
+    "kind": "practice",
+    "source": "original",
+    "sections": [
+      {
+        "name": "Geometry",
+        "minutes": 12,
+        "count": 6
+      }
+    ],
+    "topic": "qa-geometry"
+  },
+  {
+    "id": "practice2-qa-geometry",
+    "title": "Triangles, circles, polygons: practice set 2",
+    "kind": "practice",
+    "source": "original",
+    "sections": [
+      {
+        "name": "Geometry",
+        "minutes": 12,
+        "count": 6
+      }
+    ],
+    "topic": "qa-geometry"
+  },
+  {
+    "id": "practice-qa-mensuration",
+    "title": "Mensuration: practice set 1",
+    "kind": "practice",
+    "source": "original",
+    "sections": [
+      {
+        "name": "Mensuration",
+        "minutes": 12,
+        "count": 6
+      }
+    ],
+    "topic": "qa-mensuration"
+  },
+  {
+    "id": "practice2-qa-mensuration",
+    "title": "Mensuration: practice set 2",
+    "kind": "practice",
+    "source": "original",
+    "sections": [
+      {
+        "name": "Mensuration",
+        "minutes": 12,
+        "count": 6
+      }
+    ],
+    "topic": "qa-mensuration"
+  },
+  {
+    "id": "practice-qa-numbers",
+    "title": "Number system: practice set 1",
+    "kind": "practice",
+    "source": "original",
+    "sections": [
+      {
+        "name": "Numbers",
+        "minutes": 12,
+        "count": 6
+      }
+    ],
+    "topic": "qa-numbers"
+  },
+  {
+    "id": "practice2-qa-numbers",
+    "title": "Number system: practice set 2",
+    "kind": "practice",
+    "source": "original",
+    "sections": [
+      {
+        "name": "Numbers",
+        "minutes": 12,
+        "count": 6
+      }
+    ],
+    "topic": "qa-numbers"
+  },
+  {
     "id": "dilr-tables-1",
     "title": "Tables and charts: set 1",
     "kind": "practice",
@@ -424,6 +564,66 @@
       }
     ],
     "topic": "dilr-venn",
+    "difficulty": "medium"
+  },
+  {
+    "id": "dilr-routes-1",
+    "title": "Routes and networks: set 1",
+    "kind": "practice",
+    "source": "original",
+    "sections": [
+      {
+        "name": "DILR",
+        "minutes": 12,
+        "count": 4
+      }
+    ],
+    "topic": "dilr-routes",
+    "difficulty": "easy"
+  },
+  {
+    "id": "dilr-routes-2",
+    "title": "Routes and networks: set 2",
+    "kind": "practice",
+    "source": "original",
+    "sections": [
+      {
+        "name": "DILR",
+        "minutes": 12,
+        "count": 4
+      }
+    ],
+    "topic": "dilr-routes",
+    "difficulty": "medium"
+  },
+  {
+    "id": "dilr-games-1",
+    "title": "Games and tournaments: set 1",
+    "kind": "practice",
+    "source": "original",
+    "sections": [
+      {
+        "name": "DILR",
+        "minutes": 12,
+        "count": 4
+      }
+    ],
+    "topic": "dilr-games",
+    "difficulty": "easy"
+  },
+  {
+    "id": "dilr-games-2",
+    "title": "Games and tournaments: set 2",
+    "kind": "practice",
+    "source": "original",
+    "sections": [
+      {
+        "name": "DILR",
+        "minutes": 12,
+        "count": 4
+      }
+    ],
+    "topic": "dilr-games",
     "difficulty": "medium"
   },
   {

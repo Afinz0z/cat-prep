@@ -1,0 +1,76 @@
+{
+  "id": "practice-qa-progressions",
+  "title": "Progressions: practice set 1",
+  "topic": "qa-progressions",
+  "kind": "practice",
+  "source": "original",
+  "sourceNote": "Original practice questions written for this group. None of them is a CAT previous-year question.",
+  "strict": false,
+  "calculator": true,
+  "instructions": [
+    "6 questions, 12 minutes, CAT marking: +3 right, -1 wrong multiple choice, 0 for a wrong type-in answer.",
+    "Type-in answers take a number only: no %, ₹ or units. Use a decimal, not a fraction."
+  ],
+  "sections": [
+    {
+      "name": "Progressions",
+      "minutes": 12,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "tita",
+          "qtype": "ap-term",
+          "text": "What is the 7th term of the arithmetic progression 5, 9, 13, ...?"
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "qtype": "ap-sum",
+          "text": "What is the sum of all two-digit multiples of 7?",
+          "options": [
+            "728",
+            "735",
+            "686",
+            "784"
+          ]
+        },
+        {
+          "id": "q3",
+          "type": "tita",
+          "qtype": "gp-term",
+          "text": "In the progression 3, 6, 12, ..., which term is 384?"
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "qtype": "gp-infinite",
+          "text": "What is the sum to infinity of 12 + 6 + 3 + 1.5 + ...?",
+          "options": [
+            "21",
+            "24",
+            "36",
+            "18"
+          ]
+        },
+        {
+          "id": "q5",
+          "type": "tita",
+          "qtype": "series-sum",
+          "text": "What is 1² + 2² + 3² + ... + 10²?"
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "qtype": "ap-word",
+          "text": "Rohit saves ₹500 in the first month and each month saves ₹100 more than the month before. How much does he save in 12 months?",
+          "options": [
+            "₹13,200",
+            "₹11,600",
+            "₹12,600",
+            "₹7,100"
+          ]
+        }
+      ]
+    }
+  ]
+}

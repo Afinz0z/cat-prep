@@ -1,0 +1,76 @@
+{
+  "id": "practice-qa-mensuration",
+  "title": "Mensuration: practice set 1",
+  "topic": "qa-mensuration",
+  "kind": "practice",
+  "source": "original",
+  "sourceNote": "Original practice questions written for this group. None of them is a CAT previous-year question.",
+  "strict": false,
+  "calculator": true,
+  "instructions": [
+    "6 questions, 12 minutes, CAT marking: +3 right, -1 wrong multiple choice, 0 for a wrong type-in answer.",
+    "Type-in answers take a number only: no %, ₹ or units. Use a decimal, not a fraction."
+  ],
+  "sections": [
+    {
+      "name": "Mensuration",
+      "minutes": 12,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "tita",
+          "qtype": "cuboid",
+          "text": "A cuboid measures 12 cm × 8 cm × 5 cm. What is its total surface area, in cm²?"
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "qtype": "cube",
+          "text": "A cube has a volume of 216 cm³. How long is its longest diagonal?",
+          "options": [
+            "6√2 cm",
+            "6√3 cm",
+            "12 cm",
+            "18 cm"
+          ]
+        },
+        {
+          "id": "q3",
+          "type": "tita",
+          "qtype": "cylinder",
+          "text": "A cylindrical tank has radius 7 m and height 10 m. What is its volume in m³? Take π = 22/7."
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "qtype": "cone",
+          "text": "A cone has base radius 6 cm and height 8 cm. What is its curved surface area?",
+          "options": [
+            "60π cm²",
+            "48π cm²",
+            "96π cm²",
+            "36π cm²"
+          ]
+        },
+        {
+          "id": "q5",
+          "type": "tita",
+          "qtype": "recast",
+          "text": "A solid metal sphere of radius 8 cm is melted and recast into spheres of radius 2 cm. How many small spheres are made?"
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "qtype": "scaling",
+          "text": "Every edge of a cube is increased by 20%. By what percentage does its volume increase?",
+          "options": [
+            "60%",
+            "44%",
+            "20%",
+            "72.8%"
+          ]
+        }
+      ]
+    }
+  ]
+}

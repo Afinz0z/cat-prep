@@ -1,0 +1,49 @@
+{
+ "topic": "qa-progressions",
+ "title": "Progressions",
+ "blocks": [
+  {
+   "heading": "Arithmetic progression (AP)",
+   "lines": [
+    "a, a + d, a + 2d, ... The nth term is a + (n − 1)d.",
+    "Sum of n terms = n/2 × (2a + (n − 1)d) = n × (first + last) ÷ 2.",
+    "3 + 7 + ... + 99: d = 4, n = (99 − 3) ÷ 4 + 1 = 25, sum = 25 × 102 ÷ 2 = 1275.",
+    "Three terms in AP: take a − d, a, a + d. The middle term is the average."
+   ]
+  },
+  {
+   "heading": "Geometric progression (GP)",
+   "lines": [
+    "a, ar, ar², ... The nth term is ar^(n-1).",
+    "Sum of n terms = a(r^n − 1) ÷ (r − 1).",
+    "If r is between -1 and 1, the sum to infinity is a ÷ (1 − r): 1 + 1/2 + 1/4 + ... = 2.",
+    "Three terms in GP: the middle one squared equals the product of the other two."
+   ]
+  },
+  {
+   "heading": "Sums worth knowing",
+   "lines": [
+    "1 + 2 + ... + n = n(n + 1) ÷ 2. Up to 20 it's 210.",
+    "1² + 2² + ... + n² = n(n + 1)(2n + 1) ÷ 6.",
+    "1³ + 2³ + ... + n³ = (n(n + 1) ÷ 2)²."
+   ]
+  },
+  {
+   "heading": "Harmonic progression and means",
+   "lines": [
+    "An HP is a list whose reciprocals form an AP.",
+    "For two positive numbers: AM ≥ GM ≥ HM, and GM² = AM × HM.",
+    "AM = (a + b) ÷ 2, GM = √(ab), HM = 2ab ÷ (a + b)."
+   ]
+  },
+  {
+   "heading": "How CAT asks",
+   "lines": [
+    "Write the terms with a and d (or a and r) and turn each condition into an equation.",
+    "Bouncing ball: total distance = first drop + 2 × (sum of all the rebound heights).",
+    "\"How many terms\" can have two answers when terms turn negative. Check both.",
+    "The number of terms has to be a whole number."
+   ]
+  }
+ ]
+}

@@ -1,0 +1,40 @@
+{
+ "topic": "dilr-games",
+ "title": "Games and tournaments",
+ "blocks": [
+  {
+   "heading": "Knockouts",
+   "lines": [
+    "Every match knocks out one player, so n players need n − 1 matches.",
+    "With 2^k players there are k rounds. Otherwise give byes: byes = (next power of 2) − n.",
+    "In a standard draw of 2^k seeds, seed s plays seed 2^k + 1 − s in round 1: 1 v 16 in a 16-draw.",
+    "Two players can meet only in the round where their parts of the draw join."
+   ]
+  },
+  {
+   "heading": "Upsets",
+   "lines": [
+    "An upset is a match won by the lower seed.",
+    "To find the fewest upsets for a given result, look at each part of the draw the player must come through: if it holds a better seed, someone has to beat that seed."
+   ]
+  },
+  {
+   "heading": "Leagues (round robin)",
+   "lines": [
+    "Each pair meets once: n(n − 1) ÷ 2 matches, and each team plays n − 1.",
+    "With 2 points for a win and 1 each for a draw, every match gives 2 points in all.",
+    "With 3 for a win and 1 for a draw: total points = 3 × matches − number of draws.",
+    "Total wins = total losses, and total goals scored = total goals conceded."
+   ]
+  },
+  {
+   "heading": "Method",
+   "lines": [
+    "Build a team-by-team results table and fill the certain cells first.",
+    "Turn each team's points into its possible win-draw-loss mixes. 7 points from 3 matches at 3-1-0 can only be 2 wins and a draw.",
+    "\"Did not lose\" and \"won exactly one\" fix whole rows. Use them early.",
+    "When two cases survive, a question asking what must be true needs an answer true in both."
+   ]
+  }
+ ]
+}

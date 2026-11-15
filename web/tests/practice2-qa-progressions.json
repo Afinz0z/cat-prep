@@ -1,0 +1,76 @@
+{
+  "id": "practice2-qa-progressions",
+  "title": "Progressions: practice set 2",
+  "topic": "qa-progressions",
+  "kind": "practice",
+  "source": "original",
+  "sourceNote": "Original practice questions written for this group. None of them is a CAT previous-year question.",
+  "strict": false,
+  "calculator": true,
+  "instructions": [
+    "6 questions, 12 minutes, CAT marking: +3 right, -1 wrong multiple choice, 0 for a wrong type-in answer.",
+    "Type-in answers take a number only: no %, ₹ or units. Use a decimal, not a fraction."
+  ],
+  "sections": [
+    {
+      "name": "Progressions",
+      "minutes": 12,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "tita",
+          "qtype": "ap-term",
+          "text": "In an arithmetic progression the 4th term is 14 and the 10th term is 32. What is the 20th term?"
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "qtype": "ap-sum",
+          "text": "How many terms of 24, 21, 18, ... must be added to get a sum of 78?",
+          "options": [
+            "4 only",
+            "13 only",
+            "4 or 13",
+            "6"
+          ]
+        },
+        {
+          "id": "q3",
+          "type": "tita",
+          "qtype": "gp-term",
+          "text": "The 3rd term of a geometric progression is 12 and the 6th term is 96. What is the first term?"
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "qtype": "gp-ball",
+          "text": "A ball is dropped from a height of 81 m. Each time it hits the ground it rises to 2/3 of the height it fell from. What total distance does it travel before coming to rest?",
+          "options": [
+            "243 m",
+            "324 m",
+            "486 m",
+            "405 m"
+          ]
+        },
+        {
+          "id": "q5",
+          "type": "tita",
+          "qtype": "series-sum",
+          "text": "What is 1³ + 2³ + ... + 8³?"
+        },
+        {
+          "id": "q6",
+          "type": "mcq",
+          "qtype": "means",
+          "text": "Two positive numbers have an arithmetic mean of 25 and a geometric mean of 20. What are they?",
+          "options": [
+            "30 and 20",
+            "40 and 10",
+            "45 and 5",
+            "35 and 15"
+          ]
+        }
+      ]
+    }
+  ]
+}

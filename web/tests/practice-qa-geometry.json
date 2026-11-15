@@ -1,0 +1,76 @@
+{
+  "id": "practice-qa-geometry",
+  "title": "Triangles, circles, polygons: practice set 1",
+  "topic": "qa-geometry",
+  "kind": "practice",
+  "source": "original",
+  "sourceNote": "Original practice questions written for this group. None of them is a CAT previous-year question.",
+  "strict": false,
+  "calculator": true,
+  "instructions": [
+    "6 questions, 12 minutes, CAT marking: +3 right, -1 wrong multiple choice, 0 for a wrong type-in answer.",
+    "Type-in answers take a number only: no %, ₹ or units. Use a decimal, not a fraction."
+  ],
+  "sections": [
+    {
+      "name": "Geometry",
+      "minutes": 12,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "qtype": "triangle-angles",
+          "text": "In triangle ABC, angle A = 50° and angle B is 20° more than angle C. What is angle B?",
+          "options": [
+            "65°",
+            "75°",
+            "55°",
+            "85°"
+          ]
+        },
+        {
+          "id": "q2",
+          "type": "tita",
+          "qtype": "pythagoras",
+          "text": "A 13 m ladder leans against a wall with its foot 5 m from the wall. How high up the wall does it reach, in metres?"
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "qtype": "similar",
+          "text": "In triangle ABC, a line parallel to BC meets AB at D and AC at E. AD = 4 cm, DB = 6 cm and BC = 15 cm. What is DE?",
+          "options": [
+            "6 cm",
+            "10 cm",
+            "7.5 cm",
+            "9 cm"
+          ]
+        },
+        {
+          "id": "q4",
+          "type": "tita",
+          "qtype": "polygon",
+          "text": "Each interior angle of a regular polygon is 140°. How many sides does it have?"
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "qtype": "circle-chord",
+          "text": "A chord 16 cm long is 6 cm from the centre of a circle. What is the radius?",
+          "options": [
+            "8 cm",
+            "12 cm",
+            "10 cm",
+            "√28 cm"
+          ]
+        },
+        {
+          "id": "q6",
+          "type": "tita",
+          "qtype": "coordinate",
+          "text": "A triangle has vertices (0, 0), (6, 0) and (0, 8). What is its perimeter?"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "id": "practice-qa-logs",
+  "title": "Indices and logarithms: practice set 1",
+  "topic": "qa-logs",
+  "kind": "practice",
+  "source": "original",
+  "sourceNote": "Original practice questions written for this group. None of them is a CAT previous-year question.",
+  "strict": false,
+  "calculator": true,
+  "instructions": [
+    "6 questions, 12 minutes, CAT marking: +3 right, -1 wrong multiple choice, 0 for a wrong type-in answer.",
+    "Type-in answers take a number only: no %, ₹ or units. Use a decimal, not a fraction."
+  ],
+  "sections": [
+    {
+      "name": "Logs",
+      "minutes": 12,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "qtype": "indices",
+          "text": "What is the value of 27^(2/3) + 16^(3/4)?",
+          "options": [
+            "15",
+            "17",
+            "25",
+            "13"
+          ]
+        },
+        {
+          "id": "q2",
+          "type": "tita",
+          "qtype": "index-equation",
+          "text": "If 2^(x+3) = 8^(x-1), what is x?"
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "qtype": "log-rules",
+          "text": "What is log 25 + log 4, with logs to base 10?",
+          "options": [
+            "1",
+            "log 29",
+            "2",
+            "100"
+          ]
+        },
+        {
+          "id": "q4",
+          "type": "tita",
+          "qtype": "log-rules",
+          "text": "What is log₂(8) + log₃(81) − log₅(125)?"
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "qtype": "log-equation",
+          "text": "If logₓ(64) = 3/2, what is x?",
+          "options": [
+            "8",
+            "32",
+            "4",
+            "16"
+          ]
+        },
+        {
+          "id": "q6",
+          "type": "tita",
+          "qtype": "digits",
+          "text": "How many digits does 2³⁰ have? Take log₁₀ 2 as 0.301."
+        }
+      ]
+    }
+  ]
+}
