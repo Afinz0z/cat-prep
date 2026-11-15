@@ -1,0 +1,48 @@
+{
+  "id": "varc-parajumbles-2",
+  "title": "Para jumbles: set 2",
+  "topic": "varc-parajumbles",
+  "kind": "practice",
+  "source": "original",
+  "sourceNote": "An original set written for this group. It is not a CAT previous-year set.",
+  "strict": false,
+  "calculator": false,
+  "instructions": [
+    "5 questions, 12 minutes. CAT marking: +3 right, -1 wrong multiple choice, 0 for a wrong type-in answer.",
+    "Every question here is type-in, so a wrong answer costs nothing. Type the four sentence numbers in order with no spaces, for example 4132.",
+    "Find two sentences that have to go together before you look for the opener."
+  ],
+  "sections": [
+    {
+      "name": "VARC",
+      "minutes": 12,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "tita",
+          "text": "The four sentences below, put in the right order, make one paragraph. Type the order as four numbers.\n\n1. When that belief fails, as it did in Germany in 1923, people rush to spend their notes before they lose more value, and the rush itself destroys what value was left.\n\n2. A banknote is a strip of paper that is worth almost nothing as paper.\n\n3. It buys a meal because the seller expects that someone else will take it from her in turn, and that person expects the same of the next.\n\n4. Money, in this sense, is a chain of expectations, and like any chain it holds only as long as people believe in it."
+        },
+        {
+          "id": "q2",
+          "type": "tita",
+          "text": "The four sentences below, put in the right order, make one paragraph. Type the order as four numbers.\n\n1. A memory that recorded every face on every street and every word of every conversation would bury the few things that matter under the many that do not.\n\n2. Forgetting, on this view, is part of how memory works: it clears away detail so that patterns can be seen.\n\n3. We tend to think of forgetting as a failure, a leak in a system that ought to keep everything.\n\n4. Yet a mind that kept everything would hardly work at all."
+        },
+        {
+          "id": "q3",
+          "type": "tita",
+          "text": "The four sentences below, put in the right order, make one paragraph. Type the order as four numbers.\n\n1. The political scientist Elinor Ostrom spent much of her career testing this claim against the record.\n\n2. In 1968 the ecologist Garrett Hardin argued that a pasture open to all would be ruined, since each herder gains the whole benefit of adding a cow while the cost of overgrazing is shared by everyone.\n\n3. Her work on such rules, which won the Nobel prize in economics in 2009, showed that Hardin's tragedy can happen but need not.\n\n4. Ostrom found that many communities had long managed shared forests, fisheries and pastures without ruin, through rules they made and enforced themselves."
+        },
+        {
+          "id": "q4",
+          "type": "tita",
+          "text": "The four sentences below, put in the right order, make one paragraph. Type the order as four numbers.\n\n1. This is because a good translator rebuilds the feeling from whatever the new language offers: a phrase here, a change of rhythm there.\n\n2. Yet readers of translated Portuguese poems still feel that longing, which suggests the loss is smaller than the dictionary implies.\n\n3. The Portuguese \"saudade\", a longing for something absent that may never return, is the usual example.\n\n4. Every translator knows that some words have no exact equal in another language."
+        },
+        {
+          "id": "q5",
+          "type": "tita",
+          "text": "The four sentences below, put in the right order, make one paragraph. Type the order as four numbers.\n\n1. None of this had been predicted; the telescope simply showed more than the naked eye could.\n\n2. Later in the same century the microscope did the same for biology, revealing living things in a drop of pond water that no one had suspected were there.\n\n3. In both cases the instrument came first, and the questions it answered came later.\n\n4. When Galileo turned a telescope to the sky in 1609 and 1610, he saw mountains on the Moon and four moons circling Jupiter."
+        }
+      ]
+    }
+  ]
+}

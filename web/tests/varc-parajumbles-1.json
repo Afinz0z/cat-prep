@@ -1,0 +1,48 @@
+{
+  "id": "varc-parajumbles-1",
+  "title": "Para jumbles: set 1",
+  "topic": "varc-parajumbles",
+  "kind": "practice",
+  "source": "original",
+  "sourceNote": "An original set written for this group. It is not a CAT previous-year set.",
+  "strict": false,
+  "calculator": false,
+  "instructions": [
+    "5 questions, 12 minutes. CAT marking: +3 right, -1 wrong multiple choice, 0 for a wrong type-in answer.",
+    "Every question here is type-in, so a wrong answer costs nothing. Type the four sentence numbers in order with no spaces, for example 4132.",
+    "Find two sentences that have to go together before you look for the opener."
+  ],
+  "sections": [
+    {
+      "name": "VARC",
+      "minutes": 12,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "tita",
+          "text": "The four sentences below, put in the right order, make one paragraph. Type the order as four numbers.\n\n1. The railways changed that, because a timetable could not work if every station along the line kept a different hour.\n\n2. For most of history, every town kept its own time, setting its clocks by the moment the sun stood highest overhead.\n\n3. Railway companies therefore adopted one standard time along their lines, and governments later made such standards law.\n\n4. This caused little trouble as long as travel between towns was slow, since a difference of a few minutes went unnoticed on a journey of several days."
+        },
+        {
+          "id": "q2",
+          "type": "tita",
+          "text": "The four sentences below, put in the right order, make one paragraph. Type the order as four numbers.\n\n1. That is why some cities now paint roofs white and plant trees along their streets: the surest way to cool a city is to change its surfaces.\n\n2. The first is that concrete, brick and asphalt soak up sunlight by day and give it back slowly after dark; the second is that the city has too few trees and too little open ground to cool the air.\n\n3. On a summer night, the centre of a large city can be several degrees warmer than the farmland around it.\n\n4. Planners call this the urban heat island, and it has two main causes."
+        },
+        {
+          "id": "q3",
+          "type": "tita",
+          "text": "The four sentences below, put in the right order, make one paragraph. Type the order as four numbers.\n\n1. Researchers once treated this placebo effect as noise, something to subtract before measuring what a drug really does.\n\n2. If that is so, the way a doctor explains a treatment may matter more than medicine has assumed.\n\n3. In many drug trials, a sizeable share of the patients given dummy pills report that they feel better.\n\n4. More recent studies suggest it deserves study for its own sake, since expectation alone can change how much pain a patient feels."
+        },
+        {
+          "id": "q4",
+          "type": "tita",
+          "text": "The four sentences below, put in the right order, make one paragraph. Type the order as four numbers.\n\n1. Once one generation grows up without it, a language can live on for decades among the old and still be beyond saving.\n\n2. Most of them will not vanish in a war or a disaster.\n\n3. They will fade more quietly, as parents decide that their children will do better speaking the language of school and work.\n\n4. Linguists estimate that a large share of the world's roughly 7,000 languages could fall silent within this century."
+        },
+        {
+          "id": "q5",
+          "type": "tita",
+          "text": "The four sentences below, put in the right order, make one paragraph. Type the order as four numbers.\n\n1. The price of that accuracy is size: lands far from the equator are blown up, so that Greenland looks about as large as Africa, which is in fact some fourteen times bigger.\n\n2. A map, then, is a choice about which truth to keep, and the right choice depends on what the map is for.\n\n3. The best-known case is the Mercator projection, drawn in 1569 for sailors, which keeps compass directions true so that a straight line on it is a constant bearing.\n\n4. Every flat map of the world distorts something, because the surface of a sphere cannot be laid flat without stretching or tearing it."
+        }
+      ]
+    }
+  ]
+}

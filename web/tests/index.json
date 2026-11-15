@@ -525,6 +525,62 @@
     "topic": "varc-summary"
   },
   {
+    "id": "varc-parajumbles-1",
+    "title": "Para jumbles: set 1",
+    "kind": "practice",
+    "source": "original",
+    "sections": [
+      {
+        "name": "VARC",
+        "minutes": 12,
+        "count": 5
+      }
+    ],
+    "topic": "varc-parajumbles"
+  },
+  {
+    "id": "varc-parajumbles-2",
+    "title": "Para jumbles: set 2",
+    "kind": "practice",
+    "source": "original",
+    "sections": [
+      {
+        "name": "VARC",
+        "minutes": 12,
+        "count": 5
+      }
+    ],
+    "topic": "varc-parajumbles"
+  },
+  {
+    "id": "varc-completion-1",
+    "title": "Para completion: set 1",
+    "kind": "practice",
+    "source": "original",
+    "sections": [
+      {
+        "name": "VARC",
+        "minutes": 10,
+        "count": 5
+      }
+    ],
+    "topic": "varc-completion"
+  },
+  {
+    "id": "varc-completion-2",
+    "title": "Para completion: set 2",
+    "kind": "practice",
+    "source": "original",
+    "sections": [
+      {
+        "name": "VARC",
+        "minutes": 10,
+        "count": 5
+      }
+    ],
+    "topic": "varc-completion"
+  },
+  {
     "id": "daily-2026-11-14",
     "title": "Daily 5, Sat 14 Nov",
     "kind": "daily",

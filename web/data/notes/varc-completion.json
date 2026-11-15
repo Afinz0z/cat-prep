@@ -1,0 +1,41 @@
+{
+ "topic": "varc-completion",
+ "title": "Para completion: where the missing sentence goes",
+ "blocks": [
+  {
+   "heading": "The format",
+   "lines": [
+    "A sentence and a paragraph with four marked places, (1) to (4). Pick the place where the sentence fits best.",
+    "Multiple choice: +3 right, minus 1 wrong. Two in each CAT 2025 slot. About 2 minutes each."
+   ]
+  },
+  {
+   "heading": "The method",
+   "lines": [
+    "Read the missing sentence first. Note what it needs before it (a name it uses without introducing, \"this\", \"also\", \"however\") and what it sets up after it.",
+    "Read the paragraph once and say in a few words what each sentence does.",
+    "Test each place: read the sentence before, the missing sentence, then the sentence after. Both joins must work.",
+    "Check that putting it in doesn't break a link already there, such as a \"This\" that pointed to the sentence before."
+   ]
+  },
+  {
+   "heading": "Clues",
+   "lines": [
+    "A pronoun or \"this\" in the missing sentence: it goes right after the thing it points to.",
+    "A pronoun at the start of a paragraph sentence: the missing sentence may be the one that introduces it.",
+    "\"Also\" or \"too\" needs a similar point just before. \"Though\" or \"however\" needs the opposite point.",
+    "Dates and stages: the sentence goes where its time fits.",
+    "A general claim usually comes before its example, and an example before the lesson drawn from it."
+   ]
+  },
+  {
+   "heading": "Traps",
+   "lines": [
+    "The topic matching a place is not enough. The joins on both sides have to work.",
+    "Don't split a pair: if the next sentence starts with \"This\" and points back, nothing can go in between.",
+    "Two places still possible: pick the one where the sentence after needs the missing one.",
+    "Down to two: answer. Three still possible after 2 minutes: leave it blank."
+   ]
+  }
+ ]
+}

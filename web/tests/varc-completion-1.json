@@ -1,0 +1,78 @@
+{
+  "id": "varc-completion-1",
+  "title": "Para completion: set 1",
+  "topic": "varc-completion",
+  "kind": "practice",
+  "source": "original",
+  "sourceNote": "An original set written for this group. It is not a CAT previous-year set.",
+  "strict": false,
+  "calculator": false,
+  "instructions": [
+    "5 questions, 10 minutes. CAT marking: +3 right, -1 wrong multiple choice, 0 for a wrong type-in answer.",
+    "All five are multiple choice, so each wrong answer costs a mark. Skip a question if you are only guessing.",
+    "Read the missing sentence first and note what it needs just before it."
+  ],
+  "sections": [
+    {
+      "name": "VARC",
+      "minutes": 10,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "text": "The sentence below is missing from the paragraph that follows. Decide where it fits best: at (1), (2), (3) or (4).\n\nSentence: In California alone, more than a million hives are trucked in each year to pollinate the almond orchards.\n\nParagraph: (1) Roughly three quarters of the world's main food crops benefit to some degree from animals, mostly bees, carrying pollen from flower to flower. (2) For the biggest crops, farmers rent hives for the flowering season and move them from farm to farm. (3) This arrangement works only while the bees stay healthy, and in many countries the share of hives lost each winter has risen. (4) Wild bees could make up some of the gap, but they need hedges, wildflowers and untilled ground, the very things large farms tend to remove.",
+          "options": [
+            "At (1)",
+            "At (2)",
+            "At (3)",
+            "At (4)"
+          ]
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "text": "The sentence below is missing from the paragraph that follows. Decide where it fits best: at (1), (2), (3) or (4).\n\nSentence: Sleep, on this view, was simply rest, and the hours spent asleep were hours lost.\n\nParagraph: (1) For a long time sleep was thought of as the brain switching off. (2) Recordings of the sleeping brain told a different story: during deep sleep, the regions that store new memories replay the day's experiences, often faster than they happened. (3) The replay seems to matter, because students who sleep after learning a list of words remember more of it the next day than those who stay awake for the same number of hours. (4) An all-night revision session before an exam, in other words, may cost more than it gains.",
+          "options": [
+            "At (1)",
+            "At (2)",
+            "At (3)",
+            "At (4)"
+          ]
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "text": "The sentence below is missing from the paragraph that follows. Decide where it fits best: at (1), (2), (3) or (4).\n\nSentence: Martin Luther's tracts showed how fast this could happen: in 1517 his theses were reprinted across Germany within weeks.\n\nParagraph: (1) Before printing, a book had to be copied by hand, and a single copy could take a scribe months. Gutenberg's press, working in Mainz around 1450, cut that time to days and the cost to a fraction. (2) Within fifty years, presses in more than two hundred European towns had turned out millions of books. (3) More books meant more readers, and more quarrels, since a pamphlet could now reach thousands of people before anyone had time to answer it. (4)",
+          "options": [
+            "At (1)",
+            "At (2)",
+            "At (3)",
+            "At (4)"
+          ]
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "text": "The sentence below is missing from the paragraph that follows. Decide where it fits best: at (1), (2), (3) or (4).\n\nSentence: The partnership has a weakness, though: it holds only within a narrow range of water temperatures.\n\nParagraph: (1) Reef-building corals live in partnership with tiny algae that sit inside their tissues and supply most of their food. (2) When the water stays a degree or two warmer than usual for several weeks, the coral expels the algae. (3) Without them it turns white, which is why the event is called bleaching. (4) A bleached coral is not yet dead, and if the water cools in time the algae can return; if the heat lasts too long, the coral starves.",
+          "options": [
+            "At (1)",
+            "At (2)",
+            "At (3)",
+            "At (4)"
+          ]
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "text": "The sentence below is missing from the paragraph that follows. Decide where it fits best: at (1), (2), (3) or (4).\n\nSentence: The word \"serendipity\" was coined by the English writer Horace Walpole in a letter of 1754.\n\nParagraph: (1) He took it from a fairy tale, The Three Princes of Serendip, whose heroes, in Walpole's words, were \"always making discoveries, by accidents and sagacity, of things which they were not in quest of\". (2) For almost two centuries the word stayed rare, known mostly to collectors of curious words. (3) It spread in the twentieth century, when scientists began to use it for findings such as penicillin, which Alexander Fleming noticed when mould spoiled one of his culture plates. (4) Today it often means no more than good luck, which drops the half of Walpole's idea that mattered most: the finder had to be sharp enough to notice.",
+          "options": [
+            "At (1)",
+            "At (2)",
+            "At (3)",
+            "At (4)"
+          ]
+        }
+      ]
+    }
+  ]
+}

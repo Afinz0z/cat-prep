@@ -260,16 +260,28 @@
    "why": "Each 2025 slot had two type-in para jumbles and two completion MCQs. Both come down to how sentences link.",
    "learn": [
     {
-     "label": "Para jumble videos",
+     "label": "Para jumble videos and card",
      "href": "topics.html#varc-parajumbles"
     },
     {
-     "label": "Para completion videos",
+     "label": "Para completion videos and card",
      "href": "topics.html#varc-completion"
+    },
+    {
+     "label": "Para jumbles set 1",
+     "href": "test.html?id=varc-parajumbles-1"
+    },
+    {
+     "label": "Para completion set 1",
+     "href": "test.html?id=varc-completion-1"
     }
    ],
    "check": {
-    "self": "Ten para jumbles and completion questions from CAT 2021 to 2023 papers on Cracku, with 6 or more right. A site set for this step is on its way."
+    "tests": [
+     "varc-parajumbles-2",
+     "varc-completion-2"
+    ],
+    "target": 60
    }
   },
   {

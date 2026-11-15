@@ -3609,7 +3609,12 @@
           "checked": "captions",
           "embed": true
         }
-      ]
+      ],
+      "practice": [
+        "varc-parajumbles-1",
+        "varc-parajumbles-2"
+      ],
+      "notes": true
     },
     {
       "id": "varc-summary",
@@ -3792,7 +3797,12 @@
           "checked": "chapters",
           "embed": true
         }
-      ]
+      ],
+      "practice": [
+        "varc-completion-1",
+        "varc-completion-2"
+      ],
+      "notes": true
     },
     {
       "id": "varc-vocab",

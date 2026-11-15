@@ -1,0 +1,78 @@
+{
+  "id": "varc-completion-2",
+  "title": "Para completion: set 2",
+  "topic": "varc-completion",
+  "kind": "practice",
+  "source": "original",
+  "sourceNote": "An original set written for this group. It is not a CAT previous-year set.",
+  "strict": false,
+  "calculator": false,
+  "instructions": [
+    "5 questions, 10 minutes. CAT marking: +3 right, -1 wrong multiple choice, 0 for a wrong type-in answer.",
+    "All five are multiple choice, so each wrong answer costs a mark. Skip a question if you are only guessing.",
+    "Read the missing sentence first and note what it needs just before it."
+  ],
+  "sections": [
+    {
+      "name": "VARC",
+      "minutes": 10,
+      "questions": [
+        {
+          "id": "q1",
+          "type": "mcq",
+          "text": "The sentence below is missing from the paragraph that follows. Decide where it fits best: at (1), (2), (3) or (4).\n\nSentence: Building managers are said to have learned the same trick long ago, putting mirrors beside lift doors so that people waiting had something to look at.\n\nParagraph: (1) Waiting in a queue often feels longer than the clock says it is. (2) Studies of waiting suggest that idle time drags more than busy time, and that a wait of unknown length feels worse than a longer one whose end is in sight. (3) One airport cut complaints about slow baggage by making arriving passengers walk farther to the carousel: they spent more of the wait walking and less of it standing, though the bags came no sooner. (4)",
+          "options": [
+            "At (1)",
+            "At (2)",
+            "At (3)",
+            "At (4)"
+          ]
+        },
+        {
+          "id": "q2",
+          "type": "mcq",
+          "text": "The sentence below is missing from the paragraph that follows. Decide where it fits best: at (1), (2), (3) or (4).\n\nSentence: The name \"Silk Road\" is younger than most people assume: the German geographer Ferdinand von Richthofen coined it in 1877.\n\nParagraph: (1) The traders who used the routes he named had no single name for them, and few of them travelled more than a short stretch. (2) Goods moved in relays, passing from one merchant to the next at oasis towns and markets along the way. (3) Silk was only one cargo among many: horses, paper, glass and spices travelled the same paths, and so did religions and diseases. (4) A more accurate name might be a plural one, the silk roads: a web of routes with no single start or end.",
+          "options": [
+            "At (1)",
+            "At (2)",
+            "At (3)",
+            "At (4)"
+          ]
+        },
+        {
+          "id": "q3",
+          "type": "mcq",
+          "text": "The sentence below is missing from the paragraph that follows. Decide where it fits best: at (1), (2), (3) or (4).\n\nSentence: In 1950 the government turned to biology, releasing myxomatosis, a virus deadly to European rabbits.\n\nParagraph: In 1859 a settler in Victoria released two dozen rabbits on his estate so that he could hunt them. (1) With few predators and mild winters, they bred so fast that within a few decades they had spread across much of the continent. (2) Fences thousands of kilometres long failed to hold them back. (3) The virus killed the great majority of rabbits in its first years, but the survivors were those best able to resist it, and the numbers slowly recovered. (4)",
+          "options": [
+            "At (1)",
+            "At (2)",
+            "At (3)",
+            "At (4)"
+          ]
+        },
+        {
+          "id": "q4",
+          "type": "mcq",
+          "text": "The sentence below is missing from the paragraph that follows. Decide where it fits best: at (1), (2), (3) or (4).\n\nSentence: A placeholder of this kind is a convenience of writing: it says that nothing stands in that place, but you cannot calculate with it.\n\nParagraph: (1) Several ancient peoples, including the Babylonians and the Maya, used a mark to show an empty place in a number, much as we write the 0 in 205. (2) Treating zero as a number in its own right, one that could be added, subtracted and multiplied, was a further step. (3) In 628 the Indian mathematician Brahmagupta set out rules for doing just that, such as that a number minus itself is zero. (4) From India the idea passed to the Islamic world and, through Arabic texts, to Europe, where the new numerals met suspicion for centuries.",
+          "options": [
+            "At (1)",
+            "At (2)",
+            "At (3)",
+            "At (4)"
+          ]
+        },
+        {
+          "id": "q5",
+          "type": "mcq",
+          "text": "The sentence below is missing from the paragraph that follows. Decide where it fits best: at (1), (2), (3) or (4).\n\nSentence: Over the centuries, though, the minutes added up, and the spring equinox, which the Church used to fix the date of Easter, fell earlier and earlier in the calendar.\n\nParagraph: (1) The calendar Julius Caesar introduced assumed that a year lasts exactly 365 and a quarter days. (2) The true figure is about eleven minutes shorter, a gap too small to notice in a lifetime. (3) By 1582 the calendar was about ten days out, and Pope Gregory XIII ordered the ten days removed: in Catholic countries, 4 October was followed by 15 October. (4) Britain held out until 1752, by which time it had to drop eleven days.",
+          "options": [
+            "At (1)",
+            "At (2)",
+            "At (3)",
+            "At (4)"
+          ]
+        }
+      ]
+    }
+  ]
+}

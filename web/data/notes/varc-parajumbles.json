@@ -1,0 +1,50 @@
+{
+ "topic": "varc-parajumbles",
+ "title": "Para jumbles",
+ "blocks": [
+  {
+   "heading": "The format",
+   "lines": [
+    "Four jumbled sentences that make one paragraph. Type their order as a four-digit number, such as 4132.",
+    "Type-in answer, so a wrong answer costs nothing. Always type something.",
+    "Two in each CAT 2025 slot. Give each about 2 to 3 minutes."
+   ]
+  },
+  {
+   "heading": "The method",
+   "lines": [
+    "Read all four once and write a three to five word gist of each.",
+    "Find pairs you can prove. A pair is two sentences where the second can't stand without the first.",
+    "Join the pairs into one chain, then find the opener: the sentence that refers back to nothing.",
+    "Read the whole order once. If every join holds, type it."
+   ]
+  },
+  {
+   "heading": "Clues that prove a pair",
+   "lines": [
+    "A pronoun or \"this\", \"that\", \"such\" and the thing it points to.",
+    "A full name before the surname alone: \"Elinor Ostrom\" comes before \"Ostrom\".",
+    "A term introduced before it is used, and a general claim before its example.",
+    "\"However\", \"yet\" or \"but\" right after the view it turns against.",
+    "Dates and the order things happened in."
+   ]
+  },
+  {
+   "heading": "Openers and closers",
+   "lines": [
+    "The opener names its subject in full and doesn't lean on anything before it.",
+    "A sentence starting with This, But, Hence or Yet almost never opens.",
+    "The closer is often a conclusion (therefore, then, in short) or a consequence. Don't hunt for it first: pairs are more reliable."
+   ]
+  },
+  {
+   "heading": "Traps",
+   "lines": [
+    "Connecting words alone can mislead. Check that the meaning follows as well as the wording.",
+    "Two sentences that could each open: pick the one the other refers to.",
+    "A pair that reads well but leaves the other two with no place to go is the wrong pair.",
+    "After 3 minutes, type the order with the most proven pairs and move on."
+   ]
+  }
+ ]
+}

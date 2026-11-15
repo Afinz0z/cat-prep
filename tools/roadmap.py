@@ -137,8 +137,11 @@ STEPS = [
          gain=(tita(2, 0.25) + mcq(2, 0.35), tita(2, 0.45) + mcq(2, 0.5)),
          topics=["varc-parajumbles", "varc-completion"],
          why="Each 2025 slot had two type-in para jumbles and two completion MCQs. Both come down to how sentences link.",
-         learn=[topic("varc-parajumbles", "Para jumble videos"), topic("varc-completion", "Para completion videos")],
-         check={"self": "Ten para jumbles and completion questions from CAT 2021 to 2023 papers on Cracku, with 6 or more right. A site set for this step is on its way."}),
+         learn=[topic("varc-parajumbles", "Para jumble videos and card"), topic("varc-completion", "Para completion videos and card"),
+                test("varc-parajumbles-1", "Para jumbles set 1"), test("varc-completion-1", "Para completion set 1")],
+         # 60% here, below the other Verbal checks: para jumbles are among the hardest
+         # Verbal questions, and the gain above assumes 25 to 45% on them.
+         check={"tests": ["varc-parajumbles-2", "varc-completion-2"], "target": 60}),
     dict(id="rc-four", section="VARC", title="Reading comprehension: the fourth passage", hours=3,
          gain=(1.0, 4.0), topics=["varc-rc"],
          why="Four more questions, but only once three passages take you under 28 minutes. Speed comes from timed practice, not new theory.",

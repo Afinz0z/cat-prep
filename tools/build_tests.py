@@ -22,7 +22,7 @@ TESTS = ROOT / "web" / "tests"
 TOPIC_ORDER = ["qa-percentages", "qa-ratio", "qa-averages", "qa-profit-loss", "qa-interest",
                "qa-tsd", "qa-work", "qa-linear", "qa-quadratic", "qa-inequalities",
                "dilr-tables", "dilr-arrangements", "dilr-grouping", "dilr-venn",
-               "varc-rc", "varc-odd-one", "varc-summary"]
+               "varc-rc", "varc-odd-one", "varc-summary", "varc-parajumbles", "varc-completion"]
 DAILY_TOPICS = TOPIC_ORDER[:10]
 
 
