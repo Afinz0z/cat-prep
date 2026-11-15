@@ -1,0 +1,39 @@
+{
+ "topic": "varc-summary",
+ "title": "Para summary",
+ "blocks": [
+  {
+   "heading": "The format",
+   "lines": [
+    "A paragraph of about 100 to 150 words and four options. Pick the one that best captures its point.",
+    "Multiple choice: +3 right, minus 1 wrong. About 2 minutes each."
+   ]
+  },
+  {
+   "heading": "The method",
+   "lines": [
+    "Before the options, write the point in one sentence of your own: who or what, the main claim, and any condition on it.",
+    "Find the turn (but, however, yet, in fact). The summary has to keep the side of the turn the author is on.",
+    "Read the options and cut, using the list below. Then compare the last two with your own sentence."
+   ]
+  },
+  {
+   "heading": "Options to cut",
+   "lines": [
+    "Adds something the paragraph doesn't say: a new cause, a solution, a recommendation.",
+    "Changes the scope: some becomes all, may becomes will, one country becomes everywhere.",
+    "Keeps only the example or one detail and loses the claim.",
+    "Reverses the relation: cause and effect swapped, or the author's view flipped.",
+    "Copies many of the paragraph's words but changes one link between them. Check those closely."
+   ]
+  },
+  {
+   "heading": "Between the last two",
+   "lines": [
+    "Pick the one that would tell someone who hadn't read the paragraph what it argues.",
+    "Prefer the one that keeps the paragraph's limits (in some cases, may, often).",
+    "Down to two: answer. Three still possible after 2 minutes: leave it blank."
+   ]
+  }
+ ]
+}

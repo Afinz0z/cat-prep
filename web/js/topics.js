@@ -78,10 +78,12 @@ function videoItem(v, isNext) {
     el("p", { class: "small" }, box, el("label", { for: `v-${v.id}` }, " Watched (5 points)")));
 }
 
+const cardLabel = (t) => (t.section === "QA" ? "Formula card" : "Method card");
+
 async function toggleNotes(topic, host, button) {
   if (host.childElementCount) {
     host.replaceChildren();
-    button.textContent = "Formula card";
+    button.textContent = cardLabel(topic);
     return;
   }
   try {
@@ -160,7 +162,7 @@ function topicBlock(t) {
   const g = progress.group[t.id] || { basic: 0, catLevel: 0 };
   const nv = t.videos.length ? nextVideo(t) : null;
   const notesHost = el("div");
-  const notesBtn = t.notes ? el("button", { type: "button", class: "btn small" }, "Formula card") : null;
+  const notesBtn = t.notes ? el("button", { type: "button", class: "btn small" }, cardLabel(t)) : null;
   notesBtn?.addEventListener("click", () => toggleNotes(t, notesHost, notesBtn));
   const workedHost = el("div");
   const workedBtn = t.worked ? el("button", { type: "button", class: "btn small" }, "Worked examples") : null;

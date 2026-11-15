@@ -3413,7 +3413,8 @@
         "varc-rc-1",
         "varc-rc-2",
         "varc-rc-3"
-      ]
+      ],
+      "notes": true
     },
     {
       "id": "varc-odd-one",
@@ -3504,7 +3505,8 @@
       "practice": [
         "varc-odd-one-1",
         "varc-odd-one-2"
-      ]
+      ],
+      "notes": true
     },
     {
       "id": "varc-parajumbles",
@@ -3706,7 +3708,8 @@
       "practice": [
         "varc-summary-1",
         "varc-summary-2"
-      ]
+      ],
+      "notes": true
     },
     {
       "id": "varc-completion",

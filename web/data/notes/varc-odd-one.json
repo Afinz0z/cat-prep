@@ -1,0 +1,41 @@
+{
+ "topic": "varc-odd-one",
+ "title": "Odd sentence out",
+ "blocks": [
+  {
+   "heading": "The format",
+   "lines": [
+    "Five jumbled sentences. Four make one paragraph; type the number of the one that doesn't fit.",
+    "Type-in answer, so a wrong answer costs nothing. Always type something.",
+    "Two in every CAT 2024 and 2025 paper. Give each about 3 minutes."
+   ]
+  },
+  {
+   "heading": "The method",
+   "lines": [
+    "Read all five once and write a three to five word gist of each.",
+    "Find links you can prove: a pronoun (this, they, such) and what it points to; a term defined in one sentence and used in another; \"for example\" after the claim it supports.",
+    "Build the chain of four from those links. The sentence left over is the answer.",
+    "Read the four in order once. If it flows without a gap, you're done."
+   ]
+  },
+  {
+   "heading": "What usually makes a sentence the odd one",
+   "lines": [
+    "Same topic, different focus: the paragraph is about causes and this sentence is about effects, or the paragraph is about one country and this sentence is about the world.",
+    "It needs a missing sentence to connect to the others.",
+    "A change of register: a personal story among general claims, or a statistic with nothing that leads to it.",
+    "It contradicts the chain's conclusion without being set up as a contrast."
+   ]
+  },
+  {
+   "heading": "Traps",
+   "lines": [
+    "Don't pick the sentence with the hardest words. The odd one is usually easy to read and on topic.",
+    "Don't drop a sentence because it starts with However or This. Find what it refers to first.",
+    "Two candidates: remove each in turn and read the other four. The right answer leaves no gap.",
+    "After 3 minutes, type your best candidate and move on."
+   ]
+  }
+ ]
+}

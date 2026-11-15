@@ -1,0 +1,66 @@
+{
+ "topic": "varc-rc",
+ "title": "Reading comprehension: the method",
+ "blocks": [
+  {
+   "heading": "The format",
+   "lines": [
+    "4 passages of about 400 to 600 words, 4 questions each: 16 of the 24 VARC questions.",
+    "All multiple choice: +3 right, minus 1 wrong.",
+    "Start with 3 passages at about 9 minutes each. The fourth only pays once three take under 28 minutes."
+   ]
+  },
+  {
+   "heading": "1. Pick the passage (30 seconds each)",
+   "lines": [
+    "Read the first two lines and the four question stems.",
+    "Prefer a topic you can follow and questions that point to the text (\"according to the passage\", a quoted phrase).",
+    "Leave for last the passage whose first lines you had to read twice."
+   ]
+  },
+  {
+   "heading": "2. Read once, for the structure (3 to 4 minutes)",
+   "lines": [
+    "After each paragraph, say in five words what it does: \"old view\", \"attacks it\", \"an example\", \"author's answer\".",
+    "Mark the author's own position. Words like however, yet, surprisingly, it is doubtful show where it is.",
+    "Don't stop to learn details. A question will send you back to them."
+   ]
+  },
+  {
+   "heading": "3. Answer each question (about 1 minute)",
+   "lines": [
+    "Name the type: detail, inference, main idea or purpose, the author's view or tone, EXCEPT, or apply to a new case.",
+    "For main idea and tone, say your answer in your own words before you read the options.",
+    "For detail and inference, go back to the lines it refers to and read the sentence before and after.",
+    "Cut options, don't hunt for the right one. Down to two, find the one word in each that the passage doesn't support."
+   ]
+  },
+  {
+   "heading": "Options that are usually wrong",
+   "lines": [
+    "True in the real world, but not said in the passage.",
+    "Half right: the first part matches, the second part adds or reverses something.",
+    "Too strong: always, only, never, entirely, when the passage hedges.",
+    "Too narrow: one paragraph's point offered as the main idea. Or too broad: a whole field when the passage covers one case.",
+    "A view the author reports from others, offered as the author's own.",
+    "Two parts of the passage joined into a claim it never makes, such as a cause it doesn't state."
+   ]
+  },
+  {
+   "heading": "When to answer and when to leave it",
+   "lines": [
+    "Answer when you're down to two options: on average that gains marks.",
+    "Leave it blank when three or four still look possible after a minute.",
+    "If a passage's first two questions both stall you, leave it and use the time on the next passage."
+   ]
+  },
+  {
+   "heading": "After each practice passage",
+   "lines": [
+    "For every miss, write which wrong-option type caught you.",
+    "For every right answer, say which line proves it. A lucky guess counts as a miss.",
+    "Two weeks of this does more than reading extra passages without review."
+   ]
+  }
+ ]
+}
