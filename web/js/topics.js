@@ -65,6 +65,7 @@ function videoItem(v, isNext) {
   return el("li", { class: `${v.role}${isNext ? " next" : ""}` },
     isNext ? el("p", { class: "small" }, el("strong", {}, "Watch this next")) : null,
     el("a", { class: "vt", href: watchUrl(v.id, start), target: "_blank", rel: "noopener" }, v.title),
+    v.summary ? el("p", { class: "vsum" }, v.summary) : null,
     el("p", { class: "muted small" },
       `${v.channel}, ${fmtLen(v.durationSec)}, ${v.language}. `,
       v.role === "primary" ? "Main pick. " : v.role === "backup" ? "Backup if the main one doesn't suit you. " : "Extra for a gap. ",

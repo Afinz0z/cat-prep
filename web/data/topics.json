@@ -65,6 +65,7 @@
             }
           ],
           "gaps": "",
+          "summary": "Starts with why percentages exist, comparing scores out of different bases, then builds the fraction-to-percentage table up to 1/20 and shows how to split a percentage into easy parts for mental sums. Goes on to percentage change, percentage points, multiplying factors, price and consumption, and successive change with a+b+ab/100, ending with mixed CAT-style questions. Assumes no background. The last two minutes promote courses and test series.",
           "checked": "captions",
           "embed": true
         },
@@ -79,11 +80,20 @@
           "watch": "all",
           "covers": [
             {
-              "t": "0:00",
-              "what": "Fractions to percentages"
+              "t": "1:42",
+              "what": "Fraction to percentage table from 1/2 to 1/19"
+            },
+            {
+              "t": "15:28",
+              "what": "Deriving values such as 37.5% and 18.75% from the table"
+            },
+            {
+              "t": "21:40",
+              "what": "Harder problems, then multiplying factors for increase and decrease"
             }
           ],
           "gaps": "Percentage points are not covered.",
+          "summary": "Builds the fraction-to-percentage table from 1/2 to 1/19 by tying each value to an earlier one, such as 1/12 as half of 1/6, and approximates the harder ones like 1/17 and 1/19. Then derives 37.5, 18.75, 83.33, 43.75 and 56.25 percent from the table and applies them to numbers like 640 and 176. Closes with multiplying factors for increase and decrease, cut off where the video says it continues next time.",
           "checked": "captions",
           "embed": true
         },
@@ -98,15 +108,28 @@
           "watch": "all",
           "covers": [
             {
-              "t": "7:41",
-              "what": "Base change"
+              "t": "0:00",
+              "what": "A number cut by 16.66% three times, with the factor 5/6"
             },
             {
-              "t": "14:50",
-              "what": "Price times consumption"
+              "t": "4:04",
+              "what": "Percentage change depends on the starting value"
+            },
+            {
+              "t": "9:59",
+              "what": "The n/D rule: up by n/D means the other falls by n/(D+n)"
+            },
+            {
+              "t": "12:20",
+              "what": "A is 40% more than B"
+            },
+            {
+              "t": "14:00",
+              "what": "Price and consumption at constant expenditure"
             }
           ],
           "gaps": "Percentage points are not covered.",
+          "summary": "Opens with a number cut by 16.66% three times, solved with the multiplying factor 5/6. Then shows that percentage change depends on the starting value and builds the n/D rule: if one quantity rises by n/D, the other falls by n/(D+n), and the reverse by subtracting n from the denominator. Applies it to A being 40% more than B and to price against consumption at constant expenditure. Short and concept-led, with few questions.",
           "checked": "captions",
           "embed": true
         },
@@ -122,10 +145,23 @@
           "covers": [
             {
               "t": "0:00",
-              "what": "Successive percentage change"
+              "what": "Successive percentage change explained"
+            },
+            {
+              "t": "3:28",
+              "what": "Successive increases and decreases"
+            },
+            {
+              "t": "9:55",
+              "what": "Special percentage values and multiplying factors"
+            },
+            {
+              "t": "17:19",
+              "what": "Approximating the net change"
             }
           ],
           "gaps": "No captions, so only the chapter list was checked.",
+          "summary": "Introduces successive percentage change, then works through successive increases and decreases to find the net change. From about ten minutes in it moves to special percentage values that match simple fractions, handled with multiplying factors, and ends on approximating the net change. It is part 8 of Rodha's arithmetic course, so it follows the fractions video and comes before the percentage increase and decrease video.",
           "checked": "chapters",
           "embed": true
         }
@@ -177,9 +213,14 @@
             {
               "t": "24:48",
               "what": "Milk and water"
+            },
+            {
+              "t": "25:00",
+              "what": "Money passed from A to B to C, then petrol and kerosene across three vessels"
             }
           ],
           "gaps": "No ages problems.",
+          "summary": "Explains a ratio as a pattern of sharing with the real amounts as a common multiple, then splits 1296 in 3:2:1 and a fractional ratio using the LCM. Combines ratios by cross-multiplying, makes one quantity equal across two ratios in partner-profit and car-count questions, and handles fixed-total and equal-difference changes. Then partnership as money times time, direct and inverse variation, and mixture questions. Mostly fast CAT-style questions, light on theory.",
           "checked": "captions",
           "embed": true
         },
@@ -193,6 +234,10 @@
           "role": "primary",
           "watch": "all",
           "covers": [
+            {
+              "t": "0:00",
+              "what": "Ratio against a fraction of the whole, and equalities like a/8 = b/6 = c/7"
+            },
             {
               "t": "6:51",
               "what": "Combining ratios"
@@ -211,6 +256,7 @@
             }
           ],
           "gaps": "Skips variation; Session 13 covers it.",
+          "summary": "Starts with the difference between a ratio and a fraction of the whole, then turns a/8 = b/6 = c/7 style equalities and fractional ratios into whole numbers using the LCM. Combines two ratios by cross-multiplying with the shared term in the middle. Then solves worked questions: ages after four years, splitting 279, pens, pencils and erasers with a given difference, sharing 666 by two methods, and an apples question. Slow and basics first. Proportion and variation are left for later videos.",
           "checked": "captions",
           "embed": true
         },
@@ -226,10 +272,27 @@
           "covers": [
             {
               "t": "0:00",
-              "what": "Direct and inverse variation"
+              "what": "Direct variation"
+            },
+            {
+              "t": "2:52",
+              "what": "Inverse variation"
+            },
+            {
+              "t": "5:31",
+              "what": "Bulb light against wattage and length"
+            },
+            {
+              "t": "9:03",
+              "what": "Pearl necklace priced on the square of its pearls"
+            },
+            {
+              "t": "12:08",
+              "what": "Walking speed and lateness, then the gold coin"
             }
           ],
           "gaps": "",
+          "summary": "Defines direct variation (a1/a2 = b1/b2, or a = kb) and inverse variation, checking each by cross-multiplying versus straight multiplying on a women-and-bags and a men-and-days question. Then solves four longer questions: bulb area against wattage and length, a pearl necklace priced on the square of its pearls using the k method, a walking-speed and lateness problem, and gold coin value against radius cubed and thickness. Starts easy and ends at CAT level.",
           "checked": "captions",
           "embed": true
         }
@@ -280,6 +343,7 @@
             }
           ],
           "gaps": "Average by deviation from an assumed mean is not confirmed. Weighted average, alligation and repeated replacement are not here (see the second primary and the extra). Part of a series: Averages 1 comes first (middle term of an AP).",
+          "summary": "Starts with a missing-digit average problem built on a series of nines, then finds the average of monthly sales that rise in an arithmetic progression. From about 14 minutes it handles group changes without writing equations, ending with a new person joining a group and moving the average. It is part 17 of Rodha's arithmetic course, so averages 1 comes first.",
           "checked": "chapters",
           "embed": true
         },
@@ -323,6 +387,7 @@
             }
           ],
           "gaps": "Repeated replacement (removing and replacing a part of a mixture more than once) is not covered. Average by deviation from an assumed mean and adding or removing members are not covered here (use the Rodha averages video).",
+          "summary": "Starts from mixing milk and water to introduce a quantity (the weight) and a value, then builds the cross method on x minus a and b minus x, set equal to the ratio of weights. Applies it to two solutions of 10 and 20 litres, rice at two prices, two alloys by gold fraction and class heights to find a class size. Ends with a hard three-component solution question. Slow and concept-first. Repeated replacement is not touched.",
           "checked": "captions",
           "embed": true
         },
@@ -358,6 +423,7 @@
             }
           ],
           "gaps": "Does not cover averages by assumed mean, adding or removing members, or repeated replacement. It continues from Alligation 1 (seesaw method, id 3LmRyBpIhgQ, 31:47), which a beginner may want first.",
+          "summary": "Derives the alligation ratio from the weighted average of two quantities, giving Q1/Q2 = (P2 − P)/(P − P1). Then compares three ways of finding a mix price: the equation, the distance method and the direct weighted average, and shows the distance method (weight ratio is the inverse of distance ratio) as the fastest. Worked on rice at 30 and 50 in 3:1 and on sugar at 60 and 90 mixed to 78. Only two full questions, with more promised in the next videos.",
           "checked": "captions",
           "embed": true
         },
@@ -381,7 +447,8 @@
             }
           ],
           "gaps": "Formula-first, so best after the alligation video. Not checked for beginner-level pacing.",
-          "checked": "chapters",
+          "summary": "States the repeated replacement formula, new concentration = C times ((V − X)/V) to the power n, using 80% milk in 100 litres with 10 litres swapped for water three times, then gives the same thing in fraction form. Solves one question: one third removed and replaced with milk, then one third replaced with water, final milk to water 1:2, find the original milk percentage by working backwards. Formula-first and brisk, with a single question.",
+          "checked": "captions",
           "embed": true
         }
       ],
@@ -423,6 +490,7 @@
             }
           ],
           "gaps": "False weights are not here (see the extra). Chapter titles are generic, so the exact order of CP, SP, MP and markup is not confirmed. Series video 1 of 4; pair with Profit and Loss 2.",
+          "summary": "Opens with the definitions of cost price, selling price and mark price, then profit, loss and discount percentages and how mark price, selling price and discount relate. From about 12 minutes it solves profit and loss problems, and a longer case study begins near 24 minutes. It is part 10 of Rodha's arithmetic course and the first of the profit and loss videos, with successive discounts in the next one.",
           "checked": "chapters",
           "embed": true
         },
@@ -453,7 +521,8 @@
               "what": "Special fraction values in profit and loss"
             }
           ],
-          "gaps": "False weights are not here (see the extra). Markup then discount is implied by the title but not confirmed by chapters.",
+          "gaps": "False weights are not here (see the extra). The description says the middle question combines a markup with successive discounts.",
+          "summary": "Starts with working out a selling price after successive discounts using multiplying factors, then extends to several discounts in a row. The middle section is a profit and loss question that combines markup with successive discounts to find the profit or loss percentage. The last five minutes cover special fraction values such as 16.66%, 37.5% and 18.75% in profit and loss. Part 11 of Rodha's arithmetic course, following Profit and Loss 1.",
           "checked": "chapters",
           "embed": true
         },
@@ -485,6 +554,7 @@
             }
           ],
           "gaps": "Auto-captions are garbled Hindi, so these times are approximate and the topics are guesses from sampled lines. Successive discounts and false weights are not confirmed. Part 2 (id WFa-BqarJPs, 31:58) was checked by metadata only. About the first minute is a channel welcome.",
+          "summary": "Defines cost price, selling price and marked price, then profit, loss and discount (always on marked price). Turns profit and loss percent into fractions of cost price, so 20 percent profit becomes cost to selling price of 5 to 6. The second half is basic questions, such as profit on cost versus on selling price and 25 articles bought against 20 sold. Assumes Percentages is done first.",
           "checked": "captions",
           "embed": true
         },
@@ -496,7 +566,7 @@
           "uploadDate": "2019-02-23",
           "language": "English",
           "role": "extra",
-          "watch": "19:20 to 30:50",
+          "watch": "19:20 to 38:00",
           "covers": [
             {
               "t": "19:20",
@@ -509,9 +579,14 @@
             {
               "t": "28:15",
               "what": "Combining the effects as successive changes with multiplying factors"
+            },
+            {
+              "t": "30:50",
+              "what": "Faulty weight with a 40 percent markup and a 40 percent discount (5 percent profit)"
             }
           ],
-          "gaps": "Fills only the false-weights gap. The rest of this video is practice that assumes Parts 1 and 2; it begins mid-problem with no recap.",
+          "gaps": "Fills the false-weights gap. The first 19 minutes are discount and markup practice that assumes Parts 1 and 2, starting mid-problem with no recap.",
+          "summary": "Opens with a markup-from-discount equation (also solved by options), cake packs with a free cake, and an orange question with the markup halved. From about 19 minutes, covers a shopkeeper using an 800 g weight for 1 kg, then adds a 40 percent markup and a 40 percent discount, solved with multiplying factors. Starts mid-problem with no recap, so do Parts 1 and 2 first.",
           "checked": "captions",
           "embed": false
         }
@@ -558,6 +633,7 @@
             }
           ],
           "gaps": "Half-yearly compounding is not in the chapters. Instalments come in Part 3 (extra).",
+          "summary": "Contrasts simple and compound interest at the start, then shows how compound interest earns interest on interest. The later chapters find the principal from simple-interest amounts and calculate principal and interest with SI. The description also lists doubling and tripling of money under both kinds of interest. The compound-interest formula and half-yearly compounding are not in the chapter list.",
           "checked": "chapters",
           "embed": true
         },
@@ -585,7 +661,7 @@
             },
             {
               "t": "17:51",
-              "what": "20 percent twice gives 21 percent (multiplying factor idea)"
+              "what": "Two rate questions: interest of 20 then 24, and 560 then 616 (10 percent)"
             },
             {
               "t": "23:19",
@@ -593,10 +669,11 @@
             },
             {
               "t": "24:58",
-              "what": "Extending the difference to the third year"
+              "what": "Warns against using the two-year difference formula for year three"
             }
           ],
           "gaps": "Half-yearly compounding was not seen. It starts mid-problem after 40 seconds of music, so it leans on Part 1. Instalments are in Part 3.",
+          "summary": "Starts with two simple-interest questions on a sum split in three parts (equal amounts, then equal interest), solved by ratios and units. Then reads the rate from two successive years of compound interest (interest of 20 then 24 gives 20 percent) and derives the two-year CI minus SI difference, PR squared over 10 to the 4, with a warning against using it for three years. Concept-heavy, little practice.",
           "checked": "captions",
           "embed": true
         },
@@ -640,6 +717,7 @@
             }
           ],
           "gaps": "Fast and exam-level, so harder for beginners. The half-yearly point is a brief mention, not a worked example that I could confirm. The last minute is a Plus or Iconic subscription plug (about 30:56).",
+          "summary": "Sorts interest questions into three types, then gives the multiplier table for two and three years (10 percent twice is 21 percent) and the rule of 72. Solved questions follow: SI against CI, a CAT 2018 borrowing question, growth between years from given interest, and instalments by present and future value. The first half is mostly Hindi, the rest mostly English, and a subscription plug closes it.",
           "checked": "captions",
           "embed": true
         },
@@ -671,6 +749,7 @@
             }
           ],
           "gaps": "Chapters only; whether it covers compound-interest instalments was not confirmed.",
+          "summary": "Opens with simple-interest instalments, then defines debt as loan plus interest and shows how to find the loan amount from the total debt and rate. From about 9 minutes it covers the instalment idea and common mistakes, and from about 17 minutes the future value idea, which the description says gives a faster route than the standard formula. Compound-interest instalments are not listed.",
           "checked": "chapters",
           "embed": true
         }
@@ -725,11 +804,12 @@
             },
             {
               "t": "23:56",
-              "what": "Advanced and exam-level practice, including a return-trip average speed"
+              "what": "More basic questions, including a home to office round trip"
             }
           ],
-          "gaps": "Races, circular tracks and head start are listed in the description but were not seen in the transcript of either part. Pair with Part 2.",
-          "checked": "chapters",
+          "gaps": "The intro and description promise races, circular tracks and head starts, but neither part covers them. Relative speed, trains and boats are in Part 2.",
+          "summary": "Builds distance = speed × time from what varies with what, then converts km/h to m/s with the 5/18 factor. Defines average speed as total distance over total time and derives 2ab/(a+b) for equal distances and (a+b)/2 for equal times. Ends with six basic solved questions on mixed units and two-leg averages, from zero level. The intro lists trains, boats and races, but this part stops at average speed.",
+          "checked": "captions",
           "embed": true
         },
         {
@@ -768,7 +848,8 @@
             }
           ],
           "gaps": "Same gap as Part 1: races and circular tracks are not covered. Boat practice is only one question.",
-          "checked": "chapters",
+          "summary": "Builds relative speed from a 10 m gap between two people: subtract speeds in the same direction, add them in opposite directions. Treats effective speed with escalators and boats, giving u + v downstream and u − v upstream. Then covers trains crossing a pole or man, a platform, and another train, before three short solved questions: two trains in opposite directions, a train passing a walking man, and a boat's two travel times. Mostly concept, basic level.",
+          "checked": "captions",
           "embed": true
         },
         {
@@ -819,6 +900,7 @@
             }
           ],
           "gaps": "47:05 long, slightly over the limit. Concepts take only the first 5 minutes, then it is exam questions at speed, so tougher for beginners. Races and circular tracks are not covered. A subscription plug is near the end (about 46:54).",
+          "summary": "Lists six question types in the first five minutes: basic relation, average speed with its two special cases, proportionality, relative speed, trains and boats. The rest is about a dozen past CAT questions solved in 60 to 90 seconds each, one by testing options and one boat question where an algebra slip is caught and redone. Fast, so do Parts 1 and 2 first. Subscription plugs near 5:30 and at the end.",
           "checked": "captions",
           "embed": true
         },
@@ -837,16 +919,17 @@
               "what": "Circular tracks: meeting points concept"
             },
             {
-              "t": "5:36",
+              "t": "3:00",
               "what": "Time taken to complete one round"
             },
             {
-              "t": "13:05",
+              "t": "7:00",
               "what": "When will all three runners meet"
             }
           ],
-          "gaps": "Part 3 of a Circular Tracks series, so it may assume Parts 1 and 2 (not checked). Straight-line races are not covered.",
-          "checked": "chapters",
+          "gaps": "Part 3 of a Circular Tracks series: it starts mid-topic and needs Parts 1 and 2. Straight-line races are not covered. A Numbers course pitch runs from about 13:00 to 14:30.",
+          "summary": "Counts distinct meeting points for three or four runners on a circular track, using speed difference for same direction, the sum for opposite, then the HCF of the counts. Gets speed ratios from round times of 15, 6 and 5 minutes. Then finds when all meet: track length over relative speed for each pair, then the LCM, with directions varied. Starts mid-topic, and about a minute and a half pitches the Numbers course.",
+          "checked": "captions",
           "embed": true
         }
       ],
@@ -900,6 +983,7 @@
             }
           ],
           "gaps": "Pipes and cisterns, alternate-day work and sharing wages (see extras).",
+          "summary": "Starts with A alone in 10 days and B alone in 15, shows the fraction method and why efficiencies are added, not days. Then takes total work as the LCM of the days, so each worker gets whole units per day, with a short detour on finding LCMs. Solves four questions this way: A and B together, A leaving after 2 days, three workers together, and a worker joining part way. Starts from zero.",
           "checked": "captions",
           "embed": true
         },
@@ -911,7 +995,7 @@
           "uploadDate": "2022-11-15",
           "language": "English",
           "role": "backup",
-          "watch": "0:00 to 27:30",
+          "watch": "0:00 to 27:00",
           "covers": [
             {
               "t": "0:00",
@@ -923,11 +1007,11 @@
             },
             {
               "t": "6:30",
-              "what": "Work as LCM of the days (15, 12, 20 gives 60 units), then per-day units"
+              "what": "Alternate-day work (CAT 2021) with work as the LCM of the days (15, 12, 20 gives 60 units)"
             },
             {
               "t": "8:33",
-              "what": "Work distribution and group pairing questions"
+              "what": "Work distribution: wages split by work done (CAT 2021) and group pairing"
             },
             {
               "t": "16:56",
@@ -936,9 +1020,14 @@
             {
               "t": "23:09",
               "what": "Human and robot efficiency question"
+            },
+            {
+              "t": "25:00",
+              "what": "Men added one a day until 120 man-days are done"
             }
           ],
-          "gaps": "Pipes and cisterns, alternate-day work and wages are not in the chapter list or in the transcript samples I read. Faster paced and aimed at people who already know the basics.",
+          "gaps": "Pipes and cisterns are not covered. Faster paced and aimed at people who already know the basics. The closing plug starts at about 27:00.",
+          "summary": "Names five question types, then gives the two- and three-person formulas and the rule for when A is n times as efficient as B. Solves past CAT questions: alternate-day work with the LCM, wages split by work done, a compare-the-changes method for efficiency, a comparison method for men against robots, and men added each day. Quick pace, so know the basics first.",
           "checked": "captions",
           "embed": true
         },
@@ -978,7 +1067,8 @@
             }
           ],
           "gaps": "Fills the pipes and cisterns gap only. The last question is hard for beginners, stop at about 8:29 if it feels heavy.",
-          "checked": "chapters",
+          "summary": "Writes inlet and outlet rates as fractions of the tank per hour, then switches to taking the tank volume as the LCM of the given times, so rates become whole litres. Four solved questions follow: an outlet connected late, two inlets with one closed part way, a leak found from a slower fill, and a tank with a second outlet at 3/10 height. The last ends on a rounded answer.",
+          "checked": "captions",
           "embed": true
         },
         {
@@ -1005,7 +1095,8 @@
             }
           ],
           "gaps": "Fills the sharing wages gap. Alternate-day work is in Time and Work 2 (6IbA-nSj28g, 24:25), which has chapters but no captions, so I could not read its transcript.",
-          "checked": "chapters",
+          "summary": "Takes total work as the LCM of the given days and finds each worker's units per day, getting a missing worker's rate by subtracting from the combined rate. Splits a 15,000 rupee payment among four workers in the ratio of daily efficiency. Then treats efficiency as inversely proportional to time, handling 'x percent more efficient' and combined-time questions by ratio. Mostly worked questions; earlier videos are assumed.",
+          "checked": "captions",
           "embed": true
         },
         {
@@ -1028,6 +1119,7 @@
             }
           ],
           "gaps": "The first chapter label (0:00, 'LCM Method Introduction') does not match what the screenshot showed at the start, which was a question with A, B, C leaving the work. Treat the chapter labels as approximate.",
+          "summary": "Starts with the LCM method for total work and each worker's units per day, using questions where workers leave partway. From about 10:42 it covers alternate-day work with A going first, and the last chapter finds each person's own time from the times of pairs.",
           "checked": "chapters",
           "embed": false
         }
@@ -1082,6 +1174,7 @@
             }
           ],
           "gaps": "Unique, no and infinite solutions, integer-solution problems and ages. This is lecture 3 of a series and assumes lectures 1 and 2 (single-variable and two-variable equations).",
+          "summary": "Teaches the word-to-symbol rules first: more means plus, less means minus, 'of' and 'times' mean multiply, 'is' means equals, and the number after 'than' is the base to assume. Four beginner questions follow: sum and difference of two numbers, one number three times the other, table and chair prices, and a fraction with 2 added then 3 subtracted. Most are solved by elimination, in full steps.",
           "checked": "captions",
           "embed": true
         },
@@ -1121,6 +1214,7 @@
             }
           ],
           "gaps": "Turning words into equations and ages. Starts straight into the conditions with little warm-up, so it suits a second watch. First 90 seconds of audio are music or setup.",
+          "summary": "Derives the unique-solution condition a1/a2 not equal to b1/b2, then shows infinite solutions when all three ratios match and no solution when only the first two match. Counts integer pairs (p, q) that give no solution, then solves a books-in-bundles remainder question by trial and by removing the smaller divisor. Ends with x and y forming APs. Dense, with little warm-up.",
           "checked": "captions",
           "embed": true
         },
@@ -1156,7 +1250,8 @@
             }
           ],
           "gaps": "Fills the ages gap only. Same presenter as the primary.",
-          "checked": "chapters",
+          "summary": "Solves four age problems in full, showing how to translate each statement. Covers one-variable setup (Reena 8 years older, twice as old 10 years ago), two variables with substitution (father three times the son, 2.5 times in 5 years), past and future conditions for mother and daughter, and three people (Mike, his father and his sister) reduced to one variable. Beginner level with every step spoken.",
+          "checked": "captions",
           "embed": true
         },
         {
@@ -1165,7 +1260,7 @@
           "channel": "Rodha",
           "durationSec": 1712,
           "uploadDate": "2019-04-12",
-          "language": "English (assumed, same series; transcript not read)",
+          "language": "English",
           "role": "extra",
           "watch": "0:00 to 28:30",
           "covers": [
@@ -1182,8 +1277,9 @@
               "what": "Number of non-negative integral solutions"
             }
           ],
-          "gaps": "Deeper integer-solution counting than a beginner needs on first pass; optional.",
-          "checked": "chapters",
+          "gaps": "Deeper integer-solution counting than a beginner needs on first pass; optional. The first example is counted as 5 solutions, then corrected to 6 about 15 minutes in.",
+          "summary": "Counts non-negative integer solutions of equations like 3x + 7y = 115, first by trial and by removing the smaller divisor, then by a quicker rule: the variable with the larger common difference has fewer terms, so it fixes the count. Ends with 5x + 13y = 1002 and a CAT-style question on integer solutions with mod a and mod b under 200. Fast, continues from part 1.",
+          "checked": "captions",
           "embed": true
         }
       ],
@@ -1241,6 +1337,7 @@
             }
           ],
           "gaps": "The quadratic formula, discriminant and nature of roots are in part 2 (X3c60CCB18U, 20:53). Max and min is part 4 (vG-Z3bagJek, 25:44). Forming an equation from given roots is not named in any chapter title.",
+          "summary": "Introduces the quadratic equation and its roots, then solves by factoring with a worked example. Links roots to where the graph meets the x-axis, and uses the graph and then the roots to solve quadratic inequalities, including when y is positive or negative. Closes by deriving the sum and product of roots.",
           "checked": "chapters",
           "embed": true
         },
@@ -1276,6 +1373,7 @@
             }
           ],
           "gaps": "Sum and product of roots, forming an equation from roots, and max or min. Factoring is only mentioned in passing (1:37, 2:40).",
+          "summary": "States the quadratic formula and the discriminant rules (positive gives real and distinct roots, zero equal, negative imaginary), then solves five past questions: CAT 2017 on x+1=x squared, an IFT 2010 rationalising question, CAT 2019 with a logarithm in the discriminant, CAT 2003 counting equations with real roots, and CAT 2005 on a unique positive solution. About a minute of intro and course plugs at the start.",
           "checked": "captions",
           "embed": true
         },
@@ -1311,6 +1409,7 @@
             }
           ],
           "gaps": "Chapters only, no transcript.",
+          "summary": "Defines the discriminant, then goes through the three cases: D equal to 0 (equal roots), D positive (real and distinct) and D below 0 (imaginary), with the graph for each. The second half is a CAT-style question on how many values of m give rational roots, using perfect squares of the form 4m+1.",
           "checked": "chapters",
           "embed": true
         },
@@ -1338,6 +1437,7 @@
             }
           ],
           "gaps": "Fills the max or min gap. Chapters only, no transcript.",
+          "summary": "Starts with integer values of a parameter for which a quadratic has real roots, using D at least 0 and a quadratic inequality, then how many points the graph cuts the x-axis. From 8:39 it covers the minimum or maximum of a quadratic: the minimum of p squared plus q squared, the value minus b over 2a, and rewriting as a perfect square.",
           "checked": "chapters",
           "embed": false
         },
@@ -1357,7 +1457,7 @@
             },
             {
               "t": "1:34",
-              "what": "First question: alpha plus beta equals 11 over 2"
+              "what": "First question: alpha plus beta equals minus 11 over 2"
             },
             {
               "t": "7:13",
@@ -1365,10 +1465,11 @@
             },
             {
               "t": "11:09",
-              "what": "Using sum 5 and product 6 from a given equation"
+              "what": "Finding c = 6 from alpha squared plus beta squared = 13"
             }
           ],
           "gaps": "Class 10 of a series, so it assumes the formula was taught earlier. No chapters.",
+          "summary": "Recalls sum of roots as minus b over a and product as c over a, then applies them to five questions: alpha plus beta and 1/alpha plus 1/beta, a root condition giving b = −5a, an expression for 4x squared + 8x + 3, a sum not less than product leaving one value of r, and c from alpha squared plus beta squared equal to 13. Difficulty rises each time.",
           "checked": "captions",
           "embed": true
         }
@@ -1423,6 +1524,7 @@
             }
           ],
           "gaps": "Quadratic inequalities, modulus and AM-GM, which are in the extras. This is part 1 of a series. Part 2 (gJvWlnXHKng, 13:28, 'Common Solution') comes next but I did not check it.",
+          "summary": "Introduces inequalities: greater and less than, and ranges like 5 to 8. Explains round and square brackets in 'x belongs to', why 'x below minus 1 or at least 4' uses 'or' and how to write it with the union sign and infinity. Then solves a linear inequality the same way as an equation, with the sign reversing on multiplying or dividing by a negative.",
           "checked": "captions",
           "embed": true
         },
@@ -1442,7 +1544,7 @@
             },
             {
               "t": "6:08",
-              "what": "|x - 3| less than 7 type questions"
+              "what": "|x − 3| less than 7 type questions"
             },
             {
               "t": "12:20",
@@ -1454,6 +1556,7 @@
             }
           ],
           "gaps": "Linear inequalities from scratch (class 17 of a series, so earlier classes are assumed), AM-GM, and the 'distance from a' idea is not stated in the parts I sampled.",
+          "summary": "Starts with the single-modulus rule: below a number puts the expression between minus and plus that number, above puts it outside, shown on |x − 3| against 7. Then solves two-modulus inequalities by splitting at the points where each inside is zero and checking every zone and endpoint, in four examples ending on |x squared − 3x + 2| against |x squared − x − 2|. Long, with a closing tip on testing options.",
           "checked": "captions",
           "embed": true
         },
@@ -1481,7 +1584,7 @@
             },
             {
               "t": "8:36",
-              "what": "|3x - 5| less than 7 gives x between -2/3 and 4"
+              "what": "|3x − 5| less than 7 gives x between −2/3 and 4"
             },
             {
               "t": "12:21",
@@ -1489,6 +1592,7 @@
             }
           ],
           "gaps": "Uses the two-case method, not the distance-from-a picture.",
+          "summary": "Removes the modulus by taking a positive and a negative case, then joins the results: 'or' when the two ranges share nothing (|2x − 5| above 3 gives x below 1 or above 4), 'and' when they overlap (|3x − 5| below 7 gives x between −2/3 and 4). Ends with |x squared − 5x| below 6, checked with test values, and leaves quadratic inequality rules to lecture 5.",
           "checked": "captions",
           "embed": true
         },
@@ -1515,15 +1619,16 @@
               "what": "Imaginary roots case, the expression is always positive"
             },
             {
-              "t": "28:08",
+              "t": "25:00",
               "what": "Third-degree expression touching the axis three times, extending the idea"
             },
             {
               "t": "35:41",
-              "what": "Answer as a range, x between -1 and 1"
+              "what": "Answer as a range: x between −1 and 1, or x of 5 or more"
             }
           ],
           "gaps": "Uses the parabola graph, not a wavy-curve sign chart by name. Long at 38 minutes, so pick the extra only after the primary.",
+          "summary": "Reads quadratic inequalities off the parabola: above the axis means x outside the roots, below it means x between them, with roots found by the sum and product shortcut. Three questions follow: one needing a sign flip first, one with imaginary roots (always positive, or no solution), and a cubic solved by testing a value in each range. Slow, beginner pace with some repetition.",
           "checked": "captions",
           "embed": true
         },
@@ -1552,9 +1657,14 @@
             {
               "t": "14:13",
               "what": "Names the AM is at least GM result behind these rules"
+            },
+            {
+              "t": "15:45",
+              "what": "Maximum of (a+1)(b+2)(c+3) when a+b+c = 18"
             }
           ],
           "gaps": "Fills the basic AM-GM gap. The rule is taught through examples, not proved. The first 1:20 is music and setup.",
+          "summary": "Builds six max and min rules. With a fixed sum, the product is largest when the numbers are equal or closest possible; with a fixed product, the sum is smallest at equal numbers. Both are shown by trying values (sum 36, product 324, then 17 and 132). Then the weighted a/m = b/n version, a cylinder volume with R+H=12, and (a+1)(b+2)(c+3) with a+b+c=18. Basic level.",
           "checked": "captions",
           "embed": true
         },
@@ -1586,6 +1696,7 @@
             }
           ],
           "gaps": "This is the nearest thing to the wavy curve method I found, but it is chapters only and part 6 of a series, so it is harder than the primary. Not recommended before the other parts.",
+          "summary": "Solves polynomial and rational inequalities by finding critical points, testing the sign of the expression in each range, and using the odd and even power rule to see where the sign flips. Chapters then cover a one-step method, more range questions and a quadratic with an upward parabola. Part 30 of a 52-part algebra course, so earlier parts are assumed.",
           "checked": "chapters",
           "embed": true
         }
@@ -1664,7 +1775,8 @@
             }
           ],
           "gaps": "Uploaded in 2019, and the description also lists two worked questions (15:35 and 17:45) out of order, so they are missing from the chapter bar and no question is named as a CAT PYQ.",
-          "checked": "chapters",
+          "summary": "Teaches AP, GP and HP from scratch: how to write the terms (a − d, a, a + d for three terms), nth term and sum formulas, sum to infinity for a ratio below 1, and HP by inverting to an AP. Solves a few basic questions, then finds common terms of two series, once by brute force and once by using the LCM of the differences. Slow, concept-heavy, little CAT-level practice.",
+          "checked": "captions",
           "embed": true
         },
         {
@@ -1719,6 +1831,7 @@
             }
           ],
           "gaps": "Ten practice questions with no concept teaching, a 7.5 minute intro, and the questions are not stated to be from past CAT papers (first uploaded in 2020).",
+          "summary": "Works through ten expected questions, stating each and then solving it: a bouncing ball as a GP, an AP sum, a sum of cubes, an AP series, a composite series, powers of 2, a minimum sum, an AP relation, a sum of consecutive numbers and an infinite GP. The first 7.5 minutes come before question one. No concept teaching, so know the formulas first.",
           "checked": "chapters",
           "embed": true
         }
@@ -1783,8 +1896,9 @@
               "what": "Summary"
             }
           ],
-          "gaps": "Logarithms only, so indices and surds are not covered, and the five questions are not stated to be CAT PYQs.",
-          "checked": "chapters",
+          "gaps": "Logarithms only: indices and surds get a brief reminder inside Q3. Q4 (from the 2018 paper) and Q5 are said to be CAT past questions.",
+          "summary": "Defines a log, then goes through the properties in turn: base change, swapping base and argument, sum to product, difference to quotient, powers (argument power comes out directly, base power inverted), log of 1 and why the base cannot be 1, and log form to exponent form. Five questions follow, the last two said to be CAT PYQs. Batch adverts run about three minutes at the start and two at the end.",
+          "checked": "captions",
           "embed": true
         },
         {
@@ -1835,7 +1949,8 @@
             }
           ],
           "gaps": "Part 1 of a 2019 series, so it stops at properties and simple equations and leaves out indices, surds and CAT-level questions.",
-          "checked": "chapters",
+          "summary": "Starts with why logs exist and the definition, then the conditions (base positive and not 1, argument positive) with domain questions such as log of (x − 1) to base x. Covers base change, product, quotient and power properties, and the rule a to the power log b of c equals c to the power log b of a. Ends with two solved log equations, one needing a check for extra roots after squaring.",
+          "checked": "captions",
           "embed": true
         }
       ],
@@ -1931,8 +2046,9 @@
               "what": "3D mensuration formulas"
             }
           ],
-          "gaps": "A fast formula capsule from 2022 with few worked questions, and 1:33 to 2:18 is a plug for Cracku's formula PDFs.",
-          "checked": "chapters",
+          "gaps": "A fast formula capsule from 2022 with no worked questions (about 56 sit in a separate PDF), and 1:33 to 2:18 is a plug for Cracku's formula PDFs.",
+          "summary": "Reads out geometry formulas from slides: coordinate geometry (distance, slope, line equations, section formula, centroid, circle equation), angles and parallel lines, triangle types and centres, Apollonius, midpoint, proportionality and angle bisector theorems, cyclic quadrilaterals, similarity, congruence, area formulas, circle theorems, polygons and solids. No questions are solved; about 56 sit in a PDF. Several short plugs.",
+          "checked": "captions",
           "embed": true
         },
         {
@@ -1983,7 +2099,8 @@
             }
           ],
           "gaps": "Solved questions only (the description says CAT 2025 PYQs) with no concept teaching, and two of the nine are coordinate geometry or quadrilateral questions.",
-          "checked": "chapters",
+          "summary": "Solves nine geometry questions from the CAT 2025 papers back to back, with no concept recap: a trapezium from parallel chords, a parallelogram diagonal meeting the x-axis, rhombus diagonals, a hexagon area ratio, a tangent angle, a segment ratio found by adding a parallel line, an incircle trapezium, isosceles altitudes and a cyclic quadrilateral. On the hard ones the teacher also shows where the working got stuck.",
+          "checked": "captions",
           "embed": true
         }
       ],
@@ -2015,6 +2132,10 @@
               "what": "What a function is"
             },
             {
+              "t": "17:00",
+              "what": "Domain (denominator not zero, square root not negative) and graphing from a table"
+            },
+            {
               "t": "40:52",
               "what": "Composite functions"
             },
@@ -2023,8 +2144,9 @@
               "what": "Modulus function"
             }
           ],
-          "gaps": "Only three teaching chapters, no chapter on graph shifts or past CAT questions, and the first 5 minutes are an introduction (uploaded 2023).",
-          "checked": "chapters",
+          "gaps": "No graph shifts, range or past CAT questions, though the description promises past questions. The first 5 minutes review homework from the inequalities class (uploaded 2023).",
+          "summary": "Opens with homework answers from the previous inequalities class, then defines a function as one input giving one output and evaluates f(x) for given values, including a two-rule function. Next come domain (denominator not zero, square root contents not negative), composite functions by substitution, and modulus as distance on a number line. Mostly concept with short drills, at a foundation level.",
+          "checked": "captions",
           "embed": true
         },
         {
@@ -2058,6 +2180,10 @@
               "what": "Types of functions and their graphs"
             },
             {
+              "t": "17:00",
+              "what": "Modulus and greatest integer function graphs"
+            },
+            {
               "t": "25:20",
               "what": "Even and odd functions"
             },
@@ -2071,7 +2197,8 @@
             }
           ],
           "gaps": "Part 1 only, so composite and inverse functions, graph shifts and CAT questions are left out, and CATsetgo is a smaller channel than the others.",
-          "checked": "chapters",
+          "summary": "Starts with what algebra and an expression are, builds a graph from a table of x and y values, then defines a function with everyday examples such as BMI. Shows the shapes of linear, quadratic, exponential, log, modulus and greatest integer graphs, then even and odd functions with a symmetry test and an identify-the-graph exercise. Concept only, from zero, with no CAT-level questions.",
+          "checked": "captions",
           "embed": true
         }
       ]
@@ -2115,7 +2242,8 @@
             }
           ],
           "gaps": "Question solving only with no concept teaching; the description says the questions run from 2017 to 2022 and the chapter titles do not name the sub-topic of each question.",
-          "checked": "chapters",
+          "summary": "Solves 26 past CAT number system questions from 2017 to 2022 in order. Methods include factor pairs of 105 for m squared plus 105 equals n squared, counting square factors from exponents, LCM for remainder problems, inclusion-exclusion for divisibility, digit counting and AM-GM for minimum values. Pure solved questions at CAT level, with no concept lessons. Cracku mock and PDF adverts appear about three times.",
+          "checked": "captions",
           "embed": true
         },
         {
@@ -2170,7 +2298,8 @@
             }
           ],
           "gaps": "Classification of numbers only, with no remainders, factors, factorials or divisibility, and 4:18 to 4:43 is a plug for a CAT 2027 bootcamp.",
-          "checked": "chapters",
+          "summary": "Goes through the names of numbers one by one: natural, whole, prime and composite, integers, terminating and recurring decimals (pure and impure), rational and irrational, real, imaginary, complex, even, odd and co-prime. Ends with triangular numbers and the sums of the first n natural, square, cube, odd and even numbers. Definitions only, from zero, plus one short idea on spotting pi or root 3 in answer options.",
+          "checked": "captions",
           "embed": true
         }
       ],
@@ -2239,7 +2368,8 @@
             }
           ],
           "gaps": "3D solids only with no 2D area chapter, the questions are not stated to be CAT PYQs, and it ends with course closing and Q&A from 1:11:12.",
-          "checked": "chapters",
+          "summary": "Revises cube, cuboid, cylinder, cone, sphere, prism and pyramid formulas in about fifteen minutes, skipping 2D. Then solves live: a cuboid inside a sphere using the body diagonal, minimum fencing cost with AM-GM, a cone cut parallel to its base using similarity, brick face diagonals in a ratio, a melted cylinder recast as cones, a sphere cut in half, and cubes with a given total surface area.",
+          "checked": "captions",
           "embed": true
         },
         {
@@ -2266,7 +2396,8 @@
             }
           ],
           "gaps": "Only three broad chapters, so single solids and questions are not timestamped, and 2D mensuration is not covered (uploaded 2023).",
-          "checked": "chapters",
+          "summary": "Builds surface area formulas from pictures for cube, cuboid, sphere, hemisphere, cylinder (cut open into a rectangle) and cone, then gets volume as base area times height, with the cone at one third. Solves a few questions: liquid poured between cylinders, a sphere melted into small spheres with a paint-quantity twist and a 10 percent wastage twist, and a 2017 CAT ball-in-cylinder question. Only three or four questions, so practice is light.",
+          "checked": "captions",
           "embed": true
         }
       ],
@@ -2311,7 +2442,8 @@
             }
           ],
           "gaps": "Part 1 basics from 2023, so circular arrangements, distributions and probability are missing, which falls short of the beyond-basics level this topic asks for.",
-          "checked": "chapters",
+          "summary": "Starts with factorials: the definition, zero factorial as one, no factorial for negatives, and cancelling to simplify ratios like 10 factorial over 9 factorial. Then arrangements in a row as n factorial, letters of a word with repeats divided by factorials, and forming numbers with and without repeated digits, starting from the most restricted place. Ends on two CAT 2020 and 2022 questions. Basic level, slow pace.",
+          "checked": "captions",
           "embed": true
         },
         {
@@ -2342,7 +2474,8 @@
             }
           ],
           "gaps": "Probability part 1 at a basic level with no CAT PYQ chapter, and the chapter numbers on the page are out of order.",
-          "checked": "chapters",
+          "summary": "Starts with probability as favourable over total outcomes, using digit and prime examples, then goes through a 52-card deck (suits, face cards, a king-or-red overlap question) and sums of two dice by counting combinations around 7. The second half picks items without replacement using combinations, then working versus faulty items and the at-least-one complement shortcut. Basic level, mostly Hindi, ends with a homework question.",
+          "checked": "captions",
           "embed": true
         }
       ]
@@ -2382,7 +2515,8 @@
             }
           ],
           "gaps": "Part 1 only, so equations of lines, circles and all trigonometry are missing (uploaded 2023).",
-          "checked": "chapters",
+          "summary": "Derives the distance formula from Pythagoras after covering quadrants, then defines slope as tan of the angle and uses equal slopes to show three points are collinear. Section formula (internal and external), midpoint, a parallelogram shortcut using opposite vertices, and the triangle area formula follow. The last stretch solves two CAT questions, a 2022 parallelogram one and a 2020 circumradius one. Starts from class 10 basics.",
+          "checked": "captions",
           "embed": true
         },
         {
@@ -2429,7 +2563,8 @@
             }
           ],
           "gaps": "Part 1 basics up to slope, with no CAT questions and no trigonometry, from a smaller channel (CATsetgo).",
-          "checked": "chapters",
+          "summary": "Plots points on the Cartesian plane and explains the four quadrants, then derives the distance formula from Pythagoras and applies it to the origin and to two points. Section formula is derived from the distance ratio, covering internal and external division, with the midpoint as the 1:1 case, each with a short example. Ends with slope, its four types and the formula. Slow, beginner pace with no CAT questions.",
+          "checked": "captions",
           "embed": true
         }
       ]
@@ -2481,6 +2616,7 @@
             }
           ],
           "gaps": "No stated split of the 40 minutes across sets, and no clear instruction to scan every set first. Some English terms are mixed into Hindi speech. Course plug at about 40:21.",
+          "summary": "Uses the 2020 to 2025 papers to show that a 99th percentile needed roughly nine to thirteen correct DILR answers, about half the questions. Then gives a three-minute screen per set: read the intro and name the concept, run the HIDE check on questions and options for red flags, and weigh comfort against time. Tried on a CAT 2025 Slot 1 set (do it) and a CAT 2022 Slot 1 metro set (skip).",
           "checked": "captions",
           "embed": true
         },
@@ -2516,7 +2652,8 @@
             }
           ],
           "gaps": "No walkthrough of a real CAT section, no scan-all-sets routine, no 40-minute time split, no list of signs of a doable set. It is a talk about categories and mindset. The last 3 minutes are about handling uncertainty.",
-          "checked": "chapters",
+          "summary": "Sorts LRDI sets into rough types (math-based, number brute force, pure logic, set theory, sudoku style), then the speaker gives personal likes and dislikes by type and by number of constraints. Many sets fit no category (a mixed bag, over half of recent ones), the speaker says, and choosing sets is never certain. Most of the talk is about dropping a set quickly and restarting. No example sets are solved.",
+          "checked": "captions",
           "embed": true
         }
       ],
@@ -2573,7 +2710,8 @@
             }
           ],
           "gaps": "Sets are made for teaching, not stated as real CAT sets. No worked pie-chart set (pie is concept only). Little on approximation beyond fraction comparison by cross-multiplication. Ends with a mock test plug from about 34:45.",
-          "checked": "chapters",
+          "summary": "Explains how to read line, bar and pie charts and turn each into a table, with pie chart angles worked out of 360. Then solves a line graph set (average and a 20 percent rise), a two-chart bar set (highest profit margin by comparing fractions, percentage growth in total revenue) and a revenue-versus-cost set (profit percentage by cross-multiplying, a 50 percent growth check). Beginner level, with a mock test advert at the end.",
+          "checked": "captions",
           "embed": true
         },
         {
@@ -2612,6 +2750,7 @@
             }
           ],
           "gaps": "No bar, line or pie chart coverage. Live class with chatty stretches and the first couple of minutes are greetings. The CAT-level set is not stated to be a real CAT set. 64 minutes is above the usual length.",
+          "summary": "Five table questions open it: a percentage found by eliminating options, the year of highest growth (each rise judged against its base), a six-year average, simple annual growth (total growth over the number of changes) and compound annual growth by testing options, since the calculator has no fifth root. The second half is a school pass and fail set with hypothetical questions, solved by putting every class in terms of one variable, with one question left as homework.",
           "checked": "captions",
           "embed": true
         }
@@ -2673,7 +2812,8 @@
             }
           ],
           "gaps": "First 7 minutes are a live-class intro and chat, so start at 7:54. Circular layouts are covered only briefly; set 1 is a rectangular table. Sets are not stated as real CAT sets. A course plug and Q&A sit around 43:48 to 52:00. Length is above 60 minutes.",
-          "checked": "chapters",
+          "summary": "A live class. Gives a short overview of how to draw linear, circular and rectangular-table arrangements and when to use a tick-and-cross grid or a full table for attribute puzzles. Then solves two tough sets: eight friends round a rectangular table with countries, worked case by case from the person with most clues, and a six-person hill station set solved with a tick table and row and column totals. Has long gaps for chat and a course plug.",
+          "checked": "captions",
           "embed": true
         },
         {
@@ -2712,6 +2852,7 @@
             }
           ],
           "gaps": "Linear arrangements only; circular is not covered (a part 2 with a similar title exists in the same series but was not checked). No real CAT sets. No chapters, so all times come from sampled transcript and are approximate. Heavy mix of English phrases in Hindi speech.",
+          "summary": "Starts with the ground rules for linear arrangements: extreme ends, which way people face (north unless stated, so left and right flip when they face south), and why \"to the right of\" differs from \"immediate right\". Then solves a seven-student bench set by trying cases and eliminating them, and a seven-floor building set. Foundation level, mostly solved questions, and it closes with advice to keep cases open.",
           "checked": "captions",
           "embed": true
         }
@@ -2761,6 +2902,7 @@
             }
           ],
           "gaps": "Beginner level only. No distribution of items among people, no grid-table set, no real CAT set despite the description saying CAT level. Ends with a practice question left for viewers and a pointer to a circular arrangement video.",
+          "summary": "Gives five rules for grouping sets (draw a table, place the definite facts first, eliminate, respect restrictions, assume nothing), then works three team-split examples with 'together' and 'apart' conditions, the last with seven employees and two projects. Beginner pace. The first example's spoken solution wobbles and needs checking, and the closing practice question lists fewer names than it says.",
           "checked": "captions",
           "embed": true
         },
@@ -2796,6 +2938,7 @@
             }
           ],
           "gaps": "Course offers from 0:53 to about 2:28 and a batch plug from about 33:05, so skip those. One long set only. The title does not say it is a real CAT set, and I did not confirm that. No beginner teaching of grouping rules.",
+          "summary": "Works one dean-election voting set where each department votes as a block and nobody votes inside their own department. Shows how to read that rule, count candidate and non-candidate votes, find which department each of the four professors belongs to by elimination, then answers four questions, two easy and two on conditional or best-conclusion statements. Starts with a course advert and ends with a long batch pitch.",
           "checked": "captions",
           "embed": true
         }
@@ -2853,7 +2996,8 @@
             }
           ],
           "gaps": "No maximum and minimum overlap problems. Problems are teaching examples, not stated as real CAT sets. Four-set part is more than a beginner needs for now.",
-          "checked": "chapters",
+          "summary": "Builds Venn diagrams from scratch by naming the regions as exactly one, exactly two, exactly three and all four sets, and derives the pair of equations for each size: total = P + Q + R, and sum of the set sizes = P + 2Q + 3R. Four-set diagrams are drawn as a grid. Then solves a two-set, a three-set and a four-set problem. Slow, beginner pace, with a short course advert at the end.",
+          "checked": "captions",
           "embed": true
         },
         {
@@ -2884,14 +3028,15 @@
             },
             {
               "t": "20:42",
-              "what": "Maximising the only-one-company region in a later question"
+              "what": "Question 3: maximising only-B when A is at its minimum (left unfinished)"
             },
             {
               "t": "26:47",
               "what": "Recap of the earlier answers"
             }
           ],
-          "gaps": "Does not teach basic Venn regions, so watch after the primary. Only one set. The set is not stated to be a real CAT set. Chapters stop at 9:05 though the video runs 32 minutes, so later times come from transcript.",
+          "gaps": "Does not teach basic Venn regions, so watch after the primary. Only one set, not stated to be a real CAT set. Chapters stop at 9:05, so later times come from the speech.",
+          "summary": "Solves one job-fair Venn set with three companies and 100 people, where the counts for one, two and three companies are ordered by inequalities. Teaches the 'maximum but minimum' idea: give everything an equal share first, then adjust the last few units to satisfy strict conditions. Five questions follow. The third is left half finished for the student to redo, so check it yourself.",
           "checked": "captions",
           "embed": true
         }
@@ -2915,7 +3060,7 @@
           "channel": "Cracku - MBA CAT Preparation",
           "durationSec": 3037,
           "uploadDate": "2018-08-26",
-          "language": "Hindi-English",
+          "language": "English",
           "role": "primary",
           "watch": "all",
           "covers": [
@@ -2965,7 +3110,8 @@
             }
           ],
           "gaps": "Knockout tournaments only, so round-robin points tables are not covered, and it was uploaded in 2018.",
-          "checked": "chapters",
+          "summary": "Explains knockout tournaments: draw them as trees, n players need n minus 1 matches, byes when the field is not a power of 2, and what seeds and upsets mean. Its main trick is that the seeds in any round add up to a fixed total, so an opponent is the total minus your own seed, and an upset just swaps the winner into the beaten player's slot. Then four questions on a 64-player badminton draw.",
+          "checked": "captions",
           "embed": true
         },
         {
@@ -2992,7 +3138,8 @@
             }
           ],
           "gaps": "One football set with only three chapters, so the questions are not timestamped, and the set is not stated to be from a CAT paper.",
-          "checked": "chapters",
+          "summary": "Works one football tournament set with five teams (Australia, South Africa, Brazil, France, China) by building a match-by-match score grid with goals for, goals against and draws, then using the draws and the minimum and maximum goals a team can score to fill the missing cells. Ends with questions on goal difference and points for particular matches. Assumes you already know the basics of points tables.",
+          "checked": "captions",
           "embed": true
         }
       ],
@@ -3049,7 +3196,8 @@
             }
           ],
           "gaps": "Only about 20 minutes long, and the practice sets are not stated to be real CAT sets.",
-          "checked": "chapters",
+          "summary": "Defines scheduling sets as arrangement in time slots, then splits them into linear (one list of people against slots) and multi-dimensional (several attributes per day). Solves one example of each by reading clues in order, placing direct clues first and marking negatives, then gives a short checklist for approaching any scheduling set and solves two more practice sets the same way. Slow and basic, with simple clues only.",
+          "checked": "captions",
           "embed": true
         },
         {
@@ -3080,7 +3228,8 @@
             }
           ],
           "gaps": "Only two sets, and from 39:20 it moves to course resources.",
-          "checked": "chapters",
+          "summary": "Recording of a live class. Solves one salon scheduling set: turns percentage and difference clues into appointment lengths, makes half-hour slots, places clues one by one, ends with two valid cases and four questions. Then only shows a real CAT 2020 scheduling set with eight students, five guides and three rooms, without solving it, and says it is a skip. Expect chat, a profile discussion and app links.",
+          "checked": "captions",
           "embed": true
         }
       ]
@@ -3140,7 +3289,8 @@
             }
           ],
           "gaps": "Teaching sets on distance and path counting, not stated to be CAT sets, with no traffic-flow style network set.",
-          "checked": "chapters",
+          "summary": "Defines nodes, edges, paths, one-way and two-way edges and edge weights (distance, cost, pipe capacity), then solves two sets by listing every path from source to destination and adding up each one. Questions cover shortest distance, a must-visit city, counting paths, least time at a fixed speed and a path matching a given fuel bill. Basic level, from zero; no traffic-flow or toll set.",
+          "checked": "captions",
           "embed": true
         },
         {
@@ -3151,7 +3301,7 @@
           "uploadDate": "2026-09-25",
           "language": "Hindi-English",
           "role": "backup",
-          "watch": "0:00 to 1:22:38",
+          "watch": "all",
           "covers": [
             {
               "t": "7:05",
@@ -3186,8 +3336,9 @@
               "what": "Set 2 questions answered quickly, to 1:22:38"
             }
           ],
-          "gaps": "Two long live-class sets, the set 2 questions are rushed in under three minutes, and neither set is named as a past CAT set.",
-          "checked": "chapters",
+          "gaps": "Two long live-class sets, and the set 2 questions are rushed in about four minutes.",
+          "summary": "Live class on two sets. Set 1 is a one-way street network with fuel cost plus a toll at each junction: the trainer lists the five routes, writes each total cost with toll variables, and uses option checking or equating route costs to get equal traffic splits. Set 2 fills a table of four police patrol teams by half hours from the given conditions. The first 7 minutes are chat and a pep talk, and the set 2 questions are finished in about four minutes.",
+          "checked": "captions",
           "embed": true
         }
       ],
@@ -3236,7 +3387,8 @@
             }
           ],
           "gaps": "Max and min sets only (no cubes or truth-teller puzzles), and at 19.5 minutes it is just under the 20-minute floor.",
-          "checked": "chapters",
+          "summary": "Explains max and min sets as quant-style sets: build a table, mark unknowns as variables, write equations from the clues, then use the integer and range limits to push one variable to its extreme. Works two sets, ratings by three judges and money lent by three people, with questions on minimum and maximum cell values, including multiples and inequality cutoffs. Needs linear equations and inequalities. Ends with a mock test advert.",
+          "checked": "captions",
           "embed": true
         },
         {
@@ -3263,6 +3415,7 @@
             }
           ],
           "gaps": "Cube cutting only (painted faces are in a separate Rodha video), uploaded in 2018, and there are no captions, so the language was judged from the title and series only.",
+          "summary": "First of four cube lessons. Starts with faces, edges and corners, then works out the maximum number of pieces from a given number of cuts by spreading the cuts evenly over the three directions. The last section reverses it: the minimum cuts needed for a given number of pieces, including reverse puzzles solved by prime factorisation. About the first 3.5 minutes are introduction. Painted faces are left to a later video.",
           "checked": "chapters",
           "embed": true
         },
@@ -3274,15 +3427,19 @@
           "uploadDate": "2021-08-07",
           "language": "English",
           "role": "extra",
-          "watch": "13:04 to 42:55",
+          "watch": "12:00 to 39:30",
           "covers": [
             {
-              "t": "13:04",
+              "t": "12:20",
               "what": "Linear arrangement logic"
             },
             {
-              "t": "14:51",
+              "t": "14:00",
               "what": "Truth tables for truth-teller and liar puzzles"
+            },
+            {
+              "t": "27:00",
+              "what": "A truth-teller, liar and alternator set solved"
             },
             {
               "t": "42:55",
@@ -3291,10 +3448,15 @@
             {
               "t": "49:15",
               "what": "Representation strategy"
+            },
+            {
+              "t": "56:00",
+              "what": "A school arrival-order arrangement set"
             }
           ],
-          "gaps": "The only truth-teller video with chapters found, but the chapters look auto-generated and loose, it is from 2021, and it has chapters on mocks (9:10) and a paid batch (1:10:49).",
-          "checked": "chapters",
+          "gaps": "The only truth-teller video with chapters found. It is a 2021 live stream: 21:00 to 27:00 is waiting while viewers try the set, and the second set runs 56:00 to 68:00 after a long stretch of chat and adverts. It also has chapters on mocks (9:10) and a paid batch (1:10:49).",
+          "summary": "Recording of a 2021 live stream. After about 12 minutes of chat and promotion, it shows how to draw arrival and departure as two linear arrangements plus a table, and how to handle truth and lie statements by a trimmed truth table that keeps only consistent cases. It then solves a truth-teller, liar and alternator set and a school arrival-order arrangement set, both hard.",
+          "checked": "captions",
           "embed": true
         }
       ]
@@ -3346,6 +3508,7 @@
             }
           ],
           "gaps": "Question types (main idea, inference, detail, tone, strengthen or weaken) are not taught as a list; they come up only inside the worked passage. Extreme and distorted options are not named as patterns. Running time is well over 45 min.",
+          "summary": "Weighs reading the passage first against reading the questions first and settles on the passage first, with one routine for every question type. Then reads a CAT 2019 passage on topophilia paragraph by paragraph, marking claims against examples and the author's tone, and noting each paragraph's main point. The last third solves the questions by rejecting options that distort, narrow or twist wording. Slow and talkative.",
           "checked": "captions",
           "embed": true
         },
@@ -3401,6 +3564,7 @@
             }
           ],
           "gaps": "No passage reading method and no full worked passage. Wrong-option patterns (too broad, too narrow, extreme) are not covered. It deals with the wording of question stems only.",
+          "summary": "Turns confusing RC question stems into plain instructions: swap EXCEPT for a not placed beside the verb, cancel the double negative in none plus except, and flip if false to if true with a not. Then treats complement as strengthen, extension as new evidence or consequence, keyword questions through a mental overview of the passage, and invalidate an example as find its idea, then weaken it. Stems only, no passage worked.",
           "checked": "captions",
           "embed": true
         },
@@ -3410,7 +3574,7 @@
           "channel": "CAT Preparation - iQuanta",
           "durationSec": 1041,
           "uploadDate": "2025-08-31",
-          "language": "English (chapter titles only; spoken language not checked)",
+          "language": "English",
           "role": "extra",
           "watch": "0:00 to 15:55 (the last two chapters are course promotion)",
           "covers": [
@@ -3439,8 +3603,9 @@
               "what": "hasty generalization"
             }
           ],
-          "gaps": "Techniques are listed with examples; no full passage. Three of the 15 techniques are left to paid classes. Transcript was not read.",
-          "checked": "chapters",
+          "gaps": "Techniques are shown on one short paragraph, with no full passage and questions. Only 12 of the 15 techniques are taught: one is a one-line tip and the last three are kept for paid classes.",
+          "summary": "Runs through twelve elimination traps on one short paragraph about a film plot, giving a sample wrong option for each: distortion, extreme words, a catchy word used in the wrong place, out of scope claims, picking the better worded of two close options, too narrow or too broad for main idea questions, reversed cause and effect, faulty comparison, a bad second half in a long option, hasty generalisation and wrong tone. Easy and short.",
+          "checked": "captions",
           "embed": true
         }
       ],
@@ -3498,7 +3663,8 @@
             }
           ],
           "gaps": "No short upfront method; the trainer says a strategy video comes later. The takeaway is that connectors alone are not enough, so pronoun and linking word checks are shown only inside the examples. Running time is over 45 min but each question is a separate chapter, so learners can watch two or three.",
-          "checked": "chapters",
+          "summary": "Takes six odd sentence questions (CAT 2019, 2017, 2020 and 2021 plus a bumblebee one and a single panel comic one). For each it finds the odd sentence by following repeated words and which sentences need support, then opens the source article to show how the setter cut, merged and moved sentences. Word repetition and logic do the work, with connectors as one clue among several. No short method up front.",
+          "checked": "captions",
           "embed": true
         },
         {
@@ -3513,7 +3679,7 @@
           "covers": [
             {
               "t": "0:00",
-              "what": "what an odd sentence out question is and a checklist of techniques"
+              "what": "what an odd sentence out question is, and a checklist that includes second definitions and stretching the idea too far"
             },
             {
               "t": "1:04",
@@ -3528,11 +3694,12 @@
               "what": "solving a sample question and comparing with the official answer"
             },
             {
-              "t": "6:02",
-              "what": "grouping the three sentences that match on one theme"
+              "t": "4:40",
+              "what": "a second question, on theory of mind, left for the viewer to finish"
             }
           ],
-          "gaps": "Single worked question, no stated CAT year or slot. Pronoun and linking word checks are touched only briefly. Not TITA specific.",
+          "gaps": "Two short questions, with no stated CAT year or slot. Pronoun and linking word checks are touched only briefly. Not TITA specific.",
+          "summary": "Gives a short checklist for odd sentence out: find each sentence's main point, watch for a sudden change of tone, reject a second definition, reject a sentence that stretches the idea to other writers or cases, and expect a conclusion. Then solves two questions, the first on displacement in Bengal. Fast and basic, with no TITA-specific advice.",
           "checked": "captions",
           "embed": true
         }
@@ -3606,6 +3773,7 @@
             }
           ],
           "gaps": "Acronym clues and a final check of the full sequence are not covered as steps. Recorded in 2019, so it refers to a 4 or 5 sentence format and option based answers, not TITA. Questions are CAT 2017 and 2018 items by the trainer remarks; slot is not stated.",
+          "summary": "Opens with the CAT 2015 to 2018 VARC pattern and a target of at least two correct para jumbles. Then covers a paragraph's unity, coherence and development, the myth that a paragraph cannot start with But or However, and a two-step method: find the opening sentence by eliminating those that need an antecedent, then link sentences through pronouns, names, chronology, general to specific, and tone. Solves six questions, mostly CAT 2017 and 2018 items.",
           "checked": "captions",
           "embed": true
         },
@@ -3641,6 +3809,7 @@
             }
           ],
           "gaps": "Only one worked question. No chronology or acronym clues. Not TITA specific.",
+          "summary": "States three things to look for in a para jumble: the opening sentence (a definition, or the only sentence using a proper noun while others use he, she, they), mandatory pairs (conjunction or contrast words), and the closing sentence, which the speaker admits is hard to spot. Solves one CAT 2019 question on atonal music and adds a rule to keep positive and negative sentences together.",
           "checked": "captions",
           "embed": true
         }
@@ -3702,6 +3871,7 @@
             }
           ],
           "gaps": "Tone-based rejections are touched lightly. Recorded in 2019 about the older format; not TITA. CAT year and slot of the practice questions are not stated.",
+          "summary": "Teaches para summary as elimination: judge each option against the passage, split it into parts, and drop any part that adds a detail, over-widens the claim, flips a cause, or uses extreme words. Four solved questions follow, on depression drugs, the Indian Constitution, Jonathan Franzen and a pop-economics book review. Written for the older CAT format, with the first question explained slowly.",
           "checked": "captions",
           "embed": true
         },
@@ -3741,6 +3911,7 @@
             }
           ],
           "gaps": "No chapters, so timestamps are from the transcript only. CAT year and slot of questions are not stated. Mostly Hindi with English terms.",
+          "summary": "Teaches a four-letter method for para summary: grasp the core idea by asking who and what, ignore examples and statistics, note scope and tone, then test options for over-general, incomplete or distorted wording. A list of four red flags follows, then five solved questions, with each wrong option explained. Mostly Hindi with English terms. A workshop and batch advert runs near 22 to 24 minutes.",
           "checked": "captions",
           "embed": true
         }
@@ -3786,7 +3957,8 @@
             }
           ],
           "gaps": "A live class with a 4-minute welcome, and its questions are not stated to be from past CAT papers.",
-          "checked": "chapters",
+          "summary": "A live class on missing-sentence questions built around common mistakes: skipping the paragraph's structure, ignoring local clues such as connectors and echoed ideas, fearing hard vocabulary, not noticing options are out of serial order, and overthinking. Six questions are solved, one from CAT 2025 slot 3. Narrows each to two positions, then compares them using the sentences either side.",
+          "checked": "captions",
           "embed": true
         },
         {
@@ -3829,7 +4001,8 @@
             }
           ],
           "gaps": "Built on the CAT 2022 sentence-placement questions, the chapters skip questions 2 to 4, and it was uploaded in 2023.",
-          "checked": "chapters",
+          "summary": "Explains unity, coherence and cohesion in a paragraph (echo words, signal words, blocks, general to narrow), then recommends reading the missing sentence first, spending about ten seconds on it, and eliminating blanks. Solves all six CAT 2022 sentence-placement questions, one after another, using echo words and blocks of linked sentences. Plain explanations, built on one year's questions, with no TITA advice.",
+          "checked": "captions",
           "embed": true
         }
       ],
@@ -3890,7 +4063,8 @@
             }
           ],
           "gaps": "Vocabulary strategy only, with no grammar or speed reading, and it is pitched at CAT 2027 beginners.",
-          "checked": "chapters",
+          "summary": "Argues for learning vocabulary from the start, citing roughly a quarter of recent CAT papers being RC. Then works through short passages where words like anodyne, emollient, fungible and ersatz decide the meaning, plus three practice RC questions that are answered by eliminating wrong options. Ends with a daily plan of 15 to 30 minutes and a session-a-day routine with Word Power Made Easy. Beginner level, with little on how to memorise words.",
+          "checked": "captions",
           "embed": true
         },
         {
@@ -3925,7 +4099,8 @@
             }
           ],
           "gaps": "Speed reading only, with no vocabulary or grammar, and it was uploaded in 2023.",
-          "checked": "chapters",
+          "summary": "Defines speed reading as picking out important words and skipping filler, lists its claimed benefits (focus, memory, less stress), and says typical speed is 200 to 300 words a minute, with 300 to 400 as the CAT target. Tips follow: skim first and last lines, vary pace, use a finger as pointer, avoid sounding words out. Two practice passages, on whales and chronic pain, are solved by locating answers in the text.",
+          "checked": "captions",
           "embed": true
         }
       ]

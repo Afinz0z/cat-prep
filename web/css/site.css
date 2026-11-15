@@ -462,6 +462,7 @@ table.plain tr.me td:first-child { box-shadow: inset 3px 0 0 var(--marigold); }
 .videos > li.primary { border-left-color: var(--exam); }
 .videos > li.next { border-left-color: var(--marigold); background: var(--marigold-soft); }
 .videos .vt { font-weight: 700; }
+.videos .vsum { margin: 4px 0 2px; max-width: 70ch; }
 .videos .covers { font-size: 0.875rem; margin: 4px 0 0; padding-left: 1.2em; }
 .videos .covers li { margin: 1px 0; }
 .note-card { background: var(--paper-2); border: 1px solid var(--line-soft); border-radius: var(--r-ctl); padding: 10px 14px; margin-top: 8px; }
